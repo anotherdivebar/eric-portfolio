@@ -1,0 +1,90 @@
+---
+title: "Kansas Electric"
+category: "Business + Apps"
+summary: "Led the website rebuild and built internal tooling and automation to standardize intake and internal workflows."
+impact: "Clearer intake data, standardized handoffs, and better operational visibility."
+bullets:
+  - "Built the public website and lead capture flow"
+  - "Delivered internal apps for estimating, scheduling, and field coordination"
+  - "Automated key operational steps to reduce manual handling"
+scope: "Multi-app internal tooling and public web presence supporting day-to-day ops."
+ownership: "End-to-end: discovery, design, build, rollout, and maintenance."
+order: 0
+---
+import AppShowcaseCard from "../../components/AppShowcaseCard.astro";
+
+## Context (business problem)
+Kansas Electric needed a modern, credible digital presence and internal systems to keep pace with growth. The website, lead capture, and internal workflows were not connected, which slowed response times and obscured pipeline health.
+
+<!-- This is where I show the real ops pain, not marketing fluff -->
+## Constraints
+- Small team, limited engineering bandwidth
+- Field work with variable schedules and data quality
+- Legacy processes and tools spread across email, spreadsheets, and ad-hoc systems
+- Needed to deliver improvements without disrupting day-to-day operations
+
+## What I built (technical + operational)
+- Rebuilt the public website with clear service positioning and lead capture
+- Implemented intake routing so new requests reached the right teams fast
+- Built a suite of PWAs and Apps Script tools for estimating, field reporting, and planning
+- Connected operational data so pipeline status, capacity, and follow-up were visible
+- Documented operating workflows and ownership to keep execution consistent
+
+## KSE PWA suite (internal apps)
+<!-- I keep these app cards consistent so it's easy to skim -->
+<div class="grid gap-5 md:grid-cols-2">
+  <AppShowcaseCard
+    title="Estimate Accelerator"
+    problem="RFP packages took too long to convert into structured take-offs."
+    stack="PWA, Web Worker parsing, OCR fallback"
+    impact="Structured take-offs with pricing signals and export-ready outputs."
+  />
+  <AppShowcaseCard
+    title="Field Reports"
+    problem="Daily field updates were inconsistent and hard to centralize."
+    stack="Offline-first PWA, Apps Script, Drive + Sheets"
+    impact="Standardized reporting with offline capture and structured summaries."
+  />
+  <AppShowcaseCard
+    title="Opportunity Radar"
+    problem="Pipeline visibility lived in scattered sheets without a refresh workflow."
+    stack="Apps Script, Google Sheets"
+    impact="Centralized opportunity refresh with a consistent workflow."
+  />
+  <AppShowcaseCard
+    title="Smart Contacts"
+    problem="Contact data was hard to search quickly during pursuit and follow-up."
+    stack="Web app, client-side search"
+    impact="Filterable contact lists by name, company, tags, and role."
+  />
+  <AppShowcaseCard
+    title="Labor Planner"
+    problem="Crew planning required manual rollups by division."
+    stack="Apps Script, Sheets automation"
+    impact="Daily labor summaries with division rollups."
+  />
+  <AppShowcaseCard
+    title="BD Forecast"
+    problem="Stage-based forecasting was inconsistent across teams."
+    stack="Apps Script, Sheets automation"
+    impact="90-day forecast rollups with standardized stage weights."
+  />
+  <AppShowcaseCard
+    title="Customer Intel"
+    problem="Customer context and research was fragmented across sources."
+    stack="Apps Script, Sheets automation"
+    impact="Centralized customer intel with structured fields."
+  />
+</div>
+
+## Tools and architecture
+- Website: Astro, Tailwind, structured content for SEO
+- PWAs: offline-first with service worker caching and background sync
+- Apps Script microservices: Drive + Sheets for storage, routing, and reporting
+- Data flow: structured intake, standardized reporting, and operational visibility
+
+## Outcomes and impact
+- Clearer service positioning and structured intake flows
+- Standardized handoffs across estimating and scheduling
+- More consistent pipeline visibility for leadership and operations
+- End-to-end ownership from discovery to build, rollout, and adoption

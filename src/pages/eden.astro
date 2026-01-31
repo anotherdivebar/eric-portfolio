@@ -1,0 +1,80 @@
+---
+import Base from "../layouts/Base.astro";
+---
+
+<Base title="Eden MMO Engineering - Eric">
+  <!-- I want this to read like real production engineering, because it is -->
+  <section class="py-16">
+    <div class="page-container-mid">
+      <div class="max-w-3xl">
+        <h1 class="text-4xl font-semibold text-ink">Eden (MMO engineering)</h1>
+        <p class="mt-3 text-muted">
+          This is production software engineering in a live environment. Eden is
+          a long-running MMO with active users, uptime expectations, and
+          real-world abuse cases.
+        </p>
+      </div>
+
+      <div class="mt-10 grid gap-6 lg:grid-cols-[1fr_1fr]">
+        <div class="surface p-6">
+          <h2 class="text-xl font-semibold text-ink">System overview</h2>
+          <ul class="mt-3 list-disc space-y-2 pl-5 text-muted">
+            <li>Live production environment with persistent user state</li>
+            <li>Always-on services with uptime and stability requirements</li>
+            <li>Multi-year, long-lived codebase with active evolution</li>
+            <li>Performance constraints under load and peak events</li>
+          </ul>
+        </div>
+        <div class="surface p-6">
+          <h2 class="text-xl font-semibold text-ink">What I owned</h2>
+          <ul class="mt-3 list-disc space-y-2 pl-5 text-muted">
+            <li>Server-side systems and feature delivery</li>
+            <li>Data modeling and persistence in PostgreSQL</li>
+            <li>Operational tooling for moderation and support workflows</li>
+            <li>Performance and stability improvements over time</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="surface-muted mt-10 p-6">
+        <h2 class="text-xl font-semibold text-ink">Engineering challenges</h2>
+        <ul class="mt-3 list-disc space-y-2 pl-5 text-muted">
+          <li>Concurrency and state consistency in a live multiplayer environment</li>
+          <li>Abuse cases, edge conditions, and exploit mitigation</li>
+          <li>Performance tuning under heavy activity and long-lived sessions</li>
+          <li>Maintaining backward compatibility while shipping new systems</li>
+        </ul>
+      </div>
+
+      <div class="mt-10 grid gap-6 lg:grid-cols-[1fr_1fr]">
+        <div class="surface p-6">
+          <h2 class="text-xl font-semibold text-ink">Examples of systems built</h2>
+          <ul class="mt-3 list-disc space-y-2 pl-5 text-muted">
+            <li>Server-side feature systems with data validation and safeguards</li>
+            <li>Operational tooling for support and issue triage</li>
+            <li>Telemetry and logging to isolate performance bottlenecks</li>
+            <li>Data maintenance tools for long-term stability</li>
+          </ul>
+        </div>
+        <div class="surface p-6">
+          <h2 class="text-xl font-semibold text-ink">Technology stack</h2>
+          <ul class="mt-3 list-disc space-y-2 pl-5 text-muted">
+            <li>C# and .NET for server-side systems</li>
+            <li>JavaScript for tooling and operational interfaces</li>
+            <li>PostgreSQL for persistent data and reporting</li>
+            <li>Versioned releases with live uptime constraints</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="mt-10">
+        <h2 class="text-2xl font-semibold text-ink">Why this matters</h2>
+        <p class="mt-3 text-muted">
+          This work required similar rigor to a production SaaS platform:
+          reliability, observability, performance, and user trust. It was not a
+          mod or a side project - it was live software with real consequences.
+        </p>
+      </div>
+    </div>
+  </section>
+</Base>

@@ -1,0 +1,23 @@
+---
+title: "Revenue signal pipeline"
+summary: "Unified GTM data into a single operational model for reporting and decision-making."
+why: "Leadership needed reliable pipeline and conversion signals across sales, marketing, and finance."
+constraints:
+  - "Multiple systems with inconsistent definitions"
+  - "Low trust in reporting and manual reconciliation"
+  - "Had to maintain business continuity during migration"
+stack:
+  - "PostgreSQL"
+  - "ETL workflows"
+  - "SQL analytics"
+  - "BI dashboards"
+decisions:
+  - "Defined canonical lifecycle stages before moving data"
+  - "Built data contracts to enforce consistent definitions"
+  - "Prioritized repeatable reporting over one-off analysis"
+tradeoffs:
+  - "Chose consistency over speed to ensure durable reporting"
+  - "Limited early scope to core KPIs instead of full catalog"
+outcome: "More consistent forecast inputs and clearer executive reporting."
+order: 1
+---

@@ -1,0 +1,67 @@
+---
+import "../styles/global.css";
+
+const {
+  title = "Eric - Operations, TPM, GTM/RevOps",
+  description = "Senior operations, technical program management, and GTM/RevOps leader focused on systems thinking and hands-on execution."
+} = Astro.props;
+---
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    <meta name="robots" content="index, follow" />
+  </head>
+  <body class="bg-white text-ink">
+    <a
+      href="#main-content"
+      class="focus-ring sr-only focus:not-sr-only focus:fixed focus:left-4 focus:top-4 focus:z-50 focus:rounded-md focus:bg-white focus:px-3 focus:py-2 focus:text-sm focus:text-ink"
+    >
+      Skip to content
+    </a>
+    <!-- Keeping the header clean and consistent on every page -->
+    <header class="sticky top-0 z-20 border-b border-border bg-white/95 backdrop-blur shadow-[0_6px_20px_rgba(15,23,42,0.06)]">
+      <div class="page-container flex items-center justify-between gap-6 py-4">
+        <a href="/" class="focus-ring text-lg font-semibold tracking-wide">Eric</a>
+        <nav class="hidden flex-wrap gap-4 text-sm text-muted md:flex">
+          <a href="/work" class="focus-ring hover:text-ink">Work</a>
+          <a href="/technical-projects" class="focus-ring hover:text-ink">Technical</a>
+          <a href="/eden" class="focus-ring hover:text-ink">Eden</a>
+          <a href="/skills" class="focus-ring hover:text-ink">Skills</a>
+          <a href="/resume" class="focus-ring hover:text-ink">Resume</a>
+          <a href="/contact" class="focus-ring hover:text-ink">Contact</a>
+        </nav>
+        <a
+          href="/contact"
+          class="focus-ring inline-flex items-center justify-center rounded-lg bg-accent px-4 py-2 text-sm font-semibold text-white transition hover:bg-accent-dark"
+        >
+          Let's Talk
+        </a>
+      </div>
+      <!-- On mobile I keep a simple link row so nothing feels hidden -->
+      <div class="border-t border-border md:hidden">
+        <div class="page-container flex flex-wrap items-center gap-4 py-2 text-sm text-muted">
+          <a href="/work" class="focus-ring hover:text-ink">Work</a>
+          <a href="/technical-projects" class="focus-ring hover:text-ink">Technical</a>
+          <a href="/resume" class="focus-ring hover:text-ink">Resume</a>
+          <a href="/contact" class="focus-ring hover:text-ink">Contact</a>
+        </div>
+      </div>
+    </header>
+
+    <!-- Main content lives here; layout stays neutral so content can lead -->
+    <main id="main-content">
+      <slot />
+    </main>
+
+    <footer class="border-t border-border py-8 text-sm text-muted">
+      <div class="page-container">
+        <p>(c) 2026 Eric. Built for leaders who care about execution.</p>
+      </div>
+    </footer>
+  </body>
+</html>

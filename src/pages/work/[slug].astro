@@ -1,0 +1,56 @@
+---
+import Base from "../../layouts/Base.astro";
+import { getCollection } from "astro:content";
+
+export async function getStaticPaths() {
+  const entries = await getCollection("case-studies");
+  return entries.map((entry) => ({
+    params: { slug: entry.slug },
+    props: { entry }
+  }));
+}
+
+const { entry } = Astro.props;
+const { Content } = await entry.render();
+---
+
+<Base title={`${entry.data.title} - Eric`}>
+  <section class="py-16">
+    <div class="page-container-narrow">
+      <a
+        href="/work"
+        class="focus-ring text-sm font-semibold text-accent hover:text-accent-dark"
+      >
+        Back to work
+      </a>
+      <h1 class="mt-4 text-4xl font-semibold text-ink">{entry.data.title}</h1>
+      <p class="mt-2 text-sm text-muted">{entry.data.category}</p>
+      <p class="mt-4 text-lg text-muted">{entry.data.summary}</p>
+      <div class="surface-muted mt-6 p-5">
+        <p class="text-sm uppercase tracking-[0.2em] text-muted">Outcome</p>
+        <p class="mt-2 text-lg font-semibold text-ink">{entry.data.impact}</p>
+      </div>
+      <div class="mt-6">
+        <h2 class="text-lg font-semibold text-ink">Key actions</h2>
+        <ul class="mt-3 list-disc space-y-2 pl-5 text-muted">
+          {entry.data.bullets.map((bullet) => (
+            <li>{bullet}</li>
+          ))}
+        </ul>
+      </div>
+      <div class="mt-6 grid gap-5 md:grid-cols-2">
+        <div class="surface p-5">
+          <p class="text-sm uppercase tracking-[0.2em] text-muted">Scope</p>
+          <p class="mt-2 text-sm text-muted">{entry.data.scope}</p>
+        </div>
+        <div class="surface p-5">
+          <p class="text-sm uppercase tracking-[0.2em] text-muted">Ownership</p>
+          <p class="mt-2 text-sm text-muted">{entry.data.ownership}</p>
+        </div>
+      </div>
+      <article class="prose mt-8 max-w-none">
+        <Content />
+      </article>
+    </div>
+  </section>
+</Base>

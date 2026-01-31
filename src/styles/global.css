@@ -1,0 +1,98 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    color-scheme: light;
+  }
+
+  body {
+    @apply bg-[#f7f8fa] text-ink antialiased;
+    font-family: "Inter", "Segoe UI", system-ui, -apple-system, sans-serif;
+  }
+
+  a {
+    @apply text-inherit no-underline;
+  }
+
+  h1,
+  h2,
+  h3 {
+    letter-spacing: -0.01em;
+    text-wrap: balance;
+  }
+
+  p {
+    text-wrap: pretty;
+  }
+}
+
+.surface {
+  @apply rounded-2xl border border-border bg-white shadow-[0_12px_30px_rgba(15,23,42,0.08)];
+}
+
+.surface-muted {
+  @apply rounded-2xl border border-border bg-panel;
+}
+
+.eyebrow {
+  @apply text-xs uppercase tracking-[0.2em] text-muted;
+}
+
+.focus-ring {
+  /* I want focus states to be obvious but not flashy */
+  @apply focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 focus-visible:ring-offset-white;
+}
+
+.page-container {
+  @apply mx-auto w-[min(1120px,92%)];
+}
+
+.page-container-mid {
+  @apply mx-auto w-[min(980px,92%)];
+}
+
+.page-container-narrow {
+  @apply mx-auto w-[min(860px,92%)];
+}
+
+.prose {
+  color: #5a616d;
+  line-height: 1.7;
+}
+
+.prose h2 {
+  margin-top: 1.8rem;
+  margin-bottom: 0.6rem;
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: #0e0f12;
+}
+
+.prose h3 {
+  margin-top: 1.4rem;
+  margin-bottom: 0.4rem;
+  font-size: 1.05rem;
+  font-weight: 600;
+  color: #0e0f12;
+}
+
+.prose p {
+  margin-bottom: 1rem;
+}
+
+.prose ul {
+  margin: 1rem 0;
+  padding-left: 1.25rem;
+  list-style: disc;
+}
+
+.prose li {
+  margin-bottom: 0.4rem;
+}
+
+/* Keeping anchor jumps clear under the sticky header */
+section[id] {
+  scroll-margin-top: 96px;
+}
