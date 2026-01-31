@@ -16,7 +16,7 @@ import AppShowcaseCard from "../../components/AppShowcaseCard.astro";
 ## Context (business problem)
 Kansas Electric needed a modern, credible digital presence and internal systems to keep pace with growth. The website, lead capture, and internal workflows were not connected, which slowed response times and obscured pipeline health.
 
-<!-- This is where I show the real ops pain, not marketing fluff -->
+{/* This is where I show the real ops pain, not marketing fluff */}
 ## Constraints
 - Small team, limited engineering bandwidth
 - Field work with variable schedules and data quality
@@ -31,7 +31,7 @@ Kansas Electric needed a modern, credible digital presence and internal systems 
 - Documented operating workflows and ownership to keep execution consistent
 
 ## KSE PWA suite (internal apps)
-<!-- I keep these app cards consistent so it's easy to skim -->
+{/* I keep these app cards consistent so it's easy to skim */}
 <div class="grid gap-5 md:grid-cols-2">
   <AppShowcaseCard
     title="Estimate Accelerator"
@@ -103,9 +103,11 @@ Kansas Electric needed a modern, credible digital presence and internal systems 
 
 ## Tools and architecture
 - Website: Astro, Tailwind, structured content for SEO
-- PWAs: offline-first with service worker caching and background sync
-- Apps Script microservices: Drive + Sheets for storage, routing, and reporting
-- Data flow: structured intake, standardized reporting, and operational visibility
+- CRM PWA: vanilla JavaScript, HTML/CSS, Tailwind via CDN
+- Local data: Dexie (IndexedDB) + local storage for offline-first usage
+- UI + charts: Chart.js for activity and pipeline visuals
+- Offline support: service worker caching and background sync patterns
+- Apps Script tools: Drive + Sheets for storage, routing, and reporting in other utilities
 
 ## Outcomes and impact
 - Clearer service positioning and structured intake flows
