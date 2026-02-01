@@ -1,5 +1,7 @@
 ---
 import Base from "../layouts/Base.astro";
+
+const resumeUrl = "/Eric%20Martin%202026%20Resume.pdf";
 ---
 
 <Base title="Resume - Eric">
@@ -19,11 +21,17 @@ import Base from "../layouts/Base.astro";
           <p class="mt-2 text-muted">
             If the embed does not load, grab the PDF directly.
           </p>
+          <a
+            class="focus-ring mt-4 inline-flex items-center justify-center rounded-lg bg-accent px-4 py-2 text-sm font-semibold text-white transition hover:bg-accent-dark"
+            href={resumeUrl}
+          >
+            Download Resume
+          </a>
           <div class="mt-4 aspect-[4/5] w-full rounded-xl border border-border bg-panel">
-            <object data="/resume.pdf" type="application/pdf" class="h-full w-full">
+            <object data={resumeUrl} type="application/pdf" class="h-full w-full">
               <p class="p-4 text-sm text-muted">
                 PDF not loading. Download it here:
-                <a class="focus-ring text-accent" href="/resume.pdf">resume.pdf</a>
+                <a class="focus-ring text-accent" href={resumeUrl}>resume.pdf</a>
               </p>
             </object>
           </div>

@@ -1,23 +1,23 @@
 ---
 title: "Lead routing automation"
-summary: "Automated intake, routing, and SLA tracking to reduce lag between inbound and first response."
-why: "Manual lead distribution slowed response time and led to inconsistent follow-up."
+summary: "Automated intake, routing, and SLA enforcement so inbound requests reached the right owner fast."
+why: "Manual routing created delays, inconsistent follow-up, and low trust in SLA reporting."
 constraints:
   - "GTM teams needed clear ownership and escalation rules"
-  - "Existing CRM data quality issues"
+  - "Existing CRM data quality issues and inconsistent fields"
   - "Required auditability for compliance and leadership reporting"
 stack:
   - "C# / .NET services"
-  - "JavaScript frontend"
+  - "JavaScript admin UI"
   - "PostgreSQL"
-  - "CRM integrations"
+  - "CRM integrations + audit logging"
 decisions:
   - "Built rule-based routing with explicit ownership"
-  - "Added SLA timers and exception queues"
+  - "Added SLA timers, escalation paths, and exception queues"
   - "Designed for easy policy updates without code changes"
 tradeoffs:
   - "Used rules over ML for transparency and auditability"
   - "Accepted slower initial routing setup to enable clear ownership"
-outcome: "Clearer ownership and a consistent routing workflow for lead follow-up."
+outcome: "Clearer ownership, faster response time, and consistent routing behavior."
 order: 2
 ---

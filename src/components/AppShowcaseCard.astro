@@ -4,7 +4,6 @@ const {
   problem,
   stack,
   impact,
-  screenshotLabel = "Screenshot placeholder",
   imageSrc,
   imageAlt = `${title} screenshot`
 } = Astro.props;
@@ -16,17 +15,13 @@ const {
       <h3 class="text-lg font-semibold text-ink">{title}</h3>
       <p class="mt-2 text-sm text-muted">{problem}</p>
     </div>
-    {imageSrc ? (
+    {imageSrc && (
       <img
         src={imageSrc}
         alt={imageAlt}
         class="h-16 w-24 rounded-lg border border-border object-cover"
         loading="lazy"
       />
-    ) : (
-      <div class="flex h-16 w-24 items-center justify-center rounded-lg border border-dashed border-border bg-panel text-xs text-muted">
-        {screenshotLabel}
-      </div>
     )}
   </div>
   <div class="mt-4 text-sm text-muted">

@@ -12,11 +12,34 @@ const projects = (await getCollection("technical-projects")).sort(
   <section class="py-16">
     <div class="page-container">
       <div class="max-w-2xl">
-        <h1 class="text-4xl font-semibold text-ink">Technical Projects</h1>
+        <h1 class="text-4xl font-semibold text-ink">Technical systems shipped</h1>
         <p class="mt-3 text-muted">
-          Systems work with clear constraints, architecture decisions, and
-          outcomes.
+          Real internal systems built for revenue ops, field ops, and execution.
+          These are production builds with constraints, decisions, and outcomes.
         </p>
+      </div>
+
+      <div class="mt-10 grid gap-6 lg:grid-cols-[1fr_1fr]">
+        <div class="surface p-6">
+          <h2 class="text-xl font-semibold text-ink">Operating model</h2>
+          <ul class="mt-3 list-disc space-y-2 pl-5 text-muted">
+            <li>Start from signal flow and decision points, not tooling</li>
+            <li>Define ownership, SLAs, and escalation paths up front</li>
+            <li>Ship in tight increments with measurable adoption</li>
+            <li>Keep leaders in the loop with exec-ready reporting</li>
+            <li>Stay accountable through rollout, training, and support</li>
+          </ul>
+        </div>
+        <div class="surface p-6">
+          <h2 class="text-xl font-semibold text-ink">Scope and scale</h2>
+          <ul class="mt-3 list-disc space-y-2 pl-5 text-muted">
+            <li>Multi-system GTM and ops workflows spanning intake to delivery</li>
+            <li>Live internal tooling used daily by field and leadership teams</li>
+            <li>Data models and reporting pipelines for exec decision-making</li>
+            <li>Cross-functional delivery across ops, sales, finance, and engineering</li>
+            <li>Production constraints: uptime, data integrity, and auditability</li>
+          </ul>
+        </div>
       </div>
 
       <div class="mt-10 grid gap-6">
@@ -40,7 +63,7 @@ const projects = (await getCollection("technical-projects")).sort(
               </div>
             </div>
 
-            <div class="mt-6 grid gap-5 md:grid-cols-3">
+            <div class="mt-6 grid gap-5 md:grid-cols-2">
               <div>
                 <h3 class="text-sm font-semibold uppercase tracking-[0.2em] text-muted">
                   Constraints
@@ -71,16 +94,16 @@ const projects = (await getCollection("technical-projects")).sort(
                   ))}
                 </ul>
               </div>
-            </div>
-            <div class="mt-6">
-              <h3 class="text-sm font-semibold uppercase tracking-[0.2em] text-muted">
-                Tradeoffs
-              </h3>
-              <ul class="mt-2 list-disc space-y-2 pl-5 text-sm text-muted">
-                {project.data.tradeoffs.map((item) => (
-                  <li>{item}</li>
-                ))}
-              </ul>
+              <div>
+                <h3 class="text-sm font-semibold uppercase tracking-[0.2em] text-muted">
+                  Tradeoffs
+                </h3>
+                <ul class="mt-2 list-disc space-y-2 pl-5 text-sm text-muted">
+                  {project.data.tradeoffs.map((item) => (
+                    <li>{item}</li>
+                  ))}
+                </ul>
+              </div>
             </div>
           </article>
         ))}

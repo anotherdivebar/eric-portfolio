@@ -30,54 +30,24 @@ Kansas Electric needed a modern, credible digital presence and internal systems 
 - Connected operational data so pipeline status, capacity, and follow-up were visible
 - Documented operating workflows and ownership to keep execution consistent
 
-## KSE PWA suite (internal apps)
-{/* I keep these app cards consistent so it's easy to skim */}
+## Highlights
+- Faster estimating from intake to structured take-off
+- Cleaner field reporting with offline capture and standardization
+- Shared visibility across pipeline, scheduling, and labor
+
+## CRM (core app)
 <div class="grid gap-5 md:grid-cols-2">
-  <AppShowcaseCard
-    title="Estimate Accelerator"
-    problem="RFP packages took too long to convert into structured take-offs."
-    stack="PWA, Web Worker parsing, OCR fallback"
-    impact="Structured take-offs with pricing signals and export-ready outputs."
-  />
-  <AppShowcaseCard
-    title="Field Reports"
-    problem="Daily field updates were inconsistent and hard to centralize."
-    stack="Offline-first PWA, Apps Script, Drive + Sheets"
-    impact="Standardized reporting with offline capture and structured summaries."
-  />
-  <AppShowcaseCard
-    title="Opportunity Radar"
-    problem="Pipeline visibility lived in scattered sheets without a refresh workflow."
-    stack="Apps Script, Google Sheets"
-    impact="Centralized opportunity refresh with a consistent workflow."
-  />
-  <AppShowcaseCard
-    title="Smart Contacts"
-    problem="Contact data was hard to search quickly during pursuit and follow-up."
-    stack="Web app, client-side search"
-    impact="Filterable contact lists by name, company, tags, and role."
-  />
-  <AppShowcaseCard
-    title="Labor Planner"
-    problem="Crew planning required manual rollups by division."
-    stack="Apps Script, Sheets automation"
-    impact="Daily labor summaries with division rollups."
-  />
-  <AppShowcaseCard
-    title="BD Forecast"
-    problem="Stage-based forecasting was inconsistent across teams."
-    stack="Apps Script, Sheets automation"
-    impact="90-day forecast rollups with standardized stage weights."
-  />
-  <AppShowcaseCard
-    title="Customer Intel"
-    problem="Customer context and research was fragmented across sources."
-    stack="Apps Script, Sheets automation"
-    impact="Centralized customer intel with structured fields."
-  />
+  <div class="md:col-span-2">
+    <AppShowcaseCard
+      title="CRM Console"
+      problem="Account, activity, and follow-up data lived across inboxes and scattered sheets."
+      stack="Vanilla JS PWA, HTML/CSS, Tailwind via CDN, Dexie (IndexedDB) for offline store, Chart.js dashboards, service worker caching + background sync, AI agents for briefing/summarization, GitHub CI/CD"
+      impact="Unified pipeline context with consistent activity logging, briefing workflows, and bi-directional sync to Acumatica for end-to-end touch tracking."
+    />
+  </div>
 </div>
 
-## CRM interface snapshots
+## CRM interface
 <div class="grid gap-4 md:grid-cols-2">
   <figure class="surface p-3">
     <img src="/assets/kse/CRM%20Main.png" alt="CRM main console" class="w-full rounded-xl border border-border" loading="lazy" />
@@ -93,7 +63,7 @@ Kansas Electric needed a modern, credible digital presence and internal systems 
   </figure>
   <figure class="surface p-3">
     <img src="/assets/kse/CRM%20Briefing.png" alt="CRM briefing view" class="w-full rounded-xl border border-border" loading="lazy" />
-    <figcaption class="mt-2 text-sm text-muted">Customer briefing view with internal and external context.</figcaption>
+    <figcaption class="mt-2 text-sm text-muted">Customer briefing view with internal context plus scraped pre-RFP signals to automate early discovery.</figcaption>
   </figure>
   <figure class="surface p-3 md:col-span-2">
     <img src="/assets/kse/CRM%20Debrief.png" alt="CRM debrief view" class="w-full rounded-xl border border-border" loading="lazy" />
@@ -101,13 +71,103 @@ Kansas Electric needed a modern, credible digital presence and internal systems 
   </figure>
 </div>
 
+## Field Reports (core app)
+<div class="grid gap-5 md:grid-cols-2">
+  <div class="md:col-span-2">
+    <AppShowcaseCard
+      title="Field Reports"
+      problem="Daily field updates were inconsistent and hard to centralize."
+      stack="Offline-first PWA, Apps Script backend, Drive + Sheets storage, video capture with guided prompts, AI agent parsing into structured fields, GitHub CI/CD"
+      impact="Standardized reporting with offline capture and structured summaries."
+    />
+  </div>
+</div>
+
+## Field reporting snapshots
+<div class="grid gap-4 md:grid-cols-2">
+  <figure class="surface p-3">
+    <img src="/assets/kse/Field%20Reporting%20Video%20With%20Overlay%20Prompts.png" alt="Field reporting video capture with overlay prompts" class="w-full rounded-xl border border-border" loading="lazy" />
+    <figcaption class="mt-2 text-sm text-muted">Video capture with overlay prompts to guide consistent field updates.</figcaption>
+  </figure>
+  <figure class="surface p-3">
+    <img src="/assets/kse/Field%20Reporting%20Parsed%20Transcript%20Fields.png" alt="Field reporting parsed transcript fields" class="w-full rounded-xl border border-border" loading="lazy" />
+    <figcaption class="mt-2 text-sm text-muted">Parsed transcript fields mapped into structured report inputs.</figcaption>
+  </figure>
+  <figure class="surface p-3 md:col-span-2">
+    <img src="/assets/kse/Field%20Reporting%20Summary.png" alt="Field reporting summary view" class="w-full rounded-xl border border-border" loading="lazy" />
+    <figcaption class="mt-2 text-sm text-muted">Summary view for quick review before submission.</figcaption>
+  </figure>
+</div>
+
+## Estimate Accelerator (hero app)
+<div class="grid gap-5 md:grid-cols-2">
+  <div class="md:col-span-2">
+    <AppShowcaseCard
+      title="Estimate Accelerator"
+      problem="RFP packages took too long to convert into structured take-offs."
+      stack="PWA, Web Worker parsing, OpenAI Vision model calls, AI agents + sub-agents for extraction, MCP server integrations, OCR fallback, confidence scoring, Railway, GitHub CI/CD"
+      impact="Structured take-offs with pricing signals and export-ready outputs."
+    />
+  </div>
+</div>
+
+## Estimate Accelerator snapshots
+<div class="grid gap-4 md:grid-cols-2">
+  <figure class="surface p-3">
+    <img src="/assets/kse/Estimate%20Upload.png" alt="Estimate upload view" class="w-full rounded-xl border border-border" loading="lazy" />
+    <figcaption class="mt-2 text-sm text-muted">Upload flow for bid packages and RFP docs.</figcaption>
+  </figure>
+  <figure class="surface p-3">
+    <img src="/assets/kse/Estimate%20Parsing%20and%20Take-Off.png" alt="Estimate parsing and take-off view" class="w-full rounded-xl border border-border" loading="lazy" />
+    <figcaption class="mt-2 text-sm text-muted">Parsed take-off view with structured scope and quantities.</figcaption>
+  </figure>
+  <figure class="surface p-3 md:col-span-2">
+    <img src="/assets/kse/Estimate%20Confidence%20and%20Intelligence.png" alt="Estimate confidence and intelligence view" class="w-full rounded-xl border border-border" loading="lazy" />
+    <figcaption class="mt-2 text-sm text-muted">Confidence signals and AI-assisted insights for review.</figcaption>
+  </figure>
+</div>
+
+## Other internal apps
+{/* I keep these app cards consistent so it's easy to skim */}
+<div class="grid gap-5 md:grid-cols-2">
+  <AppShowcaseCard
+    title="Opportunity Radar"
+    problem="Pipeline visibility lived in scattered sheets without a refresh workflow."
+    stack="Apps Script web app, Google Sheets backend, trigger-driven refreshes, stage-weighted rollups"
+    impact="Centralized opportunity refresh with a consistent workflow."
+  />
+  <AppShowcaseCard
+    title="Smart Contacts"
+    problem="Contact data was hard to search quickly during pursuit and follow-up."
+    stack="Web app, client-side indexed search, tag filters, fast table rendering"
+    impact="Filterable contact lists by name, company, tags, and role."
+  />
+  <AppShowcaseCard
+    title="Labor Planner"
+    problem="Crew planning required manual rollups by division."
+    stack="Apps Script automation, Sheets templates, daily rollups, division-level summaries"
+    impact="Daily labor summaries with division rollups."
+  />
+  <AppShowcaseCard
+    title="BD Forecast"
+    problem="Stage-based forecasting was inconsistent across teams."
+    stack="Apps Script automation, standardized stages, weighted pipeline math, scheduled snapshots"
+    impact="90-day forecast rollups with standardized stage weights."
+  />
+  <AppShowcaseCard
+    title="Customer Intel"
+    problem="Customer context and research was fragmented across sources."
+    stack="Apps Script automation, research capture forms, structured Sheets schema, enrichment links"
+    impact="Centralized customer intel with structured fields."
+  />
+</div>
+
 ## Tools and architecture
 - Website: Astro, Tailwind, structured content for SEO
-- CRM PWA: vanilla JavaScript, HTML/CSS, Tailwind via CDN
-- Local data: Dexie (IndexedDB) + local storage for offline-first usage
-- UI + charts: Chart.js for activity and pipeline visuals
-- Offline support: service worker caching and background sync patterns
-- Apps Script tools: Drive + Sheets for storage, routing, and reporting in other utilities
+- CRM PWA: Vanilla JS PWA, HTML/CSS, Tailwind via CDN, Dexie (IndexedDB) for offline store, Chart.js dashboards, service worker caching + background sync, AI agents for briefing/summarization, bi-directional Acumatica ERP sync, GitHub CI/CD
+- Field Reports PWA: Offline-first PWA, Apps Script backend, Drive + Sheets storage, video capture with guided prompts, AI agent parsing into structured fields, GitHub CI/CD
+- Estimate Accelerator PWA: PWA, Web Worker parsing, OpenAI Vision model calls, AI agents + sub-agents for extraction, MCP server integrations, OCR fallback, confidence scoring, Railway, GitHub CI/CD
+- Minor PWAs: Apps Script + Sheets automation, scheduled triggers, standardized schemas for routing, reporting, and rollups, GitHub CI/CD
 
 ## Outcomes and impact
 - Clearer service positioning and structured intake flows

@@ -2,11 +2,6 @@
 import Base from "../layouts/Base.astro";
 import { getCollection } from "astro:content";
 
-const caseStudies = (await getCollection("case-studies"))
-  .filter((study) => study.slug !== "kansas-electric")
-  .sort((a, b) => a.data.order - b.data.order)
-  .slice(0, 2);
-
 const technicalProjects = (await getCollection("technical-projects"))
   .sort((a, b) => a.data.order - b.data.order)
   .slice(0, 2);
@@ -45,9 +40,9 @@ const technicalProjects = (await getCollection("technical-projects"))
         <div class="mt-8 flex flex-wrap gap-3">
           <a
             class="focus-ring inline-flex w-full items-center justify-center rounded-lg bg-accent px-5 py-2.5 text-sm font-semibold text-white transition hover:bg-accent-dark sm:w-auto"
-            href="/work"
+            href="/technical-projects"
           >
-            View Work
+            View Technical Work
           </a>
           <a
             class="focus-ring inline-flex w-full items-center justify-center rounded-lg border border-border px-5 py-2.5 text-sm font-semibold text-ink transition hover:border-ink sm:w-auto"
@@ -88,76 +83,14 @@ const technicalProjects = (await getCollection("technical-projects"))
     </div>
   </section>
 
-  <!-- Featured work: lead with the strongest proof -->
-  <section class="py-16">
-    <div class="page-container">
-      <div class="max-w-2xl">
-        <h2 class="text-3xl font-semibold text-ink">Featured work</h2>
-        <p class="mt-3 text-muted">
-          A few examples of how I work and what I deliver.
-        </p>
-      </div>
-      <div class="mt-8 grid gap-5">
-        <article class="surface p-6">
-          <div class="flex flex-wrap items-center justify-between gap-2">
-            <h3 class="text-xl font-semibold">Kansas Electric</h3>
-            <span class="text-sm text-muted">Business + Apps</span>
-          </div>
-          <p class="mt-3 text-muted">
-            Website rebuild, internal tooling, and automation to tighten intake
-            and execution.
-          </p>
-          <a
-            class="focus-ring mt-4 inline-flex text-sm font-semibold text-accent hover:text-accent-dark"
-            href="/work/kansas-electric"
-          >
-            View case study
-          </a>
-        </article>
-        <article class="surface p-6">
-          <div class="flex flex-wrap items-center justify-between gap-2">
-            <h3 class="text-xl font-semibold">Eden (MMO engineering)</h3>
-            <span class="text-sm text-muted">Live systems</span>
-          </div>
-          <p class="mt-3 text-muted">
-            Long-lived, production-grade software with reliability and
-            performance constraints.
-          </p>
-          <a
-            class="focus-ring mt-4 inline-flex text-sm font-semibold text-accent hover:text-accent-dark"
-            href="/eden"
-          >
-            View engineering scope
-          </a>
-        </article>
-        {caseStudies.map((study) => (
-          <article class="surface p-6">
-            <div class="flex flex-wrap items-center justify-between gap-2">
-              <h3 class="text-xl font-semibold">{study.data.title}</h3>
-              <span class="text-sm text-muted">{study.data.category}</span>
-            </div>
-            <p class="mt-3 text-muted">{study.data.summary}</p>
-            <p class="mt-4 font-semibold">{study.data.impact}</p>
-            <a
-              class="focus-ring mt-4 inline-flex text-sm font-semibold text-accent hover:text-accent-dark"
-              href={`/work/${study.slug}`}
-            >
-              Read the full case study
-            </a>
-          </article>
-        ))}
-      </div>
-    </div>
-  </section>
-
   <!-- Technical projects: architecture and tradeoffs -->
   <section class="bg-panel py-16">
     <div class="page-container">
       <div class="max-w-2xl">
         <h2 class="text-3xl font-semibold text-ink">Technical projects</h2>
         <p class="mt-3 text-muted">
-          Systems work focused on architecture decisions, constraints, and
-          outcomes.
+          Systems I built for revenue ops, field ops, and internal execution
+          with real constraints and outcomes.
         </p>
       </div>
       <div class="mt-8 grid gap-5 md:grid-cols-2">
@@ -176,6 +109,39 @@ const technicalProjects = (await getCollection("technical-projects"))
             </a>
           </article>
         ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Case study: execution proof -->
+  <section class="bg-panel py-16">
+    <div class="page-container">
+      <div class="max-w-2xl">
+        <h2 class="text-3xl font-semibold text-ink">Case study</h2>
+        <p class="mt-3 text-muted">
+          Full build with screenshots, outcomes, and end-to-end ownership.
+        </p>
+      </div>
+      <div class="mt-8 grid gap-5 md:grid-cols-2">
+        <article class="surface p-6 md:col-span-2">
+          <div class="flex flex-wrap items-center justify-between gap-2">
+            <h3 class="text-xl font-semibold">Kansas Electric</h3>
+            <span class="text-sm text-muted">Business + Apps</span>
+          </div>
+          <p class="mt-3 text-muted">
+            Website rebuild, internal tooling, and automation to tighten intake
+            and execution.
+          </p>
+          <p class="mt-4 font-semibold">
+            Clearer intake data, standardized handoffs, and better operational visibility.
+          </p>
+          <a
+            class="focus-ring mt-4 inline-flex text-sm font-semibold text-accent hover:text-accent-dark"
+            href="/work/kansas-electric"
+          >
+            View case study
+          </a>
+        </article>
       </div>
     </div>
   </section>
@@ -229,35 +195,35 @@ const technicalProjects = (await getCollection("technical-projects"))
 
   <!-- Contact CTA -->
   <section class="py-16">
-    <div
-      class="page-container flex flex-wrap items-center justify-between gap-6 rounded-2xl bg-ink px-6 py-10 text-white shadow-[0_18px_50px_rgba(15,23,42,0.25)] sm:px-8"
-    >
-      <div>
-        <h2 class="text-3xl font-semibold">Let's build what scales</h2>
-        <p class="mt-2 max-w-xl text-white/75">
-          If you need a leader who can align teams, build systems, and ship
-          outcomes, let's talk.
-        </p>
-      </div>
-      <div class="flex flex-wrap gap-3">
-        <a
-          class="focus-ring inline-flex w-full items-center justify-center rounded-lg bg-white px-5 py-2.5 text-sm font-semibold text-ink sm:w-auto"
-          href="mailto:eric@email.com"
-        >
-          eric@email.com
-        </a>
-        <a
-          class="focus-ring inline-flex w-full items-center justify-center rounded-lg border border-white/30 px-5 py-2.5 text-sm font-semibold text-white sm:w-auto"
-          href="/resume"
-        >
-          Resume
-        </a>
-        <a
-          class="focus-ring inline-flex w-full items-center justify-center rounded-lg border border-white/30 px-5 py-2.5 text-sm font-semibold text-white sm:w-auto"
-          href="https://www.linkedin.com/"
-        >
-          LinkedIn
-        </a>
+    <div class="page-container">
+      <div class="mx-auto grid max-w-4xl gap-6 rounded-2xl bg-ink px-6 py-10 text-white shadow-[0_18px_50px_rgba(15,23,42,0.25)] sm:px-8 md:grid-cols-[1fr_auto] md:items-center">
+        <div>
+          <h2 class="text-3xl font-semibold">Let's build what scales</h2>
+          <p class="mt-2 max-w-xl text-white/75">
+            If you need a leader who can align teams, build systems, and ship
+            outcomes, let's talk.
+          </p>
+        </div>
+        <div class="flex flex-wrap gap-3 md:justify-end">
+          <a
+            class="focus-ring inline-flex w-full items-center justify-center rounded-lg bg-white px-5 py-2.5 text-sm font-semibold text-ink sm:w-auto"
+            href="mailto:ericm93.2023@outlook.com"
+          >
+            ericm93.2023@outlook.com
+          </a>
+          <a
+            class="focus-ring inline-flex w-full items-center justify-center rounded-lg border border-white/30 px-5 py-2.5 text-sm font-semibold text-white sm:w-auto"
+            href="/resume"
+          >
+            Resume
+          </a>
+          <a
+            class="focus-ring inline-flex w-full items-center justify-center rounded-lg border border-white/30 px-5 py-2.5 text-sm font-semibold text-white sm:w-auto"
+            href="https://www.linkedin.com/in/eric-m-53b374174/"
+          >
+            LinkedIn
+          </a>
+        </div>
       </div>
     </div>
   </section>

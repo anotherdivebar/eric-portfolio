@@ -26,28 +26,38 @@ const {
     <!-- Keeping the header clean and consistent on every page -->
     <header class="sticky top-0 z-20 border-b border-border bg-white/95 backdrop-blur shadow-[0_6px_20px_rgba(15,23,42,0.06)]">
       <div class="page-container flex items-center justify-between gap-6 py-4">
-        <a href="/" class="focus-ring text-lg font-semibold tracking-wide">Eric</a>
+        <a href="/" class="focus-ring text-lg font-semibold tracking-wide">Eric Martin</a>
         <nav class="hidden flex-wrap gap-4 text-sm text-muted md:flex">
-          <a href="/work" class="focus-ring hover:text-ink">Work</a>
           <a href="/technical-projects" class="focus-ring hover:text-ink">Technical</a>
-          <a href="/eden" class="focus-ring hover:text-ink">Eden</a>
           <a href="/skills" class="focus-ring hover:text-ink">Skills</a>
           <a href="/resume" class="focus-ring hover:text-ink">Resume</a>
+          <a href="/eden" class="focus-ring hover:text-ink">Eden</a>
+          <a href="/about" class="focus-ring hover:text-ink">About</a>
           <a href="/contact" class="focus-ring hover:text-ink">Contact</a>
         </nav>
-        <a
-          href="/contact"
-          class="focus-ring inline-flex items-center justify-center rounded-lg bg-accent px-4 py-2 text-sm font-semibold text-white transition hover:bg-accent-dark"
-        >
-          Let's Talk
-        </a>
+        <div class="flex items-center gap-4">
+          <a
+            class="focus-ring hidden text-sm font-semibold text-muted transition hover:text-ink md:inline-flex"
+            href="tel:+13162508333"
+          >
+            (316) 250-8333
+          </a>
+          <a
+            href="/contact"
+            class="focus-ring inline-flex items-center justify-center rounded-lg bg-accent px-4 py-2 text-sm font-semibold text-white transition hover:bg-accent-dark"
+          >
+            Let's Talk
+          </a>
+        </div>
       </div>
       <!-- On mobile I keep a simple link row so nothing feels hidden -->
       <div class="border-t border-border md:hidden">
         <div class="page-container flex flex-wrap items-center gap-4 py-2 text-sm text-muted">
-          <a href="/work" class="focus-ring hover:text-ink">Work</a>
           <a href="/technical-projects" class="focus-ring hover:text-ink">Technical</a>
+          <a href="/skills" class="focus-ring hover:text-ink">Skills</a>
           <a href="/resume" class="focus-ring hover:text-ink">Resume</a>
+          <a href="/eden" class="focus-ring hover:text-ink">Eden</a>
+          <a href="/about" class="focus-ring hover:text-ink">About</a>
           <a href="/contact" class="focus-ring hover:text-ink">Contact</a>
         </div>
       </div>
@@ -59,8 +69,19 @@ const {
     </main>
 
     <footer class="border-t border-border py-8 text-sm text-muted">
-      <div class="page-container">
-        <p>(c) 2026 Eric. Built for leaders who care about execution.</p>
+      <div class="page-container flex flex-wrap items-center justify-between gap-4">
+        <p>(c) 2026 Eric Martin. Building systems that turn strategy into execution.</p>
+        <div class="flex flex-wrap items-center gap-4 text-sm">
+          <a class="focus-ring hover:text-ink" href="mailto:ericm93.2023@outlook.com">
+            ericm93.2023@outlook.com
+          </a>
+          <a class="focus-ring hover:text-ink" href="tel:+13162508333">
+            (316) 250-8333
+          </a>
+          <a class="focus-ring hover:text-ink" href="https://www.linkedin.com/in/eric-m-53b374174/">
+            LinkedIn
+          </a>
+        </div>
       </div>
     </footer>
   </body>
