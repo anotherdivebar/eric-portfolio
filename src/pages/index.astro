@@ -11,52 +11,52 @@ const headshotUrl = "/eric%202026%20headshot.png";
 ---
 
 <Base>
-  <!-- Hero: set the tone and proof fast -->
+  <!-- Hero: copy + photo on top, How I help full width under — reads cleaner than stacking help under the photo -->
   <section class="py-16 sm:py-20">
-    <div class="page-container grid gap-10 lg:grid-cols-[1.2fr_0.8fr]">
-      <div>
-        <p class="eyebrow mb-4">
-          Technical Solutions &amp; Systems Lead · TPM · GTM / RevOps
-        </p>
-        <h1 class="text-4xl font-semibold leading-tight text-ink sm:text-5xl">
-          I build operating systems that hold up in production.
-        </h1>
-        <p class="mt-4 max-w-xl text-lg text-muted">
-          I design and ship automation, data flows, and operating cadence across
-          revenue, delivery, and complex ops domains — and I stay close to the
-          build and rollout so teams actually use what we ship.
-        </p>
-        <ul class="mt-6 grid gap-3 text-sm text-muted">
-          <li>
-            Built revenue and operations systems used by GTM and field teams
-          </li>
-          <li>
-            Shipped live systems with uptime, support, and operational accountability
-          </li>
-          <li>
-            Delivered internal tools used in daily sales, ops, and leadership workflows
-          </li>
-          <li>
-            Owns end-to-end delivery: design, build, rollout, and adoption
-          </li>
-        </ul>
-        <div class="mt-8 flex flex-wrap gap-3">
-          <a
-            class="focus-ring inline-flex w-full items-center justify-center rounded-lg bg-accent px-5 py-2.5 text-sm font-semibold text-white transition hover:bg-accent-dark sm:w-auto"
-            href="/technical-projects"
-          >
-            View Technical Work
-          </a>
-          <a
-            class="focus-ring inline-flex w-full items-center justify-center rounded-lg border border-border px-5 py-2.5 text-sm font-semibold text-ink transition hover:border-ink sm:w-auto"
-            href="/resume"
-          >
-            Download Resume
-          </a>
+    <div class="page-container">
+      <div class="grid gap-10 lg:grid-cols-[1.2fr_0.8fr] lg:items-start">
+        <div>
+          <p class="eyebrow mb-4">
+            Technical Solutions &amp; Systems Lead · TPM · GTM / RevOps
+          </p>
+          <h1 class="text-4xl font-semibold leading-tight text-ink sm:text-5xl">
+            I build operating systems that hold up in production.
+          </h1>
+          <p class="mt-4 max-w-xl text-lg text-muted">
+            I design and ship automation, data flows, and operating cadence across
+            revenue, delivery, and complex ops domains — and I stay close to the
+            build and rollout so teams actually use what we ship.
+          </p>
+          <ul class="mt-6 grid gap-3 text-sm text-muted">
+            <li>
+              Built revenue and operations systems used by GTM and field teams
+            </li>
+            <li>
+              Shipped live systems with uptime, support, and operational accountability
+            </li>
+            <li>
+              Delivered internal tools used in daily sales, ops, and leadership workflows
+            </li>
+            <li>
+              Owns end-to-end delivery: design, build, rollout, and adoption
+            </li>
+          </ul>
+          <div class="mt-8 flex flex-wrap gap-3">
+            <a
+              class="focus-ring inline-flex w-full items-center justify-center rounded-lg bg-accent px-5 py-2.5 text-sm font-semibold text-white transition hover:bg-accent-dark sm:w-auto"
+              href="/technical-projects"
+            >
+              View Technical Work
+            </a>
+            <a
+              class="focus-ring inline-flex w-full items-center justify-center rounded-lg border border-border px-5 py-2.5 text-sm font-semibold text-ink transition hover:border-ink sm:w-auto"
+              href="/resume"
+            >
+              Download Resume
+            </a>
+          </div>
         </div>
-      </div>
-      <div class="flex flex-col gap-6">
-        <div class="flex justify-center lg:justify-end">
+        <div class="flex justify-center lg:justify-end lg:pt-1">
           <img
             src={headshotUrl}
             alt="Eric Martin"
@@ -66,32 +66,33 @@ const headshotUrl = "/eric%202026%20headshot.png";
             decoding="async"
           />
         </div>
-        <div class="surface-muted p-6">
-          <h2 class="text-xl font-semibold text-ink">How I help</h2>
-          <p class="mt-2 text-muted">
-            I connect GTM, product, engineering, and finance to build operating
-            systems that can be run and maintained. I focus on execution and
-            follow-through.
-          </p>
-          <div class="mt-4 grid gap-3 text-sm text-muted">
-            <div class="surface p-4">
-              <p class="font-semibold text-ink">Systems + automation</p>
-              <p class="mt-1">
-                Lead-to-cash, lifecycle ops, and cross-functional workflows.
-              </p>
-            </div>
-            <div class="surface p-4">
-              <p class="font-semibold text-ink">Program delivery</p>
-              <p class="mt-1">
-                Execution models that keep multi-team initiatives moving.
-              </p>
-            </div>
-            <div class="surface p-4">
-              <p class="font-semibold text-ink">Technical ownership</p>
-              <p class="mt-1">
-                Hands-on build work across data, tooling, and integrations.
-              </p>
-            </div>
+      </div>
+
+      <div class="surface-muted mt-10 p-6 sm:p-8 lg:mt-12">
+        <h2 class="text-xl font-semibold text-ink">How I help</h2>
+        <p class="mt-2 max-w-3xl text-muted">
+          I connect GTM, product, engineering, and finance to build operating
+          systems that can be run and maintained. I focus on execution and
+          follow-through.
+        </p>
+        <div class="mt-6 grid gap-3 text-sm text-muted md:grid-cols-3">
+          <div class="surface p-4">
+            <p class="font-semibold text-ink">Systems + automation</p>
+            <p class="mt-1">
+              Lead-to-cash, lifecycle ops, and cross-functional workflows.
+            </p>
+          </div>
+          <div class="surface p-4">
+            <p class="font-semibold text-ink">Program delivery</p>
+            <p class="mt-1">
+              Execution models that keep multi-team initiatives moving.
+            </p>
+          </div>
+          <div class="surface p-4">
+            <p class="font-semibold text-ink">Technical ownership</p>
+            <p class="mt-1">
+              Hands-on build work across data, tooling, and integrations.
+            </p>
           </div>
         </div>
       </div>
