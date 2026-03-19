@@ -1,0 +1,13 @@
+{
+	"folders": [
+		{
+			"path": "../.."
+		},
+		{
+			"path": "../../../kse-pwas-v2"
+		}
+	],
+	"settings": {
+		"liveServer.settings.multiRootWorkspaceName": "kse-pwas-v2"
+	}
+}

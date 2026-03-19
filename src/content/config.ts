@@ -35,7 +35,9 @@ const technicalProjects = defineCollection({
     decisions: z.array(z.string()),
     tradeoffs: z.array(z.string()),
     outcome: z.string(),
-    order: z.number().default(0)
+    order: z.number().default(0),
+    demoUrl: z.string().url().optional(),
+    demoLabel: z.string().optional()
   })
 });
 

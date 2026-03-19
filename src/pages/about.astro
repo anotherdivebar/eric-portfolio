@@ -1,21 +1,37 @@
 ---
 import Base from "../layouts/Base.astro";
+
+const headshotUrl = "/eric%202026%20headshot.png";
 ---
 
 <Base title="About - Eric">
   <section class="py-16">
     <div class="page-container-narrow">
-      <h1 class="text-4xl font-semibold text-ink">About</h1>
-      <p class="mt-4 text-lg text-muted">
-        I build operating workflows that keep teams responsive without blowing
-        up day-to-day execution. My work sits at the intersection of operations,
-        revenue, and engineering, and I like being close to the details.
-      </p>
-      <p class="mt-4 text-muted">
-        Outside of work, I have been with my fiancée for over five years, we
-        have a two-year-old son, two dogs, a cat, and a ferret. I spend my time
-        making and playing music, running, and being with my family.
-      </p>
+      <div class="flex flex-col gap-8 sm:flex-row sm:items-start">
+        <img
+          src={headshotUrl}
+          alt="Eric Martin"
+          width="400"
+          height="500"
+          class="mx-auto aspect-[4/5] w-full max-w-[200px] shrink-0 rounded-2xl border border-border bg-panel object-cover shadow-[0_12px_30px_rgba(15,23,42,0.1)] sm:mx-0 sm:max-w-[220px]"
+          loading="lazy"
+          decoding="async"
+        />
+        <div class="min-w-0 flex-1">
+          <h1 class="text-4xl font-semibold text-ink">About</h1>
+          <p class="mt-4 text-lg text-muted">
+            I build operating workflows and technical solutions that keep teams
+            responsive without blowing up day-to-day execution. My work sits at the
+            intersection of operations, revenue, and engineering, and I like being
+            close to the details.
+          </p>
+          <p class="mt-4 text-muted">
+            Outside of work, I have been with my fiancée for over five years, we
+            have a two-year-old son, two dogs, a cat, and a ferret. I spend my time
+            making and playing music, running, and being with my family.
+          </p>
+        </div>
+      </div>
 
       <div class="mt-8 grid gap-6 md:grid-cols-2">
         <div class="surface p-6">

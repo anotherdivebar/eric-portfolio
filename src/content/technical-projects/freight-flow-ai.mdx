@@ -1,0 +1,40 @@
+---
+title: "FreightFlow AI (product demo)"
+summary: "Full-stack operating system UI for brokerages and 3PLs — daily ops, growth, platform, finance, and cross-cutting workflows in one navigable surface."
+why: "Freight operations need a credible command center: coverage velocity, exception triage, carrier trust, and growth pipeline without tab chaos."
+constraints:
+  - "Many personas (brokers, carrier sales, carriers) with different primary jobs"
+  - "Dense ops data had to stay scannable for exec overview and drill-down"
+  - "Demo runs on synthetic data but had to feel like production pacing"
+stack:
+  - "React / Next-style SPA (Vercel)"
+  - "Modular app areas (Daily, Grow, Run, platform tools)"
+  - "AI assistant + playbooks as first-class navigation"
+decisions:
+  - "Split Daily (overview, loads, carriers, outreach, exceptions, documents) from Grow (pipeline, prospect discovery, shippers)"
+  - "Kept Run surfaces for finance, factoring, compliance, marketplace, and data products"
+  - "Surfaced cross-cutting alerts, presence, collaboration, and onboarding in settings"
+tradeoffs:
+  - "Broad surface area by design — depth per module is staged for demo clarity"
+  - "Simulation data trades ERP integration realism for narrative flow"
+outcome: "A walkable story for how freight orgs could run coverage, growth, and platform revenue from one OS-shaped product."
+order: 0
+demoUrl: "https://freight-flow-ai-eta.vercel.app/app/overview"
+demoLabel: "Open live demo (Overview)"
+---
+
+## What the demo covers
+
+**Daily (operations)** — Executive overview of coverage velocity, exceptions, and AI recommendations; load board by status; carrier directory with trust and lanes; outreach workspace with threads and drafts; exception triage; document upload, extraction, and chase status.
+
+**Grow** — Acquisition hub: prospect discovery (industry/size filters, suggested roles), pipeline stages with ARR hints, shipper expansion and whitespace.
+
+**Run / platform** — Marketplace and data products surfaces; finance, factoring referrals, compliance checks before tender.
+
+**Tools** — Analytics, exports and scheduled reports, capacity graphs, carrier-facing portal, AI assistant, playbooks.
+
+**Cross-cutting** — Alerting, collaboration and presence, onboarding, settings and integrations.
+
+**Who it is for** — Brokerages and 3PLs (coverage through compliance and finance); carrier sales (discovery, pipeline, outreach); carriers (portal for loads and status).
+
+_Demo data — narrative simulation, not wired to a live TMS._
