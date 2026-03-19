@@ -2,9 +2,13 @@
 import Base from "../layouts/Base.astro";
 import { getCollection } from "astro:content";
 
-const technicalProjects = (await getCollection("technical-projects"))
-  .sort((a, b) => a.data.order - b.data.order)
-  .slice(0, 2);
+// home shows one deep technical write-up + one case study so the CTAs aren't twins
+const featuredTechProject = (await getCollection("technical-projects")).sort(
+  (a, b) => a.data.order - b.data.order
+)[0];
+const kansasCaseStudy = (await getCollection("case-studies")).find(
+  (c) => c.slug === "kansas-electric"
+);
 
 // public file has spaces in the name — URL encode for the img src
 const headshotUrl = "/eric%202026%20headshot.png";
@@ -105,29 +109,29 @@ const headshotUrl = "/eric%202026%20headshot.png";
       <div class="max-w-2xl">
         <h2 class="text-3xl font-semibold text-ink">Technical projects</h2>
         <p class="mt-3 text-muted">
-          Systems for revenue ops, field ops, and internal execution — plus a
-          clickable freight OS demo (coverage, growth, finance, AI surfaces).
+          Product-style systems (freight OS demo) plus a full business build:
+          site, internal apps, and ops automation at Kansas Electric.
         </p>
       </div>
       <div class="mt-8 grid gap-5 md:grid-cols-2">
-        {technicalProjects.map((project) => (
+        {featuredTechProject ? (
           <article class="surface p-6">
-            <h3 class="text-lg font-semibold">{project.data.title}</h3>
-            <p class="mt-2 text-muted">{project.data.summary}</p>
+            <h3 class="text-lg font-semibold">{featuredTechProject.data.title}</h3>
+            <p class="mt-2 text-muted">{featuredTechProject.data.summary}</p>
             <p class="mt-4 text-sm text-muted">
-              Key decision: {project.data.decisions[0]}
+              Key decision: {featuredTechProject.data.decisions[0]}
             </p>
             <div class="mt-4 flex flex-wrap gap-4">
               <a
                 class="focus-ring inline-flex text-sm font-semibold text-accent hover:text-accent-dark"
-                href="/technical-projects"
+                href={`/technical-projects#${featuredTechProject.slug}`}
               >
                 See technical breakdown
               </a>
-              {project.data.demoUrl ? (
+              {featuredTechProject.data.demoUrl ? (
                 <a
                   class="focus-ring inline-flex text-sm font-semibold text-muted hover:text-ink"
-                  href={project.data.demoUrl}
+                  href={featuredTechProject.data.demoUrl}
                   target="_blank"
                   rel="noopener noreferrer"
                 >
@@ -136,7 +140,23 @@ const headshotUrl = "/eric%202026%20headshot.png";
               ) : null}
             </div>
           </article>
-        ))}
+        ) : null}
+        {kansasCaseStudy ? (
+          <article class="surface p-6">
+            <h3 class="text-lg font-semibold">{kansasCaseStudy.data.title}</h3>
+            <p class="mt-1 text-sm text-muted">{kansasCaseStudy.data.category}</p>
+            <p class="mt-2 text-muted">{kansasCaseStudy.data.summary}</p>
+            <p class="mt-4 text-sm text-muted">
+              Outcome: {kansasCaseStudy.data.impact}
+            </p>
+            <a
+              class="focus-ring mt-4 inline-flex text-sm font-semibold text-accent hover:text-accent-dark"
+              href="/work/kansas-electric"
+            >
+              View Kansas Electric case study
+            </a>
+          </article>
+        ) : null}
       </div>
     </div>
   </section>
