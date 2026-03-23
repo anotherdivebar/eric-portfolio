@@ -4,16 +4,48 @@ import Base from "../layouts/Base.astro";
 // matches the pdf in public/ (ampersand has to be %26 in URLs)
 const resumeUrl =
   "/Eric%20Martin%202026%20Resume%20-%20Technical%20Solutions%20%26%20Systems%20Lead.pdf";
+
+const competencies = [
+  "Strategic Operations",
+  "Revenue Operations",
+  "Forecasting",
+  "Pipeline Visibility",
+  "Process Design",
+  "Cross-Functional Leadership",
+  "GTM Support",
+  "Workflow Standardization",
+  "Opportunity Modeling",
+  "Implementation Planning",
+  "Vendor Coordination",
+  "Executive Reporting",
+];
+
+const techSkills = [
+  "CRM Workflow Design",
+  "Dashboarding",
+  "Forecasting Systems",
+  "SQL",
+  "C#",
+  "JavaScript",
+  "Node.js",
+  "React",
+  "PostgreSQL",
+  "Data Flow Design",
+  "Internal Tooling",
+  "Reporting Workflows",
+  "Process Automation",
+];
 ---
 
 <Base title="Resume - Eric">
-  <!-- Keep the PDF and HTML summary side-by-side for quick scanning -->
   <section class="py-16">
     <div class="page-container">
       <div class="max-w-2xl">
+        <p class="eyebrow mb-2">Strategic Operations / RevOps / BizOps</p>
         <h1 class="text-4xl font-semibold text-ink">Resume</h1>
         <p class="mt-3 text-muted">
-          PDF plus a quick HTML version for easy scanning.
+          PDF below — HTML mirrors the same story for quick scanning (swap the PDF
+          filename in code when you export a new file).
         </p>
       </div>
 
@@ -21,7 +53,7 @@ const resumeUrl =
         <div class="surface p-6">
           <h2 class="text-xl font-semibold text-ink">Resume PDF</h2>
           <p class="mt-2 text-muted">
-            If the embed does not load, grab the PDF directly.
+            If the embed does not load, download directly.
           </p>
           <a
             class="focus-ring mt-4 inline-flex items-center justify-center rounded-lg bg-accent px-4 py-2 text-sm font-semibold text-white transition hover:bg-accent-dark"
@@ -32,87 +64,173 @@ const resumeUrl =
           <div class="mt-4 aspect-[4/5] w-full rounded-xl border border-border bg-panel">
             <object data={resumeUrl} type="application/pdf" class="h-full w-full">
               <p class="p-4 text-sm text-muted">
-                PDF not loading. Download it here:
-                <a class="focus-ring text-accent" href={resumeUrl}>resume.pdf</a>
+                PDF not loading.
+                <a class="focus-ring text-accent" href={resumeUrl}>Download</a>
               </p>
             </object>
           </div>
         </div>
 
         <div class="surface p-6">
-          <h2 class="text-xl font-semibold text-ink">HTML summary</h2>
-          <p class="mt-2 text-muted">
-            Technical solutions and systems lead — technical program management and
-            GTM/RevOps — focused on execution systems, automation, and follow-through
-            from design through adoption.
+          <h2 class="text-xl font-semibold text-ink">
+            Strategic Operations &amp; Revenue Systems Leader
+          </h2>
+          <p class="mt-3 text-muted">
+            Operations and revenue systems leader with experience building the
+            infrastructure that connects pipeline, planning, execution, and reporting.
+            Known for creating practical operating models that improve visibility,
+            tighten handoffs, and help teams execute with less friction. Brings a
+            rare mix of business development, workflow design, technical systems
+            thinking, and hands-on process architecture across growth-stage and
+            customer-facing environments.
           </p>
 
           <div class="mt-6">
             <h3 class="text-sm font-semibold uppercase tracking-[0.2em] text-muted">
-              Core focus
+              Core competencies
             </h3>
-            <ul class="mt-3 list-disc space-y-2 pl-5 text-sm text-muted">
-              <li>Operating systems for revenue and delivery</li>
-              <li>Cross-functional program execution</li>
-              <li>Automation, tooling, and data integrity</li>
-              <li>Ownership through rollout and adoption</li>
-            </ul>
+            <p class="mt-3 text-sm leading-relaxed text-muted">
+              {competencies.join(" · ")}
+            </p>
           </div>
 
           <div class="mt-6">
             <h3 class="text-sm font-semibold uppercase tracking-[0.2em] text-muted">
-              Selected outcomes
+              Technical &amp; systems skills
             </h3>
-            <ul class="mt-3 list-disc space-y-2 pl-5 text-sm text-muted">
-              <li>Built internal systems for estimating, scheduling, and reporting</li>
-              <li>Standardized intake, routing, and handoff workflows</li>
-              <li>Shipped product-style demos spanning ops, growth, and AI-assisted workflows (e.g. freight OS)</li>
-              <li>Delivered cross-functional programs with clear milestones and adoption</li>
-            </ul>
-          </div>
-
-          <div class="mt-6">
-            <h3 class="text-sm font-semibold uppercase tracking-[0.2em] text-muted">
-              Keywords
-            </h3>
-            <p class="mt-3 text-sm text-muted">
-              Technical solutions, systems design, Operations, RevOps, GTM, TPM,
-              Automation, Process Design, Data Integration, CRM, SQL, PostgreSQL,
-              C#, .NET, JavaScript, React, Systems Architecture, KPI Design,
-              Forecasting, logistics / freight workflows.
+            <p class="mt-3 text-sm leading-relaxed text-muted">
+              {techSkills.join(" · ")}
             </p>
           </div>
         </div>
       </div>
 
-      <div class="surface-muted mt-10 p-6">
-        <h2 class="text-xl font-semibold text-ink">Experience highlights</h2>
-        <div class="mt-4 grid gap-4 md:grid-cols-2">
-          <div class="surface p-4">
-            <p class="font-semibold text-ink">GTM and RevOps systems</p>
-            <p class="mt-2 text-sm text-muted">
-              Built lead-to-cash workflows, routing logic, and executive reporting
-              to standardize pipeline visibility and execution.
-            </p>
+      <div class="surface-muted mt-10 p-6 sm:p-8">
+        <h2 class="text-xl font-semibold text-ink">Professional experience</h2>
+
+        <div class="mt-8 border-t border-border pt-8 first:mt-0 first:border-t-0 first:pt-0">
+          <p class="font-semibold text-ink">
+            Director of Business Development &amp; Technical Systems
+          </p>
+          <p class="mt-1 text-sm text-muted">
+            Kansas Electric, Inc. · Newton, KS · Oct 2024 – Dec 2025
+          </p>
+          <ul class="mt-4 list-disc space-y-2 pl-5 text-sm text-muted">
+            <li>
+              Supported business development efforts tied to more than $100M in
+              presented opportunities in 2025 and a forward-looking pipeline
+              exceeding $200M over the next 24 months.
+            </li>
+            <li>
+              Built internal systems for CRM, estimating, field reporting,
+              dashboards, and forecasting to improve visibility across pipeline,
+              execution, and day-to-day operational decision-making.
+            </li>
+            <li>
+              Standardized workflows connecting customer needs, quoting, delivery
+              readiness, and internal reporting, reducing process fragmentation and
+              improving handoffs.
+            </li>
+            <li>
+              Partnered across leadership, field teams, and customer stakeholders to
+              align commercial opportunities with execution feasibility.
+            </li>
+            <li>
+              Developed the company website and digital infrastructure to strengthen
+              positioning, improve lead flow, and support growth.
+            </li>
+          </ul>
+        </div>
+
+        <div class="mt-8 border-t border-border pt-8">
+          <p class="font-semibold text-ink">Head of Strategic Operations</p>
+          <p class="mt-1 text-sm text-muted">
+            Vale Field Services · Remote · Jul 2019 – Oct 2024
+          </p>
+          <ul class="mt-4 list-disc space-y-2 pl-5 text-sm text-muted">
+            <li>
+              Helped scale the company from startup stage to approximately $4M
+              annually by designing and implementing the processes, standards, and
+              execution infrastructure required for growth.
+            </li>
+            <li>
+              Built operational frameworks spanning planning, training, QA, customer
+              coordination, vendor management, and field execution.
+            </li>
+            <li>
+              Acted as a strategic partner during pre-deployment planning, helping
+              customers identify best-fit approaches, execution risks, and feasibility
+              constraints before launch.
+            </li>
+            <li>
+              Coordinated across customers, field teams, vendors, and internal
+              stakeholders to maintain delivery momentum and solve issues quickly.
+            </li>
+            <li>
+              Created repeatable operating rhythms and support structures that
+              improved consistency across complex, distributed work.
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="surface p-6 sm:p-8 mt-8">
+        <h2 class="text-xl font-semibold text-ink">Selected impact highlights</h2>
+        <ul class="mt-4 list-disc space-y-2 pl-5 text-sm text-muted">
+          <li>
+            Built systems that connected GTM activity to execution readiness and
+            operational visibility.
+          </li>
+          <li>
+            Reduced reliance on disconnected manual workflows by replacing ad hoc
+            processes with structured internal tooling.
+          </li>
+          <li>
+            Improved clarity around forecasting, handoffs, reporting, and field
+            coordination.
+          </li>
+          <li>
+            Combined strategic planning with hands-on system building, rather than
+            operating purely at the presentation layer.
+          </li>
+        </ul>
+      </div>
+
+      <div class="surface-muted mt-8 p-6 sm:p-8">
+        <h2 class="text-xl font-semibold text-ink">Projects</h2>
+        <div class="mt-6 space-y-6 text-sm text-muted">
+          <div>
+            <p class="font-semibold text-ink">Kansas Electric · Revenue and operations infrastructure</p>
+            <ul class="mt-2 list-disc space-y-2 pl-5">
+              <li>
+                Designed internal workflow systems that supported quoting, reporting,
+                forecasting, and execution visibility.
+              </li>
+              <li>
+                Improved business signal flow from intake through delivery by reducing
+                ambiguity in operational handoffs.
+              </li>
+            </ul>
           </div>
-          <div class="surface p-4">
-            <p class="font-semibold text-ink">Program delivery</p>
-            <p class="mt-2 text-sm text-muted">
-              Led cross-functional programs with clear milestones, risk tracking,
-              and stakeholder alignment.
+          <div>
+            <p class="font-semibold text-ink">FreightFlow AI</p>
+            <p class="mt-2">
+              Designed a product concept for an AI-enabled freight operations platform
+              focused on carrier coverage, exception management, document workflows,
+              and growth execution. The platform centralizes load status, carrier
+              outreach, AI-assisted follow-up, delay/no-show triage, and POD/BOL/rate
+              confirmation handling, while also supporting prospect discovery,
+              pipeline management, market research, and sales playbooks. Built to
+              improve coverage velocity, reduce manual coordination, and give
+              operations and growth teams a single system for execution.
             </p>
-          </div>
-          <div class="surface p-4">
-            <p class="font-semibold text-ink">Internal tools</p>
-            <p class="mt-2 text-sm text-muted">
-              Delivered apps for estimating, scheduling, and operational reporting.
-            </p>
-          </div>
-          <div class="surface p-4">
-            <p class="font-semibold text-ink">Live systems engineering</p>
-            <p class="mt-2 text-sm text-muted">
-              Maintained production software with reliability and performance
-              requirements.
+            <p class="mt-3">
+              <a
+                class="focus-ring font-semibold text-accent hover:text-accent-dark"
+                href="/technical-projects#freight-flow-ai"
+              >
+                Concept write-up &amp; demo →
+              </a>
             </p>
           </div>
         </div>

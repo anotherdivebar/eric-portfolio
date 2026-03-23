@@ -2,7 +2,6 @@
 import Base from "../layouts/Base.astro";
 import { getCollection } from "astro:content";
 
-// home shows one deep technical write-up + one case study so the CTAs aren't twins
 const featuredTechProject = (await getCollection("technical-projects")).sort(
   (a, b) => a.data.order - b.data.order
 )[0];
@@ -10,53 +9,54 @@ const kansasCaseStudy = (await getCollection("case-studies")).find(
   (c) => c.slug === "kansas-electric"
 );
 
-// public file has spaces in the name — URL encode for the img src
 const headshotUrl = "/eric%202026%20headshot.png";
 ---
 
-<Base>
-  <!-- Hero: copy + photo on top, How I help full width under — reads cleaner than stacking help under the photo -->
+<Base title="Eric Martin — Strategic Operations & Revenue Systems">
   <section class="py-16 sm:py-20">
     <div class="page-container">
       <div class="grid gap-10 lg:grid-cols-[1.2fr_0.8fr] lg:items-start">
         <div>
           <p class="eyebrow mb-4">
-            Technical Solutions &amp; Systems Lead · TPM · GTM / RevOps
+            Strategic Operations / RevOps / BizOps
           </p>
           <h1 class="text-4xl font-semibold leading-tight text-ink sm:text-5xl">
-            I build operating systems that hold up in production.
+            Strategic Operations &amp; Revenue Systems Leader
           </h1>
           <p class="mt-4 max-w-xl text-lg text-muted">
-            I design and ship automation, data flows, and operating cadence across
-            revenue, delivery, and complex ops domains — and I stay close to the
-            build and rollout so teams actually use what we ship.
+            Operations and revenue systems leader with experience building the
+            infrastructure that connects pipeline, planning, execution, and
+            reporting. Known for practical operating models that improve visibility,
+            tighten handoffs, and help teams execute with less friction — blending
+            business development, workflow design, technical systems thinking, and
+            hands-on process architecture.
           </p>
           <ul class="mt-6 grid gap-3 text-sm text-muted">
             <li>
-              Built revenue and operations systems used by GTM and field teams
+              Connected GTM activity to execution readiness and operational visibility
             </li>
             <li>
-              Shipped live systems with uptime, support, and operational accountability
+              Replaced ad hoc workflows with structured internal tooling where it mattered
             </li>
             <li>
-              Delivered internal tools used in daily sales, ops, and leadership workflows
+              Improved forecasting, handoffs, reporting, and field coordination
             </li>
             <li>
-              Owns end-to-end delivery: design, build, rollout, and adoption
+              Plans strategically, builds hands-on — not just slides and meetings
             </li>
           </ul>
           <div class="mt-8 flex flex-wrap gap-3">
             <a
               class="focus-ring inline-flex w-full items-center justify-center rounded-lg bg-accent px-5 py-2.5 text-sm font-semibold text-white transition hover:bg-accent-dark sm:w-auto"
-              href="/technical-projects"
+              href="/resume"
             >
-              View Technical Work
+              Resume &amp; full story
             </a>
             <a
               class="focus-ring inline-flex w-full items-center justify-center rounded-lg border border-border px-5 py-2.5 text-sm font-semibold text-ink transition hover:border-ink sm:w-auto"
-              href="/resume"
+              href="/technical-projects"
             >
-              Download Resume
+              Projects &amp; systems depth
             </a>
           </div>
         </div>
@@ -75,27 +75,30 @@ const headshotUrl = "/eric%202026%20headshot.png";
       <div class="surface-muted mt-10 p-6 sm:p-8 lg:mt-12">
         <h2 class="text-xl font-semibold text-ink">How I help</h2>
         <p class="mt-2 max-w-3xl text-muted">
-          I connect GTM, product, engineering, and finance to build operating
-          systems that can be run and maintained. I focus on execution and
-          follow-through.
+          I build the connective tissue between pipeline, field execution, and
+          leadership reporting — so teams spend less time reconciling reality and more
+          time moving work forward.
         </p>
         <div class="mt-6 grid gap-3 text-sm text-muted md:grid-cols-3">
           <div class="surface p-4">
-            <p class="font-semibold text-ink">Systems + automation</p>
+            <p class="font-semibold text-ink">Pipeline &amp; visibility</p>
             <p class="mt-1">
-              Lead-to-cash, lifecycle ops, and cross-functional workflows.
+              Forecasting, opportunity modeling, CRM and dashboarding so signal matches
+              the business.
             </p>
           </div>
           <div class="surface p-4">
-            <p class="font-semibold text-ink">Program delivery</p>
+            <p class="font-semibold text-ink">Workflows &amp; handoffs</p>
             <p class="mt-1">
-              Execution models that keep multi-team initiatives moving.
+              Standardize how work moves from intake through delivery — fewer gaps,
+              fewer surprises.
             </p>
           </div>
           <div class="surface p-4">
-            <p class="font-semibold text-ink">Technical ownership</p>
+            <p class="font-semibold text-ink">Systems &amp; implementation</p>
             <p class="mt-1">
-              Hands-on build work across data, tooling, and integrations.
+              Internal tooling, data flow, and reporting — built to be operated, not
+              shelf-ware.
             </p>
           </div>
         </div>
@@ -103,14 +106,13 @@ const headshotUrl = "/eric%202026%20headshot.png";
     </div>
   </section>
 
-  <!-- Technical projects: architecture and tradeoffs -->
   <section class="bg-panel py-16">
     <div class="page-container">
       <div class="max-w-2xl">
-        <h2 class="text-3xl font-semibold text-ink">Technical projects</h2>
+        <h2 class="text-3xl font-semibold text-ink">Projects</h2>
         <p class="mt-3 text-muted">
-          Product-style systems (freight OS demo) plus a full business build:
-          site, internal apps, and ops automation at Kansas Electric.
+          Revenue and operations infrastructure in the field, plus a freight product
+          concept you can explore in depth.
         </p>
       </div>
       <div class="mt-8 grid gap-5 md:grid-cols-2">
@@ -119,14 +121,14 @@ const headshotUrl = "/eric%202026%20headshot.png";
             <h3 class="text-lg font-semibold">{featuredTechProject.data.title}</h3>
             <p class="mt-2 text-muted">{featuredTechProject.data.summary}</p>
             <p class="mt-4 text-sm text-muted">
-              Key decision: {featuredTechProject.data.decisions[0]}
+              Focus: {featuredTechProject.data.decisions[0]}
             </p>
             <div class="mt-4 flex flex-wrap gap-4">
               <a
                 class="focus-ring inline-flex text-sm font-semibold text-accent hover:text-accent-dark"
                 href={`/technical-projects#${featuredTechProject.slug}`}
               >
-                See technical breakdown
+                Concept &amp; technical breakdown
               </a>
               {featuredTechProject.data.demoUrl ? (
                 <a
@@ -135,7 +137,7 @@ const headshotUrl = "/eric%202026%20headshot.png";
                   target="_blank"
                   rel="noopener noreferrer"
                 >
-                  Live demo ↗
+                  Interactive demo ↗
                 </a>
               ) : null}
             </div>
@@ -143,7 +145,9 @@ const headshotUrl = "/eric%202026%20headshot.png";
         ) : null}
         {kansasCaseStudy ? (
           <article class="surface p-6">
-            <h3 class="text-lg font-semibold">{kansasCaseStudy.data.title}</h3>
+            <h3 class="text-lg font-semibold">
+              {kansasCaseStudy.data.title} · Revenue &amp; ops infrastructure
+            </h3>
             <p class="mt-2 text-muted">{kansasCaseStudy.data.summary}</p>
             <p class="mt-4 text-sm text-muted">
               Outcome: {kansasCaseStudy.data.impact}
@@ -152,7 +156,7 @@ const headshotUrl = "/eric%202026%20headshot.png";
               class="focus-ring mt-4 inline-flex text-sm font-semibold text-accent hover:text-accent-dark"
               href="/work/kansas-electric"
             >
-              View Kansas Electric case study
+              Full case study
             </a>
           </article>
         ) : null}
@@ -160,95 +164,59 @@ const headshotUrl = "/eric%202026%20headshot.png";
     </div>
   </section>
 
-  <!-- Case study: execution proof -->
-  <section class="bg-panel py-16">
-    <div class="page-container">
-      <div class="max-w-2xl">
-        <h2 class="text-3xl font-semibold text-ink">Case study</h2>
-        <p class="mt-3 text-muted">
-          Full build with screenshots, outcomes, and end-to-end ownership.
-        </p>
-      </div>
-      <div class="mt-8 grid gap-5 md:grid-cols-2">
-        <article class="surface p-6 md:col-span-2">
-          <div class="flex flex-wrap items-center justify-between gap-2">
-            <h3 class="text-xl font-semibold">Kansas Electric</h3>
-            <span class="text-sm text-muted">Business + Apps</span>
-          </div>
-          <p class="mt-3 text-muted">
-            Website rebuild, internal tooling, and automation to tighten intake
-            and execution.
-          </p>
-          <p class="mt-4 font-semibold">
-            Clearer intake data, standardized handoffs, and better operational visibility.
-          </p>
-          <a
-            class="focus-ring mt-4 inline-flex text-sm font-semibold text-accent hover:text-accent-dark"
-            href="/work/kansas-electric"
-          >
-            View case study
-          </a>
-        </article>
-      </div>
-    </div>
-  </section>
-
-  <!-- Skills + operating style -->
   <section class="py-16">
     <div class="page-container grid gap-8 lg:grid-cols-[1fr_0.9fr]">
       <div>
-        <h2 class="text-3xl font-semibold text-ink">Skills & tooling</h2>
+        <h2 class="text-3xl font-semibold text-ink">Core competencies &amp; skills</h2>
         <p class="mt-3 text-muted">
-          Hands-on capability across engineering, data, operations, and GTM
-          execution.
+          Strategic operations, RevOps, forecasting, pipeline visibility, GTM support,
+          and the technical stack I use to ship reporting and internal tools.
         </p>
         <a
           class="mt-4 inline-flex text-sm font-semibold text-accent hover:text-accent-dark"
           href="/skills"
         >
-          View skills in practice
+          Full skills page
         </a>
       </div>
       <div class="surface p-6">
-        <h3 class="text-lg font-semibold">How I work</h3>
+        <h3 class="text-lg font-semibold">Operating style</h3>
         <ul class="mt-3 list-disc space-y-2 pl-5 text-muted">
-          <li>Start with business signal flow and decision points</li>
-          <li>Design the operating system before tooling</li>
-          <li>Ship in small increments, not big-bang launches</li>
-          <li>Own the results through rollout and adoption</li>
+          <li>Start from pipeline, planning, and where decisions actually get made</li>
+          <li>Design handoffs and rhythms before bolting on tools</li>
+          <li>Ship in increments with measurable adoption</li>
+          <li>Stay accountable through rollout — not just launch day</li>
         </ul>
       </div>
     </div>
   </section>
 
-  <!-- About preview -->
   <section class="bg-panel py-16">
     <div class="page-container">
       <div class="max-w-2xl">
         <h2 class="text-3xl font-semibold text-ink">About</h2>
         <p class="mt-3 text-muted">
-          I bridge business and engineering to build systems that make execution
-          reliable. I prefer clear ownership and accountable delivery.
+          Growth-stage and customer-facing environments — BD, ops, and systems in the
+          same thread of work.
         </p>
       </div>
       <a
         class="mt-4 inline-flex text-sm font-semibold text-accent hover:text-accent-dark"
         href="/about"
       >
-        Read the full story
+        Background &amp; how I work
       </a>
     </div>
   </section>
 
-  <!-- Contact CTA -->
   <section class="py-16">
     <div class="page-container">
       <div class="mx-auto grid max-w-4xl gap-6 rounded-2xl bg-ink px-6 py-10 text-white shadow-[0_18px_50px_rgba(15,23,42,0.25)] sm:px-8 md:grid-cols-[1fr_auto] md:items-center">
         <div>
-          <h2 class="text-3xl font-semibold">Let's build what scales</h2>
+          <h2 class="text-3xl font-semibold">Let's talk</h2>
           <p class="mt-2 max-w-xl text-white/75">
-            If you need a leader who can align teams, build systems, and ship
-            outcomes, let's talk.
+            If you need someone who can align commercial motion with execution
+            systems — and actually build what the org runs on — reach out.
           </p>
         </div>
         <div class="flex flex-wrap gap-3 md:justify-end">

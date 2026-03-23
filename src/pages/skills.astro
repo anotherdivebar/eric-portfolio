@@ -1,78 +1,77 @@
 ---
 import Base from "../layouts/Base.astro";
+
+const competencies = [
+  "Strategic Operations",
+  "Revenue Operations",
+  "Forecasting",
+  "Pipeline Visibility",
+  "Process Design",
+  "Cross-Functional Leadership",
+  "GTM Support",
+  "Workflow Standardization",
+  "Opportunity Modeling",
+  "Implementation Planning",
+  "Vendor Coordination",
+  "Executive Reporting",
+];
+
+const techLine =
+  "CRM Workflow Design · Dashboarding · Forecasting Systems · SQL · C# · JavaScript · Node.js · React · PostgreSQL · Data Flow Design · Internal Tooling · Reporting Workflows · Process Automation";
 ---
 
-<Base title="Skills & Tooling - Eric">
+<Base title="Skills - Eric">
   <section class="py-16">
     <div class="page-container">
       <div class="max-w-2xl">
-        <h1 class="text-4xl font-semibold text-ink">Skills & Tooling</h1>
+        <p class="eyebrow mb-2">Strategic Operations / RevOps / BizOps</p>
+        <h1 class="text-4xl font-semibold text-ink">Skills &amp; tooling</h1>
         <p class="mt-3 text-muted">
-          How I show up as a technical solutions lead — the tools and skills I
-          actually use to get work done.
+          What I actually run — from pipeline and forecasting to the systems that
+          make reporting and handoffs stick.
         </p>
+      </div>
+
+      <div class="mt-10 surface p-6 sm:p-8">
+        <h2 class="text-lg font-semibold text-ink">Core competencies</h2>
+        <p class="mt-3 text-sm leading-relaxed text-muted">{competencies.join(" · ")}</p>
+        <h2 class="mt-8 text-lg font-semibold text-ink">Technical &amp; systems skills</h2>
+        <p class="mt-3 text-sm leading-relaxed text-muted">{techLine}</p>
       </div>
 
       <div class="mt-10 grid gap-6">
         <article class="surface p-6">
-          <h2 class="text-xl font-semibold text-ink">Leadership</h2>
+          <h2 class="text-xl font-semibold text-ink">Strategic operations &amp; RevOps</h2>
           <p class="mt-2 text-muted">
-            I lead cross-functional teams with clarity and accountability. I
-            keep communication executive-ready while staying close to the work.
-          </p>
-          <p class="mt-4 text-sm text-muted">
-            Style: calm execution, direct ownership, and visible milestones.
-            I drive roadmap alignment, OKRs, stakeholder management, and change
-            management across functions.
+            I connect pipeline, planning, and execution so leadership sees the same
+            reality the field is living. That means forecasting discipline, clean
+            opportunity modeling, and reporting people actually trust.
           </p>
         </article>
 
         <article class="surface p-6">
-          <h2 class="text-xl font-semibold text-ink">Operations</h2>
+          <h2 class="text-xl font-semibold text-ink">BizOps &amp; workflow design</h2>
           <p class="mt-2 text-muted">
-            I build operating cadences and execution models that keep teams on
-            schedule. This includes SLA design, intake routing, risk tracking,
-            and post-launch adoption.
-          </p>
-          <p class="mt-4 text-sm text-muted">
-            Outputs: process maps, escalation playbooks, and KPIs.
+            Standardize how work moves: intake, quoting, delivery readiness, vendor
+            coordination, and handoffs between commercial and ops — fewer ad hoc
+            threads, clearer ownership.
           </p>
         </article>
 
         <article class="surface p-6">
-          <h2 class="text-xl font-semibold text-ink">GTM / RevOps</h2>
+          <h2 class="text-xl font-semibold text-ink">Leadership &amp; GTM support</h2>
           <p class="mt-2 text-muted">
-            I align marketing, sales, finance, and customer success around shared
-            lifecycle definitions and clean handoffs. The focus is clear
-            pipeline movement and consistent forecasting inputs.
-          </p>
-          <p class="mt-4 text-sm text-muted">
-            Work includes lead-to-cash, lifecycle ops, and revenue signal flow.
+            Cross-functional alignment without theater: executive-ready reporting,
+            implementation planning, and staying close enough to unblock teams.
           </p>
         </article>
 
         <article class="surface p-6">
-          <h2 class="text-xl font-semibold text-ink">Engineering</h2>
+          <h2 class="text-xl font-semibold text-ink">Engineering &amp; internal systems</h2>
           <p class="mt-2 text-muted">
-            I build and maintain production systems, internal tools, and
-            automation that support operations. I focus on reliability, data
-            integrity, and clear ownership of services.
-          </p>
-          <p class="mt-4 text-sm text-muted">
-            Languages and frameworks in shipped work: C#, .NET, JavaScript,
-            React (including Vercel-hosted product demos and internal UIs).
-          </p>
-        </article>
-
-        <article class="surface p-6">
-          <h2 class="text-xl font-semibold text-ink">Data</h2>
-          <p class="mt-2 text-muted">
-            I design data models and reporting pipelines that turn GTM activity
-            into trustworthy signals. The goal is decision-grade analytics, not
-            vanity dashboards.
-          </p>
-          <p class="mt-4 text-sm text-muted">
-            Stack: PostgreSQL, SQL analytics, ETL workflows, BI tooling.
+            Hands-on build when the answer is tooling: CRM workflows, dashboards,
+            internal apps, SQL and data flow — C#, JavaScript, Node, React, Postgres
+            in real delivery contexts.
           </p>
         </article>
       </div>
