@@ -1,39 +1,54 @@
 ---
 import Base from "../layouts/Base.astro";
 
-// matches the pdf in public/ (ampersand has to be %26 in URLs)
-const resumeUrl =
-  "/Eric%20Martin%202026%20Resume%20-%20Technical%20Solutions%20%26%20Systems%20Lead.pdf";
+// public filename has spaces + ".docx" in the name — encode for URLs
+const resumeUrl = "/Eric%20Martin%20-%20Resume%202026.docx.pdf";
 
-const competencies = [
+const headline = "Revenue & Strategic Operations Leader | AI Enablement";
+
+const summary =
+  "Strategic operations leader with experience building the infrastructure that connects pipeline, planning, execution, and reporting. Known for designing practical operating models and identifying high-value opportunities to implement AI in non-disruptive capacities that improve visibility, reduce manual work, and support stronger decision-making. Brings a rare mix of business development, workflow design, technical systems thinking, and hands-on process architecture across growth-stage and customer-facing environments.";
+
+const keySkills = [
   "Strategic Operations",
   "Revenue Operations",
-  "Forecasting",
-  "Pipeline Visibility",
-  "Process Design",
+  "AI Workflow Integration",
+  "Business Process Architecture",
   "Cross-Functional Leadership",
-  "GTM Support",
-  "Workflow Standardization",
-  "Opportunity Modeling",
-  "Implementation Planning",
-  "Vendor Coordination",
-  "Executive Reporting",
+  "GTM Execution",
+  "Forecasting & Pipeline Visibility",
+  "Process Optimization",
+  "Root Cause Analysis",
+  "Systems-Led Growth",
+  "Pre-Deployment Planning",
+  "Systems Thinking",
+  "Operational Workflow Modeling",
 ];
 
-const techSkills = [
-  "CRM Workflow Design",
-  "Dashboarding",
-  "Forecasting Systems",
-  "SQL",
-  "C#",
-  "JavaScript",
-  "Node.js",
-  "React",
-  "PostgreSQL",
-  "Data Flow Design",
+const technicalSkills = [
+  "CRM & Workflow Systems",
+  "Dashboarding & Reporting Logic",
   "Internal Tooling",
-  "Reporting Workflows",
   "Process Automation",
+  "Log Analysis / Debugging",
+  "Event-Driven Logic",
+  "C#, JavaScript, TypeScript, Python, SQL",
+  "Node.js, React, Playwright, Recharts",
+  "API Route Handlers",
+];
+
+const projectKansasBullets = [
+  "Designed internal workflow systems that supported quoting, reporting, forecasting, and execution visibility across commercial and field activity.",
+  "Improved business signal flow from intake through delivery by tightening operational handoffs and reducing ambiguity between teams.",
+  "Standardized how customer needs, quoting, and reporting connected — less fragmentation, clearer ownership.",
+  "Hands-on delivery at Kansas Electric: public site, CRM and internal apps, and automation aligned to how the business actually runs.",
+];
+
+const projectFreightBullets = [
+  "Product concept for an AI-enabled freight operations platform: carrier coverage, exception management, document workflows, and growth execution.",
+  "Centralizes load status, carrier outreach, AI-assisted follow-up, delay/no-show triage, and POD/BOL/rate confirmation in one place.",
+  "Supports prospect discovery, pipeline management, market research, and sales playbooks alongside day-to-day ops.",
+  "Aimed at coverage velocity, less manual coordination, and one execution system for operations and growth teams.",
 ];
 ---
 
@@ -41,11 +56,13 @@ const techSkills = [
   <section class="py-16">
     <div class="page-container">
       <div class="max-w-2xl">
-        <p class="eyebrow mb-2">Strategic Operations / RevOps / BizOps</p>
-        <h1 class="text-4xl font-semibold text-ink">Resume</h1>
+        <p class="eyebrow mb-2">Resume</p>
+        <h1 class="text-4xl font-semibold text-ink">Resume &amp; narrative</h1>
         <p class="mt-3 text-muted">
-          PDF below — HTML mirrors the same story for quick scanning (swap the PDF
-          filename in code when you export a new file).
+          Download matches what’s below — kept in sync with the latest PDF in{" "}
+          <code class="rounded bg-panel px-1.5 py-0.5 text-sm text-ink"
+            >public/</code
+          >.
         </p>
       </div>
 
@@ -53,7 +70,7 @@ const techSkills = [
         <div class="surface p-6">
           <h2 class="text-xl font-semibold text-ink">Resume PDF</h2>
           <p class="mt-2 text-muted">
-            If the embed does not load, download directly.
+            If the embed does not load, use download.
           </p>
           <a
             class="focus-ring mt-4 inline-flex items-center justify-center rounded-lg bg-accent px-4 py-2 text-sm font-semibold text-white transition hover:bg-accent-dark"
@@ -64,51 +81,56 @@ const techSkills = [
           <div class="mt-4 aspect-[4/5] w-full rounded-xl border border-border bg-panel">
             <object data={resumeUrl} type="application/pdf" class="h-full w-full">
               <p class="p-4 text-sm text-muted">
-                PDF not loading.
+                PDF not loading.{" "}
                 <a class="focus-ring text-accent" href={resumeUrl}>Download</a>
               </p>
             </object>
           </div>
         </div>
 
-        <div class="surface p-6">
-          <h2 class="text-xl font-semibold text-ink">
-            Strategic Operations &amp; Revenue Systems Leader
-          </h2>
-          <p class="mt-3 text-muted">
-            Operations and revenue systems leader with experience building the
-            infrastructure that connects pipeline, planning, execution, and reporting.
-            Known for creating practical operating models that improve visibility,
-            tighten handoffs, and help teams execute with less friction. Brings a
-            rare mix of business development, workflow design, technical systems
-            thinking, and hands-on process architecture across growth-stage and
-            customer-facing environments.
-          </p>
+        <div class="surface p-6 sm:p-8">
+          <p class="text-sm font-semibold text-ink leading-snug">{headline}</p>
+          <h2 class="mt-4 text-xl font-semibold text-ink">Professional summary</h2>
+          <p class="mt-3 text-sm leading-relaxed text-muted">{summary}</p>
 
-          <div class="mt-6">
+          <div class="mt-8">
             <h3 class="text-sm font-semibold uppercase tracking-[0.2em] text-muted">
-              Core competencies
+              Key skills
             </h3>
-            <p class="mt-3 text-sm leading-relaxed text-muted">
-              {competencies.join(" · ")}
-            </p>
+            <ul class="mt-3 grid gap-2 text-sm text-muted sm:grid-cols-2">
+              {keySkills.map((s) => (
+                <li class="flex gap-2">
+                  <span class="text-accent" aria-hidden="true">·</span>
+                  <span>{s}</span>
+                </li>
+              ))}
+            </ul>
           </div>
 
-          <div class="mt-6">
+          <div class="mt-8">
             <h3 class="text-sm font-semibold uppercase tracking-[0.2em] text-muted">
-              Technical &amp; systems skills
+              Technical skills
             </h3>
-            <p class="mt-3 text-sm leading-relaxed text-muted">
-              {techSkills.join(" · ")}
-            </p>
+            <ul class="mt-3 grid gap-2 text-sm text-muted sm:grid-cols-1">
+              {technicalSkills.map((s) => (
+                <li class="flex gap-2">
+                  <span class="text-accent" aria-hidden="true">·</span>
+                  <span>{s}</span>
+                </li>
+              ))}
+            </ul>
           </div>
         </div>
       </div>
 
       <div class="surface-muted mt-10 p-6 sm:p-8">
         <h2 class="text-xl font-semibold text-ink">Professional experience</h2>
+        <p class="mt-2 max-w-3xl text-sm text-muted">
+          Same roles and bullets as the PDF — expanded here so you can skim without
+          opening the file.
+        </p>
 
-        <div class="mt-8 border-t border-border pt-8 first:mt-0 first:border-t-0 first:pt-0">
+        <div class="mt-8">
           <p class="font-semibold text-ink">
             Director of Business Development &amp; Technical Systems
           </p>
@@ -119,33 +141,35 @@ const techSkills = [
             <li>
               Supported business development efforts tied to more than $100M in
               presented opportunities in 2025 and a forward-looking pipeline
-              exceeding $200M over the next 24 months.
+              exceeding $200M over the following 24 months.
             </li>
             <li>
-              Built internal systems for CRM, estimating, field reporting,
-              dashboards, and forecasting to improve visibility across pipeline,
-              execution, and day-to-day operational decision-making.
+              Built internal systems across CRM, estimating, field reporting,
+              dashboards, and forecasting to improve visibility across commercial
+              activity, delivery readiness, and operational decision-making.
             </li>
             <li>
-              Standardized workflows connecting customer needs, quoting, delivery
-              readiness, and internal reporting, reducing process fragmentation and
-              improving handoffs.
+              Identified opportunities to introduce AI and automation into internal
+              workflows in non-disruptive capacities, improving efficiency and
+              insight without compromising process stability or adoption.
+            </li>
+            <li>
+              Standardized workflows connecting customer needs, quoting, execution
+              feasibility, and reporting, reducing fragmentation and improving
+              handoffs across teams.
             </li>
             <li>
               Partnered across leadership, field teams, and customer stakeholders to
-              align commercial opportunities with execution feasibility.
-            </li>
-            <li>
-              Developed the company website and digital infrastructure to strengthen
-              positioning, improve lead flow, and support growth.
+              align growth efforts with execution reality and build systems that
+              could support scale.
             </li>
           </ul>
         </div>
 
-        <div class="mt-8 border-t border-border pt-8">
+        <div class="mt-10 border-t border-border pt-10">
           <p class="font-semibold text-ink">Head of Strategic Operations</p>
           <p class="mt-1 text-sm text-muted">
-            Vale Field Services · Remote · Jul 2019 – Oct 2024
+            Vale Field Services · Remote · July 2019 – Oct 2024
           </p>
           <ul class="mt-4 list-disc space-y-2 pl-5 text-sm text-muted">
             <li>
@@ -154,8 +178,9 @@ const techSkills = [
               execution infrastructure required for growth.
             </li>
             <li>
-              Built operational frameworks spanning planning, training, QA, customer
-              coordination, vendor management, and field execution.
+              Built operational frameworks spanning planning, training, QA,
+              customer coordination, vendor management, and field execution across
+              distributed teams and customer environments.
             </li>
             <li>
               Acted as a strategic partner during pre-deployment planning, helping
@@ -163,76 +188,62 @@ const techSkills = [
               constraints before launch.
             </li>
             <li>
-              Coordinated across customers, field teams, vendors, and internal
-              stakeholders to maintain delivery momentum and solve issues quickly.
+              Created repeatable operating rhythms and support structures that
+              improved clarity, responsiveness, and delivery consistency across complex
+              work.
             </li>
             <li>
-              Created repeatable operating rhythms and support structures that
-              improved consistency across complex, distributed work.
+              Applied systems thinking and targeted automation to reduce operational
+              friction, improve consistency, and strengthen execution without forcing
+              disruptive process change.
             </li>
           </ul>
         </div>
       </div>
 
-      <div class="surface p-6 sm:p-8 mt-8">
-        <h2 class="text-xl font-semibold text-ink">Selected impact highlights</h2>
-        <ul class="mt-4 list-disc space-y-2 pl-5 text-sm text-muted">
-          <li>
-            Built systems that connected GTM activity to execution readiness and
-            operational visibility.
-          </li>
-          <li>
-            Reduced reliance on disconnected manual workflows by replacing ad hoc
-            processes with structured internal tooling.
-          </li>
-          <li>
-            Improved clarity around forecasting, handoffs, reporting, and field
-            coordination.
-          </li>
-          <li>
-            Combined strategic planning with hands-on system building, rather than
-            operating purely at the presentation layer.
-          </li>
-        </ul>
-      </div>
-
-      <div class="surface-muted mt-8 p-6 sm:p-8">
+      <div class="mt-10">
         <h2 class="text-xl font-semibold text-ink">Projects</h2>
-        <div class="mt-6 space-y-6 text-sm text-muted">
-          <div>
-            <p class="font-semibold text-ink">Kansas Electric · Revenue and operations infrastructure</p>
-            <ul class="mt-2 list-disc space-y-2 pl-5">
-              <li>
-                Designed internal workflow systems that supported quoting, reporting,
-                forecasting, and execution visibility.
-              </li>
-              <li>
-                Improved business signal flow from intake through delivery by reducing
-                ambiguity in operational handoffs.
-              </li>
+        <p class="mt-2 max-w-3xl text-sm text-muted">
+          Portfolio work called out on the resume — same structure for each so nothing
+          feels like an afterthought.
+        </p>
+
+        <div class="mt-8 grid gap-6 md:grid-cols-2 md:items-stretch">
+          <article class="surface flex h-full flex-col p-6 sm:p-8">
+            <h3 class="text-lg font-semibold text-ink">Kansas Electric</h3>
+            <p class="mt-1 text-sm text-muted">
+              Revenue and operations infrastructure
+            </p>
+            <ul class="mt-4 flex-1 list-disc space-y-2 pl-5 text-sm text-muted">
+              {projectKansasBullets.map((b) => (
+                <li>{b}</li>
+              ))}
             </ul>
-          </div>
-          <div>
-            <p class="font-semibold text-ink">FreightFlow AI</p>
-            <p class="mt-2">
-              Designed a product concept for an AI-enabled freight operations platform
-              focused on carrier coverage, exception management, document workflows,
-              and growth execution. The platform centralizes load status, carrier
-              outreach, AI-assisted follow-up, delay/no-show triage, and POD/BOL/rate
-              confirmation handling, while also supporting prospect discovery,
-              pipeline management, market research, and sales playbooks. Built to
-              improve coverage velocity, reduce manual coordination, and give
-              operations and growth teams a single system for execution.
+            <a
+              class="focus-ring mt-6 inline-flex text-sm font-semibold text-accent hover:text-accent-dark"
+              href="/work/kansas-electric"
+            >
+              Full case study →
+            </a>
+          </article>
+
+          <article class="surface flex h-full flex-col p-6 sm:p-8">
+            <h3 class="text-lg font-semibold text-ink">FreightFlow AI</h3>
+            <p class="mt-1 text-sm text-muted">
+              Product concept &amp; interactive demo
             </p>
-            <p class="mt-3">
-              <a
-                class="focus-ring font-semibold text-accent hover:text-accent-dark"
-                href="/technical-projects#freight-flow-ai"
-              >
-                Concept write-up &amp; demo →
-              </a>
-            </p>
-          </div>
+            <ul class="mt-4 flex-1 list-disc space-y-2 pl-5 text-sm text-muted">
+              {projectFreightBullets.map((b) => (
+                <li>{b}</li>
+              ))}
+            </ul>
+            <a
+              class="focus-ring mt-6 inline-flex text-sm font-semibold text-accent hover:text-accent-dark"
+              href="/technical-projects#freight-flow-ai"
+            >
+              Concept write-up &amp; demo →
+            </a>
+          </article>
         </div>
       </div>
     </div>
