@@ -22,9 +22,9 @@ tradeoffs:
   - "Relied on public contact paths and enrichment quality instead of promising perfect contact coverage"
 outcome: "A focused prospecting workflow that helps a small brokerage team find likely shippers, research them faster, and move qualified accounts through pipeline in one shared system."
 order: 0
-demoUrl: "https://freight-flow-ai-eta.vercel.app/app/overview"
-demoLabel: "Open live demo"
 ---
+
+import AppShowcaseCard from "../../components/AppShowcaseCard.astro";
 
 ## What it does
 
@@ -35,6 +35,34 @@ demoLabel: "Open live demo"
 **Geographic workflow** - Lets reps work accounts by city and region so area-based calling and local clustering are built into the motion.
 
 **Shared SRM pipeline** - Tracks accounts from discovery through active pipeline stages in a lighter-weight workflow than a traditional CRM.
+
+## Core workspace
+<div class="grid gap-5 md:grid-cols-2">
+  <div class="md:col-span-2">
+    <AppShowcaseCard
+      title="FreightFlow AI"
+      problem="Small brokerage teams needed one prospecting workspace for shipper discovery, account research, contact finding, and shared pipeline movement."
+      stack="Next.js, React, TypeScript, Supabase, server-side API routes, AI-assisted enrichment and workflow tooling"
+      impact="A focused sales workflow for better raw targets, faster account prep, and clearer shared movement from discovery to active pipeline."
+    />
+  </div>
+</div>
+
+## Interface snapshots
+<div class="grid gap-4 md:grid-cols-2">
+  <figure class="surface p-3 md:col-span-2">
+    <img src="/assets/freightflow/finder-overview.png" alt="FreightFlow AI shipper finder and shipper detail workspace" class="w-full rounded-xl border border-border" loading="lazy" />
+    <figcaption class="mt-2 text-sm text-muted">Finder workspace with freight-heavy shipper discovery on the left and account scoring, fit, and next-step context on the right.</figcaption>
+  </figure>
+  <figure class="surface p-3">
+    <img src="/assets/freightflow/account-brief.png" alt="FreightFlow AI account brief and public contact finder" class="w-full rounded-xl border border-border" loading="lazy" />
+    <figcaption class="mt-2 text-sm text-muted">Account brief view with area call angle, nearby prospects, public contact finder, fallback search links, and pages checked.</figcaption>
+  </figure>
+  <figure class="surface p-3">
+    <img src="/assets/freightflow/pipeline.png" alt="FreightFlow AI shipper pipeline board" class="w-full rounded-xl border border-border" loading="lazy" />
+    <figcaption class="mt-2 text-sm text-muted">Shared shipper pipeline for moving accounts from discovery to qualified, contacted, proposal, and awarded stages.</figcaption>
+  </figure>
+</div>
 
 ## Why it is different
 
