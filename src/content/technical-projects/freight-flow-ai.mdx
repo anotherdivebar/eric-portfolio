@@ -1,40 +1,45 @@
 ---
-title: "FreightFlow AI (product concept)"
-summary: "AI-enabled freight operations concept: coverage, exceptions, documents, and growth — centralized load status, outreach, triage, and POD/BOL/rate handling, plus prospecting and playbooks."
-why: "Operations and growth teams need one execution surface for coverage velocity, exception management, and manual coordination cost — not another tab farm."
+title: "FreightFlow AI"
+summary: "Built a freight-focused shipper prospecting and SRM platform that helps a small brokerage team discover qualified shipper leads, generate AI-assisted account briefs, find public contacts, work accounts geographically, and move opportunities through pipeline in one shared workflow."
+why: "A small freight brokerage team needed a focused internal sales workspace for prospecting and account development, not a generic CRM with freight bolted on after the fact."
 constraints:
-  - "Many personas (brokers, carrier sales, carriers) with different primary jobs"
-  - "Dense ops data had to stay scannable for exec overview and drill-down"
-  - "Demo runs on synthetic data but had to feel like production pacing"
+  - "Prospecting had to start from public freight signals, not closed data sources"
+  - "Public contact research and account context needed to stay fast enough for daily sales use"
+  - "The workflow had to support area-based calling and shared visibility across a small team"
 stack:
-  - "React / Next-style SPA (Vercel)"
-  - "Modular app areas (Daily, Grow, Run, platform tools)"
-  - "AI assistant + playbooks as first-class navigation"
+  - "Next.js"
+  - "React"
+  - "TypeScript"
+  - "Supabase"
+  - "Server-side API routes"
+  - "AI-assisted enrichment and workflow tooling"
 decisions:
-  - "Split Daily (overview, loads, carriers, outreach, exceptions, documents) from Grow (pipeline, prospect discovery, shippers)"
-  - "Kept Run surfaces for finance, factoring, compliance, marketplace, and data products"
-  - "Surfaced cross-cutting alerts, presence, collaboration, and onboarding in settings"
+  - "Combined a live Shipper Finder, AI account brief, public contact finder, and lightweight SRM pipeline in one workspace"
+  - "Built around freight sales behavior like city and region clustering instead of generic account lists"
+  - "Kept the pipeline focused on shipper relationship stages from discovery through active sales motion"
 tradeoffs:
-  - "Broad surface area by design — depth per module is staged for demo clarity"
-  - "Simulation data trades ERP integration realism for narrative flow"
-outcome: "A demo-backed narrative for coverage velocity, less manual coordination, and a single system of execution for ops and growth."
+  - "Stayed intentionally narrow - prospecting and SRM first, not a full CRM or TMS replacement"
+  - "Relied on public contact paths and enrichment quality instead of promising perfect contact coverage"
+outcome: "A focused prospecting workflow that helps a small brokerage team find likely shippers, research them faster, and move qualified accounts through pipeline in one shared system."
 order: 0
 demoUrl: "https://freight-flow-ai-eta.vercel.app/app/overview"
-demoLabel: "Open live demo (Overview)"
+demoLabel: "Open live demo"
 ---
 
-## What the demo covers
+## What it does
 
-**Daily (operations)** — Executive overview of coverage velocity, exceptions, and AI recommendations; load board by status; carrier directory with trust and lanes; outreach workspace with threads and drafts; exception triage; document upload, extraction, and chase status.
+**Shipper Finder** - Surfaces likely shipper accounts across freight-heavy industries so a small team can work from better raw targets instead of generic lead lists.
 
-**Grow** — Acquisition hub: prospect discovery (industry/size filters, suggested roles), pipeline stages with ARR hints, shipper expansion and whitespace.
+**AI account brief + public contact finder** - Pulls together a quick account view, research angles, and public contact paths to cut down manual prep before outreach.
 
-**Run / platform** — Marketplace and data products surfaces; finance, factoring referrals, compliance checks before tender.
+**Geographic workflow** - Lets reps work accounts by city and region so area-based calling and local clustering are built into the motion.
 
-**Tools** — Analytics, exports and scheduled reports, capacity graphs, carrier-facing portal, AI assistant, playbooks.
+**Shared SRM pipeline** - Tracks accounts from discovery through active pipeline stages in a lighter-weight workflow than a traditional CRM.
 
-**Cross-cutting** — Alerting, collaboration and presence, onboarding, settings and integrations.
+## Why it is different
 
-**Who it is for** — Brokerages and 3PLs (coverage through compliance and finance); carrier sales (discovery, pipeline, outreach); carriers (portal for loads and status).
+This is not a generic CRM. It is tailored to how freight sales teams actually prospect: finding shippers with strong freight signals, grouping nearby accounts for more efficient calling, surfacing public contact paths, and carrying qualified accounts into a shared relationship pipeline.
 
-_Demo data — narrative simulation, not wired to a live TMS._
+## Stack
+
+Next.js, React, TypeScript, Supabase, server-side API routes, and AI-assisted enrichment and workflow tooling.

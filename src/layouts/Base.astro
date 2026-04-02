@@ -2,9 +2,9 @@
 import "../styles/global.css";
 
 const {
-  title = "Eric Martin — Revenue & Strategic Operations",
+  title = "Eric Martin - Revenue Operations and Strategic Systems",
   description =
-    "Revenue and strategic operations leader — pipeline, planning, execution, reporting, and practical AI enablement in workflows. RevOps, systems thinking, internal tooling."
+    "Revenue operations and strategic systems leader. Pipeline visibility, workflow design, internal tooling, forecasting, and practical sales systems."
 } = Astro.props;
 ---
 
@@ -24,7 +24,6 @@ const {
     >
       Skip to content
     </a>
-    <!-- Keeping the header clean and consistent on every page -->
     <header class="sticky top-0 z-20 border-b border-border bg-white/95 backdrop-blur shadow-[0_6px_20px_rgba(15,23,42,0.06)]">
       <div class="page-container flex items-center justify-between gap-6 py-4">
         <a href="/" class="focus-ring text-lg font-semibold tracking-wide">Eric Martin</a>
@@ -51,7 +50,6 @@ const {
           </a>
         </div>
       </div>
-      <!-- On mobile I keep a simple link row so nothing feels hidden -->
       <div class="border-t border-border md:hidden">
         <div class="page-container flex flex-wrap items-center gap-4 py-2 text-sm text-muted">
           <a href="/technical-projects" class="focus-ring hover:text-ink">Projects</a>
@@ -64,14 +62,13 @@ const {
       </div>
     </header>
 
-    <!-- Main content lives here; layout stays neutral so content can lead -->
     <main id="main-content">
       <slot />
     </main>
 
     <footer class="border-t border-border py-8 text-sm text-muted">
       <div class="page-container flex flex-wrap items-center justify-between gap-4">
-        <p>(c) 2026 Eric Martin. Building systems that turn strategy into execution.</p>
+        <p>(c) 2026 Eric Martin. Building revenue systems that turn strategy into execution.</p>
         <div class="flex flex-wrap items-center gap-4 text-sm">
           <a class="focus-ring hover:text-ink" href="mailto:ericm93.2023@outlook.com">
             ericm93.2023@outlook.com

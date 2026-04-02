@@ -2,74 +2,91 @@
 import Base from "../layouts/Base.astro";
 
 const competencies = [
-  "Strategic Operations",
   "Revenue Operations",
-  "AI Workflow Integration",
+  "Strategic Operations",
+  "Forecasting and Pipeline Visibility",
   "Business Process Architecture",
   "Cross-Functional Leadership",
   "GTM Execution",
-  "Forecasting & Pipeline Visibility",
-  "Process Optimization",
-  "Root Cause Analysis",
-  "Systems-Led Growth",
-  "Pre-Deployment Planning",
-  "Systems Thinking",
-  "Operational Workflow Modeling",
+  "Workflow Standardization",
+  "Opportunity Modeling",
+  "Implementation Planning",
+  "Executive Reporting"
 ];
 
-const techLine =
-  "CRM & Workflow Systems · Dashboarding & Reporting Logic · Internal Tooling · Process Automation · Log Analysis / Debugging · Event-Driven Logic · C#, JavaScript, TypeScript, Python, SQL · Node.js, React, Playwright, Recharts · API Route Handlers";
+const technicalSkills = [
+  "CRM and Workflow Systems",
+  "Dashboarding and Reporting Logic",
+  "Internal Tooling",
+  "Process Automation",
+  "SQL",
+  "C#",
+  "JavaScript and TypeScript",
+  "Python",
+  "Node.js",
+  "React",
+  "PostgreSQL",
+  "API Route Handlers"
+];
 ---
 
 <Base title="Skills - Eric">
   <section class="py-16">
     <div class="page-container">
       <div class="max-w-2xl">
-        <p class="eyebrow mb-2">Revenue &amp; strategic operations · AI enablement</p>
-        <h1 class="text-4xl font-semibold text-ink">Skills &amp; tooling</h1>
+        <p class="eyebrow mb-2">RevOps / strategic operations / revenue systems</p>
+        <h1 class="text-4xl font-semibold text-ink">Skills and tooling</h1>
         <p class="mt-3 text-muted">
-          Same buckets as the resume — what I actually run in the field and in the
-          build.
+          The mix of revenue systems, workflow design, and technical execution that shows up across the resume and project work.
         </p>
       </div>
 
       <div class="mt-10 surface p-6 sm:p-8">
-        <h2 class="text-lg font-semibold text-ink">Key skills</h2>
-        <p class="mt-3 text-sm leading-relaxed text-muted">{competencies.join(" · ")}</p>
-        <h2 class="mt-8 text-lg font-semibold text-ink">Technical skills</h2>
-        <p class="mt-3 text-sm leading-relaxed text-muted">{techLine}</p>
+        <h2 class="text-lg font-semibold text-ink">Core strengths</h2>
+        <div class="mt-4 flex flex-wrap gap-2">
+          {competencies.map((skill) => (
+            <span class="inline-flex rounded-lg border border-border bg-panel px-3 py-1.5 text-sm text-ink">
+              {skill}
+            </span>
+          ))}
+        </div>
+
+        <h2 class="mt-8 text-lg font-semibold text-ink">Technical stack</h2>
+        <div class="mt-4 flex flex-wrap gap-2">
+          {technicalSkills.map((skill) => (
+            <span class="inline-flex rounded-lg border border-border bg-panel px-3 py-1.5 text-sm text-ink">
+              {skill}
+            </span>
+          ))}
+        </div>
       </div>
 
       <div class="mt-10 grid gap-6">
         <article class="surface p-6">
-          <h2 class="text-xl font-semibold text-ink">Strategic operations &amp; RevOps</h2>
+          <h2 class="text-xl font-semibold text-ink">Revenue systems and visibility</h2>
           <p class="mt-2 text-muted">
-            Pipeline, forecasting, and visibility — so leadership and the field are
-            looking at the same reality.
+            Forecasting, CRM workflow design, pipeline modeling, and reporting logic so leadership and operators are looking at the same numbers.
           </p>
         </article>
 
         <article class="surface p-6">
-          <h2 class="text-xl font-semibold text-ink">AI workflow integration</h2>
+          <h2 class="text-xl font-semibold text-ink">Workflow and process architecture</h2>
           <p class="mt-2 text-muted">
-            Finding where AI and automation actually earn their keep: less manual
-            work, better insight, without a disruptive re-platform every quarter.
+            Design how work moves between commercial, ops, vendors, and field execution. Clear ownership, fewer handoff gaps, better throughput.
           </p>
         </article>
 
         <article class="surface p-6">
-          <h2 class="text-xl font-semibold text-ink">BizOps &amp; process architecture</h2>
+          <h2 class="text-xl font-semibold text-ink">Internal tooling</h2>
           <p class="mt-2 text-muted">
-            Handoffs, quoting, delivery readiness, vendor coordination — modeled so
-            teams can execute consistently.
+            When the right answer is software, I build it: dashboards, quoting support, internal apps, workflow helpers, and reporting surfaces people actually use.
           </p>
         </article>
 
         <article class="surface p-6">
-          <h2 class="text-xl font-semibold text-ink">Engineering &amp; internal systems</h2>
+          <h2 class="text-xl font-semibold text-ink">AI-assisted workflows</h2>
           <p class="mt-2 text-muted">
-            CRM workflows, dashboards, tooling, and the stack from the resume: C#,
-            JS/TS, Python, SQL, Node, React, and shipping what people use daily.
+            I use AI where it improves research, drafting, enrichment, or process speed without turning the whole operating model upside down.
           </p>
         </article>
       </div>

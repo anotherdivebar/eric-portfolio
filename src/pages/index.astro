@@ -10,98 +10,116 @@ const kansasCaseStudy = (await getCollection("case-studies")).find(
 );
 
 const headshotUrl = "/eric%202026%20headshot.png";
+
+const proofPoints = [
+  {
+    label: "$100M+ presented opportunities",
+    detail: "Kansas Electric commercial motion supported by cleaner pipeline, workflow, and reporting systems."
+  },
+  {
+    label: "$200M+ forward pipeline",
+    detail: "Visibility and process design built to support quoting, readiness, and leadership reporting."
+  },
+  {
+    label: "Startup to ~$4M annual scale",
+    detail: "Vale operating structure designed across planning, QA, vendor coordination, and field execution."
+  }
+];
+
+const focusAreas = [
+  {
+    title: "Revenue systems",
+    body: "Pipeline visibility, forecasting, CRM workflow design, reporting logic, and the systems that help teams trust what they are seeing."
+  },
+  {
+    title: "Process architecture",
+    body: "Handoffs between commercial, ops, and field teams made explicit so work moves with less friction and fewer surprises."
+  },
+  {
+    title: "AI-assisted workflows",
+    body: "Practical AI where it sharpens research, outreach, and process speed without forcing a disruptive change in how the team works."
+  }
+];
+
+const skillPreview = [
+  "Revenue Operations",
+  "Strategic Operations",
+  "Pipeline Visibility",
+  "Forecasting",
+  "Business Process Architecture",
+  "GTM Execution",
+  "CRM Workflow Design",
+  "Internal Tooling"
+];
 ---
 
-<Base title="Eric Martin — Revenue & Strategic Operations">
+<Base title="Eric Martin - Revenue Operations and Strategic Systems">
   <section class="py-16 sm:py-20">
     <div class="page-container">
-      <div class="grid gap-10 lg:grid-cols-[1.2fr_0.8fr] lg:items-start">
+      <div class="grid gap-12 lg:grid-cols-[1.15fr_0.85fr] lg:items-start">
         <div>
-          <p class="eyebrow mb-4">
-            Revenue &amp; strategic operations · AI enablement
-          </p>
+          <p class="eyebrow mb-4">RevOps / strategic operations / revenue systems</p>
           <h1 class="text-4xl font-semibold leading-tight text-ink sm:text-5xl">
-            Revenue &amp; Strategic Operations Leader
+            I build the systems behind revenue motion.
           </h1>
-          <p class="mt-4 max-w-xl text-lg text-muted">
-            I build the infrastructure that connects pipeline, planning, execution,
-            and reporting — and I look for high-value ways to add AI into workflows
-            without blowing up what already works. Practical operating models,
-            visibility, less manual work, stronger decisions — plus hands-on systems
-            and process architecture.
+          <p class="mt-4 max-w-2xl text-lg text-muted">
+            Revenue operations and strategic systems leader focused on the infrastructure
+            that connects pipeline, planning, execution, and reporting. I build practical
+            operating models, tighten handoffs, and design internal workflows that help
+            teams move with less manual friction.
           </p>
-          <ul class="mt-6 grid gap-3 text-sm text-muted">
-            <li>
-              $100M+ in presented opportunities (2025) and $200M+ forward pipeline
-              context at Kansas Electric — systems aligned to that motion
-            </li>
-            <li>
-              AI and automation where they improve efficiency and insight without
-              sacrificing stability or adoption
-            </li>
-            <li>
-              Scaled ops infrastructure from startup to ~$4M annually (Vale)
-            </li>
-            <li>
-              Build and refine the tools — not just the slide deck
-            </li>
-          </ul>
           <div class="mt-8 flex flex-wrap gap-3">
             <a
               class="focus-ring inline-flex w-full items-center justify-center rounded-lg bg-accent px-5 py-2.5 text-sm font-semibold text-white transition hover:bg-accent-dark sm:w-auto"
               href="/resume"
             >
-              Resume &amp; full story
+              View Resume
             </a>
             <a
               class="focus-ring inline-flex w-full items-center justify-center rounded-lg border border-border px-5 py-2.5 text-sm font-semibold text-ink transition hover:border-ink sm:w-auto"
               href="/technical-projects"
             >
-              Projects &amp; systems depth
+              Browse Projects
             </a>
           </div>
+
+          <div class="mt-10 grid gap-4 sm:grid-cols-3">
+            {proofPoints.map((item) => (
+              <div class="surface p-4">
+                <p class="text-sm font-semibold text-ink">{item.label}</p>
+                <p class="mt-2 text-sm text-muted">{item.detail}</p>
+              </div>
+            ))}
+          </div>
         </div>
+
         <div class="flex justify-center lg:justify-end lg:pt-1">
           <img
             src={headshotUrl}
             alt="Eric Martin"
             width="560"
             height="700"
-            class="aspect-[4/5] w-full max-w-[280px] rounded-2xl border border-border bg-panel object-cover shadow-[0_12px_30px_rgba(15,23,42,0.12)]"
+            class="aspect-[4/5] w-full max-w-[300px] rounded-2xl border border-border bg-panel object-cover shadow-[0_12px_30px_rgba(15,23,42,0.12)]"
             decoding="async"
           />
         </div>
       </div>
 
-      <div class="surface-muted mt-10 p-6 sm:p-8 lg:mt-12">
-        <h2 class="text-xl font-semibold text-ink">How I help</h2>
-        <p class="mt-2 max-w-3xl text-muted">
-          I build the connective tissue between pipeline, field execution, and
-          leadership reporting — so teams spend less time reconciling reality and more
-          time moving work forward.
-        </p>
-        <div class="mt-6 grid gap-3 text-sm text-muted md:grid-cols-3">
-          <div class="surface p-4">
-            <p class="font-semibold text-ink">Pipeline &amp; visibility</p>
-            <p class="mt-1">
-              Forecasting, opportunity modeling, CRM and dashboarding so signal matches
-              the business.
-            </p>
-          </div>
-          <div class="surface p-4">
-            <p class="font-semibold text-ink">Workflows &amp; handoffs</p>
-            <p class="mt-1">
-              Standardize how work moves from intake through delivery — fewer gaps,
-              fewer surprises.
-            </p>
-          </div>
-          <div class="surface p-4">
-            <p class="font-semibold text-ink">AI &amp; automation (practical)</p>
-            <p class="mt-1">
-              Non-disruptive workflow integration — better insight and less manual
-              work without destabilizing how teams already operate.
-            </p>
-          </div>
+      <div class="surface-muted mt-12 p-6 sm:p-8">
+        <div class="max-w-2xl">
+          <h2 class="text-2xl font-semibold text-ink">What I help build</h2>
+          <p class="mt-3 text-muted">
+            The connective tissue between commercial activity, operational readiness,
+            and leadership visibility.
+          </p>
+        </div>
+        <div class="mt-6 grid gap-4 md:grid-cols-3">
+          {focusAreas.map((area) => (
+            <div class="surface p-5">
+              <h3 class="text-lg font-semibold text-ink">{area.title}</h3>
+              <p class="mt-2 text-sm text-muted">{area.body}</p>
+            </div>
+          ))}
         </div>
       </div>
     </div>
@@ -110,26 +128,39 @@ const headshotUrl = "/eric%202026%20headshot.png";
   <section class="bg-panel py-16">
     <div class="page-container">
       <div class="max-w-2xl">
-        <h2 class="text-3xl font-semibold text-ink">Projects</h2>
+        <h2 class="text-3xl font-semibold text-ink">Selected work</h2>
         <p class="mt-3 text-muted">
-          Revenue and operations infrastructure in the field, plus a freight product
-          concept you can explore in depth.
+          A mix of internal revenue infrastructure and product-style systems thinking.
         </p>
       </div>
-      <div class="mt-8 grid gap-5 md:grid-cols-2">
+      <div class="mt-8 grid gap-6 md:grid-cols-2">
+        {kansasCaseStudy ? (
+          <article class="surface flex h-full flex-col p-6 sm:p-8">
+            <p class="eyebrow">Case study</p>
+            <h3 class="mt-2 text-xl font-semibold text-ink">Kansas Electric</h3>
+            <p class="mt-3 text-muted">{kansasCaseStudy.data.summary}</p>
+            <p class="mt-4 text-sm text-muted">Outcome: {kansasCaseStudy.data.impact}</p>
+            <a
+              class="focus-ring mt-6 inline-flex text-sm font-semibold text-accent hover:text-accent-dark"
+              href="/work/kansas-electric"
+            >
+              Read case study ->
+            </a>
+          </article>
+        ) : null}
+
         {featuredTechProject ? (
-          <article class="surface p-6">
-            <h3 class="text-lg font-semibold">{featuredTechProject.data.title}</h3>
-            <p class="mt-2 text-muted">{featuredTechProject.data.summary}</p>
-            <p class="mt-4 text-sm text-muted">
-              Focus: {featuredTechProject.data.decisions[0]}
-            </p>
-            <div class="mt-4 flex flex-wrap gap-4">
+          <article class="surface flex h-full flex-col p-6 sm:p-8">
+            <p class="eyebrow">Product concept</p>
+            <h3 class="mt-2 text-xl font-semibold text-ink">{featuredTechProject.data.title}</h3>
+            <p class="mt-3 text-muted">{featuredTechProject.data.summary}</p>
+            <p class="mt-4 text-sm text-muted">Stack: {featuredTechProject.data.stack.join(", ")}</p>
+            <div class="mt-6 flex flex-wrap gap-4">
               <a
                 class="focus-ring inline-flex text-sm font-semibold text-accent hover:text-accent-dark"
                 href={`/technical-projects#${featuredTechProject.slug}`}
               >
-                Concept &amp; technical breakdown
+                See breakdown ->
               </a>
               {featuredTechProject.data.demoUrl ? (
                 <a
@@ -138,27 +169,10 @@ const headshotUrl = "/eric%202026%20headshot.png";
                   target="_blank"
                   rel="noopener noreferrer"
                 >
-                  Interactive demo ↗
+                  Open demo ->
                 </a>
               ) : null}
             </div>
-          </article>
-        ) : null}
-        {kansasCaseStudy ? (
-          <article class="surface p-6">
-            <h3 class="text-lg font-semibold">
-              {kansasCaseStudy.data.title} · Revenue &amp; ops infrastructure
-            </h3>
-            <p class="mt-2 text-muted">{kansasCaseStudy.data.summary}</p>
-            <p class="mt-4 text-sm text-muted">
-              Outcome: {kansasCaseStudy.data.impact}
-            </p>
-            <a
-              class="focus-ring mt-4 inline-flex text-sm font-semibold text-accent hover:text-accent-dark"
-              href="/work/kansas-electric"
-            >
-              Full case study
-            </a>
           </article>
         ) : null}
       </div>
@@ -166,27 +180,34 @@ const headshotUrl = "/eric%202026%20headshot.png";
   </section>
 
   <section class="py-16">
-    <div class="page-container grid gap-8 lg:grid-cols-[1fr_0.9fr]">
+    <div class="page-container grid gap-8 lg:grid-cols-[1fr_0.95fr]">
       <div>
-        <h2 class="text-3xl font-semibold text-ink">Core competencies &amp; skills</h2>
-        <p class="mt-3 text-muted">
-          Key skills + technical stack from the resume — including AI workflow
-          integration and what I ship in CRM, dashboards, and internal tooling.
+        <h2 class="text-3xl font-semibold text-ink">Resume-aligned skills</h2>
+        <p class="mt-3 max-w-2xl text-muted">
+          RevOps, workflow design, pipeline visibility, and the technical stack I use
+          to turn spreadsheets and handoffs into systems people actually run.
         </p>
+        <div class="mt-6 flex flex-wrap gap-2">
+          {skillPreview.map((skill) => (
+            <span class="inline-flex rounded-lg border border-border bg-panel px-3 py-1.5 text-sm text-ink">
+              {skill}
+            </span>
+          ))}
+        </div>
         <a
-          class="mt-4 inline-flex text-sm font-semibold text-accent hover:text-accent-dark"
+          class="mt-6 inline-flex text-sm font-semibold text-accent hover:text-accent-dark"
           href="/skills"
         >
-          Full skills page
+          Full skills page ->
         </a>
       </div>
-      <div class="surface p-6">
-        <h3 class="text-lg font-semibold">Operating style</h3>
-        <ul class="mt-3 list-disc space-y-2 pl-5 text-muted">
-          <li>Start from pipeline, planning, and where decisions actually get made</li>
-          <li>Design handoffs and rhythms before bolting on tools</li>
-          <li>Ship in increments with measurable adoption</li>
-          <li>Stay accountable through rollout — not just launch day</li>
+      <div class="surface p-6 sm:p-8">
+        <h3 class="text-lg font-semibold text-ink">How I work</h3>
+        <ul class="mt-4 list-disc space-y-2 pl-5 text-muted">
+          <li>Start from the signal flow, not the tool category</li>
+          <li>Model ownership and handoffs before scaling headcount</li>
+          <li>Ship in increments and keep the build close to the operators</li>
+          <li>Stay accountable through rollout and adoption</li>
         </ul>
       </div>
     </div>
@@ -197,15 +218,15 @@ const headshotUrl = "/eric%202026%20headshot.png";
       <div class="max-w-2xl">
         <h2 class="text-3xl font-semibold text-ink">About</h2>
         <p class="mt-3 text-muted">
-          Growth-stage and customer-facing environments — BD, ops, and systems in the
-          same thread of work.
+          Growth-stage and customer-facing environments where pipeline, delivery, and
+          real-world execution all have to line up.
         </p>
       </div>
       <a
         class="mt-4 inline-flex text-sm font-semibold text-accent hover:text-accent-dark"
         href="/about"
       >
-        Background &amp; how I work
+        More background ->
       </a>
     </div>
   </section>
@@ -216,8 +237,8 @@ const headshotUrl = "/eric%202026%20headshot.png";
         <div>
           <h2 class="text-3xl font-semibold">Let's talk</h2>
           <p class="mt-2 max-w-xl text-white/75">
-            If you need someone who can align commercial motion with execution
-            systems — and actually build what the org runs on — reach out.
+            If you need someone who can connect revenue systems, process design, and
+            day-to-day execution, reach out.
           </p>
         </div>
         <div class="flex flex-wrap gap-3 md:justify-end">
