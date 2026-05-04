@@ -4,7 +4,7 @@ import "../styles/global.css";
 const {
   title = "Eric Martin - Revenue Operations and Strategic Systems",
   description =
-    "Revenue operations and strategic systems leader. Pipeline visibility, workflow design, internal tooling, forecasting, and practical sales systems."
+    "Revenue operations and strategic systems leader. Customer acquisition, pipeline visibility, workflow design, internal tooling, forecasting, and practical operator-facing systems."
 } = Astro.props;
 ---
 
@@ -17,14 +17,14 @@ const {
     <meta name="description" content={description} />
     <meta name="robots" content="index, follow" />
   </head>
-  <body class="bg-white text-ink">
+  <body class="text-ink">
     <a
       href="#main-content"
       class="focus-ring sr-only focus:not-sr-only focus:fixed focus:left-4 focus:top-4 focus:z-50 focus:rounded-md focus:bg-white focus:px-3 focus:py-2 focus:text-sm focus:text-ink"
     >
       Skip to content
     </a>
-    <header class="sticky top-0 z-20 border-b border-border bg-white/95 backdrop-blur shadow-[0_6px_20px_rgba(15,23,42,0.06)]">
+    <header class="sticky top-0 z-20 border-b border-white/60 bg-white/80 backdrop-blur-xl shadow-[0_10px_30px_rgba(15,23,42,0.08)]">
       <div class="page-container flex items-center justify-between gap-6 py-4">
         <a href="/" class="focus-ring text-lg font-semibold tracking-wide">Eric Martin</a>
         <nav class="hidden flex-wrap gap-4 text-sm text-muted md:flex">
@@ -66,17 +66,17 @@ const {
       <slot />
     </main>
 
-    <footer class="border-t border-border py-8 text-sm text-muted">
+    <footer class="mt-8 border-t border-white/10 bg-[#0b1320] py-8 text-sm text-slate-300">
       <div class="page-container flex flex-wrap items-center justify-between gap-4">
         <p>(c) 2026 Eric Martin. Building revenue systems that turn strategy into execution.</p>
         <div class="flex flex-wrap items-center gap-4 text-sm">
-          <a class="focus-ring hover:text-ink" href="mailto:ericm93.2023@outlook.com">
+          <a class="focus-ring hover:text-white" href="mailto:ericm93.2023@outlook.com">
             ericm93.2023@outlook.com
           </a>
-          <a class="focus-ring hover:text-ink" href="tel:+13162508333">
+          <a class="focus-ring hover:text-white" href="tel:+13162508333">
             (316) 250-8333
           </a>
-          <a class="focus-ring hover:text-ink" href="https://www.linkedin.com/in/eric-m-53b374174/">
+          <a class="focus-ring hover:text-white" href="https://www.linkedin.com/in/eric-m-53b374174/">
             LinkedIn
           </a>
         </div>

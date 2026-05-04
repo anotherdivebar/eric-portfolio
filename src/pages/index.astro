@@ -18,7 +18,7 @@ const proofPoints = [
   },
   {
     label: "$200M+ forward pipeline",
-    detail: "Visibility and process design built to support quoting, readiness, and leadership reporting."
+    detail: "Process and visibility built to support quoting, readiness, and leadership reporting."
   },
   {
     label: "Startup to ~$4M annual scale",
@@ -26,82 +26,114 @@ const proofPoints = [
   }
 ];
 
+const commandSignals = [
+  "Pipeline visibility that leadership can actually trust",
+  "Workflow design that reduces handoff drag between teams",
+  "Internal tooling shaped around how operators already work",
+  "Human-reviewed automation where the queue matters more than the demo"
+];
+
 const focusAreas = [
   {
     title: "Revenue systems",
-    body: "Pipeline visibility, forecasting, CRM workflow design, reporting logic, and the systems that help teams trust what they are seeing."
+    body: "Forecasting, CRM workflow design, reporting logic, and pipeline visibility that match the business motion."
+  },
+  {
+    title: "Customer acquisition",
+    body: "Prospecting workflows, account research, outreach support, and qualification systems built around how teams actually find and work new business."
   },
   {
     title: "Process architecture",
-    body: "Handoffs between commercial, ops, and field teams made explicit so work moves with less friction and fewer surprises."
+    body: "Commercial, ops, and field handoffs made explicit so work moves with less friction and fewer surprises."
   },
   {
-    title: "AI-assisted workflows",
-    body: "Practical AI where it sharpens research, outreach, and process speed without forcing a disruptive change in how the team works."
+    title: "Operator-facing AI",
+    body: "Research, enrichment, drafting, and queue support where AI helps, with clear review points and useful outputs instead of black-box noise."
   }
 ];
 
 const skillPreview = [
   "Revenue Operations",
   "Strategic Operations",
+  "Customer Acquisition",
+  "Revenue Recovery",
   "Pipeline Visibility",
   "Forecasting",
   "Business Process Architecture",
-  "GTM Execution",
   "CRM Workflow Design",
-  "Internal Tooling"
+  "Internal Tooling",
+  "Owner Visibility"
 ];
 ---
 
 <Base title="Eric Martin - Revenue Operations and Strategic Systems">
   <section class="py-16 sm:py-20">
     <div class="page-container">
-      <div class="grid gap-12 lg:grid-cols-[1.15fr_0.85fr] lg:items-start">
-        <div>
-          <p class="eyebrow mb-4">RevOps / strategic operations / revenue systems</p>
-          <h1 class="text-4xl font-semibold leading-tight text-ink sm:text-5xl">
-            I build the systems behind revenue motion.
-          </h1>
-          <p class="mt-4 max-w-2xl text-lg text-muted">
-            Revenue operations and strategic systems leader focused on the infrastructure
-            that connects pipeline, planning, execution, and reporting. I build practical
+      <div class="section-dark relative overflow-hidden rounded-[32px] border border-slate-800 px-6 py-8 text-white sm:px-8 sm:py-10 lg:px-10 lg:py-12">
+        <div class="pointer-events-none absolute inset-0 bg-[linear-gradient(rgba(148,163,184,0.06)_1px,transparent_1px),linear-gradient(90deg,rgba(148,163,184,0.05)_1px,transparent_1px)] bg-[size:32px_32px] opacity-30"></div>
+        <div class="relative grid gap-10 lg:grid-cols-[1.1fr_0.9fr] lg:items-start">
+          <div>
+            <p class="eyebrow mb-4 text-slate-300">RevOps / strategic operations / revenue systems</p>
+            <h1 class="max-w-3xl text-4xl font-semibold leading-tight text-white sm:text-5xl">
+              I build the systems behind revenue motion.
+            </h1>
+            <p class="mt-4 max-w-2xl text-lg text-slate-300">
+              Revenue operations and strategic systems leader focused on the infrastructure
+              that connects pipeline, planning, execution, and reporting. I build practical
             operating models, tighten handoffs, and design internal workflows that help
-            teams move with less manual friction.
-          </p>
-          <div class="mt-8 flex flex-wrap gap-3">
-            <a
-              class="focus-ring inline-flex w-full items-center justify-center rounded-lg bg-accent px-5 py-2.5 text-sm font-semibold text-white transition hover:bg-accent-dark sm:w-auto"
-              href="/resume"
-            >
-              View Resume
-            </a>
-            <a
-              class="focus-ring inline-flex w-full items-center justify-center rounded-lg border border-border px-5 py-2.5 text-sm font-semibold text-ink transition hover:border-ink sm:w-auto"
-              href="/technical-projects"
-            >
-              Browse Projects
-            </a>
+            teams move with less manual friction. That includes customer acquisition,
+            owner visibility, and operator-facing AI workflows that are useful in
+            production, not just in pitch mode.
+            </p>
+            <div class="mt-8 flex flex-wrap gap-3">
+              <a
+                class="focus-ring inline-flex w-full items-center justify-center rounded-lg bg-accent px-5 py-2.5 text-sm font-semibold text-white transition hover:bg-accent-dark sm:w-auto"
+                href="/resume"
+              >
+                View Resume
+              </a>
+              <a
+                class="focus-ring inline-flex w-full items-center justify-center rounded-lg border border-white/15 bg-white/5 px-5 py-2.5 text-sm font-semibold text-white transition hover:border-white/25 hover:bg-white/10 sm:w-auto"
+                href="/technical-projects"
+              >
+                Browse Projects
+              </a>
+            </div>
+
+            <div class="mt-10 grid gap-4 sm:grid-cols-3">
+              {proofPoints.map((item) => (
+                <div class="rounded-2xl border border-white/10 bg-white/5 p-4 shadow-[inset_0_1px_0_rgba(255,255,255,0.04)] backdrop-blur-sm">
+                  <p class="text-sm font-semibold text-white">{item.label}</p>
+                  <p class="mt-2 text-sm text-slate-300">{item.detail}</p>
+                </div>
+              ))}
+            </div>
           </div>
 
-          <div class="mt-10 grid gap-4 sm:grid-cols-3">
-            {proofPoints.map((item) => (
-              <div class="surface p-4">
-                <p class="text-sm font-semibold text-ink">{item.label}</p>
-                <p class="mt-2 text-sm text-muted">{item.detail}</p>
-              </div>
-            ))}
+          <div class="grid gap-5">
+            <div class="flex justify-center lg:justify-end">
+              <img
+                src={headshotUrl}
+                alt="Eric Martin"
+                width="560"
+                height="700"
+                class="aspect-[4/5] w-full max-w-[300px] rounded-2xl border border-white/10 bg-slate-900/40 object-cover shadow-[0_18px_50px_rgba(15,23,42,0.35)]"
+                decoding="async"
+              />
+            </div>
+            <div class="rounded-2xl border border-white/10 bg-white/5 p-5 backdrop-blur-sm">
+              <p class="eyebrow text-slate-400">Command layer</p>
+              <h2 class="mt-2 text-xl font-semibold text-white">What I keep in view</h2>
+              <ul class="mt-4 space-y-3 text-sm text-slate-300">
+                {commandSignals.map((item) => (
+                  <li class="flex gap-3">
+                    <span class="mt-1 h-2 w-2 rounded-full bg-accent"></span>
+                    <span>{item}</span>
+                  </li>
+                ))}
+              </ul>
+            </div>
           </div>
-        </div>
-
-        <div class="flex justify-center lg:justify-end lg:pt-1">
-          <img
-            src={headshotUrl}
-            alt="Eric Martin"
-            width="560"
-            height="700"
-            class="aspect-[4/5] w-full max-w-[300px] rounded-2xl border border-border bg-panel object-cover shadow-[0_12px_30px_rgba(15,23,42,0.12)]"
-            decoding="async"
-          />
         </div>
       </div>
 
@@ -109,13 +141,13 @@ const skillPreview = [
         <div class="max-w-2xl">
           <h2 class="text-2xl font-semibold text-ink">What I help build</h2>
           <p class="mt-3 text-muted">
-            The connective tissue between commercial activity, operational readiness,
-            and leadership visibility.
+            The connective tissue between customer acquisition, operational readiness,
+            revenue follow-through, and leadership visibility.
           </p>
         </div>
-        <div class="mt-6 grid gap-4 md:grid-cols-3">
+        <div class="mt-6 grid gap-4 md:grid-cols-2 xl:grid-cols-4">
           {focusAreas.map((area) => (
-            <div class="surface p-5">
+            <div class="surface border-t-4 border-t-accent p-5">
               <h3 class="text-lg font-semibold text-ink">{area.title}</h3>
               <p class="mt-2 text-sm text-muted">{area.body}</p>
             </div>
@@ -125,56 +157,49 @@ const skillPreview = [
     </div>
   </section>
 
-  <section class="bg-panel py-16">
+  <section class="py-16">
     <div class="page-container">
-      <div class="max-w-2xl">
-        <h2 class="text-3xl font-semibold text-ink">Selected work</h2>
-        <p class="mt-3 text-muted">
-          A mix of internal revenue infrastructure and product-style systems thinking.
-        </p>
-      </div>
-      <div class="mt-8 grid gap-6 md:grid-cols-2">
-        {kansasCaseStudy ? (
-          <article class="surface flex h-full flex-col p-6 sm:p-8">
-            <p class="eyebrow">Case study</p>
-            <h3 class="mt-2 text-xl font-semibold text-ink">Kansas Electric</h3>
-            <p class="mt-3 text-muted">{kansasCaseStudy.data.summary}</p>
-            <p class="mt-4 text-sm text-muted">Outcome: {kansasCaseStudy.data.impact}</p>
-            <a
-              class="focus-ring mt-6 inline-flex text-sm font-semibold text-accent hover:text-accent-dark"
-              href="/work/kansas-electric"
-            >
-              Read case study ->
-            </a>
-          </article>
-        ) : null}
-
-        {featuredTechProject ? (
-          <article class="surface flex h-full flex-col p-6 sm:p-8">
-            <p class="eyebrow">Product concept</p>
-            <h3 class="mt-2 text-xl font-semibold text-ink">{featuredTechProject.data.title}</h3>
-            <p class="mt-3 text-muted">{featuredTechProject.data.summary}</p>
-            <p class="mt-4 text-sm text-muted">Stack: {featuredTechProject.data.stack.join(", ")}</p>
-            <div class="mt-6 flex flex-wrap gap-4">
+      <div class="section-dark rounded-[32px] border border-slate-800 px-6 py-8 text-white sm:px-8 sm:py-10">
+        <div class="max-w-2xl">
+          <p class="eyebrow text-slate-300">Selected work</p>
+          <h2 class="mt-2 text-3xl font-semibold text-white">Internal systems with real operators behind them.</h2>
+          <p class="mt-3 text-slate-300">
+            A mix of revenue infrastructure and product-style systems thinking:
+            customer acquisition workflows, internal ops systems, and visibility layers
+            built around actual work.
+          </p>
+        </div>
+        <div class="mt-8 grid gap-6 md:grid-cols-2">
+          {kansasCaseStudy ? (
+            <article class="rounded-2xl border border-white/10 bg-white/5 p-6 sm:p-8">
+              <p class="eyebrow text-slate-400">Case study</p>
+              <h3 class="mt-2 text-xl font-semibold text-white">Kansas Electric</h3>
+              <p class="mt-3 text-slate-300">{kansasCaseStudy.data.summary}</p>
+              <p class="mt-4 text-sm text-slate-400">Outcome: {kansasCaseStudy.data.impact}</p>
               <a
-                class="focus-ring inline-flex text-sm font-semibold text-accent hover:text-accent-dark"
+                class="focus-ring mt-6 inline-flex text-sm font-semibold text-sky-300 hover:text-white"
+                href="/work/kansas-electric"
+              >
+                Read case study ->
+              </a>
+            </article>
+          ) : null}
+
+          {featuredTechProject ? (
+            <article class="rounded-2xl border border-white/10 bg-white/5 p-6 sm:p-8">
+              <p class="eyebrow text-slate-400">Product concept</p>
+              <h3 class="mt-2 text-xl font-semibold text-white">{featuredTechProject.data.title}</h3>
+              <p class="mt-3 text-slate-300">{featuredTechProject.data.summary}</p>
+              <p class="mt-4 text-sm text-slate-400">Stack: {featuredTechProject.data.stack.join(", ")}</p>
+              <a
+                class="focus-ring mt-6 inline-flex text-sm font-semibold text-sky-300 hover:text-white"
                 href={`/technical-projects#${featuredTechProject.slug}`}
               >
                 See breakdown ->
               </a>
-              {featuredTechProject.data.demoUrl ? (
-                <a
-                  class="focus-ring inline-flex text-sm font-semibold text-muted hover:text-ink"
-                  href={featuredTechProject.data.demoUrl}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  Open demo ->
-                </a>
-              ) : null}
-            </div>
-          </article>
-        ) : null}
+            </article>
+          ) : null}
+        </div>
       </div>
     </div>
   </section>
@@ -184,12 +209,13 @@ const skillPreview = [
       <div>
         <h2 class="text-3xl font-semibold text-ink">Resume-aligned skills</h2>
         <p class="mt-3 max-w-2xl text-muted">
-          RevOps, workflow design, pipeline visibility, and the technical stack I use
-          to turn spreadsheets and handoffs into systems people actually run.
+          RevOps, customer acquisition, workflow design, owner visibility, and the
+          technical stack I use to turn spreadsheets and handoffs into systems people
+          actually run.
         </p>
         <div class="mt-6 flex flex-wrap gap-2">
           {skillPreview.map((skill) => (
-            <span class="inline-flex rounded-lg border border-border bg-panel px-3 py-1.5 text-sm text-ink">
+            <span class="inline-flex rounded-lg border border-border bg-panel px-3 py-1.5 text-sm text-ink shadow-[0_8px_18px_rgba(15,23,42,0.05)]">
               {skill}
             </span>
           ))}
