@@ -2,9 +2,15 @@
 import Base from "../layouts/Base.astro";
 import { getCollection } from "astro:content";
 
-const featuredTechProject = (await getCollection("technical-projects")).sort(
+const technicalProjects = (await getCollection("technical-projects")).sort(
   (a, b) => a.data.order - b.data.order
-)[0];
+);
+const atlasConsoleProject = technicalProjects.find(
+  (project) => project.slug === "atlas-beren-console"
+);
+const freightFlowProject = technicalProjects.find(
+  (project) => project.slug === "freight-flow-ai"
+);
 const kansasCaseStudy = (await getCollection("case-studies")).find(
   (c) => c.slug === "kansas-electric"
 );
@@ -14,7 +20,7 @@ const headshotUrl = "/eric%202026%20headshot.png";
 const proofPoints = [
   {
     label: "$100M+ presented opportunities",
-    detail: "Kansas Electric commercial motion supported by cleaner pipeline, workflow, and reporting systems."
+    detail: "Commercial motion supported by cleaner pipeline, workflow, and reporting systems."
   },
   {
     label: "$200M+ forward pipeline",
@@ -27,28 +33,29 @@ const proofPoints = [
 ];
 
 const commandSignals = [
-  "Pipeline visibility that leadership can actually trust",
-  "Workflow design that reduces handoff drag between teams",
+  "Revenue and ops leaks surfaced before they live in someone's memory",
+  "Pipeline visibility that operators and leadership can both trust",
   "Internal tooling shaped around how operators already work",
-  "Human-reviewed automation where the queue matters more than the demo"
+  "Human-reviewed queues for sends, CRM edits, and sensitive actions",
+  "Readiness gates before live runs"
 ];
 
 const focusAreas = [
   {
-    title: "Revenue systems",
-    body: "Forecasting, CRM workflow design, reporting logic, and pipeline visibility that match the business motion."
+    title: "Find revenue",
+    body: "Customer acquisition systems, prospecting workflows, account research, bid/RFP visibility, and approved outbound queues."
   },
   {
-    title: "Customer acquisition",
-    body: "Prospecting workflows, account research, outreach support, and qualification systems built around how teams actually find and work new business."
+    title: "Recover revenue",
+    body: "Stale quotes, dormant leads, CRM rows with no next step, and follow-up drafts surfaced where ownership is clear."
   },
   {
-    title: "Process architecture",
-    body: "Commercial, ops, and field handoffs made explicit so work moves with less friction and fewer surprises."
+    title: "Control operations",
+    body: "Front office, back office, field status, documents, and reporting loops kept visible instead of rebuilt from memory."
   },
   {
-    title: "Operator-facing AI",
-    body: "Research, enrichment, drafting, and queue support where AI helps, with clear review points and useful outputs instead of black-box noise."
+    title: "Govern AI work",
+    body: "Agent-assisted research, drafts, enrichment, and alerts with human review, clear logs, and no destructive actions by default."
   }
 ];
 
@@ -57,6 +64,7 @@ const skillPreview = [
   "Strategic Operations",
   "Customer Acquisition",
   "Revenue Recovery",
+  "Managed Workflow Systems",
   "Pipeline Visibility",
   "Forecasting",
   "Business Process Architecture",
@@ -66,24 +74,23 @@ const skillPreview = [
 ];
 ---
 
-<Base title="Eric Martin - Revenue Operations and Strategic Systems">
+<Base title="Eric Martin - Revenue Operations and Managed Workflow Systems">
   <section class="py-16 sm:py-20">
     <div class="page-container">
       <div class="section-dark relative overflow-hidden rounded-[32px] border border-slate-800 px-6 py-8 text-white sm:px-8 sm:py-10 lg:px-10 lg:py-12">
         <div class="pointer-events-none absolute inset-0 bg-[linear-gradient(rgba(148,163,184,0.06)_1px,transparent_1px),linear-gradient(90deg,rgba(148,163,184,0.05)_1px,transparent_1px)] bg-[size:32px_32px] opacity-30"></div>
         <div class="relative grid gap-10 lg:grid-cols-[1.1fr_0.9fr] lg:items-start">
           <div>
-            <p class="eyebrow mb-4 text-slate-300">RevOps / strategic operations / revenue systems</p>
+            <p class="eyebrow mb-4 text-slate-300">RevOps / strategic operations / managed workflow systems</p>
             <h1 class="max-w-3xl text-4xl font-semibold leading-tight text-white sm:text-5xl">
-              I build the systems behind revenue motion.
+              I build the systems that keep revenue leaks visible.
             </h1>
             <p class="mt-4 max-w-2xl text-lg text-slate-300">
-              Revenue operations and strategic systems leader focused on the infrastructure
-              that connects pipeline, planning, execution, and reporting. I build practical
-            operating models, tighten handoffs, and design internal workflows that help
-            teams move with less manual friction. That includes customer acquisition,
-            owner visibility, and operator-facing AI workflows that are useful in
-            production, not just in pitch mode.
+              Revenue operations and systems builder focused on the expensive gaps:
+              weak follow-up, stale quotes, untrusted CRM stages, missed prospects,
+              field updates, manual reporting, and handoffs nobody owns. I build the
+              queues, dashboards, approval paths, and internal tools that keep those
+              gaps visible.
             </p>
             <div class="mt-8 flex flex-wrap gap-3">
               <a
@@ -141,8 +148,8 @@ const skillPreview = [
         <div class="max-w-2xl">
           <h2 class="text-2xl font-semibold text-ink">What I help build</h2>
           <p class="mt-3 text-muted">
-            The connective tissue between customer acquisition, operational readiness,
-            revenue follow-through, and leadership visibility.
+            The connective tissue between customer acquisition, revenue recovery,
+            operational control, and leadership visibility.
           </p>
         </div>
         <div class="mt-6 grid gap-4 md:grid-cols-2 xl:grid-cols-4">
@@ -162,14 +169,13 @@ const skillPreview = [
       <div class="section-dark rounded-[32px] border border-slate-800 px-6 py-8 text-white sm:px-8 sm:py-10">
         <div class="max-w-2xl">
           <p class="eyebrow text-slate-300">Selected work</p>
-          <h2 class="mt-2 text-3xl font-semibold text-white">Internal systems with real operators behind them.</h2>
+          <h2 class="mt-2 text-3xl font-semibold text-white">Workflow systems with real operators behind them.</h2>
           <p class="mt-3 text-slate-300">
-            A mix of revenue infrastructure and product-style systems thinking:
-            customer acquisition workflows, internal ops systems, and visibility layers
-            built around actual work.
+            Acquisition coverage, recovery queues, field visibility, owner briefings,
+            and internal control planes built around actual work.
           </p>
         </div>
-        <div class="mt-8 grid gap-6 md:grid-cols-2">
+        <div class="mt-8 grid gap-6 xl:grid-cols-3">
           {kansasCaseStudy ? (
             <article class="rounded-2xl border border-white/10 bg-white/5 p-6 sm:p-8">
               <p class="eyebrow text-slate-400">Case study</p>
@@ -185,17 +191,40 @@ const skillPreview = [
             </article>
           ) : null}
 
-          {featuredTechProject ? (
+          {atlasConsoleProject ? (
             <article class="rounded-2xl border border-white/10 bg-white/5 p-6 sm:p-8">
-              <p class="eyebrow text-slate-400">Product concept</p>
-              <h3 class="mt-2 text-xl font-semibold text-white">{featuredTechProject.data.title}</h3>
-              <p class="mt-3 text-slate-300">{featuredTechProject.data.summary}</p>
-              <p class="mt-4 text-sm text-slate-400">Stack: {featuredTechProject.data.stack.join(", ")}</p>
+              <p class="eyebrow text-slate-400">Internal platform</p>
+              <h3 class="mt-2 text-xl font-semibold text-white">Atlas-Beren Console</h3>
+              <p class="mt-1 text-sm text-slate-400">Internal operator control plane for client delivery + prospecting</p>
+              <p class="mt-3 text-slate-300">
+                Unified agent catalog, evidence gates, approvals, and Prospect Finder
+                in one RevOps-style console.
+              </p>
+              <ul class="mt-4 list-disc space-y-2 pl-5 text-sm text-slate-300">
+                <li>Client workspaces with readiness gates before live runs</li>
+                <li>30+ agent catalog with runbook fields, KPIs, and anti-promises</li>
+                <li>Prospect Finder, integrations health, approvals, and Today queue in one operator loop</li>
+              </ul>
               <a
                 class="focus-ring mt-6 inline-flex text-sm font-semibold text-sky-300 hover:text-white"
-                href={`/technical-projects#${featuredTechProject.slug}`}
+                href={`/technical-projects#${atlasConsoleProject.slug}`}
               >
-                See breakdown ->
+                System overview ->
+              </a>
+            </article>
+          ) : null}
+
+          {freightFlowProject ? (
+            <article class="rounded-2xl border border-white/10 bg-white/5 p-6 sm:p-8">
+              <p class="eyebrow text-slate-400">Product system</p>
+              <h3 class="mt-2 text-xl font-semibold text-white">{freightFlowProject.data.title}</h3>
+              <p class="mt-3 text-slate-300">{freightFlowProject.data.summary}</p>
+              <p class="mt-4 text-sm text-slate-400">Stack: {freightFlowProject.data.stack.join(", ")}</p>
+              <a
+                class="focus-ring mt-6 inline-flex text-sm font-semibold text-sky-300 hover:text-white"
+                href={`/technical-projects#${freightFlowProject.slug}`}
+              >
+                Product breakdown ->
               </a>
             </article>
           ) : null}
@@ -207,11 +236,11 @@ const skillPreview = [
   <section class="py-16">
     <div class="page-container grid gap-8 lg:grid-cols-[1fr_0.95fr]">
       <div>
-        <h2 class="text-3xl font-semibold text-ink">Resume-aligned skills</h2>
+        <h2 class="text-3xl font-semibold text-ink">Systems I build</h2>
         <p class="mt-3 max-w-2xl text-muted">
-          RevOps, customer acquisition, workflow design, owner visibility, and the
-          technical stack I use to turn spreadsheets and handoffs into systems people
-          actually run.
+          RevOps, customer acquisition, revenue recovery, workflow design, owner
+          visibility, and the technical stack I use to turn spreadsheets and handoffs
+          into systems people actually run.
         </p>
         <div class="mt-6 flex flex-wrap gap-2">
           {skillPreview.map((skill) => (
@@ -244,8 +273,8 @@ const skillPreview = [
       <div class="max-w-2xl">
         <h2 class="text-3xl font-semibold text-ink">About</h2>
         <p class="mt-3 text-muted">
-          Growth-stage and customer-facing environments where pipeline, delivery, and
-          real-world execution all have to line up.
+          Operator-led environments where customer acquisition, pipeline, field work,
+          and owner visibility all have to line up.
         </p>
       </div>
       <a
@@ -263,8 +292,8 @@ const skillPreview = [
         <div>
           <h2 class="text-3xl font-semibold">Let's talk</h2>
           <p class="mt-2 max-w-xl text-white/75">
-            If you need someone who can connect revenue systems, process design, and
-            day-to-day execution, reach out.
+            If you need someone who can find the leaks, design the queue, and ship the
+            system operators actually use, reach out.
           </p>
         </div>
         <div class="flex flex-wrap gap-3 md:justify-end">
