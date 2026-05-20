@@ -64,10 +64,10 @@ const projectFreightBullets = [
 ];
 
 const projectAtlasBullets = [
-  "Built an internal operator control plane for client workspaces, agent catalog, approvals, integrations, and prospecting.",
-  "Unified the operator loop: intake, profile, readiness, run, approval, and action.",
-  "Used evidence gates before live LLM runs and human approval for customer-facing or sensitive actions.",
-  "Stack: Next.js 16, React 19, TypeScript, Supabase, Vercel, AI Gateway, optional GCP services, Places/Hunter, and Vitest."
+  "Built a single control plane for intake, client profiling, agent readiness, evidence review, approvals, prospecting, action tracking, and weekly visibility.",
+  "Unified the operator loop: Today, client workspace, readiness, agent run, evidence review, approval, action, and visibility.",
+  "Required evidence, readiness checks, role-gated access, and human approval before live AI-driven actions.",
+  "Stack: Next.js 16, React 19, TypeScript, Supabase Auth/RLS/Postgres, Vercel, AI Gateway, optional GCP services, Google Places, Hunter, and Vitest."
 ];
 ---
 
@@ -173,7 +173,7 @@ const projectAtlasBullets = [
         <div class="mt-6 grid gap-6 xl:grid-cols-3 xl:items-stretch">
           <article class="surface flex h-full flex-col p-6 sm:p-8">
             <h3 class="text-lg font-semibold text-ink">Atlas-Beren Console</h3>
-            <p class="mt-1 text-sm text-muted">Internal operator control plane</p>
+            <p class="mt-1 text-sm text-muted">Internal operator control plane for managed AI workflow systems</p>
             <ul class="mt-4 flex-1 list-disc space-y-2 pl-5 text-sm text-muted">
               {projectAtlasBullets.map((bullet) => (
                 <li>{bullet}</li>

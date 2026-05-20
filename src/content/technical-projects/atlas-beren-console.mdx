@@ -1,32 +1,34 @@
 ---
 title: "Atlas-Beren Console"
-summary: "Internal operator control plane for managed workflow systems: client workspaces, agent catalog, evidence gates, approvals, integrations, leak surfacing, and Atlas-Beren prospecting."
-why: "Managed workflow installs need one operator loop for client work, agent readiness, approvals, integration health, prospecting, and value/risk visibility. Spreadsheets and scattered tools were not enough."
+summary: "Internal operator control plane for managed AI workflow systems: client workspaces, agent catalog, evidence gates, approvals, integration health, prospecting, and value/risk visibility. Built to turn AI-assisted work from scattered experiments into a governed execution loop."
+why: "Managed workflow delivery breaks down when client context, agent readiness, integration health, approvals, and business development activity live in separate tools. Atlas-Beren needed one operator-grade system to turn scattered work into a controlled execution loop."
 constraints:
-  - "Built for one internal operator, not as a customer-facing portal or SaaS surface"
-  - "Evidence and readiness needed to exist before live LLM runs could be trusted"
-  - "Sensitive actions had to stay behind human approval and role-gated access"
-  - "Secrets and integration status needed production-safe handling without leaking into the browser"
+  - "Built for internal operator leverage, not as a generic customer portal"
+  - "Required evidence, readiness checks, and human approval before live AI-driven actions"
+  - "Needed role-gated access, auditability, and production-safe integration handling"
+  - "Had to support both client delivery and Atlas-Beren's own prospecting motion in one workflow"
 stack:
   - "Next.js 16"
   - "React 19"
   - "TypeScript"
-  - "Supabase (Auth, RLS, Postgres)"
-  - "Vercel + Vercel Cron"
+  - "Supabase Auth, RLS, and Postgres"
+  - "Vercel and Vercel Cron"
   - "Vercel AI Gateway"
-  - "Optional GCP (Vertex, GCS, Document AI, BigQuery)"
-  - "Google Places + Hunter"
+  - "Optional GCP services: Vertex AI, GCS, Document AI, BigQuery"
+  - "Google Places and Hunter"
   - "Vitest"
 decisions:
-  - "Made the agent catalog metadata-first with runbook fields, evidence requirements, KPIs, and anti-promises before rollout"
-  - "Split mock versus live agent runs and logged readiness overrides so the operator loop stayed auditable"
-  - "Kept integrations env-based and masked in the UI instead of building a half-finished secret store"
-  - "Treated Prospect Finder as both an org prospecting workflow and a client-assignable agent surface"
+  - "Designed the agent catalog around operational metadata, not just prompts: runbooks, KPIs, evidence requirements, failure modes, and anti-promises"
+  - "Separated mock runs, readiness checks, and live execution paths so rollout could be demonstrated safely before production use"
+  - "Kept sensitive integrations environment-backed and masked in the UI rather than exposing immature secret handling"
+  - "Treated Prospect Finder as both an internal growth engine and a client-assignable workflow surface"
+  - "Built the workspace around operator decision-making: what needs review, what is blocked, what is stale, what is ready, and what should happen next"
 tradeoffs:
-  - "Prioritized operator control, auditability, and rollout safety over flashy autonomous behavior"
-  - "Shipped live mode behind env flags and role gates instead of pretending every integration was always ready"
-  - "Left deeper secret registry work and per-client Finder partitioning as roadmap items instead of forcing them in early"
-outcome: "Replaced scattered spreadsheets and one-off tools with one operator loop: intake, profile, readiness, run, approval, action, and weekly visibility."
+  - "Prioritized control, auditability, and trust over flashy autonomous behavior"
+  - "Put live execution behind environment flags, readiness gates, and role-based access instead of pretending every integration was production-ready from day one"
+  - "Deferred deeper secret registry work and per-client prospecting partitioning until the operating model proved itself"
+  - "Favored a narrower, usable control loop over a broader platform surface that would be harder to govern"
+outcome: "Built a single control plane for intake, client profiling, agent readiness, evidence review, approval workflows, prospecting, action tracking, and weekly visibility. The result is a more disciplined operating model for delivering AI-enabled workflow systems without losing human oversight."
 order: 0
 ---
 
@@ -34,22 +36,30 @@ import AppShowcaseCard from "../../components/AppShowcaseCard.astro";
 
 ## Overview
 
-Atlas-Beren Console is the internal control plane behind managed workflow installs. It is for me as the operator, not a customer portal. It manages client workspaces, agent rollout, data intake, approvals, integration status, value and risk surfacing, and Atlas-Beren's own prospecting pipeline in one system.
+Atlas-Beren Console is the internal operating system behind Atlas-Beren's managed workflow installs. It brings client workspaces, AI agent rollout, data intake, readiness gates, approvals, integration status, risk visibility, value tracking, and prospecting into one controlled environment.
 
-Operator loop: `Today -> client workspace -> readiness -> agent run -> approval -> client action`
+The core loop is simple:
+
+`Today -> client workspace -> readiness -> agent run -> evidence review -> approval -> action -> visibility`
+
+Instead of treating AI agents as magic boxes, the console treats them like operational systems: they need context, evidence, constraints, approval paths, audit trails, and measurable business value.
 
 ## Problem
 
-One operator juggling clients, agents, data intake, approvals, integration health, and new-business pipeline work does not need another disconnected stack of spreadsheets, dashboards, and one-off scripts. The problem was keeping the expensive gaps visible: stale follow-up, missing readiness, integration drift, unapproved actions, and prospecting work with no next step.
+One operator managing clients, workflow automations, AI agents, integrations, prospecting, and follow-up cannot rely on disconnected spreadsheets, dashboards, browser tabs, and one-off scripts.
+
+The real risk is not just missed work. It is invisible work.
+
+Stale follow-up, incomplete intake, broken integrations, unreviewed outputs, weak evidence, and unclear ownership all create operational drag. Atlas-Beren Console was built to keep those gaps surfaced before they become client-facing problems.
 
 ## Core workspace
 <div class="grid gap-5 md:grid-cols-2">
   <div class="md:col-span-2">
     <AppShowcaseCard
       title="Atlas-Beren Console"
-      problem="One internal control plane for managed workflow systems - built for the operator, not sold as a customer-facing portal."
+      problem="A private operator control plane for building and managing AI-enabled workflow systems."
       stack="Next.js 16, React 19, TypeScript, Supabase Auth/RLS/Postgres, Vercel, Vercel Cron, AI Gateway, optional GCP services, Places/Hunter, Vitest"
-      impact="Replaced ad hoc spreadsheets and scattered tools with one operator loop: intake, profile, readiness, run, approval, action, and weekly visibility."
+      impact="Consolidated intake, profiling, readiness, agent runs, approvals, prospecting, and operator visibility into one execution loop."
     />
   </div>
 </div>
@@ -57,47 +67,63 @@ One operator juggling clients, agents, data intake, approvals, integration healt
 ## Interface snapshots
 <div class="grid gap-4 md:grid-cols-2">
   <figure class="surface p-3 md:col-span-2">
-    <img src="/assets/atlas-beren/dashboard.png" alt="Atlas-Beren Console dashboard with operator metrics and today's best opportunities" class="w-full rounded-xl border border-border" loading="lazy" />
-    <figcaption class="mt-2 text-sm text-muted">Top-level operator dashboard with current account mix, recent activity, enrichment queue, and where the freight work is actually sitting.</figcaption>
+    <img src="/assets/atlas-beren/prospect-finder.png" alt="Atlas-Beren Console Prospect Finder workflow with location discovery and account search controls" class="w-full rounded-xl border border-border" loading="lazy" />
+    <figcaption class="mt-2 text-sm text-muted">Prospect Finder turns geography, search criteria, and qualification steps into a repeatable operator workflow before account review.</figcaption>
   </figure>
   <figure class="surface p-3">
-    <img src="/assets/atlas-beren/account-workspace.png" alt="Atlas-Beren Console account workspace with shipper brief and research panel" class="w-full rounded-xl border border-border" loading="lazy" />
-    <figcaption class="mt-2 text-sm text-muted">Account workspace with brief generation, next move context, contact research handoff, and fit signals before action.</figcaption>
+    <img src="/assets/atlas-beren/prospect-intel.png" alt="Atlas-Beren Console prospect pipeline intel workspace with Vertex scan controls" class="w-full rounded-xl border border-border" loading="lazy" />
+    <figcaption class="mt-2 text-sm text-muted">Internal growth workspace for discovery, enrichment, and routing prospecting work through the same controlled pipeline.</figcaption>
   </figure>
   <figure class="surface p-3">
-    <img src="/assets/atlas-beren/pipeline-view.png" alt="Atlas-Beren Console shipper pipeline grouped by stage" class="w-full rounded-xl border border-border" loading="lazy" />
-    <figcaption class="mt-2 text-sm text-muted">Shared pipeline view for qualified accounts, stage movement, estimated annual value, and next-step ownership.</figcaption>
+    <img src="/assets/atlas-beren/agent-catalog.png" alt="Atlas-Beren Console agent catalog playbook with operator-facing agent definitions" class="w-full rounded-xl border border-border" loading="lazy" />
+    <figcaption class="mt-2 text-sm text-muted">Agent catalog playbook with operational definitions, groups, priorities, workspace assignment, and readiness context.</figcaption>
+  </figure>
+  <figure class="surface p-3">
+    <img src="/assets/atlas-beren/client-scores.png" alt="Atlas-Beren Console client score chart comparing opportunity and agent readiness" class="w-full rounded-xl border border-border" loading="lazy" />
+    <figcaption class="mt-2 text-sm text-muted">Client scoring keeps opportunity and readiness visible before an operator pushes work toward execution.</figcaption>
+  </figure>
+  <figure class="surface p-3">
+    <img src="/assets/atlas-beren/operator-sidebar.png" alt="Atlas-Beren Console sidebar navigation with client operations, agent control, and growth sections" class="w-full rounded-xl border border-border" loading="lazy" />
+    <figcaption class="mt-2 text-sm text-muted">Navigation is organized around daily operator work: client operations, agent control, and Atlas-Beren growth workflows.</figcaption>
   </figure>
 </div>
 
 ## Approach
 
-The console is catalog-driven. Agents are not just names and prompts; they carry runbook fields for value, KPIs, evidence, and anti-promises. Client workspaces track data sources, unified profiling, readiness gates, approvals, activity, and client actions after approval. Prospect Finder lives in the same system, so customer acquisition is not a side spreadsheet.
+The console is catalog-driven. Agents are not stored as loose prompts or vague automation ideas. Each agent carries operational metadata: purpose, runbook, required evidence, readiness criteria, KPIs, risk notes, and limits.
+
+Client workspaces track the context needed to make those agents useful: intake data, unified profiles, source material, integration status, activity, approvals, and follow-up actions. Prospect Finder sits inside the same system, which means growth work and client delivery share the same discipline around qualification, review, and next steps.
+
+The design principle was simple: AI should accelerate the operator, not bypass the operating model.
 
 ## What shipped
 
-- **Client workspaces** with per-client agents, CSV and unified profiling intake, evidence and readiness gates, activity log, approvals, and post-approval client actions.
-- **Agent catalog (30+)** grouped for operators across data/readiness, client ops, revenue/growth, prospecting, and governance/cost - including Prospect Finder as a client-assignable agent.
-- **Operator Today** ranking client ops, agent failures, approvals, integration health, prospect follow-ups, and stale data in one morning inbox.
-- **Integrations control panel** with env-based masked status for AI Gateway, GCP/Vertex, Places, Hunter, HubSpot, n8n webhooks, GCS, and cron/RSS feeds - no secrets pushed into the browser.
-- **Prospect Finder** for Places discovery, AI briefs, optional enrichment, pipeline/deals, and approval-first outbound with org-level pipeline attribution.
-- **Governance layer** with human approval for external actions, mock versus live runs, readiness overrides logged, and estimated versus verified value guardrails.
-- **Owner visibility** with the same queues feeding status, risk, and next-action views instead of rebuilding the picture by hand.
+- **Client workspaces** with per-client agents, CSV intake, unified profiling, evidence gates, readiness checks, activity history, approvals, and post-approval actions.
+- **Agent catalog** with 30+ operator-facing agents across readiness, client operations, revenue recovery, growth, prospecting, governance, and cost control.
+- **Operator Today view** ranking client work, failed runs, pending approvals, integration health, stale follow-ups, and prospecting tasks in one morning queue.
+- **Integration control panel** with masked environment-backed status for AI Gateway, GCP/Vertex, Places, Hunter, HubSpot, n8n webhooks, GCS, and scheduled feeds.
+- **Prospect Finder** for local/company discovery, AI-generated account briefs, optional enrichment, pipeline tracking, and approval-first outbound preparation.
+- **Governance layer** with human approval for external actions, mock versus live run separation, readiness override logging, and estimated versus verified value tracking.
+- **Owner visibility views** that turn the same operational queues into status, risk, and next-action reporting without rebuilding updates by hand.
 
 ## Architecture
 
-Supabase handles auth, role-gated access, RLS, and Postgres-backed state. Vercel deployment and cron handle scheduled checks and lightweight monitoring. Integration state stays metadata-first and env-backed. Live agent execution can route through the AI Gateway, while optional GCP services cover heavier document and model workflows when needed.
+Supabase handles authentication, role-gated access, row-level security, and Postgres-backed state. Vercel handles deployment, scheduled checks, and lightweight operational monitoring. Integration status is metadata-first and environment-backed, with sensitive details masked from the browser.
+
+Live agent execution can route through Vercel AI Gateway, while optional GCP services support heavier workflows like document processing, model execution, storage, and analytics when needed. The architecture is intentionally staged: demo-safe, operator-safe, and production-conscious without pretending the system is more mature than it is.
 
 ## Lessons learned
 
-- Evidence before live runs matters more than another "agent" headline.
-- Human approval is not a limitation; it is the difference between a usable operator system and a risky toy.
-- Integration health should surface where the operator starts the day, not as a buried settings page.
-- Metadata-first rollout beats pretending you already have a mature secret and orchestration layer.
-- Prospecting and recovery work better when they live inside the same system as readiness, review, and next action.
+- Evidence beats autonomy. An agent is only useful if the operator can trust what it used, what it produced, and what should happen next.
+- Human approval is not friction. For business-critical workflows, it is the control layer that makes AI usable.
+- Integration health belongs in the operator's daily workflow, not buried in a settings page.
+- Metadata-first agent design is more durable than a pile of prompts.
+- Prospecting, recovery, and delivery work better when they share the same system of readiness, review, ownership, and action.
+- The best AI workflow systems do not remove the operator. They make the operator dramatically more effective.
 
 ## What is next
 
-- Per-client Finder partitioning so prospecting views can split more cleanly by account context.
+- Per-client Prospect Finder partitioning for cleaner separation between Atlas-Beren growth work and client-assigned prospecting workflows.
 - Live integration probes beyond env and metadata checks.
-- Encrypted secret registry once the current env-based pattern stops being the right tradeoff.
+- Encrypted secret registry when the current environment-backed approach becomes the limiting factor.
+- Deeper value verification loops connecting agent activity to actual recovered revenue, saved time, or generated pipeline.
