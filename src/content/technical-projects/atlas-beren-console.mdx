@@ -18,11 +18,11 @@ stack:
   - "Google Places and Hunter"
   - "Vitest"
 decisions:
-  - "Designed the agent catalog around operational metadata, not just prompts: runbooks, KPIs, evidence requirements, failure modes, and anti-promises"
+  - "Designed the agent catalog around operational metadata, not just prompts: runbooks, KPIs, evidence requirements, failure modes, and limits"
   - "Separated mock runs, readiness checks, and live execution paths so rollout could be demonstrated safely before production use"
   - "Kept sensitive integrations environment-backed and masked in the UI rather than exposing immature secret handling"
   - "Treated Prospect Finder as both an internal growth engine and a client-assignable workflow surface"
-  - "Built the workspace around operator decision-making: what needs review, what is blocked, what is stale, what is ready, and what should happen next"
+  - "Built the workspace around operator decisions: what needs review, what is blocked, what is stale, what is ready, and what should happen next"
 tradeoffs:
   - "Prioritized control, auditability, and trust over flashy autonomous behavior"
   - "Put live execution behind environment flags, readiness gates, and role-based access instead of pretending every integration was production-ready from day one"
@@ -42,7 +42,7 @@ The core loop is simple:
 
 `Today -> client workspace -> readiness -> agent run -> evidence review -> approval -> action -> visibility`
 
-Instead of treating AI agents as magic boxes, the console treats them like operational systems: they need context, evidence, constraints, approval paths, audit trails, and measurable business value.
+Instead of treating AI agents as self-contained black boxes, the console treats them like operational systems: they need context, evidence, constraints, approval paths, audit trails, and measurable business value.
 
 ## Problem
 
@@ -58,7 +58,7 @@ Stale follow-up, incomplete intake, broken integrations, unreviewed outputs, wea
     <AppShowcaseCard
       title="Atlas-Beren Console"
       problem="A private operator control plane for building and managing AI-enabled workflow systems."
-      stack="Next.js 16, React 19, TypeScript, Supabase Auth/RLS/Postgres, Vercel, Vercel Cron, AI Gateway, optional GCP services, Places/Hunter, Vitest"
+      stack="Next.js 16, React 19, TypeScript, Supabase Auth/RLS/Postgres, Vercel, Vercel Cron, AI Gateway, optional GCP services, Google Places, Hunter, Vitest"
       impact="Consolidated intake, profiling, readiness, agent runs, approvals, prospecting, and operator visibility into one execution loop."
     />
   </div>
@@ -86,7 +86,7 @@ Stale follow-up, incomplete intake, broken integrations, unreviewed outputs, wea
 
 ## Approach
 
-The console is catalog-driven. Agents are not stored as loose prompts or vague automation ideas. Each agent carries operational metadata: purpose, runbook, required evidence, readiness criteria, KPIs, risk notes, and limits.
+The console is catalog-driven. Agents are not stored as loose prompts or vague automation ideas. Each agent carries operational metadata: purpose, runbook, required evidence, readiness criteria, KPIs, risk notes, and operating limits.
 
 Client workspaces track the context needed to make those agents useful: intake data, unified profiles, source material, integration status, activity, approvals, and follow-up actions. Prospect Finder sits inside the same system, which means growth work and client delivery share the same discipline around qualification, review, and next steps.
 
@@ -113,7 +113,7 @@ Live agent execution can route through Vercel AI Gateway, while optional GCP ser
 - Evidence beats autonomy. An agent is only useful if the operator can trust what it used, what it produced, and what should happen next.
 - Human approval is not friction. For business-critical workflows, it is the control layer that makes AI usable.
 - Integration health belongs in the operator's daily workflow, not buried in a settings page.
-- Metadata-first agent design is more durable than a pile of prompts.
+- Metadata-first agent design is more durable than a pile of disconnected prompts.
 - Prospecting, recovery, and delivery work better when they share the same system of readiness, review, ownership, and action.
 - The best AI workflow systems do not remove the operator. They make the operator dramatically more effective.
 

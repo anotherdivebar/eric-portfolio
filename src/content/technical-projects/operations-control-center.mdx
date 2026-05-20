@@ -1,9 +1,9 @@
 ---
 title: "Operations control center"
 summary: "Built an internal control center for field capacity, job status, and execution risk."
-why: "Leaders needed a single view of operational health without stitching together spreadsheets."
+why: "Leaders needed one reliable view of operational health without stitching together spreadsheets."
 constraints:
-  - "Field data arrived at different times and quality levels"
+  - "Field data arrived at different times and with uneven quality"
   - "Updates needed to feel current without heavy infrastructure"
   - "Minimal training time for operations teams"
 stack:
@@ -18,6 +18,6 @@ decisions:
 tradeoffs:
   - "Kept the dashboard narrow to preserve adoption"
   - "Used scheduled sync over real-time streaming to reduce complexity"
-outcome: "Consolidated visibility with clearer risk signals and faster intervention."
+outcome: "Consolidated operational visibility with clearer risk signals and faster intervention."
 order: 3
 ---

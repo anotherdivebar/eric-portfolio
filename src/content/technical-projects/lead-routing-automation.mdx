@@ -1,7 +1,7 @@
 ---
 title: "Lead routing automation"
-summary: "Automated intake, routing, and SLA enforcement so inbound requests reached the right owner fast."
-why: "Manual routing created delays, inconsistent follow-up, and low trust in SLA reporting."
+summary: "Automated intake, routing, and SLA enforcement so inbound requests reached the right owner with a clear follow-up clock."
+why: "Manual routing created delays, inconsistent ownership, and low trust in SLA reporting."
 constraints:
   - "GTM teams needed clear ownership and escalation rules"
   - "Existing CRM data quality issues and inconsistent fields"
@@ -12,12 +12,12 @@ stack:
   - "PostgreSQL"
   - "CRM integrations + audit logging"
 decisions:
-  - "Built rule-based routing with explicit ownership"
+  - "Built rules-based routing with explicit ownership"
   - "Added SLA timers, escalation paths, and exception queues"
   - "Designed for easy policy updates without code changes"
 tradeoffs:
   - "Used rules over ML for transparency and auditability"
   - "Accepted slower initial routing setup to enable clear ownership"
-outcome: "Clearer ownership, faster response time, and consistent routing behavior."
+outcome: "Clearer ownership, faster response times, and more consistent routing behavior."
 order: 2
 ---

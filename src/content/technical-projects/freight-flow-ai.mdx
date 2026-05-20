@@ -1,6 +1,6 @@
 ---
 title: "FreightFlow AI"
-summary: "Built a freight-focused shipper prospecting and SRM platform that helps a small brokerage team discover qualified shipper leads, generate AI-assisted account briefs, find public contacts, work accounts geographically, and move opportunities through pipeline in one shared workflow."
+summary: "Built a freight-focused shipper prospecting and relationship workspace for a small brokerage team: qualified shipper discovery, AI-assisted account briefs, public contact paths, geographic calling, and shared pipeline movement."
 why: "A small freight brokerage team needed a focused internal sales workspace for prospecting and account development, not a generic CRM with freight bolted on after the fact."
 constraints:
   - "Prospecting had to start from public freight signals, not closed data sources"
@@ -14,13 +14,13 @@ stack:
   - "Server-side API routes"
   - "AI-assisted enrichment and workflow tooling"
 decisions:
-  - "Combined a live Shipper Finder, AI account brief, public contact finder, and lightweight SRM pipeline in one workspace"
+  - "Combined a live Shipper Finder, AI account brief, public contact finder, and lightweight shipper relationship pipeline in one workspace"
   - "Built around freight sales behavior like city and region clustering instead of generic account lists"
   - "Kept the pipeline focused on shipper relationship stages from discovery through active sales motion"
 tradeoffs:
   - "Stayed intentionally narrow - prospecting and SRM first, not a full CRM or TMS replacement"
   - "Relied on public contact paths and enrichment quality instead of promising perfect contact coverage"
-outcome: "A focused prospecting workflow that helps a small brokerage team find likely shippers, research them faster, and move qualified accounts through pipeline in one shared system."
+outcome: "A focused prospecting workflow that helps a small brokerage team find likely shippers, research accounts faster, and move qualified opportunities through one shared pipeline."
 order: 1
 ---
 
@@ -34,7 +34,7 @@ import AppShowcaseCard from "../../components/AppShowcaseCard.astro";
 
 **Geographic workflow** - Lets reps work accounts by city and region so area-based calling and local clustering are built into the motion.
 
-**Shared SRM pipeline** - Tracks accounts from discovery through active pipeline stages in a lighter-weight workflow than a traditional CRM.
+**Shared shipper pipeline** - Tracks accounts from discovery through active pipeline stages in a lighter-weight workflow than a traditional CRM.
 
 ## Core workspace
 <div class="grid gap-5 md:grid-cols-2">
@@ -43,7 +43,7 @@ import AppShowcaseCard from "../../components/AppShowcaseCard.astro";
       title="FreightFlow AI"
       problem="Small brokerage teams needed one prospecting workspace for shipper discovery, account research, contact finding, and shared pipeline movement."
       stack="Next.js, React, TypeScript, Supabase, server-side API routes, AI-assisted enrichment and workflow tooling"
-      impact="A focused sales workflow for better raw targets, faster account prep, and clearer shared movement from discovery to active pipeline."
+      impact="A focused sales workflow for better raw targets, faster account prep, and clearer movement from discovery to active pipeline."
     />
   </div>
 </div>
