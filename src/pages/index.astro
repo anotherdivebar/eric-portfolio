@@ -19,20 +19,24 @@ const headshotUrl = "/eric%202026%20headshot.png";
 
 const proofPoints = [
   {
-    label: "$2M closed in 60 days",
-    detail: "New work closed at Kansas Electric while standing up the commercial systems behind follow-up, pipeline, and execution visibility."
+    value: "$2M",
+    label: "New work closed in 60 days",
+    source: "Kansas Electric"
   },
   {
-    label: "$100M+ presented opportunities",
-    detail: "Commercial motion supported by CRM, estimating, forecasting, and leadership reporting tied to real pipeline movement."
+    value: "$100M+",
+    label: "Presented opportunities",
+    source: "Kansas Electric, 2025"
   },
   {
-    label: "$200M+ forward pipeline",
-    detail: "Operating visibility built around quoting, readiness, opportunity refresh, and executive reporting."
+    value: "$200M+",
+    label: "Forward pipeline",
+    source: "24-month commercial outlook"
   },
   {
-    label: "Startup to ~$4M annual scale",
-    detail: "Execution infrastructure across planning, QA, vendor coordination, and national field delivery at Vale Field Services."
+    value: "~$4M",
+    label: "Annual company scale",
+    source: "Vale Field Services"
   }
 ];
 
@@ -109,15 +113,6 @@ const skillPreview = [
                 Browse Projects
               </a>
             </div>
-
-            <div class="mt-10 grid gap-4 sm:grid-cols-2 xl:grid-cols-4">
-              {proofPoints.map((item) => (
-                <div class="rounded-2xl border border-white/10 bg-white/5 p-4 shadow-[inset_0_1px_0_rgba(255,255,255,0.04)] backdrop-blur-sm">
-                  <p class="text-sm font-semibold text-white">{item.label}</p>
-                  <p class="mt-2 text-sm text-slate-300">{item.detail}</p>
-                </div>
-              ))}
-            </div>
           </div>
 
           <div class="grid gap-5">
@@ -143,6 +138,18 @@ const skillPreview = [
                 ))}
               </ul>
             </div>
+          </div>
+        </div>
+
+        <div class="relative mt-10 border-t border-white/10 pt-8">
+          <div class="grid grid-cols-2 gap-x-8 gap-y-8 lg:grid-cols-4">
+            {proofPoints.map((item) => (
+              <div class="min-w-0">
+                <p class="text-3xl font-semibold tracking-tight text-white">{item.value}</p>
+                <p class="mt-1 text-sm leading-snug text-slate-200">{item.label}</p>
+                <p class="mt-1 text-xs text-slate-500">{item.source}</p>
+              </div>
+            ))}
           </div>
         </div>
       </div>
