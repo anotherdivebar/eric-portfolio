@@ -1,85 +1,87 @@
 ---
 import Base from "../layouts/Base.astro";
 
-const resumeUrl = "/Eric%20Martin%20-%20May%202026%20Resume.pdf";
+const resumeUrl = "/Eric%20Martin%20-%20Resume%20June%202026.pdf";
 
-const headline = "Revenue Operations and Strategic Systems Leader";
+const headline = "Revenue Operations & Technical Systems Leader";
 
 const summary =
-  "Revenue operations and systems builder focused on the infrastructure behind customer acquisition, follow-up, field work, CRM discipline, and owner reporting. I build managed workflow systems: queues, dashboards, approvals, and internal tools that help operators act before work gets buried.";
+  "Revenue operations and technical systems leader experienced in building growth, delivery, and customer operations across industrial services, distributed field programs, and software. Combines commercial ownership with hands-on systems architecture to turn ambiguous workflows into scalable processes, dashboards, automations, and production applications.";
 
 const keySkills = [
   "Revenue Operations",
   "Strategic Operations",
-  "Customer Acquisition",
-  "Revenue Recovery",
-  "Managed Workflow Systems",
-  "Forecasting and Pipeline Visibility",
-  "Business Process Architecture",
+  "Business Development",
+  "GTM Systems",
+  "Pipeline & Forecasting",
+  "Customer Success",
+  "Implementation & Rollout",
+  "Process Architecture",
   "Cross-Functional Leadership",
-  "GTM Execution",
-  "Workflow Standardization",
-  "Opportunity Modeling",
+  "Field Operations",
+  "Vendor Management",
+  "Product Operations",
+  "AI-Enabled Automation",
   "Executive Reporting",
-  "Implementation Planning",
-  "Vendor Coordination",
-  "Systems Thinking",
-  "Owner Visibility",
-  "Human-in-the-Loop AI Workflows",
-  "Operator-facing AI / agent orchestration"
+  "Operating Visibility",
+  "Approval-Gated Execution"
 ];
 
 const technicalSkills = [
-  "CRM and Workflow Systems",
-  "Dashboarding and Reporting Logic",
-  "Internal Tooling",
-  "Process Automation",
-  "Public-source research workflows",
-  "Queue and approval design",
-  "AI-assisted enrichment",
-  "Supabase / Postgres / RLS",
-  "Integration architecture",
-  "SQL",
-  "C#",
   "JavaScript and TypeScript",
-  "Python",
+  "React and Next.js",
   "Node.js",
-  "React",
-  "PostgreSQL",
-  "API Route Handlers"
-];
-
-const projectKansasBullets = [
-  "Designed internal workflow systems for quoting, reporting, forecasting, and execution visibility.",
-  "Improved business signal flow from intake through delivery by tightening operational handoffs.",
-  "Connected commercial activity to field execution and leadership reporting with clearer ownership.",
-  "Built public web, internal tooling, and automation around how the business actually operated."
-];
-
-const projectFreightBullets = [
-  "Built a freight-focused shipper prospecting and SRM platform for a small brokerage sales team.",
-  "Combined a live Shipper Finder, AI-assisted account briefs, public contact research, and a shared shipper relationship pipeline in one workflow.",
-  "Tailored the app to real freight sales behavior: strong freight signals, area-based prospecting, public contact paths, and shared pipeline stages.",
-  "Stack: Next.js, React, TypeScript, Supabase, server-side API routes, and AI-assisted enrichment and workflow tooling."
+  "Python",
+  "C# and .NET",
+  "SQL and PostgreSQL",
+  "Supabase and row-level security",
+  "REST and API design",
+  "React Query and Zod",
+  "Vitest and Playwright",
+  "Vercel and Vercel AI Gateway",
+  "Google Cloud and Vertex AI",
+  "OCR and vision workflows",
+  "GitHub CI/CD",
+  "CRM and workflow systems",
+  "Dashboarding and reporting logic"
 ];
 
 const projectAtlasBullets = [
-  "Built a single control plane for intake, client profiling, agent readiness, evidence review, approvals, prospecting, action tracking, and weekly visibility.",
-  "Unified the operator loop: Today, client workspace, readiness, agent run, evidence review, approval, action, and visibility.",
-  "Required evidence, readiness checks, role-gated access, and human approval before live AI-driven actions.",
-  "Stack: Next.js 16, React 19, TypeScript, Supabase Auth/RLS/Postgres, Vercel, AI Gateway, optional GCP services, Google Places, Hunter, and Vitest."
+  "Founded Atlas-Beren Systems and built a multi-tenant operations platform for prospect acquisition, client workspaces, specialized business agents, and approval-gated execution.",
+  "Architected Next.js 16, React 19, TypeScript, and Supabase Postgres with org-scoped RBAC, RLS, source-agnostic ingestion, and 30+ database migrations.",
+  "Built an agent execution framework with readiness guards, approval queues, Vercel Cron, AI Gateway access, and Vertex AI fallback.",
+  "Validated core platform and agent logic with 200+ unit tests."
+];
+
+const projectKansasBullets = [
+  "Closed approximately $2M in new work within 60 days and supported a commercial motion tied to $100M+ in presented opportunities and $200M+ forward pipeline.",
+  "Designed connected systems across CRM, estimating, field reporting, scheduling, forecasting, customer intelligence, labor planning, and leadership visibility.",
+  "Rebuilt website positioning, lead capture, and account-research workflows to improve market credibility and follow-up discipline.",
+  "Shipped offline-capable field and estimating tools with AI parsing, OCR fallback, confidence scoring, and export-ready outputs."
+];
+
+const projectFreightBullets = [
+  "Built a freight prospecting and relationship-management workspace combining shipper discovery, AI-assisted account briefs, public contact research, and shared pipeline movement.",
+  "Designed around strong freight signals, area-based calling, nearby-prospect clustering, and lightweight relationship management instead of generic CRM patterns.",
+  "Stack: Next.js, React, TypeScript, Supabase, server-side API routes, and AI-assisted enrichment."
+];
+
+const projectLeakLensBullets = [
+  "Shipped a conversion-oriented revenue recovery demo with connector management, leak triage, recovery workflows, reporting, and typed mock APIs.",
+  "Added command-palette navigation, responsive interaction patterns, runtime validation, and Playwright end-to-end smoke tests.",
+  "Built to show how revenue recovery could feel operator-grade before live billing or CRM integrations were connected."
 ];
 ---
 
-<Base title="Resume - Eric">
+<Base title="Resume - Eric Martin">
   <section class="py-16">
     <div class="page-container">
       <div class="max-w-2xl">
         <p class="eyebrow mb-2">Resume</p>
         <h1 class="text-4xl font-semibold text-ink">Resume</h1>
         <p class="mt-3 text-muted">
-          Download the PDF or scan the sections below for the same background in a
-          portfolio format.
+          Download the June 2026 PDF or scan the sections below for the same
+          background in portfolio format.
         </p>
       </div>
 
@@ -107,9 +109,9 @@ const projectAtlasBullets = [
           <h2 class="mt-4 text-xl font-semibold text-ink">Professional summary</h2>
           <p class="mt-3 text-sm leading-relaxed text-muted">{summary}</p>
           <p class="mt-3 text-sm leading-relaxed text-muted">
-            The same themes run through the portfolio: find revenue, recover revenue,
-            control operations, and govern AI-assisted work with review points where
-            judgment still matters.
+            Track record includes approximately $2M in new work closed within 60
+            days, $100M+ in presented opportunities, and helping scale a services
+            company to roughly $4M in annual revenue.
           </p>
 
           <div class="mt-8">
@@ -139,19 +141,31 @@ const projectAtlasBullets = [
       <div class="surface-muted mt-10 p-6 sm:p-8">
         <h2 class="text-xl font-semibold text-ink">Professional experience</h2>
         <p class="mt-2 max-w-3xl text-sm text-muted">
-          The same roles as the PDF, expanded around acquisition, workflow design,
-          operations, and visibility.
+          The same roles as the PDF, expanded around growth systems, delivery
+          infrastructure, and operating visibility.
         </p>
 
         <div class="mt-8">
-          <p class="font-semibold text-ink">Director of Business Development and Technical Systems</p>
+          <p class="font-semibold text-ink">Founder & Principal Systems Architect</p>
+          <p class="mt-1 text-sm text-muted">Atlas-Beren Systems - Newton, KS / Remote - Jan 2026 to Present</p>
+          <ul class="mt-4 list-disc space-y-2 pl-5 text-sm text-muted">
+            <li>Founded an AI systems consultancy for trade and field-service businesses and built its flagship multi-tenant operations platform combining prospect acquisition, client workspaces, specialized business agents, and approval-gated execution.</li>
+            <li>Architected the platform in Next.js 16, React 19, TypeScript, and Supabase Postgres with org-scoped RBAC, row-level security, source-agnostic data ingestion, normalized schemas, and 30+ database migrations.</li>
+            <li>Designed an extensible agent execution framework with readiness guards, executor registration, persistent runs, approval queues, scheduled Vercel Cron jobs, and unified LLM access through Vercel AI Gateway with Google Vertex AI fallback.</li>
+            <li>Built a prospecting and CRM engine using Google Places, ICP scoring, chain filtering, website evidence extraction, Hunter.io discovery, AI qualification, personalized outreach drafts, deal tracking, saved views, and weekly automated discovery.</li>
+            <li>Delivered six headline agents across finance, dispatch, reviews, advertising, prospecting, and business health, producing confidence-scored findings, cross-agent KPIs, action drafts, and unified triage workflows; validated core logic with 200+ unit tests.</li>
+          </ul>
+        </div>
+
+        <div class="mt-10 border-t border-border pt-10">
+          <p class="font-semibold text-ink">Director, Business Development & Technical Systems</p>
           <p class="mt-1 text-sm text-muted">Kansas Electric, Inc. - Newton, KS - Oct 2024 to Dec 2025</p>
           <ul class="mt-4 list-disc space-y-2 pl-5 text-sm text-muted">
-            <li>Supported business development efforts tied to more than $100M in presented opportunities in 2025 and a forward-looking pipeline exceeding $200M over the following 24 months.</li>
-            <li>Built internal systems across CRM, estimating, field reporting, dashboards, and forecasting to improve visibility across commercial activity, delivery readiness, and operational decision-making.</li>
-            <li>Standardized workflows connecting customer needs, quoting, execution feasibility, and reporting, reducing fragmentation and improving handoffs across teams.</li>
-            <li>Partnered across leadership, field teams, and customer stakeholders to align growth efforts with execution reality and build systems that could support scale.</li>
-            <li>Built reporting and operating structure that gave leaders clearer visibility into pipeline, readiness, and where revenue work was likely to stall.</li>
+            <li>Closed approximately $2M in new work within the first 60 days and built a commercial motion tied to $100M+ in 2025 presented opportunities and a forward pipeline exceeding $200M over the following 24 months.</li>
+            <li>Designed and shipped connected systems across CRM, estimating, field reporting, scheduling, forecasting, customer intelligence, labor planning, and leadership visibility, replacing scattered sheets, inboxes, and ad hoc handoffs.</li>
+            <li>Rebuilt the company website, service positioning, lead capture, and account-research workflows to improve market credibility and create a cleaner path from initial interest to accountable follow-up.</li>
+            <li>Standardized pipeline reviews, opportunity refreshes, forecasting, activity capture, and executive reporting so leadership could see commercial momentum, delivery readiness, and operational risk in one operating picture.</li>
+            <li>Developed offline-capable field and estimating tools using PWA patterns, structured data capture, AI parsing and summarization, OCR fallback, confidence scoring, and export-ready outputs.</li>
           </ul>
         </div>
 
@@ -159,22 +173,21 @@ const projectAtlasBullets = [
           <p class="font-semibold text-ink">Head of Strategic Operations</p>
           <p class="mt-1 text-sm text-muted">Vale Field Services - Remote - Jul 2019 to Oct 2024</p>
           <ul class="mt-4 list-disc space-y-2 pl-5 text-sm text-muted">
-            <li>Helped scale the company from startup stage to approximately $4M annually by designing and implementing the processes, standards, and execution infrastructure required for growth.</li>
-            <li>Built operational frameworks spanning planning, training, QA, customer coordination, vendor management, and field execution across distributed teams and customer environments.</li>
-            <li>Acted as a strategic partner during pre-deployment planning, helping customers identify best-fit approaches, execution risks, and feasibility constraints before launch.</li>
-            <li>Created repeatable operating rhythms and support structures that improved clarity, responsiveness, and delivery consistency across complex work.</li>
-            <li>Applied systems thinking and targeted automation to reduce operational friction, improve consistency, and strengthen execution without forcing disruptive process change.</li>
-            <li>Kept leadership visibility close to the work through clearer operating cadences, status signals, and follow-through expectations.</li>
+            <li>Helped scale the company from startup stage to approximately $4M in annual revenue by building the processes, vendor networks, training, QA, and delivery infrastructure required for repeatable national growth.</li>
+            <li>Owned operating frameworks across customer onboarding, project planning, documentation, dispatch, subcontractor management, field execution, issue resolution, invoicing readiness, and post-work quality follow-through.</li>
+            <li>Directed distributed teams and vendors through complex multi-site technology and facilities programs for national restaurant, retail, and commercial customers, balancing schedule, quality, cost, and customer experience.</li>
+            <li>Served as a strategic pre-deployment partner by identifying feasibility constraints, site-readiness gaps, installation risks, support requirements, and best-fit execution models before rollout.</li>
+            <li>Created SOPs, escalation paths, training materials, performance standards, and operating cadences that improved consistency across geographically distributed work.</li>
           </ul>
         </div>
       </div>
 
       <div class="mt-10">
         <h2 class="text-xl font-semibold text-ink">Selected systems</h2>
-        <div class="mt-6 grid gap-6 xl:grid-cols-3 xl:items-stretch">
-          <article class="surface flex h-full flex-col p-6 sm:p-8">
+        <div class="mt-6 grid gap-6 xl:grid-cols-2">
+          <article class="surface flex h-full flex-col p-6 sm:p-8 xl:col-span-2">
             <h3 class="text-lg font-semibold text-ink">Atlas-Beren Console</h3>
-            <p class="mt-1 text-sm text-muted">Internal operator control plane for managed AI workflow systems</p>
+            <p class="mt-1 text-sm text-muted">Flagship multi-tenant operations platform for Atlas-Beren Systems</p>
             <ul class="mt-4 flex-1 list-disc space-y-2 pl-5 text-sm text-muted">
               {projectAtlasBullets.map((bullet) => (
                 <li>{bullet}</li>
@@ -190,7 +203,7 @@ const projectAtlasBullets = [
 
           <article class="surface flex h-full flex-col p-6 sm:p-8">
             <h3 class="text-lg font-semibold text-ink">Kansas Electric</h3>
-            <p class="mt-1 text-sm text-muted">Revenue and operations infrastructure</p>
+            <p class="mt-1 text-sm text-muted">Commercial systems and revenue operations infrastructure</p>
             <ul class="mt-4 flex-1 list-disc space-y-2 pl-5 text-sm text-muted">
               {projectKansasBullets.map((bullet) => (
                 <li>{bullet}</li>
@@ -206,19 +219,31 @@ const projectAtlasBullets = [
 
           <article class="surface flex h-full flex-col p-6 sm:p-8">
             <h3 class="text-lg font-semibold text-ink">FreightFlow AI</h3>
-            <p class="mt-1 text-sm text-muted">Freight prospecting and SRM workspace</p>
+            <p class="mt-1 text-sm text-muted">Freight prospecting and relationship-management workspace</p>
             <ul class="mt-4 flex-1 list-disc space-y-2 pl-5 text-sm text-muted">
               {projectFreightBullets.map((bullet) => (
                 <li>{bullet}</li>
               ))}
             </ul>
-            <p class="mt-4 text-sm text-muted">
-              Built around customer acquisition behavior, shared pipeline movement,
-              and useful operator-facing AI outputs instead of generic CRM habits.
-            </p>
             <a
               class="focus-ring mt-6 inline-flex text-sm font-semibold text-accent hover:text-accent-dark"
               href="/technical-projects#freight-flow-ai"
+            >
+              Product breakdown ->
+            </a>
+          </article>
+
+          <article class="surface flex h-full flex-col p-6 sm:p-8">
+            <h3 class="text-lg font-semibold text-ink">LeakLens</h3>
+            <p class="mt-1 text-sm text-muted">Revenue leak recovery product demo</p>
+            <ul class="mt-4 flex-1 list-disc space-y-2 pl-5 text-sm text-muted">
+              {projectLeakLensBullets.map((bullet) => (
+                <li>{bullet}</li>
+              ))}
+            </ul>
+            <a
+              class="focus-ring mt-6 inline-flex text-sm font-semibold text-accent hover:text-accent-dark"
+              href="/technical-projects#leak-lens"
             >
               Product breakdown ->
             </a>

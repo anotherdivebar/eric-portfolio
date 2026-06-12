@@ -1,11 +1,11 @@
 ---
 title: "Atlas-Beren Console"
-summary: "Internal operator control plane for managed AI workflow systems: client workspaces, agent catalog, evidence gates, approvals, integration health, prospecting, and value/risk visibility. Built to turn AI-assisted work from scattered experiments into a governed execution loop."
-why: "Managed workflow delivery breaks down when client context, agent readiness, integration health, approvals, and business development activity live in separate tools. Atlas-Beren needed one operator-grade system to turn scattered work into a controlled execution loop."
+summary: "Flagship multi-tenant operations platform for Atlas-Beren Systems: prospect acquisition, client workspaces, specialized business agents, approval-gated execution, and operator visibility in one production control plane."
+why: "Trade and field-service businesses need more than disconnected CRM tabs and one-off automations. Atlas-Beren Systems needed one platform that could handle prospecting, client delivery, agent execution, approvals, and operating visibility without losing control."
 constraints:
-  - "Built for internal operator leverage, not as a generic customer portal"
+  - "Built as a multi-tenant platform for Atlas-Beren Systems, not as a generic customer portal"
   - "Required evidence, readiness checks, and human approval before live AI-driven actions"
-  - "Needed role-gated access, auditability, and production-safe integration handling"
+  - "Needed org-scoped RBAC, row-level security, auditability, and production-safe integration handling"
   - "Had to support both client delivery and Atlas-Beren's own prospecting motion in one workflow"
 stack:
   - "Next.js 16"
@@ -16,7 +16,7 @@ stack:
   - "Vercel AI Gateway"
   - "Optional GCP services: Vertex AI, GCS, Document AI, BigQuery"
   - "Google Places and Hunter"
-  - "Vitest"
+  - "Vitest (200+ unit tests)"
 decisions:
   - "Designed the agent catalog around operational metadata, not just prompts: runbooks, KPIs, evidence requirements, failure modes, and limits"
   - "Separated mock runs, readiness checks, and live execution paths so rollout could be demonstrated safely before production use"
@@ -28,7 +28,7 @@ tradeoffs:
   - "Put live execution behind environment flags, readiness gates, and role-based access instead of pretending every integration was production-ready from day one"
   - "Deferred deeper secret registry work and per-client prospecting partitioning until the operating model proved itself"
   - "Favored a narrower, usable control loop over a broader platform surface that would be harder to govern"
-outcome: "Built a single control plane for intake, client profiling, agent readiness, evidence review, approval workflows, prospecting, action tracking, and weekly visibility. The result is a more disciplined operating model for delivering AI-enabled workflow systems without losing human oversight."
+outcome: "Built Atlas-Beren Systems' flagship platform for prospect acquisition, client workspaces, specialized agents, approval-gated execution, and weekly visibility — validated with 200+ unit tests and production rollout discipline."
 order: 0
 ---
 
@@ -36,7 +36,7 @@ import AppShowcaseCard from "../../components/AppShowcaseCard.astro";
 
 ## Overview
 
-Atlas-Beren Console is the internal operating system behind Atlas-Beren's managed workflow installs. It brings client workspaces, AI agent rollout, data intake, readiness gates, approvals, integration status, risk visibility, value tracking, and prospecting into one controlled environment.
+Atlas-Beren Console is the flagship multi-tenant operations platform behind Atlas-Beren Systems. It brings prospect acquisition, client workspaces, specialized business agents, readiness gates, approvals, integration status, risk visibility, value tracking, and operator execution into one controlled environment.
 
 The core loop is simple:
 

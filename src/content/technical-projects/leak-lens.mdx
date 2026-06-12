@@ -1,0 +1,44 @@
+---
+title: "LeakLens"
+summary: "Enterprise-style AI revenue leak recovery demo: authenticated product experience with connector management, leak triage, recovery workflows, and reporting built around conversion-oriented product storytelling."
+why: "Revenue recovery products need to feel credible before operators trust them with real CRM and billing data. LeakLens was built to show how leak detection, triage, and recovery could work in a polished product surface."
+constraints:
+  - "Needed to communicate product value quickly without pretending live customer data was connected"
+  - "Required typed APIs, validation, and reliable demo behavior across marketing and product flows"
+  - "Had to feel enterprise-ready while staying lightweight enough to iterate fast"
+stack:
+  - "Next.js"
+  - "React"
+  - "TypeScript"
+  - "React Query"
+  - "Zod"
+  - "Typed mock APIs"
+  - "Playwright"
+decisions:
+  - "Split marketing funnel and authenticated product experience so the demo could tell a clear before-and-after story"
+  - "Used command-palette and keyboard navigation to make the product feel operator-grade, not like a static mockup"
+  - "Validated API contracts with Zod and added Playwright smoke tests so demo reliability did not depend on manual clicking"
+tradeoffs:
+  - "Used mock connectors and typed APIs instead of live billing or CRM integrations in the demo layer"
+  - "Prioritized product clarity and conversion flow over building a full backend from day one"
+outcome: "A conversion-oriented revenue recovery demo with connector management, leak triage, recovery workflows, reporting, and interaction patterns that hold up in live product walkthroughs."
+order: 2
+---
+
+## Overview
+
+LeakLens is a revenue leak recovery product demo built to show how operators could find stalled quotes, dormant accounts, and follow-up gaps before they turn into lost revenue.
+
+The work spans both sides of the funnel: a marketing experience that explains the problem clearly, and an authenticated product layer with connector management, leak triage, recovery workflows, and reporting.
+
+## What it demonstrates
+
+- **Connector and intake layer** for showing how revenue signals could enter one operating surface
+- **Leak triage** so operators can review what is stale, what is blocked, and what needs action
+- **Recovery workflows** with enough structure to feel usable, not like a concept slide
+- **Reporting views** that connect triage work back to business outcomes
+- **Product polish** through command-palette navigation, responsive layouts, runtime validation, and end-to-end smoke tests
+
+## Why it matters
+
+This project is less about another AI headline and more about product credibility. The goal was to make revenue recovery feel like an operator system: visible queues, reviewable actions, and a product surface that could survive a serious walkthrough.
