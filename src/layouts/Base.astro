@@ -1,5 +1,6 @@
 ---
 import "../styles/global.css";
+import Analytics from '@vercel/analytics/astro';
 
 const {
   title = "Eric Martin - Revenue Operations & Technical Systems Leader",
@@ -16,6 +17,7 @@ const {
     <title>{title}</title>
     <meta name="description" content={description} />
     <meta name="robots" content="index, follow" />
+    <Analytics />
   </head>
   <body class="flex min-h-screen flex-col text-ink">
     <a
