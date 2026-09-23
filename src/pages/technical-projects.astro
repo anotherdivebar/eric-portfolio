@@ -60,6 +60,11 @@ const projects = await Promise.all(
                 <h2 class="text-2xl font-semibold text-ink">{project.data.title}</h2>
                 <p class="mt-2 text-muted">{project.data.summary}</p>
               </div>
+              {project.data.detailUrl && (
+                <a class="focus-ring inline-flex rounded-lg bg-accent px-5 py-3 text-sm font-semibold text-white hover:bg-accent-dark" href={project.data.detailUrl}>
+                  Explore the ABS Tooling case study <span class="ml-2" aria-hidden="true">→</span>
+                </a>
+              )}
             </div>
 
             <div class="mt-6 grid gap-5 md:grid-cols-2">
@@ -108,7 +113,7 @@ const projects = await Promise.all(
               </div>
             </div>
 
-            {project.body?.trim() ? (
+            {project.body?.trim() && !project.data.detailUrl ? (
               <div class="prose mt-8 max-w-none border-t border-border pt-8">
                 <Content />
               </div>

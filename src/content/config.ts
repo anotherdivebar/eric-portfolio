@@ -37,7 +37,8 @@ const technicalProjects = defineCollection({
     outcome: z.string(),
     order: z.number().default(0),
     demoUrl: z.string().url().optional(),
-    demoLabel: z.string().optional()
+    demoLabel: z.string().optional(),
+    detailUrl: z.string().startsWith("/").optional()
   })
 });
 

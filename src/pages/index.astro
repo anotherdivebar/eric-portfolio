@@ -191,23 +191,23 @@ const skillPreview = [
           {atlasConsoleProject ? (
             <article class="rounded-2xl border border-white/10 bg-white/5 p-6 sm:p-8">
               <p class="eyebrow text-slate-400">Current platform</p>
-              <h3 class="mt-2 text-xl font-semibold text-white">Atlas-Beren Console</h3>
-              <p class="mt-1 text-sm text-slate-400">Multi-tenant operations platform for Atlas-Beren Systems</p>
+              <h3 class="mt-2 text-xl font-semibold text-white">ABS Tooling</h3>
+              <p class="mt-1 text-sm text-slate-400">Atlas-Beren Console · Connected business workflows</p>
               <p class="mt-3 text-slate-300">
-                Prospect acquisition, client workspaces, specialized business agents,
-                approval-gated execution, and operator visibility in one production
-                control plane.
+                A connected workspace for researching prospects, managing outreach,
+                delivering projects, understanding cash flow, and coordinating
+                operations—with evidence and review built into the work.
               </p>
               <ul class="mt-4 list-disc space-y-2 pl-5 text-sm text-slate-300">
-                <li>Org-scoped RBAC, Supabase Postgres, RLS, and 30+ database migrations</li>
-                <li>Agent framework with readiness guards, approval queues, and Vercel Cron</li>
-                <li>200+ unit tests validating core platform and agent logic</li>
+                <li>Sales research, campaigns, and reply triage</li>
+                <li>Project planning, finance, and connected operations</li>
+                <li>Client workspaces, scoped access, and approval-gated AI</li>
               </ul>
               <a
                 class="focus-ring mt-6 inline-flex text-sm font-semibold text-sky-300 hover:text-white"
-                href={`/technical-projects#${atlasConsoleProject.slug}`}
+                href={atlasConsoleProject.data.detailUrl ?? `/technical-projects#${atlasConsoleProject.slug}`}
               >
-                System overview ->
+                Explore the full build →
               </a>
             </article>
           ) : null}

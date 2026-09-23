@@ -1,133 +1,226 @@
 ---
-title: "Atlas-Beren Console"
-summary: "Flagship multi-tenant operations platform for Atlas-Beren Systems: prospect acquisition, client workspaces, specialized business agents, approval-gated execution, and operator visibility in one production control plane."
-why: "Trade and field-service businesses need more than disconnected CRM tabs and one-off automations. Atlas-Beren Systems needed one platform that could handle prospecting, client delivery, agent execution, approvals, and operating visibility without losing control."
+title: "ABS Tooling / Atlas-Beren Console"
+summary: "A connected business platform spanning prospect research, outreach, marketing, project delivery, cash planning, field operations, and job billing—with client workspaces and governed AI."
+why: "Growth creates handoffs: a researched account becomes a deal, a won deal becomes delivery, and completed work needs a reliable billing record. I built ABS Tooling to carry context, evidence, and ownership through those transitions."
 constraints:
-  - "Built as a multi-tenant platform for Atlas-Beren Systems, not as a generic customer portal"
-  - "Required evidence, readiness checks, and human approval before live AI-driven actions"
-  - "Needed org-scoped RBAC, row-level security, auditability, and production-safe integration handling"
-  - "Had to support both client delivery and Atlas-Beren's own prospecting motion in one workflow"
+  - "Keep customer organizations separate, with explicit module access and delegated agency permissions"
+  - "Separate demo data, planning assumptions, and live execution"
+  - "Require review at consequential handoffs and retain the history behind decisions"
+  - "Handle stale edits, repeated requests, incomplete evidence, and uncertain provider responses"
 stack:
-  - "Next.js 16"
-  - "React 19"
-  - "TypeScript"
-  - "Supabase Auth, RLS, and Postgres"
-  - "Vercel and Vercel Cron"
-  - "Vercel AI Gateway"
-  - "Optional GCP services: Vertex AI, GCS, Document AI, BigQuery"
-  - "Google Places and Hunter"
-  - "Vitest (200+ unit tests)"
+  - "Next.js, React, and TypeScript"
+  - "Supabase Auth, Postgres, row-level security, and private Storage"
+  - "Vercel, scheduled jobs, and AI Gateway"
+  - "Overture Maps discovery, Hunter verification, and Zoho Mail"
+  - "Vitest and PostgreSQL policy tests with PGlite"
+  - "Local MCP server with scoped tools"
 decisions:
-  - "Designed the agent catalog around operational metadata, not just prompts: runbooks, KPIs, evidence requirements, failure modes, and limits"
-  - "Separated mock runs, readiness checks, and live execution paths so rollout could be demonstrated safely before production use"
-  - "Kept sensitive integrations environment-backed and masked in the UI rather than exposing immature secret handling"
-  - "Treated Prospect Finder as both an internal growth engine and a client-assignable workflow surface"
-  - "Built the workspace around operator decisions: what needs review, what is blocked, what is stale, what is ready, and what should happen next"
+  - "Share business rules across demo and authenticated workflows while isolating their data"
+  - "Use one module inventory for navigation and server-side access enforcement"
+  - "Preview and review delivery handoffs, schedule changes, and operational actions"
+  - "Keep immutable billing history separate from editable operational documents"
 tradeoffs:
-  - "Prioritized control, auditability, and trust over flashy autonomous behavior"
-  - "Put live execution behind environment flags, readiness gates, and role-based access instead of pretending every integration was production-ready from day one"
-  - "Deferred deeper secret registry work and per-client prospecting partitioning until the operating model proved itself"
-  - "Favored a narrower, usable control loop over a broader platform surface that would be harder to govern"
-outcome: "Built Atlas-Beren Systems' flagship platform for prospect acquisition, client workspaces, specialized agents, approval-gated execution, and weekly visibility — validated with 200+ unit tests and production rollout discipline."
+  - "Planning scenarios describe assumptions; they do not change accounting records"
+  - "Marketing stages describe work in progress; they do not prove publication"
+  - "Native billing records invoices and receipts; payment collection and ledger posting remain separate"
+  - "Provider-dependent execution requires configured integrations and appropriate authorization"
+outcome: "Built seven entitlement modules, eight connected operations workflows, and ten scoped MCP tools. The September 23, 2026 release records 862 passing tests and one existing skip; screenshots show demo scenarios, not measured customer results."
 order: 0
+detailUrl: "/abs-tooling"
 ---
 
-import AppShowcaseCard from "../../components/AppShowcaseCard.astro";
+import ProjectScreenshot from "../../components/ProjectScreenshot.astro";
 
-## Overview
+## The problem
 
-Atlas-Beren Console is the flagship multi-tenant operations platform behind Atlas-Beren Systems. It brings prospect acquisition, client workspaces, specialized business agents, readiness gates, approvals, integration status, risk visibility, value tracking, and operator execution into one controlled environment.
+A business can have a CRM, a project board, accounting software, and several automations and still lose the thread between them. Research stays in a browser tab. A salesperson's promise never reaches the delivery plan. A finished job has costs attached but no reviewed invoice. Leadership sees separate reports instead of the work that needs a decision.
 
-The core loop is simple:
+I built ABS Tooling around those transitions. Atlas-Beren Console started as an operator workspace for client context, agents, approvals, and prospecting. It has grown into a modular platform that connects acquisition, delivery, financial planning, and service operations.
 
-`Today -> client workspace -> readiness -> agent run -> evidence review -> approval -> action -> visibility`
+My work covers the product model, interface, business rules, integrations, database access policies, and verification. The recurring design question is practical: **what does the operator need to know, review, and do next?**
 
-Instead of treating AI agents as self-contained black boxes, the console treats them like operational systems: they need context, evidence, constraints, approval paths, audit trails, and measurable business value.
+<ProjectScreenshot
+  src="/assets/atlas-beren/workspace-overview.png"
+  alt="Atlas-Beren Console overview with navigation into sales, marketing, financials, and projects"
+  width={1264}
+  height={625}
+  caption="One workspace connects the major areas of business work. This and the following screenshots use demo or QA records; figures illustrate behavior rather than customer outcomes."
+/>
 
-## Problem
+## What I built
 
-One operator managing clients, workflow automations, AI agents, integrations, prospecting, and follow-up cannot rely on disconnected spreadsheets, dashboards, browser tabs, and one-off scripts.
+The platform has **seven permissioned modules**: CRM, Prospect Finding, Marketing, Financial, Automation, Project Management, and Connected Operations & CMMS. A customer can use the parts relevant to their work; agency staff access customer organizations through explicit delegation.
 
-The real risk is not just missed work. It is invisible work.
-
-Stale follow-up, incomplete intake, broken integrations, unreviewed outputs, weak evidence, and unclear ownership all create operational drag. Atlas-Beren Console was built to keep those gaps surfaced before they become client-facing problems.
-
-## Core workspace
-<div class="grid gap-5 md:grid-cols-2">
-  <div class="md:col-span-2">
-    <AppShowcaseCard
-      title="Atlas-Beren Console"
-      problem="A private operator control plane for building and managing AI-enabled workflow systems."
-      stack="Next.js 16, React 19, TypeScript, Supabase Auth/RLS/Postgres, Vercel, Vercel Cron, AI Gateway, optional GCP services, Google Places, Hunter, Vitest"
-      impact="Consolidated intake, profiling, readiness, agent runs, approvals, prospecting, and operator visibility into one execution loop."
-    />
+<div class="capability-grid">
+  <div>
+    <h3>Find and qualify work</h3>
+    <p>Company discovery, website research, evidence-backed account review, saved queues, CRM, outreach campaigns, and reply triage.</p>
+  </div>
+  <div>
+    <h3>Plan and deliver</h3>
+    <p>Marketing workboards, content calendars, reviewed deal handoffs, project dependencies, workload, and saved capacity plans.</p>
+  </div>
+  <div>
+    <h3>Understand the numbers</h3>
+    <p>Source-aware financial summaries, receivables, cash scenarios, job costs, reviewed invoices, and recorded payments.</p>
+  </div>
+  <div>
+    <h3>Run connected operations</h3>
+    <p>Document takeoff, estimating, delivery jobs, inventory, asset maintenance, operational history, and approval-gated agents.</p>
   </div>
 </div>
 
-## Interface snapshots
-<div class="grid gap-4 md:grid-cols-2">
-  <figure class="surface p-3 md:col-span-2">
-    <img src="/assets/atlas-beren/console%20overview.png" alt="Atlas-Beren Console dashboard with client health, open decisions, agent coverage, and recent activity" class="w-full rounded-xl border border-border" loading="lazy" />
-    <figcaption class="mt-2 text-sm text-muted">Owner dashboard with readiness averages, open decisions, agent coverage, and the signals that need attention across the client portfolio.</figcaption>
-  </figure>
-  <figure class="surface p-3">
-    <img src="/assets/atlas-beren/agent%20systems%20overview.png" alt="Atlas-Beren Console agent systems overview with six headline agents for SMB contractors" class="w-full rounded-xl border border-border" loading="lazy" />
-    <figcaption class="mt-2 text-sm text-muted">Agent systems layer covering prospecting, finance, ads, dispatch, reviews, and the business health cockpit — each with clear goals, run modes, and approval boundaries.</figcaption>
-  </figure>
-  <figure class="surface p-3">
-    <img src="/assets/atlas-beren/business%20health%20overview.png" alt="Atlas-Beren Console business health cockpit with cross-agent KPIs and attention queue" class="w-full rounded-xl border border-border" loading="lazy" />
-    <figcaption class="mt-2 text-sm text-muted">Business health view synthesizing finance, dispatch, and reviews into one owner-facing attention queue with cash, AR, scheduling, and reputation signals.</figcaption>
-  </figure>
-  <figure class="surface p-3">
-    <img src="/assets/atlas-beren/data%20sources%20overview.png" alt="Atlas-Beren Console data sources table with client imports, quality scores, and freshness status" class="w-full rounded-xl border border-border" loading="lazy" />
-    <figcaption class="mt-2 text-sm text-muted">Data sources view tracking imports, catalog rows, quality scores, and freshness before agents run against client context.</figcaption>
-  </figure>
-  <figure class="surface p-3">
-    <img src="/assets/atlas-beren/prospect%20finder%20example.png" alt="Atlas-Beren Console Prospect Finder account brief with fit score and revenue leak hypothesis" class="w-full rounded-xl border border-border" loading="lazy" />
-    <figcaption class="mt-2 text-sm text-muted">Prospect Finder account brief with fit scoring, evidence, recommended first system, and a suggested outreach angle grounded in operational signals.</figcaption>
-  </figure>
-  <figure class="surface p-3 md:col-span-2">
-    <img src="/assets/atlas-beren/strategic%20partners%20example.png" alt="Atlas-Beren Console strategic partners pipeline with filters, fit scores, and outreach tracking" class="w-full rounded-xl border border-border" loading="lazy" />
-    <figcaption class="mt-2 text-sm text-muted">Strategic partners workspace for filtering, scoring, staging, and tracking partner outreach with follow-up ownership built in.</figcaption>
-  </figure>
+A shared action inbox brings source-backed exceptions into view: overdue follow-up, work awaiting review, project blockers, and financial findings. Resolving the underlying record clears the exception on refresh. That keeps the inbox tied to the work instead of creating another task list to maintain.
+
+## Sales and research
+
+### From company discovery to a defensible next step
+
+Prospect Finder uses Overture Maps place data, selecting relevant geographic data and row groups instead of loading an entire dataset. Company research checks a bounded set of public website pages, surfaces identity conflicts, and retains the sources behind an account assessment.
+
+The review workspace combines fit scoring, website observations, enrichment, and shortlist decisions. Operators can save a named review queue, resume unfinished research, and skip accounts already reviewed. A website audit can become a shareable report rather than disappearing into a chat response.
+
+<ProjectScreenshot
+  src="/assets/atlas-beren/prospect-review.png"
+  alt="Prospect account review showing research, fit scoring, and shortlist controls"
+  width={1440}
+  height={1000}
+  caption="The account review keeps qualification and its supporting research together before an operator moves an account into the pipeline."
+/>
+
+### Outreach with an execution model
+
+I built researched campaigns around named recipients, company and role evidence, and fresh email verification. Operators can edit sequences, review messages, set schedules and volume caps, and use configured Zoho Mail delivery and reply synchronization. Reply triage and confirmed outcomes connect the response back to the sales workflow.
+
+Execution supports individual approvals or explicitly authorized campaign rules. Send claims and content fingerprints protect dispatch from duplicate work. If a provider response leaves delivery uncertain, the message becomes unknown and automatic retries stop—sending twice is not an acceptable way to resolve uncertainty.
+
+### Marketing as delivery work
+
+The marketing module brings website audits, content drafts, editorial calendars, campaign planning, and review stages into a client-aware workspace. A board shows work moving toward review and completion; a calendar puts publishing targets and unscheduled work in context. Stage changes use revision checks so an older edit cannot silently overwrite a teammate's work.
+
+<ProjectScreenshot
+  src="/assets/atlas-beren/marketing-board.png"
+  alt="Marketing board with portfolio filters and work organized by delivery stage"
+  width={1440}
+  height={1000}
+  caption="Marketing work can be reviewed by portfolio, capability, and stage. These are planning records; moving a card does not publish content or launch an ad."
+/>
+
+## Projects and delivery
+
+### Carry the sales context into the delivery plan
+
+A won deal can become a linked project through an explicit review of scope, owner, dates, and billing expectations. The server checks that the source deal belongs to the workspace and is still valid. Repeated handoffs reopen the existing linked project instead of creating duplicates.
+
+Guided playbooks expand into real project tasks with owners, dates, dependencies, and review instructions. On-demand recipes preview changes such as assigning unowned work or escalating overdue tasks before applying them. Personal checklist ticks remain distinct from shared approvals.
+
+### Make schedule and capacity decisions visible
+
+Dependency-aware rescheduling previews the selected task and affected successors, preserves durations, and rejects conflicts or cycles. Approved changes save together with before-and-after history.
+
+Portfolio capacity compares estimated effort with weekly availability. Saved plans can account for holidays and owner time off, making overload visible before work is reassigned. These are planning estimates, not timekeeping or automatic resource scheduling.
+
+<ProjectScreenshot
+  src="/assets/atlas-beren/project-capacity.png"
+  alt="Project portfolio workload comparing estimated effort with owner capacity"
+  width={1440}
+  height={1000}
+  caption="The demo exposes an overloaded owner by comparing planned hours with weekly capacity. The value is a visible delivery constraint and a place to act on it."
+/>
+
+## Finance and operations
+
+### Cash planning with the assumptions attached
+
+The finance workspace combines cash, receivables, aging, and scenario planning. Operators can save named scenarios, compare collection-delay assumptions, add recurring adjustments, and inspect a 13-week projection against a minimum reserve.
+
+Financial summaries distinguish missing data from zero, keep currencies separate, and disclose freshness and source coverage. Native job invoice balances are kept separate from imported accounting balances. Recording a receipt against an ABS invoice does not pretend to update a bank account.
+
+<div class="finance-screens">
+  <ProjectScreenshot
+    src="/assets/atlas-beren/cash-scenarios.png"
+    alt="Cash planning controls for saving and comparing financial scenarios"
+    width={1264}
+    height={625}
+    caption="Saved scenarios retain planning assumptions so an operator can compare alternatives against the same loaded source records."
+  />
+  <ProjectScreenshot
+    src="/assets/atlas-beren/cash-planning-mobile.png"
+    alt="Mobile cash planning view with a modeled trajectory and projected shortfall"
+    width={390}
+    height={844}
+    caption="The mobile view exposes the modeled trajectory and potential shortfall. These projections are hypothetical, not ledger transactions."
+  />
 </div>
 
-## Approach
+### Estimate, execute, maintain, and bill
 
-The console is catalog-driven. Agents are not stored as loose prompts or vague automation ideas. Each agent carries operational metadata: purpose, runbook, required evidence, readiness criteria, KPIs, risk notes, and operating limits.
+Connected Operations combines **eight configurable workflows** around shared customers, estimates, jobs, assets, inventory, and costs. Document takeoff supports reviewed PDF, image, and text evidence; calibrated counts, lengths, and areas; and itemized estimating with waste and markup calculations.
 
-Client workspaces track the context needed to make those agents useful: intake data, unified profiles, source material, integration status, activity, approvals, and follow-up actions. Prospect Finder sits inside the same system, which means growth work and client delivery share the same discipline around qualification, review, and next steps.
+AI extraction is limited to stated quantities with page or excerpt evidence. Missing scope stays a gap for a person to resolve. Original documents are archived privately with content hashes, incomplete estimates can be reopened, and accepted revisions retain the earlier versions.
 
-The design principle was simple: AI should accelerate the operator, not bypass the operating model.
+Accepted estimates carry itemized expectations into linked jobs. Completion records actual material, labor, equipment, and subcontract costs. Stock-linked materials retain their cost basis and deduct quantities once. Maintenance workflows can create the next preventive visit from completed service work.
 
-## What shipped
+<ProjectScreenshot
+  src="/assets/atlas-beren/connected-job-financials.png"
+  alt="Connected operations demo showing completed service work and recorded job costs in financials"
+  width={1264}
+  height={625}
+  caption="The connected demo carries completed service work and recorded actual costs into job financials, preserving the link between delivery and its financial picture."
+/>
 
-- **Client workspaces** with per-client agents, CSV intake, unified profiling, evidence gates, readiness checks, activity history, approvals, and post-approval actions.
-- **Agent catalog** with 30+ operator-facing agents across readiness, client operations, revenue recovery, growth, prospecting, governance, and cost control.
-- **Operator Today view** ranking client work, failed runs, pending approvals, integration health, stale follow-ups, and prospecting tasks in one morning queue.
-- **Integration control panel** with masked environment-backed status for AI Gateway, GCP/Vertex, Places, Hunter, HubSpot, n8n webhooks, GCS, and scheduled feeds.
-- **Prospect Finder** for local/company discovery, AI-generated account briefs, optional enrichment, pipeline tracking, and approval-first outbound preparation.
-- **Governance layer** with human approval for external actions, mock versus live run separation, readiness override logging, and estimated versus verified value tracking.
-- **Owner visibility views** that turn the same operational queues into status, risk, and next-action reporting without rebuilding updates by hand.
+Native billing extends that connection. A completed job with an accepted estimate can open a persistent invoice using the agreed server-side price. Billing details and tax receive explicit review; issuance freezes the invoice. Operators record payments already received, including partial receipts, and correct mistakes with auditable reversals that preserve the original entry.
 
-## Architecture
+<div class="build-note">
+  <p><strong>A deliberate boundary:</strong> issuing an invoice records it in the workspace. It does not email a customer, collect a payment, post a ledger entry, or reconcile a bank account. Those actions require their own integrations and controls.</p>
+</div>
 
-Supabase handles authentication, role-gated access, row-level security, and Postgres-backed state. Vercel handles deployment, scheduled checks, and lightweight operational monitoring. Integration status is metadata-first and environment-backed, with sensitive details masked from the browser.
+## A connected workflow
 
-Live agent execution can route through Vercel AI Gateway, while optional GCP services support heavier workflows like document processing, model execution, storage, and analytics when needed. The architecture is intentionally staged: demo-safe, operator-safe, and production-conscious without pretending the system is more mature than it is.
+This is how the implemented handoffs support a service job. Each step preserves the context needed by the next, while keeping consequential decisions visible.
 
-## Lessons learned
+<ol class="workflow-steps">
+  <li><strong>Review the scope and evidence</strong><p>Inspect the source document, quantities, missing information, and itemized estimate. Save a draft until the scope is ready.</p></li>
+  <li><strong>Accept the estimate</strong><p>Carry the agreed scope and expected costs into a linked delivery job, retaining the accepted estimate version.</p></li>
+  <li><strong>Complete the work</strong><p>Record delivery details and itemized actuals. Apply stock movements once and preserve job history.</p></li>
+  <li><strong>Review and issue the invoice</strong><p>Use the completed job and agreed price, confirm billing and tax details, then freeze the issued record.</p></li>
+  <li><strong>Track the balance and the next visit</strong><p>Record received payments against the invoice. Where maintenance applies, keep the next service visit connected to the asset.</p></li>
+</ol>
 
-- Evidence beats autonomy. An agent is only useful if the operator can trust what it used, what it produced, and what should happen next.
-- Human approval is not friction. For business-critical workflows, it is the control layer that makes AI usable.
-- Integration health belongs in the operator's daily workflow, not buried in a settings page.
-- Metadata-first agent design is more durable than a pile of disconnected prompts.
-- Prospecting, recovery, and delivery work better when they share the same system of readiness, review, ownership, and action.
-- The best AI workflow systems do not remove the operator. They make the operator dramatically more effective.
+## Engineering decisions
 
-## What is next
+### Shared business rules, separate execution contexts
 
-- Per-client Prospect Finder partitioning for cleaner separation between Atlas-Beren growth work and client-assigned prospecting workflows.
-- Live integration probes beyond env and metadata checks.
-- Encrypted secret registry when the current environment-backed approach becomes the limiting factor.
-- Deeper value verification loops connecting agent activity to actual recovered revenue, saved time, or generated pipeline.
+The application uses Next.js, React, and TypeScript, with Supabase authentication, Postgres, row-level security, and private file storage. Vercel supports deployment and scheduled work; AI Gateway and provider-specific adapters support configured live workflows.
+
+Demo and authenticated surfaces reuse business rules while keeping state isolated. Demonstrating an estimate, scenario, or project does not require customer records or invoke a live delivery adapter. Production failures do not silently fall back to demo persistence.
+
+### Permissions follow the workspace
+
+A common module inventory drives navigation and server enforcement. Customer organizations have their own memberships and enabled modules; agency access is explicitly delegated. Role and tenant checks happen at the API and database layers. Hiding a button is only the interface expression of an enforced permission.
+
+### Protect the handoffs, not just the happy path
+
+Operational edits use revision checks and retained history. Stale previews are rejected before a recipe or schedule update is applied. Database uniqueness protects deal-to-project handoffs from duplication.
+
+Billing uses separate normalized tables for invoices, immutable payment entries, invoice events, and idempotent commands. Atomic database operations and locks protect repeated requests and concurrent changes. The design preserves what happened, even when an operator needs to correct it.
+
+### Give AI a bounded job
+
+Agents carry evidence requirements, readiness checks, structured outputs, and review paths. The live runner validates its output before persistence; a proposed action remains distinct from permission to execute it.
+
+I also built a local MCP interface with **ten scoped tools**: six reads and four controlled writes for drafts, tasks, and prospect review. The tools use shared services, validated inputs, sanitized summaries, and audit logging. They expose specific business actions rather than arbitrary database or shell access.
+
+## Delivery and boundaries
+
+The result is a broader operating platform than the original agent console: research and outreach, marketing production, project delivery, cash planning, field operations, and job billing now have concrete workflows and explicit handoffs.
+
+The **September 23, 2026 billing release records 862 passing tests and one existing skip**, alongside TypeScript, build, PostgreSQL permission and lifecycle tests, and desktop and mobile browser checks. Those checks cover cases such as cross-tenant access, stale changes, duplicate requests, partial receipts, and reversals. They are documented release evidence, not a claim of customer adoption or financial return.
+
+<div class="build-note">
+  <p><strong>Built capability and rollout are different milestones.</strong> The latest release records the billing migration as applied, with no production invoices or payments created during verification. The screenshots here show demo and QA scenarios.</p>
+</div>
+
+The remaining work includes provider-backed publishing and advertising, live accounting synchronization and reconciliation, broader customer onboarding verification, and recurring off-site backups. Project capacity remains estimated, financial planning remains assumption-driven, and larger rollouts need to respect the current bounded data models.
+
+What this build demonstrates is my ability to connect business process design with the implementation details that make a system dependable: ownership, permissions, evidence, review, persistence, and recovery. Each new module has to fit the operating workflow, not simply add another screen.

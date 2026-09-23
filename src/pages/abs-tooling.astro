@@ -1,0 +1,89 @@
+---
+import Base from "../layouts/Base.astro";
+import { getEntry } from "astro:content";
+
+const project = await getEntry("technical-projects", "atlas-beren-console");
+if (!project) throw new Error("ABS Tooling case study is missing.");
+const { Content } = await project.render();
+
+const sections = [
+  { id: "the-problem", label: "The problem" },
+  { id: "what-i-built", label: "What I built" },
+  { id: "sales-and-research", label: "Sales & research" },
+  { id: "projects-and-delivery", label: "Projects & delivery" },
+  { id: "finance-and-operations", label: "Finance & operations" },
+  { id: "a-connected-workflow", label: "A connected workflow" },
+  { id: "engineering-decisions", label: "Engineering" },
+  { id: "delivery-and-boundaries", label: "Delivery & boundaries" }
+];
+---
+
+<Base title="ABS Tooling / Atlas-Beren Console - Eric Martin" description="Inside Eric Martin’s ABS Tooling build: prospect research, outreach, project delivery, finance, connected operations, and governed AI in the Atlas-Beren Console.">
+  <section class="pb-12 pt-10 sm:pt-14">
+    <div class="page-container">
+      <a href="/technical-projects#atlas-beren-console" class="focus-ring inline-flex text-sm font-semibold text-accent hover:text-accent-dark">← All projects</a>
+      <div class="section-dark mt-6 overflow-hidden rounded-[32px] border border-slate-800 px-6 py-9 text-white sm:px-10 sm:py-12">
+        <p class="eyebrow">Featured build / Atlas-Beren Systems</p>
+        <h1 class="mt-4 text-4xl font-semibold tracking-tight sm:text-6xl">ABS Tooling</h1>
+        <p class="mt-4 max-w-3xl text-2xl leading-snug text-slate-100 sm:text-3xl">From finding the opportunity to running the work.</p>
+        <p class="mt-5 max-w-3xl text-base leading-relaxed text-slate-300 sm:text-lg">
+          I built Atlas-Beren Console to connect the work that usually falls between tools:
+          researching a prospect, following up, planning delivery, tracking cash, and keeping
+          the next decision visible. ABS Tooling is the wider build behind that workspace.
+        </p>
+        <dl class="mt-9 grid gap-6 border-t border-white/15 pt-7 sm:grid-cols-3">
+          <div><dt class="text-xs uppercase tracking-[0.16em] text-slate-400">My role</dt><dd class="mt-2 text-sm leading-relaxed text-slate-100">Product direction, workflow design, architecture, and implementation</dd></div>
+          <div><dt class="text-xs uppercase tracking-[0.16em] text-slate-400">Built for</dt><dd class="mt-2 text-sm leading-relaxed text-slate-100">Atlas-Beren operators and trade / service business workspaces</dd></div>
+          <div><dt class="text-xs uppercase tracking-[0.16em] text-slate-400">Core idea</dt><dd class="mt-2 text-sm leading-relaxed text-slate-100">Carry context, evidence, and ownership from one step to the next</dd></div>
+        </dl>
+      </div>
+    </div>
+  </section>
+
+  <div class="page-container grid items-start gap-8 pb-16 lg:grid-cols-[210px_minmax(0,1fr)] lg:gap-12">
+    <aside class="rounded-2xl border border-border bg-white p-5 lg:sticky lg:top-28">
+      <p id="case-study-nav" class="eyebrow">Inside the build</p>
+      <nav aria-labelledby="case-study-nav" class="mt-4 flex flex-wrap gap-x-5 gap-y-3 lg:flex-col">
+        {sections.map((section) => (
+          <a class="focus-ring text-sm leading-relaxed text-muted transition hover:text-accent" href={`#${section.id}`}>{section.label}</a>
+        ))}
+      </nav>
+    </aside>
+    <article class="abs-story min-w-0">
+      <Content />
+      <div class="mt-12 flex flex-wrap items-center justify-between gap-4 border-t border-border pt-7">
+        <a class="focus-ring text-sm font-semibold text-accent hover:text-accent-dark" href="/technical-projects">← Explore more projects</a>
+        <a class="focus-ring rounded-lg bg-accent px-5 py-3 text-sm font-semibold text-white hover:bg-accent-dark" href="/contact">Talk about a similar challenge</a>
+      </div>
+    </article>
+  </div>
+</Base>
+
+<style is:global>
+  .abs-story { color: #5a616d; line-height: 1.8; }
+  .abs-story h2 { color: #0e0f12; font-size: clamp(1.5rem, 3vw, 2rem); font-weight: 600; line-height: 1.25; margin: 3.5rem 0 1rem; scroll-margin-top: 10rem; }
+  .abs-story h2:first-child { margin-top: 0; }
+  .abs-story h3 { color: #0e0f12; font-size: 1.125rem; font-weight: 600; line-height: 1.4; margin: 1.75rem 0 0.65rem; }
+  .abs-story p { margin-bottom: 1rem; }
+  .abs-story strong { color: #0e0f12; font-weight: 600; }
+  .abs-story ul { margin: 1rem 0 1.5rem; padding-left: 1.25rem; list-style: disc; }
+  .abs-story li { margin-bottom: 0.65rem; }
+  .abs-story .project-screenshot { margin: 1.75rem 0; }
+  .abs-story .project-screenshot p { margin: 0; }
+  .abs-story .build-note { margin: 1.5rem 0; border-left: 3px solid #1f4fd1; background: #edf2fc; padding: 1rem 1.25rem; border-radius: 0 0.75rem 0.75rem 0; font-size: 0.875rem; }
+  .abs-story .build-note p:last-child { margin-bottom: 0; }
+  .abs-story .capability-grid { display: grid; gap: 1rem; margin: 1.5rem 0; }
+  .abs-story .capability-grid > div { padding: 1.25rem; background: white; border: 1px solid #e2e6ea; border-radius: 1rem; }
+  .abs-story .capability-grid h3 { margin-top: 0; }
+  .abs-story .capability-grid p { margin-bottom: 0; font-size: 0.9375rem; }
+  .abs-story .workflow-steps { list-style: none; padding: 0; margin: 1.5rem 0; counter-reset: workflow; }
+  .abs-story .workflow-steps li { position: relative; padding: 0 0 1.25rem 3.25rem; margin: 0; counter-increment: workflow; }
+  .abs-story .workflow-steps li::before { content: counter(workflow, decimal-leading-zero); position: absolute; left: 0; top: 0; color: #1f4fd1; background: #eaf0fd; border-radius: 0.5rem; width: 2.25rem; height: 2.25rem; display: grid; place-items: center; font-size: 0.8rem; font-weight: 600; }
+  .abs-story .workflow-steps strong { display: block; }
+  .abs-story .workflow-steps p { margin: 0.25rem 0 0; }
+  .abs-story .finance-screens { display: grid; align-items: start; gap: 1rem; margin: 1.75rem 0; }
+  .abs-story .finance-screens .project-screenshot { margin: 0; }
+  .abs-story .finance-screens .project-screenshot:last-child { width: min(100%, 280px); justify-self: center; }
+  @media (min-width: 640px) { .abs-story .capability-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+  @media (min-width: 768px) { .abs-story .finance-screens { grid-template-columns: minmax(0, 1fr) 220px; } }
+</style>

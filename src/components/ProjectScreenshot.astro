@@ -1,0 +1,23 @@
+---
+interface Props {
+  src: string;
+  alt: string;
+  caption: string;
+  width: number;
+  height: number;
+}
+
+const { src, alt, caption, width, height } = Astro.props;
+---
+
+<figure class="project-screenshot not-prose overflow-hidden rounded-2xl border border-border bg-white">
+  <a href={src} class="focus-ring block bg-panel" aria-label={`Open full-size screenshot: ${alt}`}>
+    <img src={src} alt={alt} width={width} height={height} loading="lazy" decoding="async" class="h-auto w-full" />
+  </a>
+  <figcaption class="border-t border-border px-5 py-4">
+    <p class="text-sm leading-relaxed text-muted">{caption}</p>
+    <a href={src} class="focus-ring mt-2 inline-flex text-xs font-semibold text-accent hover:text-accent-dark" aria-label={`View full size: ${alt}`}>
+      View full size <span class="ml-1" aria-hidden="true">→</span>
+    </a>
+  </figcaption>
+</figure>
