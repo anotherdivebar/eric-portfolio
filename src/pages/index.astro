@@ -1,337 +1,131 @@
 ---
 import Base from "../layouts/Base.astro";
-import { getCollection } from "astro:content";
-
-const technicalProjects = (await getCollection("technical-projects")).sort(
-  (a, b) => a.data.order - b.data.order
-);
-const atlasConsoleProject = technicalProjects.find(
-  (project) => project.slug === "atlas-beren-console"
-);
-const freightFlowProject = technicalProjects.find(
-  (project) => project.slug === "freight-flow-ai"
-);
-const kansasCaseStudy = (await getCollection("case-studies")).find(
-  (c) => c.slug === "kansas-electric"
-);
-
-const headshotUrl = "/eric%202026%20headshot.png";
 
 const proofPoints = [
+  { value: "~$2M", label: "closed in the first 60 days", context: "Kansas Electric · 2024–25 role", href: "/work/kansas-electric" },
+  { value: "$100M+", label: "opportunities presented", context: "Kansas Electric · 2025", href: "/work/kansas-electric" },
+  { value: "$200M+", label: "forward 24-month pipeline", context: "Kansas Electric · 2024–25 role", href: "/work/kansas-electric" },
+  { value: "~$4M", label: "annual operating scale", context: "Vale Field Services", href: "/work/program-delivery-at-scale" }
+];
+const selectedWork = [
   {
-    value: "$2M",
-    label: "closed in 60 days",
-    context: "Kansas Electric"
+    label: "Connected business platform", title: "ABS Tooling", href: "/abs-tooling",
+    image: "/assets/atlas-beren/workspace-overview.png", alt: "ABS Console overview with business workflow modules", width: 1264, height: 625,
+    body: "Prospect research, outreach, project delivery, cash planning, and field operations connected through one workspace.",
+    detail: "Explore the workflows, engineering decisions, and estimate-to-invoice lifecycle.", cta: "Explore the full build"
   },
   {
-    value: "$100M+",
-    label: "presented opportunities",
-    context: "Kansas Electric, 2025"
+    label: "Commercial and operational systems", title: "Kansas Electric", href: "/work/kansas-electric",
+    image: "/assets/kse/CRM%20Main.png", alt: "Kansas Electric internal CRM workspace", width: 1255, height: 942,
+    body: "Business development paired with CRM, estimating, and field-reporting tools for an electrical contractor.",
+    detail: "See the commercial context and the applications built to support day-to-day work.", cta: "Read the case study"
   },
   {
-    value: "$200M+",
-    label: "forward pipeline",
-    context: "24-month outlook"
-  },
-  {
-    value: "~$4M",
-    label: "annual scale",
-    context: "Vale Field Services"
+    label: "Freight sales workspace", title: "FreightFlow AI", href: "/technical-projects/freight-flow-ai",
+    image: "/assets/freightflow/finder-overview.png", alt: "FreightFlow shipper finder and account research", width: 1024, height: 512,
+    body: "Shipper discovery, account briefs, public contact research, and a shared pipeline for a small brokerage team.",
+    detail: "Follow an account from discovery through research and sales follow-up.", cta: "Read the project breakdown"
   }
 ];
-
-const commandSignals = [
-  "Growth bottlenecks surfaced before they live in spreadsheets or memory",
-  "Pipeline, field work, and owner visibility tied to the same operating picture",
-  "Internal apps and automations shaped around how operators already work",
-  "Approval-gated execution for sensitive or customer-facing actions",
-  "Production systems with tests, auditability, and rollout discipline"
-];
-
-const focusAreas = [
-  {
-    title: "Find revenue",
-    body: "Prospecting workflows, account research, bid and RFP visibility, lead capture, and approved outbound queues that turn interest into accountable follow-up."
-  },
-  {
-    title: "Recover revenue",
-    body: "Stale quotes, dormant leads, CRM rows with no next step, and weak follow-up surfaced in queues where ownership and next action are clear."
-  },
-  {
-    title: "Control operations",
-    body: "Front office, back office, field status, scheduling, documents, and reporting loops kept visible instead of rebuilt from memory every week."
-  },
-  {
-    title: "Govern AI-assisted work",
-    body: "Agent catalogs, readiness gates, evidence review, human approval, and audit trails so AI accelerates operators without bypassing the operating model."
-  }
-];
-
-const skillPreview = [
-  "Revenue Operations",
-  "Technical Systems",
-  "Business Development",
-  "Field Operations",
-  "Execution Infrastructure",
-  "Pipeline & Forecasting",
-  "Internal Apps",
-  "Approval-Gated Automation",
-  "Operating Visibility",
-  "AI-Enabled Workflows"
+const approach = [
+  { number: "01", title: "Understand the work", body: "Trace how an opportunity becomes a commitment, how work reaches the field, and where people lose context or wait for a decision." },
+  { number: "02", title: "Build around the handoffs", body: "Make ownership, required information, and review points explicit. Then build the application, integration, or automation that supports them." },
+  { number: "03", title: "Stay through delivery", body: "Test the difficult cases, work through rollout, and keep the reporting useful to both the person doing the work and the person accountable for it." }
 ];
 ---
 
-<Base title="Eric Martin - Revenue Operations & Technical Systems Leader">
-  <section class="py-16 sm:py-20">
+<Base title="Eric Martin - Revenue Operations & Technical Systems Leader" description="Eric Martin connects business development, field operations, and software. Explore ABS Tooling, Kansas Electric, FreightFlow AI, and the systems behind the work.">
+  <section class="pb-12 pt-10 sm:pt-14">
     <div class="page-container">
-      <div class="section-dark relative overflow-hidden rounded-[32px] border border-slate-800 px-6 py-8 text-white sm:px-8 sm:py-10 lg:px-10 lg:py-12">
-        <div class="pointer-events-none absolute inset-0 bg-[linear-gradient(rgba(148,163,184,0.06)_1px,transparent_1px),linear-gradient(90deg,rgba(148,163,184,0.05)_1px,transparent_1px)] bg-[size:32px_32px] opacity-30"></div>
-        <div class="relative grid gap-10 lg:grid-cols-[1.1fr_0.9fr] lg:items-start">
+      <div class="section-dark overflow-hidden rounded-[32px] border border-slate-800 px-6 py-9 text-white sm:px-10 sm:py-12">
+        <div class="grid items-center gap-9 lg:grid-cols-[1.6fr_0.8fr] lg:gap-14">
           <div>
-            <p class="eyebrow mb-4 text-slate-300">Revenue operations / technical systems / execution infrastructure</p>
-            <h1 class="max-w-3xl text-4xl font-semibold leading-tight text-white sm:text-5xl">
-              I build the operating systems behind sustainable growth.
-            </h1>
-            <p class="mt-4 max-w-2xl text-lg text-slate-300">
-              I am a systems builder who understands operations and how to generate
-              sustainable growth. I work across revenue operations, technical systems,
-              field and service operations, and scalable execution — turning messy
-              handoffs into dashboards, internal apps, automations, approvals, and
-              production systems operators can actually run.
-            </p>
-            <div class="mt-8 flex flex-wrap gap-3">
-              <a
-                class="focus-ring inline-flex w-full items-center justify-center rounded-lg bg-accent px-5 py-2.5 text-sm font-semibold text-white transition hover:bg-accent-dark sm:w-auto"
-                href="/resume"
-              >
-                View Resume
-              </a>
-              <a
-                class="focus-ring inline-flex w-full items-center justify-center rounded-lg border border-white/15 bg-white/5 px-5 py-2.5 text-sm font-semibold text-white transition hover:border-white/25 hover:bg-white/10 sm:w-auto"
-                href="/technical-projects"
-              >
-                Browse Projects
-              </a>
-            </div>
-
-            <div class="mt-8 max-w-xl overflow-hidden rounded-2xl border border-white/10 bg-white/[0.04]">
-              <div class="grid grid-cols-2 divide-x divide-y divide-white/10">
-                {proofPoints.map((item) => (
-                  <div class="flex min-h-[5.5rem] flex-col justify-center px-4 py-4 sm:px-5">
-                    <p class="text-2xl font-semibold tabular-nums tracking-tight text-white">{item.value}</p>
-                    <p class="mt-1 text-sm leading-snug text-slate-200">{item.label}</p>
-                    <p class="mt-0.5 text-xs text-slate-500">{item.context}</p>
-                  </div>
-                ))}
-              </div>
+            <p class="eyebrow">Revenue operations / systems / software</p>
+            <h1 class="mt-4 max-w-2xl text-4xl font-semibold leading-tight sm:text-5xl">I connect growth, operations, and software.</h1>
+            <p class="mt-5 max-w-2xl text-lg leading-relaxed text-slate-300">I build the systems behind the work: finding opportunities, managing delivery, and giving people a clear next step. My background spans business development, national field programs, and hands-on software engineering.</p>
+            <div class="mt-7 flex flex-wrap gap-3">
+              <a class="focus-ring inline-flex min-h-11 items-center justify-center rounded-lg bg-accent px-5 py-3 text-sm font-semibold text-white hover:bg-accent-dark" href="#selected-work">Explore my work ↓</a>
+              <a class="focus-ring inline-flex min-h-11 items-center justify-center rounded-lg border border-white/25 px-5 py-3 text-sm font-semibold text-white hover:bg-white/10" href="/resume">View resume →</a>
             </div>
           </div>
-
-          <div class="grid gap-5">
-            <div class="flex justify-center lg:justify-end">
-              <img
-                src={headshotUrl}
-                alt="Eric Martin"
-                width="560"
-                height="700"
-                class="aspect-[4/5] w-full max-w-[300px] rounded-2xl border border-white/10 bg-slate-900/40 object-cover shadow-[0_18px_50px_rgba(15,23,42,0.35)]"
-                decoding="async"
-              />
-            </div>
-            <div class="rounded-2xl border border-white/10 bg-white/5 p-5 backdrop-blur-sm">
-              <p class="eyebrow text-slate-400">Operating model</p>
-              <h2 class="mt-2 text-xl font-semibold text-white">What I keep in view</h2>
-              <ul class="mt-4 space-y-3 text-sm text-slate-300">
-                {commandSignals.map((item) => (
-                  <li class="flex gap-3">
-                    <span class="mt-1 h-2 w-2 rounded-full bg-accent"></span>
-                    <span>{item}</span>
-                  </li>
-                ))}
-              </ul>
-            </div>
-          </div>
+          <img src="/eric%202026%20headshot.png" alt="Eric Martin" width="560" height="700" class="mx-auto aspect-[4/5] w-full max-w-[250px] rounded-2xl border border-white/15 object-cover lg:max-w-[280px]" decoding="async" fetchpriority="high" />
         </div>
-      </div>
-
-      <div class="surface-muted mt-12 p-6 sm:p-8">
-        <div class="max-w-2xl">
-          <h2 class="text-2xl font-semibold text-ink">How I think about the work</h2>
-          <p class="mt-3 text-muted">
-            Growth is not just a funnel problem or a software problem. It is an
-            execution problem. I build practical operating systems across four
-            layers: find revenue, recover revenue, control operations, and govern
-            AI-assisted work.
-          </p>
-        </div>
-        <div class="mt-6 grid gap-4 md:grid-cols-2 xl:grid-cols-4">
-          {focusAreas.map((area) => (
-            <div class="surface border-t-4 border-t-accent p-5">
-              <h3 class="text-lg font-semibold text-ink">{area.title}</h3>
-              <p class="mt-2 text-sm text-muted">{area.body}</p>
-            </div>
+        <div class="mt-9 grid grid-cols-2 gap-x-5 gap-y-7 border-t border-white/15 pt-7 lg:grid-cols-4">
+          {proofPoints.map((item) => (
+            <a href={item.href} class="focus-ring rounded-md">
+              <p class="text-2xl font-semibold tabular-nums tracking-tight text-white sm:text-3xl">{item.value}</p>
+              <p class="mt-1 text-sm leading-snug text-slate-200">{item.label}</p>
+              <p class="mt-2 text-xs leading-relaxed text-slate-400">{item.context}</p>
+            </a>
           ))}
         </div>
       </div>
     </div>
   </section>
 
-  <section class="py-16">
+  <section id="selected-work" class="py-8 sm:py-12" aria-labelledby="selected-work-heading">
     <div class="page-container">
-      <div class="section-dark rounded-[32px] border border-slate-800 px-6 py-8 text-white sm:px-8 sm:py-10">
+      <div class="flex flex-wrap items-end justify-between gap-5">
         <div class="max-w-2xl">
-          <p class="eyebrow text-slate-300">Selected work</p>
-          <h2 class="mt-2 text-3xl font-semibold text-white">Systems built for operators, not slide decks.</h2>
-          <p class="mt-3 text-slate-300">
-            Current platform work, commercial systems, field operations infrastructure,
-            and product builds tied to real growth, delivery, and visibility outcomes.
-          </p>
+          <p class="eyebrow">Selected work</p>
+          <h2 id="selected-work-heading" class="mt-2 text-3xl font-semibold">The systems, and the problems behind them.</h2>
+          <p class="mt-3 text-muted">Detailed examples of what I designed, built, and operated.</p>
         </div>
-        <div class="mt-8 grid gap-6 xl:grid-cols-3">
-          {atlasConsoleProject ? (
-            <article class="rounded-2xl border border-white/10 bg-white/5 p-6 sm:p-8">
-              <p class="eyebrow text-slate-400">Current platform</p>
-              <h3 class="mt-2 text-xl font-semibold text-white">ABS Tooling</h3>
-              <p class="mt-1 text-sm text-slate-400">Atlas-Beren Console · Connected business workflows</p>
-              <p class="mt-3 text-slate-300">
-                A connected workspace for researching prospects, managing outreach,
-                delivering projects, understanding cash flow, and coordinating
-                operations—with evidence and review built into the work.
-              </p>
-              <ul class="mt-4 list-disc space-y-2 pl-5 text-sm text-slate-300">
-                <li>Sales research, campaigns, and reply triage</li>
-                <li>Project planning, finance, and connected operations</li>
-                <li>Client workspaces, scoped access, and approval-gated AI</li>
-              </ul>
-              <a
-                class="focus-ring mt-6 inline-flex text-sm font-semibold text-sky-300 hover:text-white"
-                href={atlasConsoleProject.data.detailUrl ?? `/technical-projects#${atlasConsoleProject.slug}`}
-              >
-                Explore the full build →
-              </a>
-            </article>
-          ) : null}
-
-          {kansasCaseStudy ? (
-            <article class="rounded-2xl border border-white/10 bg-white/5 p-6 sm:p-8">
-              <p class="eyebrow text-slate-400">Case study</p>
-              <h3 class="mt-2 text-xl font-semibold text-white">Kansas Electric</h3>
-              <p class="mt-3 text-slate-300">{kansasCaseStudy.data.summary}</p>
-              <p class="mt-4 text-sm text-slate-400">Outcome: {kansasCaseStudy.data.impact}</p>
-              <a
-                class="focus-ring mt-6 inline-flex text-sm font-semibold text-sky-300 hover:text-white"
-                href="/work/kansas-electric"
-              >
-                Read case study ->
-              </a>
-            </article>
-          ) : null}
-
-          {freightFlowProject ? (
-            <article class="rounded-2xl border border-white/10 bg-white/5 p-6 sm:p-8">
-              <p class="eyebrow text-slate-400">Product system</p>
-              <h3 class="mt-2 text-xl font-semibold text-white">{freightFlowProject.data.title}</h3>
-              <p class="mt-3 text-slate-300">{freightFlowProject.data.summary}</p>
-              <p class="mt-4 text-sm text-slate-400">Built around real freight-sales behavior, not generic CRM patterns.</p>
-              <a
-                class="focus-ring mt-6 inline-flex text-sm font-semibold text-sky-300 hover:text-white"
-                href={`/technical-projects#${freightFlowProject.slug}`}
-              >
-                Product breakdown ->
-              </a>
-            </article>
-          ) : null}
-        </div>
+        <a class="focus-ring text-sm font-semibold text-accent hover:text-accent-dark" href="/technical-projects">All projects →</a>
+      </div>
+      <div class="mt-7 grid gap-6 lg:grid-cols-3">
+        {selectedWork.map((project) => (
+          <article class="surface flex flex-col overflow-hidden">
+            <a class="focus-ring block border-b border-border bg-panel p-3" href={project.href} aria-label={`Explore ${project.title}`}>
+              <img src={project.image} alt={project.alt} width={project.width} height={project.height} class="aspect-[16/10] w-full rounded-lg object-contain" loading="lazy" decoding="async" />
+            </a>
+            <div class="flex flex-1 flex-col p-6">
+              <p class="eyebrow">{project.label}</p>
+              <h3 class="mt-2 text-2xl font-semibold">{project.title}</h3>
+              <p class="mt-3 leading-relaxed text-muted">{project.body}</p>
+              <p class="mt-4 text-sm leading-relaxed text-muted">{project.detail}</p>
+              <a class="focus-ring mt-6 inline-flex self-start text-sm font-semibold text-accent hover:text-accent-dark" href={project.href}>{project.cta} →</a>
+            </div>
+          </article>
+        ))}
+      </div>
+      <div class="mt-6 flex flex-wrap gap-x-6 gap-y-3 text-sm font-semibold">
+        <a class="focus-ring text-accent hover:text-accent-dark" href="/work">Business experience & case studies →</a>
+        <a class="focus-ring text-accent hover:text-accent-dark" href="/eden">Eden engineering →</a>
       </div>
     </div>
   </section>
 
-  <section class="py-16">
-    <div class="page-container grid gap-8 lg:grid-cols-[1fr_0.95fr]">
-      <div>
-        <h2 class="text-3xl font-semibold text-ink">What I build</h2>
-        <p class="mt-3 max-w-2xl text-muted">
-          I bridge business development, operations, and software architecture. That
-          means CRM and pipeline systems, field and delivery tooling, internal apps,
-          approval-gated automation, dashboards, and production software tied to
-          sustainable growth.
-        </p>
-        <div class="mt-6 flex flex-wrap gap-2">
-          {skillPreview.map((skill) => (
-            <span class="inline-flex rounded-lg border border-border bg-panel px-3 py-1.5 text-sm text-ink shadow-[0_8px_18px_rgba(15,23,42,0.05)]">
-              {skill}
-            </span>
-          ))}
-        </div>
-        <a
-          class="mt-6 inline-flex text-sm font-semibold text-accent hover:text-accent-dark"
-          href="/skills"
-        >
-          Full skills page ->
-        </a>
-      </div>
-      <div class="surface p-6 sm:p-8">
-        <h3 class="text-lg font-semibold text-ink">How I work</h3>
-        <ul class="mt-4 list-disc space-y-2 pl-5 text-muted">
-          <li>Start from how work actually moves, not from tool categories</li>
-          <li>Make ownership, handoffs, and review points explicit before scaling</li>
-          <li>Ship in increments and stay close to the operators using the system</li>
-          <li>Tie technical decisions back to growth, delivery, and visibility outcomes</li>
-        </ul>
-      </div>
-    </div>
-  </section>
-
-  <section class="bg-panel py-16">
+  <section class="py-10 sm:py-14" aria-labelledby="approach-heading">
     <div class="page-container">
-      <div class="max-w-2xl">
-        <h2 class="text-3xl font-semibold text-ink">About</h2>
-        <p class="mt-3 text-muted">
-          I have built across industrial services, distributed field programs, and
-          software — usually in environments where growth, delivery, and visibility
-          all have to line up at once.
-        </p>
+      <p class="eyebrow">How I work</p>
+      <h2 id="approach-heading" class="mt-2 text-3xl font-semibold">From a visible problem to a working system.</h2>
+      <div class="mt-7 grid gap-6 md:grid-cols-3">
+        {approach.map((step) => (
+          <div class="border-t-2 border-accent pt-5">
+            <p class="text-sm font-semibold tabular-nums text-accent">{step.number}</p>
+            <h3 class="mt-3 text-xl font-semibold">{step.title}</h3>
+            <p class="mt-3 leading-relaxed text-muted">{step.body}</p>
+          </div>
+        ))}
       </div>
-      <a
-        class="mt-4 inline-flex text-sm font-semibold text-accent hover:text-accent-dark"
-        href="/about"
-      >
-        More background ->
-      </a>
+      <a class="focus-ring mt-7 inline-flex text-sm font-semibold text-accent hover:text-accent-dark" href="/skills">See the skills behind the work →</a>
     </div>
   </section>
 
-  <section class="py-16">
-    <div class="page-container">
-      <div class="mx-auto grid max-w-4xl gap-6 rounded-2xl bg-ink px-6 py-10 text-white shadow-[0_18px_50px_rgba(15,23,42,0.25)] sm:px-8 md:grid-cols-[1fr_auto] md:items-center">
-        <div>
-          <h2 class="text-3xl font-semibold">Let's talk</h2>
-          <p class="mt-2 max-w-xl text-white/75">
-            If you need someone who can understand how the business actually works,
-            find the growth bottlenecks, and build the systems to make growth
-            repeatable, reach out.
-          </p>
-        </div>
-        <div class="flex flex-wrap gap-3 md:justify-end">
-          <a
-            class="focus-ring inline-flex w-full items-center justify-center rounded-lg bg-white px-5 py-2.5 text-sm font-semibold text-ink sm:w-auto"
-            href="mailto:ericm93.2023@outlook.com"
-          >
-            ericm93.2023@outlook.com
-          </a>
-          <a
-            class="focus-ring inline-flex w-full items-center justify-center rounded-lg border border-white/30 px-5 py-2.5 text-sm font-semibold text-white sm:w-auto"
-            href="/resume"
-          >
-            Resume
-          </a>
-          <a
-            class="focus-ring inline-flex w-full items-center justify-center rounded-lg border border-white/30 px-5 py-2.5 text-sm font-semibold text-white sm:w-auto"
-            href="https://www.linkedin.com/in/eric-m-53b374174/"
-          >
-            LinkedIn
-          </a>
-        </div>
+  <section class="py-8 sm:py-12">
+    <div class="page-container grid gap-6 md:grid-cols-2">
+      <div class="surface-muted p-6 sm:p-8">
+        <p class="eyebrow">Background</p>
+        <h2 class="mt-2 text-2xl font-semibold">An operator who builds.</h2>
+        <p class="mt-3 leading-relaxed text-muted">My work has moved across industrial services, distributed field delivery, and software. The common thread is making the commercial promise and the delivery reality line up.</p>
+        <a class="focus-ring mt-5 inline-flex text-sm font-semibold text-accent hover:text-accent-dark" href="/about">More about me →</a>
+      </div>
+      <div class="section-dark rounded-2xl p-6 text-white sm:p-8">
+        <p class="eyebrow">Start a conversation</p>
+        <h2 class="mt-2 text-2xl font-semibold">What needs to work better?</h2>
+        <p class="mt-3 leading-relaxed text-slate-300">If the challenge crosses growth, operations, and software, I would like to hear about it.</p>
+        <a class="focus-ring mt-5 inline-flex rounded-lg bg-white px-5 py-3 text-sm font-semibold text-ink" href="/contact">Let's talk →</a>
       </div>
     </div>
   </section>

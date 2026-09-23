@@ -1,11 +1,11 @@
 ---
 title: "LeakLens"
-summary: "Enterprise-style AI revenue leak recovery demo: authenticated product experience with connector management, leak triage, recovery workflows, and reporting built around conversion-oriented product storytelling."
-why: "Revenue recovery products need to feel credible before operators trust them with real CRM and billing data. LeakLens was built to show how leak detection, triage, and recovery could work in a polished product surface."
+summary: "A revenue recovery product demo that connects a marketing site with an app workspace for connector setup, leak triage, recovery playbooks, and reporting."
+why: "Revenue recovery is easier to evaluate when people can follow a complete workflow. LeakLens demonstrates how an operator could move from a revenue signal to triage, a recovery action, and reporting."
 constraints:
   - "Needed to communicate product value quickly without pretending live customer data was connected"
   - "Required typed APIs, validation, and reliable demo behavior across marketing and product flows"
-  - "Had to feel enterprise-ready while staying lightweight enough to iterate fast"
+  - "Needed realistic navigation and interaction patterns while staying lightweight enough to iterate quickly"
 stack:
   - "Next.js"
   - "React"
@@ -15,30 +15,39 @@ stack:
   - "Typed mock APIs"
   - "Playwright"
 decisions:
-  - "Split marketing funnel and authenticated product experience so the demo could tell a clear before-and-after story"
-  - "Used command-palette and keyboard navigation to make the product feel operator-grade, not like a static mockup"
+  - "Connected the marketing site, demo onboarding, and app shell to demonstrate the complete product journey"
+  - "Added command-palette and keyboard navigation for moving between operational views"
   - "Validated API contracts with Zod and added Playwright smoke tests so demo reliability did not depend on manual clicking"
 tradeoffs:
-  - "Used mock connectors and typed APIs instead of live billing or CRM integrations in the demo layer"
-  - "Prioritized product clarity and conversion flow over building a full backend from day one"
-outcome: "A conversion-oriented revenue recovery demo with connector management, leak triage, recovery workflows, reporting, and interaction patterns that hold up in live product walkthroughs."
+  - "Used mock connectors and typed API route handlers with in-memory data"
+  - "Kept export and share actions as demo stubs; real integrations and durable storage are outside this implementation"
+outcome: "An interactive demonstration of the revenue recovery journey, with validated mock API contracts and Playwright smoke tests covering the product flow."
 order: 2
 ---
 
-## Overview
+## What I built
 
 LeakLens is a revenue leak recovery product demo built to show how operators could find stalled quotes, dormant accounts, and follow-up gaps before they turn into lost revenue.
 
-The work spans both sides of the funnel: a marketing experience that explains the problem clearly, and an authenticated product layer with connector management, leak triage, recovery workflows, and reporting.
+The work spans both sides of the funnel: a marketing site that explains the problem, followed by demo onboarding and an app workspace with connector management, leak triage, recovery workflows, and reporting.
 
-## What it demonstrates
+## Demo scope
 
-- **Connector and intake layer** for showing how revenue signals could enter one operating surface
-- **Leak triage** so operators can review what is stale, what is blocked, and what needs action
-- **Recovery workflows** with enough structure to feel usable, not like a concept slide
-- **Reporting views** that connect triage work back to business outcomes
-- **Product polish** through command-palette navigation, responsive layouts, runtime validation, and end-to-end smoke tests
+The workspace uses seeded data for a fictional field-services company. Connectors and API responses are simulated, and changes persist in memory for the running session. The app shell illustrates the signed-in experience; it is a product demo, not a deployment connected to customer CRM or billing systems. Export and share actions are intentionally stubbed.
 
-## Why it matters
+## The operator workflow
 
-This project is less about another AI headline and more about product credibility. The goal was to make revenue recovery feel like an operator system: visible queues, reviewable actions, and a product surface that could survive a serious walkthrough.
+1. **Understand the inputs.** Connector and intake views show where revenue signals would enter the workspace.
+2. **Triage the queue.** Leak views organize stalled quotes, dormant accounts, and follow-up gaps for review.
+3. **Choose a recovery path.** Playbooks give the operator a structured next step after identifying an issue.
+4. **Review the outcome.** Reporting views demonstrate how recovery activity could be connected to business results using the seeded demo data.
+
+## Implementation choices
+
+Typed Next.js route handlers provide the mock API layer. Zod validates contracts, and React Query manages data access in the interface. That separation makes the screens behave like a connected application while keeping the demonstration self-contained.
+
+Command-palette navigation, keyboard support, and responsive layouts support movement between views. Playwright smoke tests exercise the product flow so changes can be checked beyond a static visual review.
+
+## What this work demonstrates
+
+LeakLens shows my approach to turning a business problem into a navigable product: explain the value, make the inputs visible, give operators a useful review queue, and connect the next action with reporting. Its outcome is the working demonstration and interaction design, not measured revenue recovery.

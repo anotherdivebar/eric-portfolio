@@ -2,75 +2,90 @@
 import Base from "../layouts/Base.astro";
 
 const headshotUrl = "/eric%202026%20headshot.png";
+
+const principles = [
+  { title: "Understand the work", body: "Start with how a request, opportunity, or job moves through the business. Find the missing context and unclear ownership before choosing the tools." },
+  { title: "Make the next step clear", body: "Give operators an explicit owner, a useful view of the evidence, and a clear action. Make review points part of the workflow." },
+  { title: "Stay through rollout", body: "Build in increments, document the process, and stay close to the people using it. Adoption and day-to-day support are part of the work." },
+  { title: "Keep decisions grounded", body: "Tie technical choices back to growth, delivery, and visibility. Favor systems the team can understand, maintain, and use repeatedly." }
+];
 ---
 
-<Base title="About - Eric Martin">
-  <section class="py-16">
-    <div class="page-container-narrow">
-      <div class="flex flex-col gap-8 sm:flex-row sm:items-start">
+<Base title="About Eric Martin" description="Meet Eric Martin, a systems builder whose background connects commercial ownership, national field operations, and hands-on software engineering.">
+  <section class="py-14 sm:py-16">
+    <div class="page-container-mid">
+      <div class="grid items-start gap-8 md:grid-cols-[240px_minmax(0,1fr)] md:gap-12">
         <img
           src={headshotUrl}
           alt="Eric Martin"
           width="400"
           height="500"
-          class="mx-auto aspect-[4/5] w-full max-w-[200px] shrink-0 rounded-2xl border border-border bg-panel object-cover shadow-[0_12px_30px_rgba(15,23,42,0.1)] sm:mx-0 sm:max-w-[220px]"
-          loading="lazy"
+          class="aspect-[4/5] w-full max-w-[240px] rounded-2xl border border-border bg-panel object-cover shadow-[0_12px_30px_rgba(15,23,42,0.1)]"
           decoding="async"
         />
-        <div class="min-w-0 flex-1">
-          <p class="eyebrow mb-2">Revenue operations / technical systems / execution infrastructure</p>
-          <h1 class="text-4xl font-semibold text-ink">About</h1>
-          <p class="mt-4 text-lg text-muted">
-            I am a systems builder who understands operations and how to generate
-            sustainable growth. My work sits where business development, field and
-            service operations, and software architecture meet — usually in
-            environments where the problem is already visible, but the operating
-            system around it still needs to be built.
+        <div>
+          <p class="eyebrow">About Eric Martin</p>
+          <h1 class="mt-3 text-4xl font-semibold leading-tight text-ink sm:text-5xl">An operator who builds.</h1>
+          <p class="mt-5 text-lg leading-relaxed text-muted">
+            My work sits where business development, field and service operations,
+            and software meet. I am drawn to the places where the problem is clear,
+            but the process and tools around it still need to be built.
           </p>
-          <p class="mt-4 text-muted">
-            That has meant closing new work while standing up CRM and pipeline
-            systems, scaling national field delivery, and building production
-            platforms with approval-gated automation, operating visibility, and
-            real rollout discipline.
+          <p class="mt-4 leading-relaxed text-muted">
+            That has meant closing new work while building CRM and pipeline systems,
+            helping scale national field delivery, and creating applications that
+            connect research, projects, finance, and operations. I take ownership of
+            both how the work should move and how the software makes that possible.
           </p>
-          <p class="mt-4 text-muted">
-            Outside of work, I have been with my fiancee for over five years, and we
-            have a two-year-old son, two dogs, a cat, and a ferret. I spend my time
-            making and playing music, running, and being with my family.
-          </p>
+          <a class="focus-ring mt-6 inline-flex text-sm font-semibold text-accent hover:text-accent-dark" href="/resume">View my experience <span class="ml-2" aria-hidden="true">→</span></a>
         </div>
       </div>
 
-      <div class="mt-8 grid gap-6 md:grid-cols-2">
-        <div class="surface p-6">
-          <h2 class="text-xl font-semibold text-ink">How I work</h2>
-          <ul class="mt-3 list-disc space-y-2 pl-5 text-muted">
-            <li>Start from how work actually moves, not from buzzwords or tool categories</li>
-            <li>Make ownership, handoffs, and review points explicit</li>
-            <li>Build for operators and leaders, not just demos or presentations</li>
-            <li>Stay close through rollout, adoption, and the messy middle</li>
-            <li>Tie technical decisions back to growth, delivery, and visibility outcomes</li>
-          </ul>
+      <section class="mt-14" aria-labelledby="background-heading">
+        <p class="eyebrow">The background behind the builds</p>
+        <h2 id="background-heading" class="mt-3 text-3xl font-semibold text-ink">Experience across the whole workflow.</h2>
+        <div class="mt-7 grid gap-5 md:grid-cols-3">
+          <article class="surface flex flex-col p-6">
+            <h3 class="text-xl font-semibold text-ink">Field operations</h3>
+            <p class="mt-3 text-sm leading-relaxed text-muted">At Vale Field Services, I built processes, vendor networks, training, QA, and delivery infrastructure for distributed teams and national programs.</p>
+            <a class="focus-ring mt-5 inline-flex text-sm font-semibold text-accent hover:text-accent-dark" href="/resume">Professional experience <span class="ml-2" aria-hidden="true">→</span></a>
+          </article>
+          <article class="surface flex flex-col p-6">
+            <h3 class="text-xl font-semibold text-ink">Commercial systems</h3>
+            <p class="mt-3 text-sm leading-relaxed text-muted">At Kansas Electric, I combined business development with hands-on tooling for lead capture, CRM, estimating, field reports, and forecasting.</p>
+            <a class="focus-ring mt-5 inline-flex text-sm font-semibold text-accent hover:text-accent-dark" href="/work/kansas-electric">Kansas Electric case study <span class="ml-2" aria-hidden="true">→</span></a>
+          </article>
+          <article class="surface flex flex-col p-6">
+            <h3 class="text-xl font-semibold text-ink">Connected software</h3>
+            <p class="mt-3 text-sm leading-relaxed text-muted">Through Atlas-Beren Systems, I have brought those concerns into a shared platform for prospect research, delivery, cash planning, and service work.</p>
+            <a class="focus-ring mt-5 inline-flex text-sm font-semibold text-accent hover:text-accent-dark" href="/abs-tooling">Inside ABS Tooling <span class="ml-2" aria-hidden="true">→</span></a>
+          </article>
         </div>
-        <div class="surface p-6">
-          <h2 class="text-xl font-semibold text-ink">What I value</h2>
-          <ul class="mt-3 list-disc space-y-2 pl-5 text-muted">
-            <li>Clarity over complexity</li>
-            <li>Execution over theater</li>
-            <li>Repeatable systems over one-off heroics</li>
-            <li>Ownership over handoffs</li>
-          </ul>
-        </div>
-      </div>
+      </section>
 
-      <div class="surface-muted mt-8 p-6">
-        <h2 class="text-xl font-semibold text-ink">Where I fit</h2>
-        <p class="mt-2 text-muted">
-          Operator-led teams that need someone who can understand commercial motion,
-          field reality, and software architecture at the same time. I fit best where
-          growth bottlenecks are known, but the systems to make execution repeatable
-          still need to be designed and shipped.
-        </p>
+      <section class="surface-muted mt-12 p-6 sm:p-8" aria-labelledby="approach-heading">
+        <p class="eyebrow">How I work</p>
+        <h2 id="approach-heading" class="mt-3 text-3xl font-semibold text-ink">Clarity, ownership, and follow-through.</h2>
+        <div class="mt-7 grid gap-7 sm:grid-cols-2">
+          {principles.map((principle) => (
+            <div>
+              <h3 class="text-lg font-semibold text-ink">{principle.title}</h3>
+              <p class="mt-2 text-sm leading-relaxed text-muted">{principle.body}</p>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      <div class="mt-12 grid gap-8 border-t border-border pt-10 md:grid-cols-2">
+        <div>
+          <h2 class="text-2xl font-semibold text-ink">Outside of work</h2>
+          <p class="mt-3 leading-relaxed text-muted">I share life with my fiancée, our son, two dogs, a cat, and a ferret. I spend my time making and playing music, running, and being with my family.</p>
+        </div>
+        <div>
+          <h2 class="text-2xl font-semibold text-ink">Where I fit</h2>
+          <p class="mt-3 leading-relaxed text-muted">I work best with teams that need someone who can understand commercial goals, field reality, and software architecture together—and carry a solution through implementation.</p>
+          <a class="focus-ring mt-5 inline-flex text-sm font-semibold text-accent hover:text-accent-dark" href="/contact">Start a conversation <span class="ml-2" aria-hidden="true">→</span></a>
+        </div>
       </div>
     </div>
   </section>

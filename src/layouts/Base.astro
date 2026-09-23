@@ -3,9 +3,25 @@ import "../styles/global.css";
 
 const {
   title = "Eric Martin - Revenue Operations & Technical Systems Leader",
-  description =
-    "Revenue operations and technical systems leader who builds practical operating systems for sustainable growth, delivery, visibility, and execution."
+  description = "Eric Martin builds the systems behind growth and delivery: business development, field operations, internal applications, and governed automation.",
+  type = "website"
 } = Astro.props;
+
+const path = Astro.url.pathname.replace(/\/$/, "") || "/";
+const navigation = [
+  { href: "/technical-projects", label: "Projects", active: path.startsWith("/technical-projects") || path.startsWith("/work") || path === "/abs-tooling" || path === "/eden" },
+  { href: "/skills", label: "Skills", active: path === "/skills" },
+  { href: "/resume", label: "Resume", active: path === "/resume" },
+  { href: "/about", label: "About", active: path === "/about" },
+  { href: "/contact", label: "Contact", active: path === "/contact" }
+];
+const moreWork = [
+  { href: "/technical-projects", label: "Projects" },
+  { href: "/work", label: "Experience & case studies" },
+  { href: "/eden", label: "Eden engineering" },
+  { href: "/blog", label: "Insights" },
+  { href: "/resume", label: "Resume" }
+];
 ---
 
 <!DOCTYPE html>
@@ -13,72 +29,62 @@ const {
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#0b1320" />
     <title>{title}</title>
     <meta name="description" content={description} />
     <meta name="robots" content="index, follow" />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:type" content={type} />
+    <meta property="og:site_name" content="Eric Martin" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
   </head>
   <body class="flex min-h-screen flex-col text-ink">
-    <a
-      href="#main-content"
-      class="focus-ring sr-only focus:not-sr-only focus:fixed focus:left-4 focus:top-4 focus:z-50 focus:rounded-md focus:bg-white focus:px-3 focus:py-2 focus:text-sm focus:text-ink"
-    >
-      Skip to content
-    </a>
-    <header class="sticky top-0 z-20 border-b border-white/60 bg-white/80 backdrop-blur-xl shadow-[0_10px_30px_rgba(15,23,42,0.08)]">
-      <div class="page-container flex items-center justify-between gap-6 py-4">
-        <a href="/" class="focus-ring text-lg font-semibold tracking-wide">Eric Martin</a>
-        <nav class="hidden flex-wrap gap-4 text-sm text-muted md:flex">
-          <a href="/technical-projects" class="focus-ring hover:text-ink">Projects</a>
-          <a href="/skills" class="focus-ring hover:text-ink">Skills</a>
-          <a href="/resume" class="focus-ring hover:text-ink">Resume</a>
-          <a href="/eden" class="focus-ring hover:text-ink">Eden</a>
-          <a href="/about" class="focus-ring hover:text-ink">About</a>
-          <a href="/contact" class="focus-ring hover:text-ink">Contact</a>
+    <a href="#main-content" class="focus-ring sr-only focus:not-sr-only focus:fixed focus:left-4 focus:top-4 focus:z-50 focus:rounded-md focus:bg-white focus:px-3 focus:py-2 focus:text-sm focus:text-ink">Skip to content</a>
+    <header class="sticky top-0 z-20 border-b border-border bg-white/95 backdrop-blur-xl">
+      <div class="page-container flex items-center justify-between gap-5 py-3">
+        <a href="/" class="focus-ring shrink-0 text-lg font-semibold tracking-tight" aria-label="Eric Martin home">Eric Martin</a>
+        <nav aria-label="Main navigation" class="hidden items-center gap-1 text-sm lg:flex">
+          {navigation.map((item) => (
+            <a href={item.href} aria-current={item.active ? (path === item.href ? "page" : "location") : undefined} class:list={["focus-ring rounded-lg px-3 py-2 font-medium transition", item.active ? "bg-blue-50 text-accent" : "text-muted hover:bg-panel hover:text-ink"]}>{item.label}</a>
+          ))}
         </nav>
-        <div class="flex items-center gap-4">
-          <a
-            class="focus-ring hidden text-sm font-semibold text-muted transition hover:text-ink md:inline-flex"
-            href="tel:+13162149102"
-          >
-            (316) 214-9102
-          </a>
-          <a
-            href="/contact"
-            class="focus-ring inline-flex items-center justify-center rounded-lg bg-accent px-4 py-2 text-sm font-semibold text-white transition hover:bg-accent-dark"
-          >
-            Let's Talk
-          </a>
+        <div class="flex items-center gap-5">
+          <a class="focus-ring hidden text-sm font-medium text-muted hover:text-ink xl:inline-flex" href="tel:+13162149102">(316) 214-9102</a>
+          <a href="/contact" class="focus-ring inline-flex min-h-11 items-center justify-center rounded-lg bg-accent px-4 py-2 text-sm font-semibold text-white transition hover:bg-accent-dark">Let's talk</a>
         </div>
       </div>
-      <div class="border-t border-border md:hidden">
-        <div class="page-container flex flex-wrap items-center gap-4 py-2 text-sm text-muted">
-          <a href="/technical-projects" class="focus-ring hover:text-ink">Projects</a>
-          <a href="/skills" class="focus-ring hover:text-ink">Skills</a>
-          <a href="/resume" class="focus-ring hover:text-ink">Resume</a>
-          <a href="/eden" class="focus-ring hover:text-ink">Eden</a>
-          <a href="/about" class="focus-ring hover:text-ink">About</a>
-          <a href="/contact" class="focus-ring hover:text-ink">Contact</a>
+      <nav aria-label="Mobile navigation" class="border-t border-border lg:hidden">
+        <div class="page-container flex justify-between gap-0 overflow-x-auto py-1 text-[13px] sm:text-sm">
+          {navigation.map((item) => (
+            <a href={item.href} aria-current={item.active ? (path === item.href ? "page" : "location") : undefined} class:list={["focus-ring flex min-h-11 shrink-0 items-center rounded-lg px-1.5 font-medium", item.active ? "bg-blue-50 text-accent" : "text-muted hover:bg-panel hover:text-ink"]}>{item.label}</a>
+          ))}
         </div>
-      </div>
+      </nav>
     </header>
 
-    <main id="main-content" class="flex-1">
-      <slot />
-    </main>
+    <main id="main-content" tabindex="-1" class="flex-1 outline-none"><slot /></main>
 
-    <footer class="mt-8 border-t border-white/10 bg-[#0b1320] py-8 text-sm text-slate-300">
-      <div class="page-container flex flex-wrap items-center justify-between gap-4">
-        <p>(c) 2026 Eric Martin. Building operating systems for sustainable growth, delivery, and visibility.</p>
-        <div class="flex flex-wrap items-center gap-4 text-sm">
-          <a class="focus-ring hover:text-white" href="mailto:ericm93.2023@outlook.com">
-            ericm93.2023@outlook.com
-          </a>
-          <a class="focus-ring hover:text-white" href="tel:+13162149102">
-            (316) 214-9102
-          </a>
-          <a class="focus-ring hover:text-white" href="https://www.linkedin.com/in/eric-m-53b374174/">
-            LinkedIn
-          </a>
+    <footer class="mt-8 border-t border-white/10 bg-[#0b1320] py-10 text-sm text-slate-300">
+      <div class="page-container grid gap-8 sm:grid-cols-2 lg:grid-cols-[1.3fr_1fr_1fr]">
+        <div>
+          <a href="/" class="focus-ring text-lg font-semibold text-white">Eric Martin</a>
+          <p class="mt-3 max-w-xs leading-relaxed text-slate-400">Business development, operations, and software built around the work people need to do.</p>
+          <p class="mt-5 text-xs text-slate-400">© {new Date().getFullYear()} Eric Martin</p>
+        </div>
+        <nav aria-label="More work">
+          <h2 class="text-xs font-semibold uppercase tracking-[0.16em] text-slate-400">Explore the work</h2>
+          <ul class="mt-3 space-y-2">
+            {moreWork.map((item) => (<li><a class="focus-ring inline-flex py-1 hover:text-white" href={item.href}>{item.label}</a></li>))}
+          </ul>
+        </nav>
+        <div>
+          <h2 class="text-xs font-semibold uppercase tracking-[0.16em] text-slate-400">Get in touch</h2>
+          <ul class="mt-3 space-y-2">
+            <li><a class="focus-ring inline-flex break-all py-1 hover:text-white" href="mailto:ericm93.2023@outlook.com">ericm93.2023@outlook.com</a></li>
+            <li><a class="focus-ring inline-flex py-1 hover:text-white" href="tel:+13162149102">(316) 214-9102</a></li>
+            <li><a class="focus-ring inline-flex py-1 hover:text-white" href="https://www.linkedin.com/in/eric-m-53b374174/">LinkedIn</a></li>
+          </ul>
         </div>
       </div>
     </footer>

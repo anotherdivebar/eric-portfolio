@@ -1,104 +1,83 @@
 ---
 import Base from "../layouts/Base.astro";
+
+const responsibilities = [
+  { title: "Server systems & persistence", detail: "Built server-side features in C# and .NET, modeled persistent data in PostgreSQL, and maintained the validation and safeguards around changes to player state." },
+  { title: "Reliability & incident response", detail: "Debugged live issues, investigated performance bottlenecks, and delivered hotfixes while balancing release work with uptime and recovery requirements." },
+  { title: "Support & moderation tools", detail: "Built operational interfaces for issue triage, data maintenance, abuse detection, and administrator escalation so the team could investigate and act." },
+  { title: "Game design & balance", detail: "Owned game design and balance work alongside engineering, connecting changes to the systems that players experienced in the live world." }
+];
+
+const challenges = [
+  { title: "Shared state under concurrency", detail: "A live multiplayer environment makes state consistency a practical engineering concern. Long-running sessions, simultaneous actions, and persistent data have to remain coherent as features evolve." },
+  { title: "Unpredictable load and behavior", detail: "Peak events and abuse cases create pressure beyond the normal path. Performance tuning, telemetry, validation, and exploit mitigation were part of operating the service." },
+  { title: "Changes to a long-lived system", detail: "Feature delivery had to account for backward compatibility, safe data changes, release planning, and rollback. Shipping a change also meant being able to support it in production." }
+];
 ---
 
-<Base title="Eden MMO Engineering - Eric">
-  <!-- I want this to read like real production engineering, because it is -->
-  <section class="py-16">
+<Base title="Eden: Live MMO Engineering - Eric Martin" description="Eric Martin’s work on Eden: C# and .NET server systems, PostgreSQL persistence, game design, support tooling, and reliability in a live multiplayer environment.">
+  <section class="py-12 sm:py-16">
     <div class="page-container-mid">
-      <div class="max-w-3xl">
-        <h1 class="text-4xl font-semibold text-ink">Eden (MMO engineering)</h1>
-        <p class="mt-3 text-muted">
-          This is production software engineering in a live environment. Eden is
-          a long-running MMO with active users, uptime expectations, and
-          real-world abuse cases.
-        </p>
-        <p class="mt-3 text-muted">
-          I also owned game design and balance work, and the community scaled to
-          ~30,000 players, roughly 30x the EA-owned version.
-        </p>
-        <p class="mt-3 text-muted">
-          The work maps directly to SaaS and platform engineering: multi-tenant
-          state, reliability under load, incident response, and shipping changes
-          without breaking a live service.
-        </p>
+      <a href="/technical-projects" class="focus-ring inline-flex text-sm font-semibold text-accent hover:text-accent-dark">← All projects</a>
+      <div class="section-dark mt-6 rounded-[32px] border border-slate-800 p-6 text-white sm:p-10">
+        <p class="eyebrow">Live service / software engineering</p>
+        <h1 class="mt-3 text-4xl font-semibold tracking-tight sm:text-5xl">Eden</h1>
+        <p class="mt-4 max-w-2xl text-2xl leading-snug text-slate-100">Building and operating a persistent multiplayer world.</p>
+        <p class="mt-5 max-w-3xl leading-relaxed text-slate-300">Eden is a long-running MMO with active players, persistent state, and live uptime expectations. My work combined server engineering, game design, operational tools, and the ongoing responsibility of keeping a shared world running.</p>
+        <dl class="mt-8 grid gap-6 border-t border-white/15 pt-6 sm:grid-cols-3">
+          <div><dt class="text-xs uppercase tracking-[0.16em] text-slate-400">Community</dt><dd class="mt-2 text-sm leading-relaxed text-slate-100">Grew to roughly 30,000 players</dd></div>
+          <div><dt class="text-xs uppercase tracking-[0.16em] text-slate-400">Core stack</dt><dd class="mt-2 text-sm leading-relaxed text-slate-100">C# / .NET, PostgreSQL, JavaScript</dd></div>
+          <div><dt class="text-xs uppercase tracking-[0.16em] text-slate-400">My role</dt><dd class="mt-2 text-sm leading-relaxed text-slate-100">Engineering, design, balance, and live operations</dd></div>
+        </dl>
       </div>
 
-      <div class="mt-10 grid gap-6 lg:grid-cols-[1fr_1fr]">
-        <div class="surface p-6">
-          <h2 class="text-xl font-semibold text-ink">System overview</h2>
-          <ul class="mt-3 list-disc space-y-2 pl-5 text-muted">
-            <li>Live production environment with persistent user state</li>
-            <li>Always-on services with uptime and stability requirements</li>
-            <li>Multi-year, long-lived codebase with active evolution</li>
-            <li>Performance constraints under load and peak events</li>
-            <li>Operational playbooks for support, moderation, and recovery</li>
-          </ul>
+      <section class="mt-12" aria-labelledby="ownership-heading">
+        <h2 id="ownership-heading" class="text-2xl font-semibold text-ink">What I owned</h2>
+        <p class="mt-3 max-w-3xl leading-relaxed text-muted">The work covered the player-facing systems and the tools needed to maintain them. Reliability, support, and product decisions were part of the same engineering responsibility.</p>
+        <div class="mt-6 grid gap-5 md:grid-cols-2">
+          {responsibilities.map((item) => (
+            <article class="surface p-6">
+              <h3 class="text-lg font-semibold text-ink">{item.title}</h3>
+              <p class="mt-3 text-sm leading-relaxed text-muted">{item.detail}</p>
+            </article>
+          ))}
+        </div>
+      </section>
+
+      <section class="mt-12" aria-labelledby="challenges-heading">
+        <h2 id="challenges-heading" class="text-2xl font-semibold text-ink">The engineering constraints</h2>
+        <div class="mt-6 space-y-5">
+          {challenges.map((item, index) => (
+            <article class="surface-muted flex gap-4 p-6 sm:gap-6">
+              <span aria-hidden="true" class="mt-1 text-sm font-semibold text-accent">{String(index + 1).padStart(2, "0")}</span>
+              <div><h3 class="text-lg font-semibold text-ink">{item.title}</h3><p class="mt-3 text-sm leading-relaxed text-muted">{item.detail}</p></div>
+            </article>
+          ))}
+        </div>
+      </section>
+
+      <section class="mt-12 grid gap-6 md:grid-cols-2" aria-labelledby="operations-heading">
+        <div>
+          <h2 id="operations-heading" class="text-2xl font-semibold text-ink">Operating the software</h2>
+          <p class="mt-3 leading-relaxed text-muted">A release was one part of the job. The surrounding work included diagnosing problems, protecting data, maintaining support workflows, and evolving a codebase that had to keep serving players.</p>
         </div>
         <div class="surface p-6">
-          <h2 class="text-xl font-semibold text-ink">What I owned</h2>
-          <ul class="mt-3 list-disc space-y-2 pl-5 text-muted">
-            <li>Server-side systems and feature delivery</li>
-            <li>Data modeling and persistence in PostgreSQL</li>
-            <li>Operational tooling for moderation and support workflows</li>
-            <li>Performance and stability improvements over time</li>
-            <li>On-call style debugging, incident response, and hotfixes</li>
+          <ul class="list-disc space-y-3 pl-5 text-sm leading-relaxed text-muted">
+            <li>Structured logging, metrics, and audit trails for investigation</li>
+            <li>JavaScript tools for moderation, support, and data maintenance</li>
+            <li>GitHub-based build and release automation</li>
+            <li>Versioned releases, recovery playbooks, and rollback planning</li>
           </ul>
         </div>
-      </div>
+      </section>
 
-      <div class="surface-muted mt-10 p-6">
-        <h2 class="text-xl font-semibold text-ink">Engineering challenges</h2>
-        <ul class="mt-3 list-disc space-y-2 pl-5 text-muted">
-          <li>Concurrency and state consistency in a live multiplayer environment</li>
-          <li>Abuse cases, edge conditions, and exploit mitigation</li>
-          <li>Performance tuning under heavy activity and long-lived sessions</li>
-          <li>Maintaining backward compatibility while shipping new systems</li>
-          <li>Zero-downtime changes and safe migrations in production</li>
-        </ul>
-      </div>
-
-      <div class="mt-10 grid gap-6 lg:grid-cols-[1fr_1fr]">
-        <div class="surface p-6">
-          <h2 class="text-xl font-semibold text-ink">Examples of systems built</h2>
-          <ul class="mt-3 list-disc space-y-2 pl-5 text-muted">
-            <li>Server-side feature systems with data validation and safeguards</li>
-            <li>Operational tooling for support and issue triage</li>
-            <li>Telemetry and logging to isolate performance bottlenecks</li>
-            <li>Data maintenance tools for long-term stability</li>
-            <li>Abuse detection rules and admin escalation workflows</li>
-          </ul>
+      <div class="surface-muted mt-12 p-6 sm:p-8">
+        <h2 class="text-2xl font-semibold text-ink">How it connects to my other work</h2>
+        <p class="mt-4 max-w-3xl leading-relaxed text-muted">The same concerns show up in business software: persistent state, clear permissions, useful diagnostics, safe releases, and tools that help a person recover when something goes wrong. Eden is where those concerns met the immediate feedback of a live community.</p>
+        <div class="mt-6 flex flex-wrap gap-x-6 gap-y-3">
+          <a href="/abs-tooling" class="focus-ring text-sm font-semibold text-accent hover:text-accent-dark">Explore ABS Tooling →</a>
+          <a href="/contact" class="focus-ring text-sm font-semibold text-accent hover:text-accent-dark">Talk about a systems challenge →</a>
         </div>
-        <div class="surface p-6">
-          <h2 class="text-xl font-semibold text-ink">Technology stack</h2>
-          <ul class="mt-3 list-disc space-y-2 pl-5 text-muted">
-            <li>C# and .NET for server-side systems</li>
-            <li>JavaScript for tooling and operational interfaces</li>
-            <li>PostgreSQL for persistent data and reporting</li>
-            <li>Versioned releases with live uptime constraints</li>
-            <li>Structured logging, metrics, and audit trails</li>
-            <li>GitHub-based CI/CD for build and release automation</li>
-          </ul>
-        </div>
-      </div>
-
-      <div class="surface mt-10 p-6">
-        <h2 class="text-xl font-semibold text-ink">Production-grade proof points</h2>
-        <ul class="mt-3 list-disc space-y-2 pl-5 text-muted">
-          <li>Owned production systems end-to-end, not just features</li>
-          <li>Built tooling that reduced support and moderation overhead</li>
-          <li>Managed risk with safe deploys, rollbacks, and data protection</li>
-          <li>Balanced performance, reliability, and velocity in a live service</li>
-        </ul>
-      </div>
-
-      <div class="mt-10">
-        <h2 class="text-2xl font-semibold text-ink">Why this matters</h2>
-        <p class="mt-3 text-muted">
-          This work required similar rigor to a production SaaS platform:
-          reliability, observability, performance, and user trust. It was not a
-          mod or a side project - it was live software with real consequences.
-        </p>
       </div>
     </div>
   </section>

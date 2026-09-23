@@ -2,46 +2,50 @@
 title: "Kansas Electric"
 category: "Business + Apps"
 summary: "Designed internal workflow systems for quoting, reporting, forecasting, and execution visibility, creating a clearer path from intake through delivery."
-impact: "Closed approximately $2M in new work within 60 days while building commercial systems tied to $100M+ presented opportunities and $200M+ forward pipeline."
+impact: "Commercial results from my Kansas Electric role: approximately $2M in new work closed in the first 60 days, $100M+ in opportunities presented in 2025, and $200M+ in forward pipeline over the following 24 months."
 bullets:
   - "Rebuilt the public website and lead capture flow"
   - "Delivered internal apps for estimating, scheduling, field reporting, and coordination"
   - "Automated key operational steps to reduce manual handling"
-scope: "Public website plus internal tooling supporting day-to-day operations."
-ownership: "End-to-end: discovery, design, build, rollout, and maintenance."
+scope: "Public website and internal commercial and operational tools, October 2024–December 2025."
+ownership: "Director, Business Development & Technical Systems. Discovery, design, build, rollout, and maintenance."
 order: 0
 ---
 import AppShowcaseCard from "../../components/AppShowcaseCard.astro";
+import ProjectScreenshot from "../../components/ProjectScreenshot.astro";
 
-## Context (business problem)
+## The operating problem
 Kansas Electric needed a modern, credible digital presence and internal systems to keep pace with growth. Commercial motion, lead capture, estimating, field reporting, and leadership visibility were spread across disconnected tools, which slowed response times and made pipeline health hard to trust.
 
-{/* This is where I show the real ops pain, not marketing fluff */}
+As Director of Business Development & Technical Systems from October 2024 through December 2025, I owned both the commercial work and the systems supporting it. The tools covered the path from an incoming request and account research through estimating, field updates, and leadership reporting.
+
 ## Constraints
 - Small team, limited engineering bandwidth
 - Field work with variable schedules and data quality
 - Legacy processes and tools spread across email, spreadsheets, and ad-hoc systems
 - Needed to deliver improvements without disrupting day-to-day operations
 
-## What I built (technical + operational)
+## What I owned
 - Rebuilt the public website with clear service positioning and lead capture
 - Implemented intake routing so new requests reached the right teams fast
 - Built a suite of PWAs and Apps Script tools for estimating, field reporting, and planning
 - Connected operational data so pipeline status, capacity, and follow-up were visible
 - Documented operating workflows and ownership to keep execution consistent
 
-## Highlights
-- Faster estimating from intake to structured take-off
-- Cleaner field reporting with offline capture and standardization
-- Shared visibility across pipeline, scheduling, and labor
+## How the tools fit together
 
-## CRM (core app)
+1. **Intake and account development.** The website and lead capture flow feed a commercial process supported by CRM activity, contact search, and customer research.
+2. **Estimating.** Bid packages move into document parsing, structured take-offs, confidence review, and export-ready outputs.
+3. **Field execution.** Offline-capable reports collect job updates and media, with structured fields and a summary for review.
+4. **Planning and visibility.** Opportunity refreshes, forecasting, and labor rollups give leadership a recurring view of commercial and operational activity.
+
+## CRM: account context and follow-through
 <div class="grid gap-5 md:grid-cols-2">
   <div class="md:col-span-2">
     <AppShowcaseCard
       title="CRM Console"
       problem="Account, activity, and follow-up data lived across inboxes and scattered sheets."
-      stack="Vanilla JS PWA, HTML/CSS, Tailwind via CDN, Dexie (IndexedDB) for offline store, Chart.js dashboards, service worker caching + background sync, AI agents for briefing/summarization, GitHub CI/CD"
+      stack="JavaScript PWA, Dexie / IndexedDB, Chart.js, AI-assisted briefing and summarization, Acumatica integration"
       impact="Unified pipeline context with consistent activity logging, briefing workflows, and bi-directional Acumatica sync for end-to-end touch tracking."
     />
   </div>
@@ -49,35 +53,52 @@ Kansas Electric needed a modern, credible digital presence and internal systems 
 
 ## CRM interface
 <div class="grid gap-4 md:grid-cols-2">
-  <figure class="surface p-3">
-    <img src="/assets/kse/CRM%20Main.png" alt="CRM main console" class="w-full rounded-xl border border-border" loading="lazy" />
-    <figcaption class="mt-2 text-sm text-muted">Main enterprise console with account and activity workflows.</figcaption>
-  </figure>
-  <figure class="surface p-3">
-    <img src="/assets/kse/CRM%20Activity.png" alt="CRM activity logging" class="w-full rounded-xl border border-border" loading="lazy" />
-    <figcaption class="mt-2 text-sm text-muted">Activity logging panel with pipeline context and velocity snapshot.</figcaption>
-  </figure>
-  <figure class="surface p-3">
-    <img src="/assets/kse/CRM%20AI%20Assist.png" alt="CRM AI assist panel" class="w-full rounded-xl border border-border" loading="lazy" />
-    <figcaption class="mt-2 text-sm text-muted">AI assist workflow for narration, extraction, and structured notes.</figcaption>
-  </figure>
-  <figure class="surface p-3">
-    <img src="/assets/kse/CRM%20Briefing.png" alt="CRM briefing view" class="w-full rounded-xl border border-border" loading="lazy" />
-    <figcaption class="mt-2 text-sm text-muted">Customer briefing view with internal context and pre-RFP signals for early discovery.</figcaption>
-  </figure>
-  <figure class="surface p-3 md:col-span-2">
-    <img src="/assets/kse/CRM%20Debrief.png" alt="CRM debrief view" class="w-full rounded-xl border border-border" loading="lazy" />
-    <figcaption class="mt-2 text-sm text-muted">Debrief and gameplan view for next steps and follow-ups.</figcaption>
-  </figure>
+  <div class="md:col-span-2">
+    <ProjectScreenshot
+      src="/assets/kse/CRM%20Main.png"
+      alt="Kansas Electric CRM console with account and activity workflows"
+      caption="The main console brings account context and activity workflows into one view."
+      width={1255}
+      height={942}
+    />
+  </div>
+  <ProjectScreenshot
+    src="/assets/kse/CRM%20Activity.png"
+    alt="Kansas Electric CRM activity logging with pipeline context"
+    caption="Activity logging sits alongside pipeline context and a velocity snapshot."
+    width={901}
+    height={764}
+  />
+  <ProjectScreenshot
+    src="/assets/kse/CRM%20AI%20Assist.png"
+    alt="Kansas Electric CRM AI assistant for narration and structured notes"
+    caption="The AI assist workflow turns narration into extracted fields and structured notes."
+    width={605}
+    height={550}
+  />
+  <ProjectScreenshot
+    src="/assets/kse/CRM%20Briefing.png"
+    alt="Kansas Electric customer briefing with account context and early opportunity signals"
+    caption="Customer briefings combine internal context with pre-RFP signals for early discovery."
+    width={700}
+    height={409}
+  />
+  <ProjectScreenshot
+    src="/assets/kse/CRM%20Debrief.png"
+    alt="Kansas Electric CRM debrief showing next steps and follow-up planning"
+    caption="The debrief view carries the conversation into next steps and follow-up planning."
+    width={708}
+    height={419}
+  />
 </div>
 
-## Field Reports (core app)
+## Field Reports: capture now, synchronize later
 <div class="grid gap-5 md:grid-cols-2">
   <div class="md:col-span-2">
     <AppShowcaseCard
       title="Field Reports"
       problem="Daily field updates were inconsistent and hard to centralize."
-      stack="Offline-first PWA, Apps Script backend, Drive + Sheets storage, video capture with guided prompts, AI agent parsing into structured fields, GitHub CI/CD"
+      stack="Offline-first PWA, Apps Script, Drive + Sheets, guided video capture, AI-assisted structured reporting"
       impact="Standardized reporting with offline capture and structured summaries."
     />
   </div>
@@ -85,27 +106,36 @@ Kansas Electric needed a modern, credible digital presence and internal systems 
 
 ## Field reporting snapshots
 <div class="grid gap-4 md:grid-cols-2">
-  <figure class="surface p-3">
-    <img src="/assets/kse/Field%20Reporting%20Video%20With%20Overlay%20Prompts.png" alt="Field reporting video capture with overlay prompts" class="w-full rounded-xl border border-border" loading="lazy" />
-    <figcaption class="mt-2 text-sm text-muted">Video capture with overlay prompts to guide consistent field updates.</figcaption>
-  </figure>
-  <figure class="surface p-3">
-    <img src="/assets/kse/Field%20Reporting%20Parsed%20Transcript%20Fields.png" alt="Field reporting parsed transcript fields" class="w-full rounded-xl border border-border" loading="lazy" />
-    <figcaption class="mt-2 text-sm text-muted">Parsed transcript fields mapped into structured report inputs.</figcaption>
-  </figure>
-  <figure class="surface p-3 md:col-span-2">
-    <img src="/assets/kse/Field%20Reporting%20Summary.png" alt="Field reporting summary view" class="w-full rounded-xl border border-border" loading="lazy" />
-    <figcaption class="mt-2 text-sm text-muted">Summary view for quick review before submission.</figcaption>
-  </figure>
+  <ProjectScreenshot
+    src="/assets/kse/Field%20Reporting%20Video%20With%20Overlay%20Prompts.png"
+    alt="Field reporting video capture with prompts overlaid on the recording view"
+    caption="Video prompts guide the field user through a consistent update."
+    width={520}
+    height={758}
+  />
+  <ProjectScreenshot
+    src="/assets/kse/Field%20Reporting%20Parsed%20Transcript%20Fields.png"
+    alt="Field reporting transcript mapped into structured report fields"
+    caption="Parsed transcript details become structured report inputs."
+    width={515}
+    height={605}
+  />
+  <ProjectScreenshot
+    src="/assets/kse/Field%20Reporting%20Summary.png"
+    alt="Field report summary ready for review before submission"
+    caption="A summary gives the user a review step before submitting the report."
+    width={523}
+    height={539}
+  />
 </div>
 
-## Estimate Accelerator (hero app)
+## Estimate Accelerator: documents to reviewable take-offs
 <div class="grid gap-5 md:grid-cols-2">
   <div class="md:col-span-2">
     <AppShowcaseCard
       title="Estimate Accelerator"
       problem="RFP packages took too long to convert into structured take-offs."
-      stack="PWA, Web Worker parsing, OpenAI Vision model calls, AI agents + sub-agents for extraction, MCP server integrations, OCR fallback, confidence scoring, Railway, GitHub CI/CD"
+      stack="PWA, Web Worker parsing, OpenAI Vision, OCR fallback, confidence scoring, historical pricing signals"
       impact="Structured take-offs with confidence signals, pricing context, and export-ready outputs."
     />
   </div>
@@ -113,22 +143,30 @@ Kansas Electric needed a modern, credible digital presence and internal systems 
 
 ## Estimate Accelerator snapshots
 <div class="grid gap-4 md:grid-cols-2">
-  <figure class="surface p-3">
-    <img src="/assets/kse/Estimate%20Upload.png" alt="Estimate upload view" class="w-full rounded-xl border border-border" loading="lazy" />
-    <figcaption class="mt-2 text-sm text-muted">Upload flow for bid packages and RFP docs.</figcaption>
-  </figure>
-  <figure class="surface p-3">
-    <img src="/assets/kse/Estimate%20Parsing%20and%20Take-Off.png" alt="Estimate parsing and take-off view" class="w-full rounded-xl border border-border" loading="lazy" />
-    <figcaption class="mt-2 text-sm text-muted">Parsed take-off view with structured scope and quantities.</figcaption>
-  </figure>
-  <figure class="surface p-3 md:col-span-2">
-    <img src="/assets/kse/Estimate%20Confidence%20and%20Intelligence.png" alt="Estimate confidence and intelligence view" class="w-full rounded-xl border border-border" loading="lazy" />
-    <figcaption class="mt-2 text-sm text-muted">Confidence signals and AI-assisted insights for review.</figcaption>
-  </figure>
+  <ProjectScreenshot
+    src="/assets/kse/Estimate%20Upload.png"
+    alt="Estimate Accelerator upload flow for bid packages and RFP documents"
+    caption="The intake flow accepts bid packages and RFP documents for parsing."
+    width={697}
+    height={810}
+  />
+  <ProjectScreenshot
+    src="/assets/kse/Estimate%20Parsing%20and%20Take-Off.png"
+    alt="Estimate Accelerator parsed take-off showing scope and quantities"
+    caption="Parsed documents become structured scope and quantity inputs."
+    width={708}
+    height={793}
+  />
+  <ProjectScreenshot
+    src="/assets/kse/Estimate%20Confidence%20and%20Intelligence.png"
+    alt="Estimate Accelerator confidence scores and pricing intelligence for review"
+    caption="Confidence signals and pricing context support review of the extracted take-off."
+    width={706}
+    height={822}
+  />
 </div>
 
 ## Other internal apps
-{/* I keep these app cards consistent so it's easy to skim */}
 <div class="grid gap-5 md:grid-cols-2">
   <AppShowcaseCard
     title="Opportunity Radar"
@@ -162,15 +200,18 @@ Kansas Electric needed a modern, credible digital presence and internal systems 
   />
 </div>
 
-## Tools and architecture
-- Website: Astro, Tailwind, structured content for SEO
-- CRM PWA: Vanilla JS PWA, HTML/CSS, Tailwind via CDN, Dexie (IndexedDB) for offline store, Chart.js dashboards, service worker caching + background sync, AI agents for briefing/summarization, bi-directional Acumatica ERP sync, GitHub CI/CD
-- Field Reports PWA: Offline-first PWA, Apps Script backend, Drive + Sheets storage, video capture with guided prompts, AI agent parsing into structured fields, GitHub CI/CD
-- Estimate Accelerator PWA: PWA, Web Worker parsing, OpenAI Vision model calls, AI agents + sub-agents for extraction, MCP server integrations, OCR fallback, confidence scoring, Railway, GitHub CI/CD
-- Minor PWAs: Apps Script + Sheets automation, scheduled triggers, standardized schemas for routing, reporting, and rollups, GitHub CI/CD
+## Architecture choices
 
-## Outcomes and impact
-- Clearer service positioning and structured intake flows
-- Standardized handoffs across estimating and scheduling
-- More consistent pipeline visibility for leadership and operations
-- End-to-end ownership from discovery to build, rollout, and adoption
+**Make field capture resilient to connectivity.** The PWAs use service worker caching and local IndexedDB storage. Queued field reports can synchronize when a connection becomes available, while the Apps Script service stores media in Drive and report rows in Sheets.
+
+**Use a lightweight operational backbone.** Apps Script and Sheets support scheduled refreshes, standardized schemas, stage-weighted forecasting, and daily labor summaries. That kept smaller tools close to the team's existing workflows. The CRM adds Acumatica integration, charting, and account briefing around the commercial record.
+
+**Keep extraction reviewable.** Estimate Accelerator combines Web Worker parsing, OpenAI Vision, OCR fallback, confidence scoring, and pricing context. Structured take-offs and exports give the estimator a concrete output to review before carrying it into the next step.
+
+**Own the whole delivery path.** The public website uses Astro and Tailwind. Across the internal suite, my work covered the interface, supporting services, GitHub delivery workflows, rollout, and maintenance.
+
+## Commercial results and system outcomes
+
+During my Kansas Electric role, I closed approximately $2M in new work within the first 60 days. The commercial motion was tied to more than $100M in opportunities presented in 2025 and a forward pipeline exceeding $200M over the following 24 months. Presented opportunities and forward pipeline describe commercial activity; they are separate from closed revenue.
+
+The systems supported that work through structured intake, shared account history, reviewable estimating outputs, offline field reporting, and consistent planning rollups. Those are the concrete capabilities delivered alongside the broader business-development work.

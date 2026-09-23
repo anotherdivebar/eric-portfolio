@@ -1,22 +1,39 @@
 ---
-title: "RevOps automation"
-category: "Systems + Execution"
-summary: "Built automation that reduced manual handoffs and made pipeline and renewal signals easier to act on."
-impact: "Clearer SLA adherence, cleaner handoffs, and more consistent retention signals."
+title: "Lifecycle automation"
+category: "Operating approach · Revenue operations"
+summary: "How I turn data validation, routing, and pipeline or renewal signals into reviewable actions with clear ownership."
+impact: "Automation designed around accountable follow-up, visible exceptions, and consistent information across teams."
 bullets:
-  - "Automated data validation and enrichment"
-  - "Proactive churn risk alerts"
-  - "Improved SLA adherence through tooling"
-scope: "Lifecycle automation spanning pipeline and renewal monitoring."
+  - "Validate and enrich records before they enter downstream workflows"
+  - "Give alerts an owner, response expectation, and escalation path"
+  - "Review exceptions and adoption alongside the automation itself"
+scope: "Lifecycle workflows spanning intake, pipeline monitoring, handoffs, and renewal signals."
 ownership: "Automation design, implementation, and adoption support."
 order: 3
 ---
 
-## Situation
-Manual validation and delayed risk signals slowed response time. Churn risk was visible too late, and teams were spending too much time reconciling data before acting.
+## Where this approach applies
 
-## Action
-Automated enrichment, validation, and alerting across CRM and lifecycle tools so teams could respond from a shared set of signals.
+This brief describes my approach to lifecycle automation. It applies when teams spend too much time reconciling records, ownership is unclear at handoff, or a risk signal arrives without a practical next step.
 
-## Result
-Handoffs were standardized, SLA adherence was easier to monitor, and retention risks became easier to catch before they escalated.
+The useful unit of automation is a complete workflow: a dependable input, an understandable rule, an accountable owner, and a way to see whether the action happened.
+
+## Start with the input
+
+Validation and enrichment should make records more usable before they reach the next team. Missing or inconsistent information needs to be visible so the workflow can direct it to review instead of silently carrying the problem forward.
+
+Shared field and lifecycle definitions are part of that work. A routing rule or risk alert is only as useful as the information it depends on.
+
+## Connect the signal to an action
+
+A pipeline or renewal signal needs context: what changed, who owns the follow-up, and what response is expected. SLA monitoring and escalation make those expectations visible when the normal workflow stalls.
+
+I keep the action path close to the signal so teams can move from reviewing a record to deciding what to do about it.
+
+## Review the exceptions
+
+Exception queues and recurring reviews help distinguish a data problem, an unclear policy, and a missed handoff. That feedback can improve the underlying workflow as teams adopt it.
+
+## Related implementations
+
+[ABS Tooling](/abs-tooling) connects findings, approval queues, and operational workflows in one workspace. [LeakLens](/technical-projects/leak-lens) explores revenue triage and recovery through a product demo with simulated data and connectors.

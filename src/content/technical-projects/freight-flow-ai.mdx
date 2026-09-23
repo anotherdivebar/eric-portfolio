@@ -1,9 +1,9 @@
 ---
 title: "FreightFlow AI"
-summary: "Built a freight-focused shipper prospecting and relationship workspace for a small brokerage team: qualified shipper discovery, AI-assisted account briefs, public contact paths, geographic calling, and shared pipeline movement."
-why: "A small freight brokerage team needed a focused internal sales workspace for prospecting and account development, not a generic CRM with freight bolted on after the fact."
+summary: "Built a shipper prospecting workspace for a small freight brokerage team, connecting account discovery, AI-assisted research, public contact paths, geographic calling, and a shared sales pipeline."
+why: "A small freight brokerage team needed to carry promising shipper accounts from initial research into daily outreach and a shared relationship pipeline."
 constraints:
-  - "Prospecting had to start from public freight signals, not closed data sources"
+  - "Prospecting had to start from publicly available freight signals"
   - "Public contact research and account context needed to stay fast enough for daily sales use"
   - "The workflow had to support area-based calling and shared visibility across a small team"
 stack:
@@ -18,56 +18,62 @@ decisions:
   - "Built around freight sales behavior like city and region clustering instead of generic account lists"
   - "Kept the pipeline focused on shipper relationship stages from discovery through active sales motion"
 tradeoffs:
-  - "Stayed intentionally narrow - prospecting and SRM first, not a full CRM or TMS replacement"
+  - "Focused the scope on shipper prospecting and relationship management"
   - "Relied on public contact paths and enrichment quality instead of promising perfect contact coverage"
-outcome: "A focused prospecting workflow that helps a small brokerage team find likely shippers, research accounts faster, and move qualified opportunities through one shared pipeline."
+outcome: "One workflow for finding likely shippers, preparing account context, researching contact paths, and carrying qualified accounts into a shared pipeline."
 order: 1
 ---
 
-import AppShowcaseCard from "../../components/AppShowcaseCard.astro";
+import ProjectScreenshot from "../../components/ProjectScreenshot.astro";
 
-## What it does
+## The sales workflow
 
-**Shipper Finder** - Surfaces likely shipper accounts across freight-heavy industries so a small team can work from better raw targets instead of generic lead lists.
+FreightFlow AI organizes the steps between finding a potential shipper and deciding how to work the account. The workspace keeps research, geography, contact paths, and relationship stages close enough for a small team to use during daily prospecting.
 
-**AI account brief + public contact finder** - Pulls together a quick account view, research angles, and public contact paths to cut down manual prep before outreach.
+### 1. Find likely shipper accounts
 
-**Geographic workflow** - Lets reps work accounts by city and region so area-based calling and local clustering are built into the motion.
+Shipper Finder surfaces companies across freight-heavy industries using public signals. The discovery view pairs a list of accounts with shipper details, fit scoring, and next-step context so a rep can review a candidate before carrying it into the sales workflow.
 
-**Shared shipper pipeline** - Tracks accounts from discovery through active pipeline stages in a lighter-weight workflow than a traditional CRM.
+<ProjectScreenshot
+  src="/assets/freightflow/finder-overview.png"
+  alt="FreightFlow AI shipper finder beside account scoring and shipper detail"
+  caption="Review likely shipper accounts and their freight fit in the same workspace."
+  width={1024}
+  height={512}
+/>
 
-## Core workspace
-<div class="grid gap-5 md:grid-cols-2">
-  <div class="md:col-span-2">
-    <AppShowcaseCard
-      title="FreightFlow AI"
-      problem="Small brokerage teams needed one prospecting workspace for shipper discovery, account research, contact finding, and shared pipeline movement."
-      stack="Next.js, React, TypeScript, Supabase, server-side API routes, AI-assisted enrichment and workflow tooling"
-      impact="A focused sales workflow for better raw targets, faster account prep, and clearer movement from discovery to active pipeline."
-    />
-  </div>
-</div>
+### 2. Prepare the account and contact path
 
-## Interface snapshots
-<div class="grid gap-4 md:grid-cols-2">
-  <figure class="surface p-3 md:col-span-2">
-    <img src="/assets/freightflow/finder-overview.png" alt="FreightFlow AI shipper finder and shipper detail workspace" class="w-full rounded-xl border border-border" loading="lazy" />
-    <figcaption class="mt-2 text-sm text-muted">Finder workspace with freight-heavy shipper discovery on the left and account scoring, fit, and next-step context on the right.</figcaption>
-  </figure>
-  <figure class="surface p-3">
-    <img src="/assets/freightflow/account-brief.png" alt="FreightFlow AI account brief and public contact finder" class="w-full rounded-xl border border-border" loading="lazy" />
-    <figcaption class="mt-2 text-sm text-muted">Account brief view with area call angle, nearby prospects, public contact finder, fallback search links, and pages checked.</figcaption>
-  </figure>
-  <figure class="surface p-3">
-    <img src="/assets/freightflow/pipeline.png" alt="FreightFlow AI shipper pipeline board" class="w-full rounded-xl border border-border" loading="lazy" />
-    <figcaption class="mt-2 text-sm text-muted">Shared shipper pipeline for moving accounts from discovery to qualified, contacted, proposal, and awarded stages.</figcaption>
-  </figure>
-</div>
+An AI-assisted account brief brings together the company context, research angles, and possible approach for a call. Public contact research sits alongside that brief, with fallback search links and pages checked visible to the rep.
 
-## Why it is different
+Contact coverage depends on the available public information. The workflow keeps those research paths available so the rep can continue checking an account when enrichment is incomplete.
 
-This is not a generic CRM. It is tailored to how freight sales teams actually prospect: finding shippers with strong freight signals, grouping nearby accounts for more efficient calling, surfacing public contact paths, and carrying qualified accounts into a shared relationship pipeline.
+<ProjectScreenshot
+  src="/assets/freightflow/account-brief.png"
+  alt="FreightFlow AI account brief with an area call angle and public contact research"
+  caption="An account brief brings together local calling context, nearby prospects, contact research, and pages checked."
+  width={839}
+  height={864}
+/>
 
-## Stack
+### 3. Work a city or region
 
-Next.js, React, TypeScript, Supabase, server-side API routes, and AI-assisted enrichment and workflow tooling.
+Geography is part of the sales workflow. Reps can group nearby accounts and work by city or region, using the account brief and nearby prospects to prepare a focused calling session.
+
+### 4. Carry the account into a shared pipeline
+
+The shipper pipeline tracks relationship stages from discovery through qualified, contacted, proposal, and awarded. Research becomes part of a shared account-development process, giving the team visibility into where each shipper stands.
+
+<ProjectScreenshot
+  src="/assets/freightflow/pipeline.png"
+  alt="FreightFlow AI pipeline board with shipper accounts grouped by relationship stage"
+  caption="The shared board carries shipper accounts from discovery through qualification, contact, proposal, and awarded work."
+  width={1024}
+  height={342}
+/>
+
+## Architecture and scope
+
+The workspace uses Next.js, React, and TypeScript, with Supabase for the shared data layer and server-side API routes supporting discovery and AI-assisted enrichment. The product scope centers on shipper prospecting and relationship management: finding an account, researching it, and keeping the next stage visible to the team.
+
+The main design decision was to connect those tasks in one flow. Public data coverage and enrichment quality remain practical constraints, so the interface includes contact research paths and enough account context for a rep to review the next step.

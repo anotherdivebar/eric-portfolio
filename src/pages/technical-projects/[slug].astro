@@ -1,0 +1,58 @@
+---
+import Base from "../../layouts/Base.astro";
+import { getCollection } from "astro:content";
+
+export async function getStaticPaths() {
+  const projects = await getCollection("technical-projects");
+  return projects.filter((project) => !project.data.detailUrl).map((project) => ({ params: { slug: project.slug }, props: { project } }));
+}
+const { project } = Astro.props;
+const { Content, headings } = await project.render();
+const sections = headings.filter((heading) => heading.depth === 2);
+const isBrief = !project.body?.trim();
+const facts = [
+  { title: "Constraints", items: project.data.constraints },
+  { title: "Technology", items: project.data.stack },
+  { title: "Key decisions", items: project.data.decisions },
+  { title: "Tradeoffs", items: project.data.tradeoffs }
+];
+---
+
+<Base title={`${project.data.title} - Eric Martin`} description={project.data.summary}>
+  <section class="py-12 sm:py-16">
+    <div class="page-container-mid">
+      <a class="focus-ring text-sm font-semibold text-accent hover:text-accent-dark" href={`/technical-projects#${project.slug}`}>← All projects</a>
+      <header class="mt-6">
+        <p class="eyebrow">{isBrief ? "System brief" : project.slug === "leak-lens" ? "Product demo" : "Project breakdown"}</p>
+        <h1 class="mt-3 text-4xl font-semibold sm:text-5xl">{project.data.title}</h1>
+        <p class="mt-5 max-w-3xl text-lg leading-relaxed text-muted">{project.data.summary}</p>
+      </header>
+      <div class="mt-8 grid gap-5 md:grid-cols-2">
+        <section class="surface p-6" aria-labelledby="project-problem"><h2 id="project-problem" class="text-lg font-semibold">The problem</h2><p class="mt-3 leading-relaxed text-muted">{project.data.why}</p></section>
+        <section class="surface-muted p-6" aria-labelledby="project-result"><h2 id="project-result" class="text-lg font-semibold">What the build provides</h2><p class="mt-3 leading-relaxed text-muted">{project.data.outcome}</p></section>
+      </div>
+      {sections.length > 1 && (
+        <nav aria-label="Project sections" class="mt-8 rounded-xl border border-border bg-white p-4">
+          <p class="eyebrow">In this project</p>
+          <ul class="mt-3 flex flex-wrap gap-x-5 gap-y-3">
+            {sections.map((section) => (<li><a class="focus-ring text-sm font-medium text-accent hover:text-accent-dark" href={`#${section.slug}`}>{section.text}</a></li>))}
+            <li><a class="focus-ring text-sm font-medium text-accent hover:text-accent-dark" href="#implementation">Build details</a></li>
+          </ul>
+        </nav>
+      )}
+      {!isBrief && <article class="prose mt-10 max-w-none"><Content /></article>}
+      <section id="implementation" class="mt-10 border-t border-border pt-8" aria-labelledby="implementation-heading">
+        <h2 id="implementation-heading" class="text-2xl font-semibold">Build details</h2>
+        <div class="mt-5 grid gap-5 md:grid-cols-2">
+          {facts.map((fact) => (
+            <div class="surface p-6"><h3 class="text-lg font-semibold">{fact.title}</h3><ul class="mt-3 list-disc space-y-2 pl-5 text-sm leading-relaxed text-muted">{fact.items.map((item) => (<li>{item}</li>))}</ul></div>
+          ))}
+        </div>
+      </section>
+      <div class="mt-10 flex flex-wrap items-center justify-between gap-4 border-t border-border pt-7">
+        <a class="focus-ring text-sm font-semibold text-accent hover:text-accent-dark" href="/technical-projects">← Explore more projects</a>
+        <a class="focus-ring rounded-lg bg-accent px-5 py-3 text-sm font-semibold text-white hover:bg-accent-dark" href="/contact">Talk about a similar challenge</a>
+      </div>
+    </div>
+  </section>
+</Base>
