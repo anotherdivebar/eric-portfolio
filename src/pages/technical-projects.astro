@@ -7,17 +7,16 @@ const featured = projects.filter((project) => project.data.order < 3);
 const briefs = projects.filter((project) => project.data.order >= 3);
 const labels: Record<string, string> = {
   "atlas-beren-console": "Connected business platform",
-  "freight-flow-ai": "Freight sales workspace",
-  "leak-lens": "Interactive product demo"
+  "atlas-beren-website": "Product website & interactive demos",
 };
 const visuals: Record<string, { src: string; alt: string; width: number; height: number }> = {
   "atlas-beren-console": { src: "/assets/atlas-beren/workspace-overview.png", alt: "ABS Console workspace with sales, marketing, finance, and delivery modules", width: 1264, height: 625 },
-  "freight-flow-ai": { src: "/assets/freightflow/finder-overview.png", alt: "FreightFlow shipper discovery and account research workspace", width: 1024, height: 512 }
+  "atlas-beren-website": { src: "/assets/atlas-beren-website/home.png", alt: "Atlas-Beren product website and fictional workflow demonstration", width: 1440, height: 6389 },
 };
 const projectHref = (project: typeof projects[number]) => project.data.detailUrl ?? `/technical-projects/${project.slug}`;
 ---
 
-<Base title="Projects and Systems - Eric Martin" description="Explore Eric Martin’s software builds: ABS Tooling, FreightFlow AI, LeakLens, and systems for routing, reporting, and field operations.">
+<Base title="Projects and Systems - Eric Martin" description="Explore Eric Martin’s software builds: ABS Tooling, the Atlas-Beren website, and systems for routing, reporting, and field operations.">
   <section class="py-12 sm:py-16">
     <div class="page-container">
       <div class="section-dark rounded-[32px] px-6 py-9 text-white sm:px-10 sm:py-12">
@@ -37,17 +36,16 @@ const projectHref = (project: typeof projects[number]) => project.data.detailUrl
         </div>
         <div class="grid gap-6 lg:grid-cols-2">
           {featured.map((project) => (
-            <article id={project.slug} class:list={["surface overflow-hidden", project.slug === "atlas-beren-console" && "lg:col-span-2 lg:grid lg:grid-cols-2"]}>
+            <article id={project.slug} class:list={["surface overflow-hidden", ["atlas-beren-console", "atlas-beren-website"].includes(project.slug) && "lg:col-span-2 lg:grid lg:grid-cols-2"]}>
               {visuals[project.slug] && (
                 <a href={projectHref(project)} class="focus-ring flex items-center border-b border-border bg-panel p-4" aria-label={`Explore ${project.data.title}`}>
-                  <img src={visuals[project.slug].src} alt={visuals[project.slug].alt} width={visuals[project.slug].width} height={visuals[project.slug].height} class="aspect-[2/1] w-full rounded-lg border border-border object-contain" loading="lazy" decoding="async" />
+                  <img src={visuals[project.slug].src} alt={visuals[project.slug].alt} width={visuals[project.slug].width} height={visuals[project.slug].height} class:list={["aspect-[2/1] w-full rounded-lg border border-border", project.slug === "atlas-beren-website" ? "object-cover object-top" : "object-contain"]} loading="lazy" decoding="async" />
                 </a>
               )}
               <div class="flex flex-col p-6 sm:p-8">
                 <p class="eyebrow">{labels[project.slug]}</p>
                 <h3 class="mt-2 text-2xl font-semibold">{project.data.title}</h3>
                 <p class="mt-3 leading-relaxed text-muted">{project.data.summary}</p>
-                {project.slug === "leak-lens" && <p class="mt-4 rounded-lg bg-panel p-3 text-sm text-muted">Demonstration environment with mocked connectors and API data. It illustrates the product workflow.</p>}
                 <ul aria-label="Selected technologies" class="mt-5 flex flex-wrap gap-2">
                   {project.data.stack.slice(0, 3).map((item) => (<li class="rounded-md border border-border px-2.5 py-1 text-xs text-muted">{item}</li>))}
                 </ul>

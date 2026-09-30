@@ -1,6 +1,6 @@
 ---
 title: "ABS Tooling / Atlas-Beren Console"
-summary: "A connected business platform spanning prospect research, outreach, marketing, project delivery, cash planning, field operations, and job billing—with client workspaces and governed AI."
+summary: "A connected operating platform for customer acquisition, guided daily work, delivery, billing, workforce scheduling, purchasing, inventory, and production—with workspace permissions and governed AI."
 why: "Growth creates handoffs: a researched account becomes a deal, a won deal becomes delivery, and completed work needs a reliable billing record. I built ABS Tooling to carry context, evidence, and ownership through those transitions."
 constraints:
   - "Keep customer organizations separate, with explicit module access and delegated agency permissions"
@@ -24,7 +24,7 @@ tradeoffs:
   - "Marketing stages describe work in progress; they do not prove publication"
   - "Native billing records invoices and receipts; payment collection and ledger posting remain separate"
   - "Provider-dependent execution requires configured integrations and appropriate authorization"
-outcome: "Built seven entitlement modules, eight connected operations workflows, and ten scoped MCP tools. The September 23, 2026 release records 862 passing tests and one existing skip; screenshots show demo scenarios, not measured customer results."
+outcome: "Built seven permissioned modules that connect customer setup, sales, daily tasks, delivery, finance, and business operations. Reviewed September 30, 2026; the case study distinguishes release evidence, fictional demonstrations, and local work in progress."
 order: 0
 detailUrl: "/abs-tooling"
 ---
@@ -44,7 +44,7 @@ My work covers the product model, interface, business rules, integrations, datab
   alt="Atlas-Beren Console overview with navigation into sales, marketing, financials, and projects"
   width={1264}
   height={625}
-  caption="One workspace connects the major areas of business work. This and the following screenshots use demo or QA records; figures illustrate behavior rather than customer outcomes."
+  caption="The workspace overview connects the major areas of business work; the newer Today view puts immediate tasks first. Screenshots use demo or QA records and illustrate behavior rather than customer outcomes."
 />
 
 ## What I built
@@ -66,11 +66,29 @@ The platform has **seven permissioned modules**: CRM, Prospect Finding, Marketin
   </div>
   <div>
     <h3>Run connected operations</h3>
-    <p>Document takeoff, estimating, delivery jobs, inventory, asset maintenance, operational history, and approval-gated agents.</p>
+    <p>Document takeoff, estimating, delivery jobs, workforce schedules, purchasing, stock, production, maintenance, and operational history.</p>
   </div>
 </div>
 
 A shared action inbox brings source-backed exceptions into view: overdue follow-up, work awaiting review, project blockers, and financial findings. Resolving the underlying record clears the exception on refresh. That keeps the inbox tied to the work instead of creating another task list to maintain.
+
+## Setup and daily work
+
+### Start with the customer’s own records
+
+Customer onboarding connects verified sign-in, business setup, reviewed imports, and the first useful action. A resumable guide reads the workspace’s actual records to show what is complete. It does not treat clicking through instructions as proof that setup worked.
+
+CSV and Excel imports provide worksheet selection, column mapping, editable previews, and explicit review before saving. Original files and ignored columns stay out of the saved preview. Matching uses identifiers such as source IDs, domains, and contact email; ambiguous conflicts are held for review, and blank imported cells do not erase existing information. Imported jobs remain unpriced until someone reviews an estimate.
+
+Customer identity also carries into the sales workflow through an explicit link. An existing customer should not become a cold outreach target because two parts of the system disagree about who they are.
+
+### Put the next useful action first
+
+The **Today** view prioritizes urgent and overdue work, then offers contextual actions for follow-ups, projects, marketing, financial findings, and jobs. Operators can work from the record that needs attention. Viewers receive review-only controls, and unavailable sources produce an incomplete-coverage notice rather than an all-clear message.
+
+Guided estimates move through customer, work and price, then review and save. Guided projects turn a goal, owner, and date into persisted tasks; progress comes from those saved task statuses. Drafts retain interrupted inputs within their user and workspace scope. Stale records and uncertain saves are surfaced before a retry can duplicate work. Supported task edits also offer revision-aware undo.
+
+Across the seven modules, performance views connect summaries and charts back to actionable records. They show the date basis and source coverage behind a number: estimated pipeline remains distinct from sales, and missing data is not displayed as zero.
 
 ## Sales and research
 
@@ -112,7 +130,7 @@ The marketing module brings website audits, content drafts, editorial calendars,
 
 A won deal can become a linked project through an explicit review of scope, owner, dates, and billing expectations. The server checks that the source deal belongs to the workspace and is still valid. Repeated handoffs reopen the existing linked project instead of creating duplicates.
 
-Guided playbooks expand into real project tasks with owners, dates, dependencies, and review instructions. On-demand recipes preview changes such as assigning unowned work or escalating overdue tasks before applying them. Personal checklist ticks remain distinct from shared approvals.
+Guided playbooks expand into real project tasks with owners, dates, dependencies, and review instructions. On-demand recipes preview changes such as assigning unowned work or escalating overdue tasks before applying them. Guided project progress now follows saved task completion, while shared approvals retain their own review requirements.
 
 ### Make schedule and capacity decisions visible
 
@@ -134,7 +152,7 @@ Portfolio capacity compares estimated effort with weekly availability. Saved pla
 
 The finance workspace combines cash, receivables, aging, and scenario planning. Operators can save named scenarios, compare collection-delay assumptions, add recurring adjustments, and inspect a 13-week projection against a minimum reserve.
 
-Financial summaries distinguish missing data from zero, keep currencies separate, and disclose freshness and source coverage. Native job invoice balances are kept separate from imported accounting balances. Recording a receipt against an ABS invoice does not pretend to update a bank account.
+Financial summaries distinguish missing data from zero, keep currencies separate, and disclose freshness and source coverage. Native issued invoices feed receivables and cash planning net of recorded receipts and reversals. An imported mirror is suppressed only when it explicitly identifies the same native invoice in the same workspace; the system does not guess from similar names or amounts. Recording a receipt against an ABS invoice does not pretend to update a bank account.
 
 <div class="finance-screens">
   <ProjectScreenshot
@@ -172,8 +190,46 @@ Accepted estimates carry itemized expectations into linked jobs. Completion reco
 Native billing extends that connection. A completed job with an accepted estimate can open a persistent invoice using the agreed server-side price. Billing details and tax receive explicit review; issuance freezes the invoice. Operators record payments already received, including partial receipts, and correct mistakes with auditable reversals that preserve the original entry.
 
 <div class="build-note">
-  <p><strong>A deliberate boundary:</strong> issuing an invoice records it in the workspace. It does not email a customer, collect a payment, post a ledger entry, or reconcile a bank account. Those actions require their own integrations and controls.</p>
+  <p><strong>Issuance and delivery are separate decisions.</strong> Saving, downloading, or issuing an invoice does not send it. A separate reviewed delivery workflow can email a customer-facing PDF through the workspace’s configured Zoho mailbox. Recording payment still does not collect money or reconcile a bank account.</p>
 </div>
+
+### Customer documents and reviewed delivery
+
+Saved estimates and invoices can produce native PDFs with itemized amounts, pagination, and customer-facing terms. Internal costs stay out of the document. The delivery screen lets an owner or administrator review the recipient, subject, message, and exact PDF before sending; invoice delivery requires an issued record.
+
+Delivery history retains the document snapshot, digest, recipient, and provider outcome. If a response is uncertain, automatic retries stop. A “sent” result means the provider accepted the message, not that the customer read it. This extends the product from internal billing records to a deliberate customer communication workflow.
+
+## Workforce and business operations
+
+I expanded the existing Operations module with scheduling, purchasing, inventory, production, procedures, labor, and an action inbox. Shared people and location records support service businesses, light manufacturing, and restaurant operations through different terminology and presets. These are operating areas within the module, not seven additional platform entitlements.
+
+### Schedule people and resources
+
+Managers build draft schedules, review conflicts, publish shifts, and reuse weekly templates. Checks cover overlapping assignments, time off, required skills, certification expiry, overnight work, and time-zone transitions. An authenticated employee view limits access to the person’s own published shifts, requests, and time records; managers review coverage changes and approved hours can be exported.
+
+<ProjectScreenshot
+  src="/assets/atlas-beren/workforce-schedule.png"
+  alt="Fictional manufacturing workforce schedule with draft shifts, an unassigned opening, and coverage controls"
+  width={1440}
+  height={1120}
+  caption="A fictional schedule shows assigned and unassigned work before publication. Employee names and operating records in this demonstration are samples."
+/>
+
+### Carry purchasing into stock and production
+
+Purchasing moves from a request through approval, a manually recorded order, and partial receipts. Receiving updates stock once. The lot ledger retains append-only movements, reservations, expiry, and reorder context by item and location.
+
+Production snapshots the bill of materials, reserves eligible stock by earliest expiry, records consumption, and follows routing steps through quality review. Accepted output becomes a finished lot. Rejected output preserves the material-consumption history instead of inventing finished stock.
+
+<ProjectScreenshot
+  src="/assets/atlas-beren/production-complete.png"
+  alt="Fictional completed production batch with consumed materials, routing steps, quality review, and an output lot"
+  width={1440}
+  height={1133}
+  caption="The production demo connects material inputs, completed steps, quality notes, and finished stock. It uses a fictional bill of materials and sample lots."
+/>
+
+Repeatable procedures turn checks into recorded runs and corrective actions. Labor records actual intervals for review and export. Supplier email, accounts payable, payroll, and compliance certification remain outside these workflows. The released business lot ledger and older connected-parts inventory are separate; a reviewed ownership bridge is part of the newer local foundation work.
 
 ## A connected workflow
 
@@ -213,14 +269,18 @@ I also built a local MCP interface with **ten scoped tools**: six reads and four
 
 ## Delivery and boundaries
 
-The result is a broader operating platform than the original agent console: research and outreach, marketing production, project delivery, cash planning, field operations, and job billing now have concrete workflows and explicit handoffs.
+This case study reflects a review of the application source, release notes, tests, and demonstration artifacts on **September 30, 2026**. The platform now connects customer setup, research and outreach, daily tasks, project delivery, cash planning, customer documents, and broader business operations.
 
-The **September 23, 2026 billing release records 862 passing tests and one existing skip**, alongside TypeScript, build, PostgreSQL permission and lifecycle tests, and desktop and mobile browser checks. Those checks cover cases such as cross-tenant access, stale changes, duplicate requests, partial receipts, and reversals. They are documented release evidence, not a claim of customer adoption or financial return.
+The September 24 document-delivery release records **1,246 passing tests and one skip**, alongside TypeScript, production build, database policy checks, and PDF pagination review. Email delivery was simulated during verification. These are documented release checks, not a claim that this portfolio review reran the entire upstream suite.
 
-<div class="build-note">
-  <p><strong>Built capability and rollout are different milestones.</strong> The latest release records the billing migration as applied, with no production invoices or payments created during verification. The screenshots here show demo and QA scenarios.</p>
-</div>
+The September 30 daily-work report records 66 focused tests passing, with type, build, and lint checks passing. Its broader run recorded 1,335 passes, one skip, and two unresolved authentication-fallback test failures during concurrent changes. That is useful evidence of the work’s scope, but not a clean release certificate for every current change.
 
-The remaining work includes provider-backed publishing and advertising, live accounting synchronization and reconciliation, broader customer onboarding verification, and recurring off-site backups. Project capacity remains estimated, financial planning remains assumption-driven, and larger rollouts need to respect the current bounded data models.
+### Current local development
 
-What this build demonstrates is my ability to connect business process design with the implementation details that make a system dependable: ownership, permissions, evidence, review, persistence, and recovery. Each new module has to fit the operating workflow, not simply add another screen.
+The latest uncommitted work extends the commercial journey with recorded customer acceptance, assigned field work, service records, completion snapshots, and more detailed invoice scope. It also adds inventory ownership controls, durable operational records, and usage-budget foundations. These changes have local implementations and verification artifacts; production rollout is a separate milestone.
+
+The remaining boundaries are concrete: customer acceptance is not an electronic-signature service, recorded payments are not payment processing, labor export is not payroll, and local drafts are not cross-device offline synchronization. Financial projections remain assumption-driven, and larger deployments must respect the current bounded storage models.
+
+The companion [Atlas-Beren website project](/technical-projects/atlas-beren-website) explains how I made these workflows understandable through public product pages, fictional demonstrations, and contextual inquiries.
+
+What this build demonstrates is the connection between business process design and implementation: ownership, permissions, evidence, review, persistence, and recovery. A new capability has to support the next person’s work as well as the current screen.

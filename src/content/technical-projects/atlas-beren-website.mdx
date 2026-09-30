@@ -1,0 +1,92 @@
+---
+title: "Atlas-Beren Systems Website"
+summary: "A product website that connects positioning, interactive workflow demos, industry paths, and contextual inquiries for Atlas-Beren’s software and services."
+why: "A broad operating platform is difficult to explain through a feature list. Buyers need to see how the work connects, understand the offer, and find a relevant next step."
+constraints:
+  - "Explain software, implementation, and managed services without blending their commitments"
+  - "Make demos useful without exposing customer records or invoking live business actions"
+  - "Carry the visitor’s workflow context into a validated inquiry"
+  - "Keep a growing set of product and industry pages consistent on desktop and mobile"
+stack:
+  - "Next.js, React, and TypeScript"
+  - "Tailwind CSS and Framer Motion"
+  - "Resend and Vercel Analytics"
+  - "PDF.js and deterministic demo models"
+decisions:
+  - "Lead with connected work and offer an interactive customer-to-payment walkthrough"
+  - "Centralize buyer paths, product content, and allowed inquiry context"
+  - "Keep fictional demo state in the browser with explicit reset behavior"
+  - "Validate inquiries on the server and report success only after provider acceptance"
+tradeoffs:
+  - "Sample documents illustrate the workflow; they are not generated customer invoices"
+  - "Walkthrough requests require human follow-up rather than confirming a booking"
+  - "Inquiry delivery does not automatically create a customer in the console"
+  - "Conversion instrumentation is implemented; conversion lift has not been established"
+outcome: "Built a cohesive product discovery journey: understand the platform, try a fictional workflow, compare the offer, and send an inquiry that retains its context."
+order: 0.5
+---
+
+import ProjectScreenshot from "../../components/ProjectScreenshot.astro";
+
+## Make the platform understandable
+
+The Atlas-Beren website is the public entry point to the business behind [ABS Tooling](/abs-tooling). It has to explain both the operating software and the help available around it: implementation, managed operations, and growth services.
+
+My work connects the product narrative to the web implementation: page architecture, interactive demonstrations, reusable content models, responsive interfaces, and the inquiry flow. The site gives a visitor several ways into the same story—through their kind of business, a specific workflow, or a hands-on sample.
+
+The central message follows the work itself: **win the customer, organize delivery, and understand what happened.** That makes a large platform easier to explore one useful task at a time.
+
+<ProjectScreenshot
+  src="/assets/atlas-beren-website/home.png"
+  alt="Atlas-Beren website with its connected-work message and interactive customer-to-payment walkthrough"
+  width={1440}
+  height={6389}
+  cropPreview={true}
+  caption="The opening of the public website pairs the product promise with a working example. Open the full-size image to see the complete page. This development capture records the offer shown at the time."
+/>
+
+## Let visitors try the handoffs
+
+The guided demo follows a fictional customer through an estimate, delivery, invoice, and recorded payment. A small state model enforces the sequence: completing work, issuing an invoice, and recording a payment depend on the preceding state. Partial payments change the remaining balance, and the overview links the numbers back to the next action.
+
+This is more useful than a gallery of disconnected screens. A buyer can see which record changes and why the next step becomes available. The sample remains in browser memory and resets on refresh; it does not call customer APIs or send anything to a real business.
+
+I also built deeper demonstrations of CRM, estimating, scheduling, financial visibility, and field operations. The estimating workbench combines a local cost catalog, editable scope, exclusions, and a deterministic scope assistant. Suggestions start unchecked so the person reviewing the estimate chooses what belongs in it. Saved proposal snapshots carry context into the sample CRM and dispatch views.
+
+The scheduling example makes dependencies and crew overlap visible. Downloadable sample PDFs illustrate customer-facing documents and are marked as samples. They are fixed examples, so the site does not imply that changing the demo generates a legally issued invoice or collects a payment.
+
+## Give different buyers a clear route
+
+Service businesses, project teams, and equipment or property operators approach the platform with different problems. Buyer paths connect those starting points to the relevant workflows. Additional business operations examples show how scheduling, purchasing, stock, production, and checks fit service work, light manufacturing, and restaurants.
+
+The commercial structure separates the software subscription from implementation and managed services. Pricing, onboarding, support, and data-handling pages put practical questions near the decision to inquire. The broader service architecture—Digital Foundation, Growth Engine, and Operations System—keeps the firm’s website, growth, and operational work connected without making every buyer read every service page.
+
+Product pages and calls to action retain bounded context such as the selected workflow, audience, and inquiry source. A visitor who asks about maintenance can arrive at the form with that topic already identified. Invalid URL values fall back to known choices instead of becoming arbitrary form content.
+
+## Make the inquiry useful
+
+The form asks what the business is trying to connect, which tools it already uses, and where work gets stuck. Requests for a walkthrough can include preferred times and a time zone. These details give the person responding a useful starting point; submitting the form does not start a subscription or confirm an appointment.
+
+<ProjectScreenshot
+  src="/assets/atlas-beren-website/contact.png"
+  alt="Atlas-Beren inquiry page with business context fields and a clear explanation of the follow-up process"
+  width={1440}
+  height={1132}
+  caption="The inquiry page explains what happens next and collects the business problem alongside contact details. The fields shown here are empty."
+/>
+
+The Next.js route checks the request origin, content type, payload size, and field values before calling Resend. Validation includes required fields, recognized interests, malformed addresses, oversized text, and a spam trap. The interface reports success only after the email provider accepts the request. An uncertain response gets an explicit unconfirmed state rather than a false success message.
+
+Analytics use a defined set of events and allowed properties. Form descriptions and email addresses are excluded from those event payloads. Inquiry delivery remains a separate step from creating a customer record in ABS.
+
+## Build a consistent experience
+
+The site uses Next.js, React, TypeScript, Tailwind CSS, and Framer Motion. Shared content definitions keep navigation, services, buyer paths, and product pages aligned as the offering develops. Canonical metadata, structured data, sitemap, and robots output support discovery and consistent links.
+
+The visual system uses warm paper backgrounds, dark ink, gold accents, strong typography, and alternating sections. Long product pages mix short explanations, interactive examples, workflow lists, and focused calls to action. The same design language extends through pricing, industry pages, inquiries, and mobile layouts.
+
+## Evidence and current scope
+
+This writeup reflects a source and artifact review on **September 30, 2026**. The repository includes automated checks for demo transitions, inquiry validation, context propagation, analytics filtering, and provider error handling, plus desktop and mobile review captures. The latest offer and positioning refinements include local work in progress; this is not a certification that every reviewed change is deployed.
+
+The result is a functioning product discovery and inquiry experience. I am not presenting sample demo revenue as customer results or claiming measured conversion improvement. The companion [ABS Tooling case study](/abs-tooling) covers the authenticated operating platform and the persistence, permissions, and recovery controls behind its live workflows.

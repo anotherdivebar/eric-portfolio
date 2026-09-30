@@ -4,18 +4,9 @@ import { getEntry } from "astro:content";
 
 const project = await getEntry("technical-projects", "atlas-beren-console");
 if (!project) throw new Error("ABS Tooling case study is missing.");
-const { Content } = await project.render();
+const { Content, headings } = await project.render();
 
-const sections = [
-  { id: "the-problem", label: "The problem" },
-  { id: "what-i-built", label: "What I built" },
-  { id: "sales-and-research", label: "Sales & research" },
-  { id: "projects-and-delivery", label: "Projects & delivery" },
-  { id: "finance-and-operations", label: "Finance & operations" },
-  { id: "a-connected-workflow", label: "A connected workflow" },
-  { id: "engineering-decisions", label: "Engineering" },
-  { id: "delivery-and-boundaries", label: "Delivery & boundaries" }
-];
+const sections = headings.filter((heading) => heading.depth === 2).map((heading) => ({ id: heading.slug, label: heading.text }));
 ---
 
 <Base title="ABS Tooling / Atlas-Beren Console - Eric Martin" description="Inside Eric Martin’s ABS Tooling build: prospect research, outreach, project delivery, finance, connected operations, and governed AI in the Atlas-Beren Console.">
@@ -28,12 +19,12 @@ const sections = [
         <p class="mt-4 max-w-3xl text-2xl leading-snug text-slate-100 sm:text-3xl">From finding the opportunity to running the work.</p>
         <p class="mt-5 max-w-3xl text-base leading-relaxed text-slate-300 sm:text-lg">
           I built Atlas-Beren Console to connect the work that usually falls between tools:
-          researching a prospect, following up, planning delivery, tracking cash, and keeping
-          the next decision visible. ABS Tooling is the wider build behind that workspace.
+          setting up customers, finding opportunities, guiding daily tasks, scheduling people,
+          delivering work, and reviewing billing. ABS Tooling is the wider build behind that workspace.
         </p>
         <dl class="mt-9 grid gap-6 border-t border-white/15 pt-7 sm:grid-cols-3">
           <div><dt class="text-xs uppercase tracking-[0.16em] text-slate-400">My role</dt><dd class="mt-2 text-sm leading-relaxed text-slate-100">Product direction, workflow design, architecture, and implementation</dd></div>
-          <div><dt class="text-xs uppercase tracking-[0.16em] text-slate-400">Built for</dt><dd class="mt-2 text-sm leading-relaxed text-slate-100">Atlas-Beren operators and trade / service business workspaces</dd></div>
+          <div><dt class="text-xs uppercase tracking-[0.16em] text-slate-400">Built for</dt><dd class="mt-2 text-sm leading-relaxed text-slate-100">Atlas-Beren operators and service, project, manufacturing, and restaurant workspaces</dd></div>
           <div><dt class="text-xs uppercase tracking-[0.16em] text-slate-400">Core idea</dt><dd class="mt-2 text-sm leading-relaxed text-slate-100">Carry context, evidence, and ownership from one step to the next</dd></div>
         </dl>
       </div>

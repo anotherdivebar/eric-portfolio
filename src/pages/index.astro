@@ -11,8 +11,8 @@ const selectedWork = [
   {
     label: "Connected business platform", title: "ABS Tooling", href: "/abs-tooling",
     image: "/assets/atlas-beren/workspace-overview.png", alt: "ABS Console overview with business workflow modules", width: 1264, height: 625,
-    body: "Prospect research, outreach, project delivery, cash planning, and field operations connected through one workspace.",
-    detail: "Explore the workflows, engineering decisions, and estimate-to-invoice lifecycle.", cta: "Explore the full build"
+    body: "Customer setup, sales, guided daily work, delivery, workforce scheduling, purchasing, and production in one workspace.",
+    detail: "Explore the connected workflows, reviewed billing, and engineering decisions behind the platform.", cta: "Explore the full build"
   },
   {
     label: "Commercial and operational systems", title: "Kansas Electric", href: "/work/kansas-electric",
@@ -21,10 +21,10 @@ const selectedWork = [
     detail: "See the commercial context and the applications built to support day-to-day work.", cta: "Read the case study"
   },
   {
-    label: "Freight sales workspace", title: "FreightFlow AI", href: "/technical-projects/freight-flow-ai",
-    image: "/assets/freightflow/finder-overview.png", alt: "FreightFlow shipper finder and account research", width: 1024, height: 512,
-    body: "Shipper discovery, account briefs, public contact research, and a shared pipeline for a small brokerage team.",
-    detail: "Follow an account from discovery through research and sales follow-up.", cta: "Read the project breakdown"
+    label: "Product website & demos", title: "Atlas-Beren Systems", href: "/technical-projects/atlas-beren-website",
+    image: "/assets/atlas-beren-website/home.png", alt: "Atlas-Beren website with an interactive product walkthrough", width: 1440, height: 6389, crop: true,
+    body: "Product positioning, fictional workflow demos, industry paths, and contextual inquiries for the business behind ABS.",
+    detail: "See how the website turns a broad operating platform into a clear buyer journey.", cta: "Explore the website build"
   }
 ];
 const approach = [
@@ -34,7 +34,7 @@ const approach = [
 ];
 ---
 
-<Base title="Eric Martin - Revenue Operations & Technical Systems Leader" description="Eric Martin connects business development, field operations, and software. Explore ABS Tooling, Kansas Electric, FreightFlow AI, and the systems behind the work.">
+<Base title="Eric Martin - Revenue Operations & Technical Systems Leader" description="Eric Martin connects business development, field operations, and software. Explore ABS Tooling, the Atlas-Beren website, Kansas Electric, and the systems behind the work.">
   <section class="pb-12 pt-10 sm:pt-14">
     <div class="page-container">
       <div class="section-dark overflow-hidden rounded-[32px] border border-slate-800 px-6 py-9 text-white sm:px-10 sm:py-12">
@@ -77,7 +77,7 @@ const approach = [
         {selectedWork.map((project) => (
           <article class="surface flex flex-col overflow-hidden">
             <a class="focus-ring block border-b border-border bg-panel p-3" href={project.href} aria-label={`Explore ${project.title}`}>
-              <img src={project.image} alt={project.alt} width={project.width} height={project.height} class="aspect-[16/10] w-full rounded-lg object-contain" loading="lazy" decoding="async" />
+              <img src={project.image} alt={project.alt} width={project.width} height={project.height} class:list={["aspect-[16/10] w-full rounded-lg", project.crop ? "object-cover object-top" : "object-contain"]} loading="lazy" decoding="async" />
             </a>
             <div class="flex flex-1 flex-col p-6">
               <p class="eyebrow">{project.label}</p>

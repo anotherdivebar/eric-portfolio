@@ -5,14 +5,15 @@ interface Props {
   caption: string;
   width: number;
   height: number;
+  cropPreview?: boolean;
 }
 
-const { src, alt, caption, width, height } = Astro.props;
+const { src, alt, caption, width, height, cropPreview = false } = Astro.props;
 ---
 
 <figure class="project-screenshot not-prose overflow-hidden rounded-2xl border border-border bg-white">
   <a href={src} class="focus-ring block bg-panel" aria-label={`Open full-size screenshot: ${alt}`}>
-    <img src={src} alt={alt} width={width} height={height} loading="lazy" decoding="async" class="h-auto w-full" />
+    <img src={src} alt={alt} width={width} height={height} loading="lazy" decoding="async" class:list={["w-full", cropPreview ? "aspect-[4/3] object-cover object-top" : "h-auto"]} />
   </a>
   <figcaption class="border-t border-border px-5 py-4">
     <p class="text-sm leading-relaxed text-muted">{caption}</p>
