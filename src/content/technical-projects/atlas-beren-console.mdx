@@ -1,6 +1,6 @@
 ---
 title: "ABS Tooling / Atlas-Beren Console"
-summary: "A connected operating platform for customer acquisition, guided daily work, delivery, billing, workforce scheduling, purchasing, inventory, and production—with workspace permissions and governed AI."
+summary: "A connected operating platform spanning customer acquisition, guided field work, delivery, billing, workforce scheduling, inventory, and production—with auditable automation and optional business integrations."
 why: "Growth creates handoffs: a researched account becomes a deal, a won deal becomes delivery, and completed work needs a reliable billing record. I built ABS Tooling to carry context, evidence, and ownership through those transitions."
 constraints:
   - "Keep customer organizations separate, with explicit module access and delegated agency permissions"
@@ -11,7 +11,7 @@ stack:
   - "Next.js, React, and TypeScript"
   - "Supabase Auth, Postgres, row-level security, and private Storage"
   - "Vercel, scheduled jobs, and AI Gateway"
-  - "Overture Maps discovery, Hunter verification, and Zoho Mail"
+  - "Overture discovery, contact verification, Zoho Mail, and optional business integrations"
   - "Vitest and PostgreSQL policy tests with PGlite"
   - "Local MCP server with scoped tools"
 decisions:
@@ -22,9 +22,9 @@ decisions:
 tradeoffs:
   - "Planning scenarios describe assumptions; they do not change accounting records"
   - "Marketing stages describe work in progress; they do not prove publication"
-  - "Native billing records invoices and receipts; payment collection and ledger posting remain separate"
+  - "Optional Stripe checkout extends native billing; bank reconciliation and ledger posting remain outside the platform"
   - "Provider-dependent execution requires configured integrations and appropriate authorization"
-outcome: "Built seven permissioned modules that connect customer setup, sales, daily tasks, delivery, finance, and business operations. Reviewed September 30, 2026; the case study distinguishes release evidence, fictional demonstrations, and local work in progress."
+outcome: "Built seven core modules connecting acquisition, field delivery, workforce operations, finance, and automation. The October 2, 2026 review adds guided photos, offline evidence queues, member administration, optional integrations, and measured local performance improvements."
 order: 0
 detailUrl: "/abs-tooling"
 ---
@@ -49,7 +49,7 @@ My work covers the product model, interface, business rules, integrations, datab
 
 ## What I built
 
-The platform has **seven permissioned modules**: CRM, Prospect Finding, Marketing, Financial, Automation, Project Management, and Connected Operations & CMMS. A customer can use the parts relevant to their work; agency staff access customer organizations through explicit delegation.
+The platform has **seven permissioned modules**: CRM, Prospect Finding, Marketing, Financial, Automation, Project Management, and Connected Operations & CMMS. The newer inclusive license makes all supported core modules available while module selection personalizes the workspace. Legacy contracts retain their existing access until reviewed conversion; agency staff still need explicit delegation.
 
 <div class="capability-grid">
   <div>
@@ -84,7 +84,7 @@ Customer identity also carries into the sales workflow through an explicit link.
 
 ### Put the next useful action first
 
-The **Today** view prioritizes urgent and overdue work, then offers contextual actions for follow-ups, projects, marketing, financial findings, and jobs. Operators can work from the record that needs attention. Viewers receive review-only controls, and unavailable sources produce an incomplete-coverage notice rather than an all-clear message.
+The **Today** view prioritizes urgent and overdue work, then offers contextual actions for follow-ups, projects, marketing, financial findings, and jobs. Operators can work from the record that needs attention. Sales follow-ups now carry the account name, location, pipeline stage, and scheduled follow-up time through Today, the inbox, and the task panel. Viewers receive review-only controls, and unavailable sources produce an incomplete-coverage notice rather than an all-clear message.
 
 Guided estimates move through customer, work and price, then review and save. Guided projects turn a goal, owner, and date into persisted tasks; progress comes from those saved task statuses. Drafts retain interrupted inputs within their user and workspace scope. Stale records and uncertain saves are surfaced before a retry can duplicate work. Supported task edits also offer revision-aware undo.
 
@@ -97,6 +97,10 @@ Across the seven modules, performance views connect summaries and charts back to
 Prospect Finder uses Overture Maps place data, selecting relevant geographic data and row groups instead of loading an entire dataset. Company research checks a bounded set of public website pages, surfaces identity conflicts, and retains the sources behind an account assessment.
 
 The review workspace combines fit scoring, website observations, enrichment, and shortlist decisions. Operators can save a named review queue, resume unfinished research, and skip accounts already reviewed. A website audit can become a shareable report rather than disappearing into a chat response.
+
+Missing listing websites now trigger a bounded public search. Candidate sites must agree with company identity evidence before automatic matching; ambiguous results require review. Operators can confirm a URL themselves, and a failed search never becomes proof that a website does not exist. Confirmed addresses survive incomplete future discovery rows. Changing the domain clears incompatible research so evidence from one company site cannot silently follow another.
+
+CRM settings add stage labels, ordering, probabilities, required fields, custom fields, and assignment rules. Duplicate review links canonical accounts while preserving their source history. Forecast snapshots, conversion, aging, and loss reasons make pipeline movement inspectable. Saved personal or team searches can compare changes on demand; passed prospects leave active results but remain available for review and restoration.
 
 <ProjectScreenshot
   src="/assets/atlas-beren/prospect-review.png"
@@ -136,7 +140,7 @@ Guided playbooks expand into real project tasks with owners, dates, dependencies
 
 Dependency-aware rescheduling previews the selected task and affected successors, preserves durations, and rejects conflicts or cycles. Approved changes save together with before-and-after history.
 
-Portfolio capacity compares estimated effort with weekly availability. Saved plans can account for holidays and owner time off, making overload visible before work is reassigned. These are planning estimates, not timekeeping or automatic resource scheduling.
+Portfolio capacity compares estimated effort with weekly availability. Saved plans can account for holidays and owner time off, making overload visible before work is reassigned. Capacity remains a planning estimate. Separate approved time records now support task-hour comparisons and reviewed job or project labor allocation, with checks against counting the same person’s time twice.
 
 <ProjectScreenshot
   src="/assets/atlas-beren/project-capacity.png"
@@ -146,13 +150,19 @@ Portfolio capacity compares estimated effort with weekly availability. Saved pla
   caption="The demo exposes an overloaded owner by comparing planned hours with weekly capacity. The value is a visible delivery constraint and a place to act on it."
 />
 
+### Keep collaboration and contribution with the project
+
+Projects now include member assignments, comments and mentions, private files, notifications, evidence-backed approvals, recurring task generation, schedule baselines, and dependencies across projects. A permission-aware customer history connects related sales, jobs, assets, estimates, projects, billing, and labor without copying the authoritative records.
+
+The contribution report states its revenue basis—issued pretax invoices or accepted scope—and its selected labor source. Recorded job costs remain visible, while purchases already consumed as materials are not counted twice. Coverage warnings make unallocated purchases, overhead, and missing costs explicit; this is an operational contribution view rather than a complete profit-and-loss statement.
+
 ## Finance and operations
 
 ### Cash planning with the assumptions attached
 
 The finance workspace combines cash, receivables, aging, and scenario planning. Operators can save named scenarios, compare collection-delay assumptions, add recurring adjustments, and inspect a 13-week projection against a minimum reserve.
 
-Financial summaries distinguish missing data from zero, keep currencies separate, and disclose freshness and source coverage. Native issued invoices feed receivables and cash planning net of recorded receipts and reversals. An imported mirror is suppressed only when it explicitly identifies the same native invoice in the same workspace; the system does not guess from similar names or amounts. Recording a receipt against an ABS invoice does not pretend to update a bank account.
+Financial summaries distinguish missing data from zero, keep currencies separate, and disclose freshness and source coverage. Native issued invoices feed receivables and cash planning net of recorded receipts and reversals. An imported mirror is suppressed only when it explicitly identifies the same native invoice in the same workspace; the system does not guess from similar names or amounts. Recording a receipt against an ABS invoice does not pretend to update a bank account. Optional Xero and QuickBooks connectors add reviewed company selection, encrypted credentials, explicit enable/pause controls, and atomic invoice and bill imports. Failed or incomplete imports preserve prior balances and expose connection health. Bank feeds, journal posting, and reconciliation remain outside this integration.
 
 <div class="finance-screens">
   <ProjectScreenshot
@@ -199,6 +209,20 @@ Saved estimates and invoices can produce native PDFs with itemized amounts, pagi
 
 Delivery history retains the document snapshot, digest, recipient, and provider outcome. If a response is uncertain, automatic retries stop. A “sent” result means the provider accepted the message, not that the customer read it. This extends the product from internal billing records to a deliberate customer communication workflow.
 
+## Field work and evidence
+
+### Give technicians the context to finish the job
+
+Assigned field work carries the customer, site, asset, scope, and job tasks into a limited employee view. Technicians submit actual hours, internal observations, a separate customer-facing summary, files, and revision-bound signatures. Office review remains responsible for completion and cost decisions. Dispatch adds time windows, resource conflicts, availability, and entered travel allowances; service agreements can generate dated visits from reviewed scope.
+
+Guided photos turn documentation into a sequence: work area, asset identification, before condition, individual tasks, and finished result. The in-app camera shows a framing guide and the selected prompt, then offers retake, notes, and review. Saved labels identify the requested shot; they do not claim that AI verified what the image contains. A manager can open a private preview with its caption and job association.
+
+Every new image receives a visible timestamp below the photograph. GPS is optional, off by default, and requested once per camera capture; denied or unavailable location never prevents saving. Device-selected images use their selection time and do not inherit the technician’s current location as their original capture location. Device time and reported coordinates are contextual evidence, not independently verified measurements.
+
+### Recover interrupted field updates
+
+An account- and workspace-scoped IndexedDB outbox retains reports, photos, files, and signatures for an already loaded page. Queued work is visibly distinct from server-confirmed evidence. Upload retries reuse the same identity, recheck current assignment and account access, and hold conflicting reports for review. The queue supports up to 20 pending items; it does not promise an offline first launch, background synchronization, or unlimited storage.
+
 ## Workforce and business operations
 
 I expanded the existing Operations module with scheduling, purchasing, inventory, production, procedures, labor, and an action inbox. Shared people and location records support service businesses, light manufacturing, and restaurant operations through different terminology and presets. These are operating areas within the module, not seven additional platform entitlements.
@@ -229,7 +253,9 @@ Production snapshots the bill of materials, reserves eligible stock by earliest 
   caption="The production demo connects material inputs, completed steps, quality notes, and finished stock. It uses a fictional bill of materials and sample lots."
 />
 
-Repeatable procedures turn checks into recorded runs and corrective actions. Labor records actual intervals for review and export. Supplier email, accounts payable, payroll, and compliance certification remain outside these workflows. The released business lot ledger and older connected-parts inventory are separate; a reviewed ownership bridge is part of the newer local foundation work.
+The newer operating workflows add supplier quotes, printable purchase orders, receipt-specific returns, order/receipt/bill matching, bins, unit conversions, and barcodes. Production adds reviewed demand CSV imports, capacity windows, actual yield and scrap, recipe versions, and lot recall tracing. Asset work includes QR labels, hierarchy, meter-based maintenance, and downtime history.
+
+Repeatable procedures turn checks into versioned runs with conditional questions, private photo evidence, correction owners, deadlines, and supervisor review. Labor records actual intervals for review and export. Supplier email is prepared for a person to send; accounts payable execution, payroll processing, and compliance certification remain outside these workflows. A reviewed ownership bridge now links an older connected part to an exact Business item, location, and unit. Matching balances are required before linking; names and SKUs do not establish identity, and the two opening balances are never added together. Linked purchasing lots become authoritative for availability. Service-job holds and production reservations protect the same stock, and completion retains the quantity and cost evidence behind consumption.
 
 ## A connected workflow
 
@@ -238,10 +264,20 @@ This is how the implemented handoffs support a service job. Each step preserves 
 <ol class="workflow-steps">
   <li><strong>Review the scope and evidence</strong><p>Inspect the source document, quantities, missing information, and itemized estimate. Save a draft until the scope is ready.</p></li>
   <li><strong>Accept the estimate</strong><p>Carry the agreed scope and expected costs into a linked delivery job, retaining the accepted estimate version.</p></li>
-  <li><strong>Complete the work</strong><p>Record delivery details and itemized actuals. Apply stock movements once and preserve job history.</p></li>
+  <li><strong>Capture and review the work</strong><p>Collect assigned field reports, labeled photos, and signatures. Review actual costs and completion in the office, apply stock movements once, and preserve job history.</p></li>
   <li><strong>Review and issue the invoice</strong><p>Use the completed job and agreed price, confirm billing and tax details, then freeze the issued record.</p></li>
   <li><strong>Track the balance and the next visit</strong><p>Record received payments against the invoice. Where maintenance applies, keep the next service visit connected to the asset.</p></li>
 </ol>
+
+## Automation and optional integrations
+
+Editable recipes connect saved deals, projects, and prospects to bounded actions: create a task, update a next step, add a comment, or notify a member. Manual, daily, and record-change triggers share preview, immutable versions, and durable run history. A late action failure rolls the run back; retry is explicit, and replay of successful work does not duplicate its actions. Automated changes do not recursively trigger the same process.
+
+Optional external runner connections use workspace-scoped encrypted credentials and start paused. The supported Trigger.dev and Inngest adapters dispatch an existing website-audit workflow to separately deployed workers. Saving credentials is not presented as a verified connection, and dispatch acceptance remains distinct from completion.
+
+Optional Stripe integration supports one-time USD invoice checkout. Signed events reconcile the exact workspace, invoice, amount, and mode before recording a receipt once. Unconfirmed sessions have a recovery path, while refunds enter a review process rather than silently rewriting billing history. These adapters require configured credentials and staging verification; their presence in the code is not evidence of live accounting imports or collected payments.
+
+Paid AI boundaries separately reserve an authorized usage budget, retain retry identities, and distinguish known, estimated, and uncertain costs. Manual software workflows remain available when a paid category is paused or exhausted. Inclusive module access alone does not enable every legacy provider adapter.
 
 ## Engineering decisions
 
@@ -255,11 +291,21 @@ Demo and authenticated surfaces reuse business rules while keeping state isolate
 
 A common module inventory drives navigation and server enforcement. Customer organizations have their own memberships and enabled modules; agency access is explicitly delegated. Role and tenant checks happen at the API and database layers. Hiding a button is only the interface expression of an enforced permission.
 
+The Members & permissions panel gives direct workspace owners and administrators control over member roles, existing-account additions, and removals. Commands recheck current authority, protect the owner and the actor’s own membership, reject stale edits, count reserved seats, and write before/after roles to an audit log in the same transaction. Removing direct membership does not silently revoke a separate agency delegation.
+
 ### Protect the handoffs, not just the happy path
 
 Operational edits use revision checks and retained history. Stale previews are rejected before a recipe or schedule update is applied. Database uniqueness protects deal-to-project handoffs from duplication.
 
 Billing uses separate normalized tables for invoices, immutable payment entries, invoice events, and idempotent commands. Atomic database operations and locks protect repeated requests and concurrent changes. The design preserves what happened, even when an operator needs to correct it.
+
+### Make accumulated work practical to use
+
+Nineteen Business collections now persist as tenant-keyed records with a small revision control row. Original migration snapshots and immutable ledger history remain available; cursor-paged history and explicit exports avoid a lifetime document-size ceiling. The main Operations command path still validates complete workspace state, so these changes do not establish unlimited scale.
+
+I also measured the cost of shared interface behavior. In a local browser fixture with 25 records, closed attachment, conversation, and signature panels previously made **100 initial requests**. Deferring their contents until first opening reduced that count to **zero**, while preserving drafts after an opened panel closes. Switching records clears the old draft.
+
+The shared table now reuses an internationalized collator and calculates each row’s sort value once. A synthetic 10,000-row benchmark dropped from **794.56 ms to 36.47 ms**, with identical ordered output. Those are local sorting measurements—not page-load times or production latency claims.
 
 ### Give AI a bounded job
 
@@ -269,17 +315,13 @@ I also built a local MCP interface with **ten scoped tools**: six reads and four
 
 ## Delivery and boundaries
 
-This case study reflects a review of the application source, release notes, tests, and demonstration artifacts on **September 30, 2026**. The platform now connects customer setup, research and outreach, daily tasks, project delivery, cash planning, customer documents, and broader business operations.
+This case study reflects a fresh review of source, commit history, verification logs, and demonstration artifacts on **October 2, 2026**. The earlier local commercial-journey and platform-foundation work is now present in committed code, alongside field evidence, member administration, broader business workflows, and optional integrations.
 
-The September 24 document-delivery release records **1,246 passing tests and one skip**, alongside TypeScript, production build, database policy checks, and PDF pagination review. Email delivery was simulated during verification. These are documented release checks, not a claim that this portfolio review reran the entire upstream suite.
+The October 2 website-discovery regression log records **1,521 passing tests and one skip across 294 files**, with a production build and focused lint/type checks recorded separately. The subsequent Today account-context change has 18 focused checks passing. These are reviewed upstream verification records; the portfolio update does not claim to have rerun that entire application suite.
 
-The September 30 daily-work report records 66 focused tests passing, with type, build, and lint checks passing. Its broader run recorded 1,335 passes, one skip, and two unresolved authentication-fallback test failures during concurrent changes. That is useful evidence of the work’s scope, but not a clean release certificate for every current change.
+Browser fixtures exercise real components with fictional users, records, camera input, and location. Database suites cover permission boundaries, immutable evidence, stock reservations, payment replay, and migration compatibility. Physical phone cameras, live provider delivery, and authenticated staging workflows remain separate verification steps. The new member-administration migration is explicitly documented as locally tested and not applied to a live project in that change.
 
-### Current local development
-
-The latest uncommitted work extends the commercial journey with recorded customer acceptance, assigned field work, service records, completion snapshots, and more detailed invoice scope. It also adds inventory ownership controls, durable operational records, and usage-budget foundations. These changes have local implementations and verification artifacts; production rollout is a separate milestone.
-
-The remaining boundaries are concrete: customer acceptance is not an electronic-signature service, recorded payments are not payment processing, labor export is not payroll, and local drafts are not cross-device offline synchronization. Financial projections remain assumption-driven, and larger deployments must respect the current bounded storage models.
+Customer-connected mailbox and calendar synchronization, marketing-channel expansion, and an authenticated customer portal remain deferred. Optional accounting imports do not replace the ledger; recorded acceptance and field signatures do not establish a customer e-signature portal. Financial planning remains assumption-driven, and local workload tests do not establish production concurrency or a capacity guarantee.
 
 The companion [Atlas-Beren website project](/technical-projects/atlas-beren-website) explains how I made these workflows understandable through public product pages, fictional demonstrations, and contextual inquiries.
 
