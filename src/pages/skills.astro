@@ -6,7 +6,7 @@ const capabilities = [
     number: "01",
     title: "Revenue and growth systems",
     description: "Connect account research, lead capture, opportunity stages, forecasting, and follow-up so a team can see where work stands and who owns the next step.",
-    examples: ["CRM and pipeline design", "Account research and qualification", "Commercial reporting and forecasting"],
+    examples: ["CRM-to-delivery handoffs", "Account research and reviewed outreach", "Campaign attribution through invoicing and collections"],
     evidence: "Kansas Electric: CRM, forecasting, and lead capture",
     href: "/work/kansas-electric"
   },
@@ -14,25 +14,25 @@ const capabilities = [
     number: "02",
     title: "Operations and delivery",
     description: "Turn the handoff from a sold job to completed work into a defined workflow, with scope, owners, schedules, field updates, and billing context kept together.",
-    examples: ["Project handoffs and capacity planning", "Field reporting and estimating", "Job costs, invoices, and operational history"],
+    examples: ["Field job workflows and customer self-service", "Inventory and approved labor carried into project costs", "Deposits, recurring service, and connected profit reporting"],
     evidence: "ABS Tooling: projects, finance, and operations",
-    href: "/abs-tooling#projects-and-delivery"
+    href: "/abs-tooling#connected-profit-and-costs"
   },
   {
     number: "03",
     title: "Practical AI workflows",
     description: "Give AI a specific role in research, extraction, or drafting. Keep its sources, uncertainty, and proposed actions visible to the person reviewing the work.",
-    examples: ["Evidence-backed account research", "OCR and structured document extraction", "Readiness checks and approval paths"],
+    examples: ["Evidence-backed research and structured outreach drafts", "Private workspace answers with verified sources", "Permission checks, review gates, and AI usage budgets"],
     evidence: "ABS Tooling: evidence-backed research and governed AI",
-    href: "/abs-tooling#engineering-decisions"
+    href: "/abs-tooling#workspace-ai-helper"
   },
   {
     number: "04",
     title: "Reliable software and live systems",
     description: "Work through the details behind a usable interface: permissions, validation, persistent state, failure handling, testing, and the tools needed to support a live service.",
-    examples: ["API design and data modeling", "Access controls and audit history", "Release discipline and incident response"],
-    evidence: "Eden: engineering for a live multiplayer service",
-    href: "/eden"
+    examples: ["Provider reconciliation and uncertain-result recovery", "Reviewed data migration and permission boundaries", "Encrypted restore drills and database concurrency checks"],
+    evidence: "ABS Tooling: migration, recovery, and verification",
+    href: "/abs-tooling#migration-and-recovery"
   }
 ];
 
@@ -45,16 +45,16 @@ const toolGroups = [
   {
     title: "Data and integrations",
     context: "Business records, access boundaries, and connected workflows.",
-    tools: ["SQL / PostgreSQL", "Supabase / RLS", "REST APIs", "Apps Script / Sheets", "Python"]
+    tools: ["SQL / PostgreSQL", "Supabase / RLS", "REST APIs / OAuth", "Stripe / QuickBooks / Xero", "Gmail / Microsoft Graph", "Python"]
   },
   {
     title: "AI and automation",
     context: "Research, structured extraction, and reviewed business actions.",
-    tools: ["Vercel AI Gateway", "Google Cloud / Vertex AI", "OCR / vision", "MCP tools", "Scheduled workflows"]
+    tools: ["OpenAI API", "Vercel AI Gateway", "Google Cloud / Vertex AI", "OCR / vision", "MCP tools", "Scheduled workflows"]
   },
   {
     title: "Quality and operations",
-    context: "Verification, deployment, and ongoing service reliability.",
+    context: "Verification, deployment, concurrency checks, and isolated recovery drills.",
     tools: ["Vitest / Playwright", "PostgreSQL policy tests", "GitHub CI/CD", "Vercel", "C# / .NET"]
   }
 ];

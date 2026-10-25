@@ -9,18 +9,19 @@ const { Content, headings } = await project.render();
 const sections = headings.filter((heading) => heading.depth === 2).map((heading) => ({ id: heading.slug, label: heading.text }));
 ---
 
-<Base title="ABS Tooling / Atlas-Beren Console - Eric Martin" description="Inside Eric Martin’s ABS Tooling build: prospect research, guided field work, project delivery, finance, business operations, and governed automation in the Atlas-Beren Console.">
+<Base title="ABS Tooling / Atlas-Beren Console - Eric Martin" description="Inside Eric Martin’s ABS Tooling build: connected CRM-to-payment workflows, shared profit reporting, a customer portal, mail and calendars, field operations, migration, and recovery.">
   <section class="pb-12 pt-10 sm:pt-14">
     <div class="page-container">
       <a href="/technical-projects#atlas-beren-console" class="focus-ring inline-flex text-sm font-semibold text-accent hover:text-accent-dark">← All projects</a>
       <div class="section-dark mt-6 overflow-hidden rounded-[32px] border border-slate-800 px-6 py-9 text-white sm:px-10 sm:py-12">
         <p class="eyebrow">Featured build / Atlas-Beren Systems</p>
         <h1 class="mt-4 text-4xl font-semibold tracking-tight sm:text-6xl">ABS Tooling</h1>
-        <p class="mt-4 max-w-3xl text-2xl leading-snug text-slate-100 sm:text-3xl">From finding the opportunity to running the work.</p>
+        <p class="mt-4 max-w-3xl text-2xl leading-snug text-slate-100 sm:text-3xl">One connected path from opportunity to payment and repeat service.</p>
         <p class="mt-5 max-w-3xl text-base leading-relaxed text-slate-300 sm:text-lg">
           I built Atlas-Beren Console to connect the work that usually falls between tools:
-          setting up customers, finding opportunities, documenting field work, scheduling people,
-          delivering work, and reviewing billing. ABS Tooling is the wider build behind that workspace.
+          finding customers, testing whether new jobs fit, planning crews and materials, and carrying
+          actual work through billing, payments, and profit reporting. Customer self-service, shared
+          communications, and reviewed migration now extend that workflow beyond the office.
         </p>
         <dl class="mt-9 grid gap-6 border-t border-white/15 pt-7 sm:grid-cols-3">
           <div><dt class="text-xs uppercase tracking-[0.16em] text-slate-400">My role</dt><dd class="mt-2 text-sm leading-relaxed text-slate-100">Product direction, workflow design, architecture, and implementation</dd></div>
@@ -28,11 +29,12 @@ const sections = headings.filter((heading) => heading.depth === 2).map((heading)
           <div><dt class="text-xs uppercase tracking-[0.16em] text-slate-400">Core idea</dt><dd class="mt-2 text-sm leading-relaxed text-slate-100">Carry context, evidence, and ownership from one step to the next</dd></div>
         </dl>
       </div>
+      <p class="mt-5 text-sm leading-relaxed text-muted">Updated October 25, 2026 · New: automatic record handoffs, connected financial reporting, customer portal, mail and calendars, field job desk, migration, and recovery tooling.</p>
     </div>
   </section>
 
   <div class="page-container grid items-start gap-8 pb-16 lg:grid-cols-[210px_minmax(0,1fr)] lg:gap-12">
-    <aside class="rounded-2xl border border-border bg-white p-5 lg:sticky lg:top-28">
+    <aside class="rounded-2xl border border-border bg-white p-5 lg:sticky lg:top-28 lg:max-h-[calc(100dvh-8rem)] lg:overflow-y-auto">
       <p id="case-study-nav" class="eyebrow">Inside the build</p>
       <nav aria-labelledby="case-study-nav" class="mt-4 flex flex-wrap gap-x-5 gap-y-3 lg:flex-col">
         {sections.map((section) => (
@@ -67,6 +69,9 @@ const sections = headings.filter((heading) => heading.depth === 2).map((heading)
   .abs-story .capability-grid > div { padding: 1.25rem; background: white; border: 1px solid #e2e6ea; border-radius: 1rem; }
   .abs-story .capability-grid h3 { margin-top: 0; }
   .abs-story .capability-grid p { margin-bottom: 0; font-size: 0.9375rem; }
+  .abs-story .capability-grid a { display: block; margin-top: 0.75rem; color: #1f4fd1; font-weight: 600; }
+  .abs-story .capability-grid a:hover { text-decoration: underline; }
+  .abs-story .capability-grid a:focus-visible { outline: 2px solid #1f4fd1; outline-offset: 4px; border-radius: 2px; }
   .abs-story .workflow-steps { list-style: none; padding: 0; margin: 1.5rem 0; counter-reset: workflow; }
   .abs-story .workflow-steps li { position: relative; padding: 0 0 1.25rem 3.25rem; margin: 0; counter-increment: workflow; }
   .abs-story .workflow-steps li::before { content: counter(workflow, decimal-leading-zero); position: absolute; left: 0; top: 0; color: #1f4fd1; background: #eaf0fd; border-radius: 0.5rem; width: 2.25rem; height: 2.25rem; display: grid; place-items: center; font-size: 0.8rem; font-weight: 600; }
