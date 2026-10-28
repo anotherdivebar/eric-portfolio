@@ -1,8 +1,8 @@
 ---
 import "../styles/global.css";
 const {
-  title = "Eric Martin — Sales, Growth & Connected Systems",
-  description = "Eric Martin grows revenue through trusted relationships, practical solutions, and the systems that support sustainable growth.",
+  title = "Eric Martin — Sales Leadership & Business Development",
+  description = "Eric Martin brings customer understanding, commercial ownership, and operational experience to sales leadership and business development.",
   type = "website"
 } = Astro.props;
 const path = Astro.url.pathname.replace(/\/$/, "") || "/";
@@ -43,7 +43,7 @@ const moreWork = [
       <div class="page-container header-row">
         <a href="/" class="wordmark" aria-label="Eric Martin home">
           <span class="wordmark-symbol" aria-hidden="true">em.</span>
-          <span><span class="wordmark-name">Eric Martin</span><span class="wordmark-caption">Growth · Operations · Technology</span></span>
+          <span><span class="wordmark-name">Eric Martin</span><span class="wordmark-caption">Sales leadership · Business development</span></span>
         </a>
         <nav aria-label="Main navigation" class="desktop-nav">
           {navigation.map((item) => <a href={item.href} class="nav-link" aria-current={item.active ? (path === item.href ? "page" : "location") : undefined}>{item.label}</a>)}
@@ -64,10 +64,10 @@ const moreWork = [
       <div class="page-container">
         <div class="footer-top">
           <div class="max-w-2xl">
-            <p class="eyebrow">A good next step starts with a conversation.</p>
-            <h2 class="mt-4 text-3xl font-medium leading-tight tracking-tight text-white sm:text-4xl">What could we grow together?</h2>
+            <p class="eyebrow">Sales leadership built on customer understanding.</p>
+            <h2 class="mt-4 text-3xl font-medium leading-tight tracking-tight text-white sm:text-4xl">Let's talk about your next stage of growth.</h2>
           </div>
-          <a class="button-primary shrink-0" href="/contact">Let's talk about it <span aria-hidden="true">↗</span></a>
+          <a class="button-primary shrink-0" href="/contact">Discuss a leadership role <span aria-hidden="true">↗</span></a>
         </div>
         <div class="footer-grid">
           <div>
