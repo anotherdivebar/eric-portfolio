@@ -4,89 +4,102 @@ import Base from "../layouts/Base.astro";
 const headshotUrl = "/eric%202026%20headshot.png";
 
 const principles = [
-  { title: "Understand the work", body: "Start with how a request, opportunity, or job moves through the business. Find the missing context and unclear ownership before choosing the tools." },
-  { title: "Make the next step clear", body: "Give operators an explicit owner, a useful view of the evidence, and a clear action. Make review points part of the workflow." },
-  { title: "Stay through rollout", body: "Build in increments, document the process, and stay close to the people using it. Adoption and day-to-day support are part of the work." },
-  { title: "Keep decisions grounded", body: "Tie technical choices back to growth, delivery, and visibility. Favor systems the team can understand, maintain, and use repeatedly." }
+  { title: "Listen for the real problem", body: "Understand what the prospect is trying to accomplish, where the current approach falls short, and what the problem means for the business." },
+  { title: "Make the connection clear", body: "Tie a service, capability, or technical solution to that specific need. Explain the value in the customer's terms and agree on a practical next step." },
+  { title: "Own the follow-through", body: "Stay accountable to the relationship as the work moves from a sales conversation to delivery. Clear scope, communication, and issue resolution matter after the agreement." },
+  { title: "Build for lasting growth", body: "Connect sales activity to the team's ability to execute. Build the processes and tools that keep customer context and commitments visible as the business grows." }
 ];
 ---
 
-<Base title="About Eric Martin" description="Meet Eric Martin, a systems builder whose background connects commercial ownership, national field operations, and hands-on software engineering.">
-  <section class="py-14 sm:py-16">
-    <div class="page-container-mid">
-      <div class="grid items-start gap-8 md:grid-cols-[240px_minmax(0,1fr)] md:gap-12">
-        <img
-          src={headshotUrl}
-          alt="Eric Martin"
-          width="400"
-          height="500"
-          class="aspect-[4/5] w-full max-w-[240px] rounded-2xl border border-border bg-panel object-cover shadow-[0_12px_30px_rgba(15,23,42,0.1)]"
-          decoding="async"
-        />
+<Base title="About Eric Martin" description="Meet Eric Martin: relationship-based sales, business development, and operational leadership informed by experience in the field and hands-on software engineering.">
+  <section class="page-heading">
+    <div class="page-container">
+      <div class="grid items-center gap-10 lg:grid-cols-[minmax(0,1fr)_300px] lg:gap-20">
         <div>
           <p class="eyebrow">About Eric Martin</p>
-          <h1 class="mt-3 text-4xl font-semibold leading-tight text-ink sm:text-5xl">An operator who builds.</h1>
-          <p class="mt-5 text-lg leading-relaxed text-muted">
-            My work sits where business development, field and service operations,
-            and software meet. I am drawn to the places where the problem is clear,
-            but the process and tools around it still need to be built.
+          <h1 class="page-title mt-5">Growth starts with understanding people and their problems.</h1>
+          <p class="page-intro mt-7">
+            I build relationships by getting curious about what a customer needs
+            to accomplish and what is getting in the way. My work is connecting
+            that understanding to a solution they can see value in—and a team
+            that can deliver it.
           </p>
-          <p class="mt-4 leading-relaxed text-muted">
-            That has meant closing new work while building CRM and pipeline systems,
-            helping scale national field delivery, and creating applications that
-            connect research, projects, finance, and operations. I take ownership of
-            both how the work should move and how the software makes that possible.
+          <p class="mt-5 max-w-2xl leading-relaxed text-muted">
+            I have done that from the field, in business development, and while
+            leading operations. I helped grow Vale Field Services from startup
+            stage to approximately $4M in annual revenue, then built Kansas
+            Electric's sales and marketing function and closed approximately $2M
+            in new work in my first 60 days. I also build software that supports
+            the customer relationships and delivery behind those commercial goals.
           </p>
-          <a class="focus-ring mt-6 inline-flex text-sm font-semibold text-accent hover:text-accent-dark" href="/resume">View my experience <span class="ml-2" aria-hidden="true">→</span></a>
+          <a class="text-link mt-7" href="/resume">View my experience <span aria-hidden="true">↗</span></a>
         </div>
+        <figure class="max-w-[300px] lg:self-start lg:pt-12">
+          <div class="portrait-frame">
+            <img src={headshotUrl} alt="Eric Martin" width="400" height="500" class="aspect-[4/5] w-full rounded-lg object-cover" decoding="async" />
+          </div>
+          <figcaption class="mt-5 flex items-center justify-between gap-4 text-xs text-muted"><span>Eric Martin</span><span>Relationships → Results</span></figcaption>
+        </figure>
       </div>
 
-      <section class="mt-14" aria-labelledby="background-heading">
-        <p class="eyebrow">The background behind the builds</p>
-        <h2 id="background-heading" class="mt-3 text-3xl font-semibold text-ink">Experience across the whole workflow.</h2>
-        <div class="mt-7 grid gap-5 md:grid-cols-3">
-          <article class="surface flex flex-col p-6">
-            <h3 class="text-xl font-semibold text-ink">Field operations</h3>
+      <section class="section-space mt-8 border-t border-border" aria-labelledby="background-heading">
+        <p class="eyebrow">The experience behind my approach</p>
+        <h2 id="background-heading" class="mt-4 max-w-2xl text-3xl font-semibold text-ink sm:text-4xl">From the first conversation to delivered work.</h2>
+        <div class="mt-10 grid gap-8 md:grid-cols-3 md:gap-10">
+          <article class="flex flex-col border-t border-border pt-6">
+            <p class="eyebrow">Vale Field Services</p>
+            <h3 class="mt-4 text-xl font-semibold text-ink">Relationships & delivery</h3>
             <p class="mt-3 text-sm leading-relaxed text-muted">I joined Vale Field Services as employee one, doing field work and building relationships, then grew into leading operations for 35 employees and restaurant technology rollouts across the U.S. and Canada.</p>
-            <a class="focus-ring mt-5 inline-flex text-sm font-semibold text-accent hover:text-accent-dark" href="/work/program-delivery-at-scale">Vale Field Services case study <span class="ml-2" aria-hidden="true">→</span></a>
+            <a class="text-link mt-6" href="/work/program-delivery-at-scale">Vale Field Services case study <span aria-hidden="true">↗</span></a>
           </article>
-          <article class="surface flex flex-col p-6">
-            <h3 class="text-xl font-semibold text-ink">Sales, marketing, and systems</h3>
-            <p class="mt-3 text-sm leading-relaxed text-muted">At Kansas Electric, I built the sales and marketing function, led the rebrand and paid campaigns, and developed customer relationships alongside tools for CRM, estimating, field reports, and forecasting.</p>
-            <a class="focus-ring mt-5 inline-flex text-sm font-semibold text-accent hover:text-accent-dark" href="/work/kansas-electric">Kansas Electric case study <span class="ml-2" aria-hidden="true">→</span></a>
+          <article class="flex flex-col border-t border-border pt-6">
+            <p class="eyebrow">Kansas Electric</p>
+            <h3 class="mt-4 text-xl font-semibold text-ink">Business development</h3>
+            <p class="mt-3 text-sm leading-relaxed text-muted">At Kansas Electric, I built the sales and marketing function and won a Walmart project through relationships developed at Vale. I owned the customer relationship and oversaw the project managers delivering the work.</p>
+            <a class="text-link mt-6" href="/work/kansas-electric">Kansas Electric case study <span aria-hidden="true">↗</span></a>
           </article>
-          <article class="surface flex flex-col p-6">
-            <h3 class="text-xl font-semibold text-ink">Connected software</h3>
+          <article class="flex flex-col border-t border-border pt-6">
+            <p class="eyebrow">Atlas-Beren Systems</p>
+            <h3 class="mt-4 text-xl font-semibold text-ink">Connected software</h3>
             <p class="mt-3 text-sm leading-relaxed text-muted">Through Atlas-Beren Systems, I have brought those concerns into a shared platform for prospect research, delivery, cash planning, and service work.</p>
-            <a class="focus-ring mt-5 inline-flex text-sm font-semibold text-accent hover:text-accent-dark" href="/abs-tooling">Inside ABS Tooling <span class="ml-2" aria-hidden="true">→</span></a>
+            <a class="text-link mt-6" href="/abs-tooling">Inside ABS Console <span aria-hidden="true">↗</span></a>
           </article>
         </div>
       </section>
 
-      <section class="surface-muted mt-12 p-6 sm:p-8" aria-labelledby="approach-heading">
-        <p class="eyebrow">How I work</p>
-        <h2 id="approach-heading" class="mt-3 text-3xl font-semibold text-ink">Clarity, ownership, and follow-through.</h2>
-        <div class="mt-7 grid gap-7 sm:grid-cols-2">
+      <section class="surface-muted p-7 sm:p-10 lg:p-12" aria-labelledby="approach-heading">
+        <div class="grid gap-10 lg:grid-cols-[0.8fr_1.2fr] lg:gap-16">
+          <div>
+            <p class="eyebrow">How I work</p>
+            <h2 id="approach-heading" class="mt-4 text-3xl font-semibold text-ink sm:text-4xl">Trust, relevance, and follow-through.</h2>
+          </div>
+          <div class="grid gap-7 sm:grid-cols-2">
           {principles.map((principle) => (
-            <div>
+            <div class="border-t border-border pt-5">
               <h3 class="text-lg font-semibold text-ink">{principle.title}</h3>
-              <p class="mt-2 text-sm leading-relaxed text-muted">{principle.body}</p>
+              <p class="mt-3 text-sm leading-relaxed text-muted">{principle.body}</p>
             </div>
           ))}
+          </div>
         </div>
       </section>
 
-      <div class="mt-12 grid gap-8 border-t border-border pt-10 md:grid-cols-2">
+      <div class="section-space grid gap-10 md:grid-cols-2 md:gap-20">
         <div>
           <h2 class="text-2xl font-semibold text-ink">Outside of work</h2>
           <p class="mt-3 leading-relaxed text-muted">I share life with my fiancée, our son, two dogs, a cat, and a ferret. I spend my time making and playing music, running, and being with my family.</p>
         </div>
         <div>
           <h2 class="text-2xl font-semibold text-ink">Where I fit</h2>
-          <p class="mt-3 leading-relaxed text-muted">I work best with teams that need someone who can understand commercial goals, field reality, and software architecture together—and carry a solution through implementation.</p>
-          <a class="focus-ring mt-5 inline-flex text-sm font-semibold text-accent hover:text-accent-dark" href="/contact">Start a conversation <span class="ml-2" aria-hidden="true">→</span></a>
+          <p class="mt-3 leading-relaxed text-muted">I work best with teams that need someone to develop relationships, understand a prospect's business, and turn the right opportunities into revenue. My operational and technical experience helps me connect the sales promise to a practical delivery plan.</p>
+          <a class="text-link mt-5" href="/contact">Start a conversation <span aria-hidden="true">↗</span></a>
         </div>
       </div>
     </div>
   </section>
 </Base>
+
+<style>
+  .portrait-frame { position: relative; padding: 12px; border: 1px solid #d4ded5; border-radius: 14px; background: #e6ede2; }
+  .portrait-frame::before { content: ""; position: absolute; width: 66px; height: 66px; right: -16px; top: -16px; border-top: 1px solid #176958; border-right: 1px solid #176958; border-top-right-radius: 18px; }
+</style>

@@ -4,12 +4,13 @@ export default {
   theme: {
     extend: {
       colors: {
-        ink: "#0e0f12",
-        muted: "#5a616d",
-        panel: "#f4f6f8",
-        border: "#e2e6ea",
-        accent: "#1f4fd1",
-        "accent-dark": "#163ba0"
+        ink: "#17231f",
+        muted: "#5d6a63",
+        panel: "#edf1e9",
+        border: "#dce3dc",
+        accent: "#176958",
+        "accent-dark": "#104d42",
+        mint: "#ccebb8"
       }
     }
   },

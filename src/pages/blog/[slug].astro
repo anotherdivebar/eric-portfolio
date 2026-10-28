@@ -15,17 +15,18 @@ const { Content } = await entry.render();
 ---
 
 <Base title={`${entry.data.title} - Eric Martin`} description={entry.data.description} type="article">
-  <section class="py-16">
+  <section class="page-heading">
     <div class="page-container-narrow">
       <a
         href="/blog"
-        class="focus-ring text-sm font-semibold text-accent hover:text-accent-dark"
+        class="text-link"
       >
-        Back to insights
+        ← Back to insights
       </a>
-      <h1 class="mt-4 text-4xl font-semibold text-ink">{entry.data.title}</h1>
-      <p class="mt-2 text-muted">{entry.data.description}</p>
-      <p class="mt-3 text-sm text-muted">By Eric Martin · Published <time datetime={entry.data.publishDate.toISOString()}>{entry.data.publishDate.toLocaleDateString("en-US", {
+      <p class="eyebrow mt-10 sm:mt-12">Notes from the work</p>
+      <h1 class="page-title mt-5">{entry.data.title}</h1>
+      <p class="page-intro mt-7">{entry.data.description}</p>
+      <p class="mt-7 border-b border-border pb-8 text-xs leading-relaxed text-muted">By Eric Martin · Published <time datetime={entry.data.publishDate.toISOString()}>{entry.data.publishDate.toLocaleDateString("en-US", {
           year: "numeric",
           month: "long",
           day: "numeric",
@@ -33,12 +34,12 @@ const { Content } = await entry.render();
         })}</time>
         {entry.data.updatedDate && <> · Updated <time datetime={entry.data.updatedDate.toISOString()}>{entry.data.updatedDate.toLocaleDateString("en-US", { year: "numeric", month: "long", day: "numeric", timeZone: "UTC" })}</time></>}
       </p>
-      <article class="prose mt-8 max-w-none">
+      <article class="prose mt-10 max-w-none sm:mt-12">
         <Content />
       </article>
-      <div class="mt-10 flex flex-wrap gap-5 border-t border-border pt-6">
-        <a class="focus-ring text-sm font-semibold text-accent hover:text-accent-dark" href="/technical-projects">See these ideas in the projects →</a>
-        <a class="focus-ring text-sm font-semibold text-accent hover:text-accent-dark" href="/contact">Get in touch →</a>
+      <div class="mt-12 flex flex-wrap justify-between gap-5 border-t border-border pt-7">
+        <a class="text-link" href="/technical-projects">See these ideas in the projects <span aria-hidden="true">↗</span></a>
+        <a class="text-link" href="/contact">Get in touch <span aria-hidden="true">↗</span></a>
       </div>
     </div>
   </section>

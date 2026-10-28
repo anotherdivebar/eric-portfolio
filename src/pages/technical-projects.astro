@@ -10,83 +10,93 @@ const labels: Record<string, string> = {
   "atlas-beren-website": "Product website & interactive demos",
 };
 const visuals: Record<string, { src: string; alt: string; width: number; height: number }> = {
-  "atlas-beren-console": { src: "/assets/atlas-beren/workspace-overview.png", alt: "ABS Console workspace with sales, marketing, finance, and delivery modules", width: 1264, height: 625 },
+  "atlas-beren-console": { src: "/assets/abs-console/today-desktop.png", alt: "ABS Console Today dashboard with connected business modules and prioritized work", width: 1265, height: 1189 },
   "atlas-beren-website": { src: "/assets/atlas-beren-website/home.png", alt: "Atlas-Beren product website and fictional workflow demonstration", width: 1440, height: 6389 },
 };
 const projectHref = (project: typeof projects[number]) => project.data.detailUrl ?? `/technical-projects/${project.slug}`;
+const projectTitle = (project: typeof projects[number]) => project.slug === "atlas-beren-console" ? "ABS Console" : project.data.title;
 ---
 
-<Base title="Projects and Systems - Eric Martin" description="Explore Eric Martin’s software builds: ABS Tooling, the Atlas-Beren website, and systems for routing, reporting, and field operations.">
-  <section class="py-12 sm:py-16">
+<Base title="Projects and Systems - Eric Martin" description="Explore Eric Martin’s software builds: ABS Console, the Atlas-Beren website, and systems for routing, reporting, and field operations.">
+  <section class="page-heading">
     <div class="page-container">
-      <div class="section-dark rounded-[32px] px-6 py-9 text-white sm:px-10 sm:py-12">
+      <div class="max-w-4xl">
         <p class="eyebrow">Selected builds / product and engineering</p>
-        <h1 class="mt-3 text-4xl font-semibold sm:text-5xl">Projects and systems</h1>
-        <p class="mt-4 max-w-2xl text-lg leading-relaxed text-slate-300">A closer look at the software behind the workflow: the problem, the decisions, the interface, and the boundaries of each build.</p>
-        <div class="mt-6 flex flex-wrap gap-3">
-          <a class="focus-ring rounded-lg bg-white px-4 py-3 text-sm font-semibold text-ink" href="#featured-builds">Explore the builds ↓</a>
-          <a class="focus-ring rounded-lg border border-white/25 px-4 py-3 text-sm font-semibold text-white hover:bg-white/10" href="/work">Business experience & case studies →</a>
+        <h1 class="page-title mt-5">Projects and systems</h1>
+        <p class="page-intro mt-7">A closer look at the software behind the workflow: the problem, the decisions, the interface, and the boundaries of each build.</p>
+        <div class="mt-8 flex flex-wrap gap-3">
+          <a class="button-primary" href="#featured-builds">Explore the builds <span aria-hidden="true">↓</span></a>
+          <a class="button-secondary" href="/work">Business experience & case studies <span aria-hidden="true">↗</span></a>
         </div>
       </div>
 
-      <section id="featured-builds" aria-labelledby="featured-heading" class="mt-12">
-        <div class="mb-6">
+      <section id="featured-builds" aria-labelledby="featured-heading" class="mt-16 sm:mt-20">
+        <div class="mb-8 flex flex-wrap items-end justify-between gap-4">
+          <div>
           <p class="eyebrow">Inside the products</p>
-          <h2 id="featured-heading" class="mt-2 text-2xl font-semibold">Featured builds</h2>
+          <h2 id="featured-heading" class="mt-3 text-3xl font-semibold sm:text-4xl">Featured builds</h2>
+          </div>
+          <p class="text-sm text-muted">From the business problem to the working product.</p>
         </div>
-        <div class="grid gap-6 lg:grid-cols-2">
+        <div class="grid gap-8 lg:grid-cols-2">
           {featured.map((project) => (
-            <article id={project.slug} class:list={["surface overflow-hidden", ["atlas-beren-console", "atlas-beren-website"].includes(project.slug) && "lg:col-span-2 lg:grid lg:grid-cols-2"]}>
+            <article id={project.slug} class:list={["surface project-card overflow-hidden", ["atlas-beren-console", "atlas-beren-website"].includes(project.slug) && "lg:col-span-2 lg:grid lg:grid-cols-[1.05fr_0.95fr]"]}>
               {visuals[project.slug] && (
-                <a href={projectHref(project)} class="focus-ring flex items-center border-b border-border bg-panel p-4" aria-label={`Explore ${project.data.title}`}>
-                  <img src={visuals[project.slug].src} alt={visuals[project.slug].alt} width={visuals[project.slug].width} height={visuals[project.slug].height} class:list={["aspect-[2/1] w-full rounded-lg border border-border", project.slug === "atlas-beren-website" ? "object-cover object-top" : "object-contain"]} loading="lazy" decoding="async" />
+                <a href={projectHref(project)} class="focus-ring project-visual flex items-center border-b border-border bg-panel p-5 sm:p-8 lg:border-b-0 lg:border-r" aria-label={`Explore ${projectTitle(project)}`}>
+                  <img src={visuals[project.slug].src} alt={visuals[project.slug].alt} width={visuals[project.slug].width} height={visuals[project.slug].height} class="aspect-[4/3] w-full rounded-lg border border-border object-cover object-top" loading="lazy" decoding="async" />
                 </a>
               )}
-              <div class="flex flex-col p-6 sm:p-8">
+              <div class="flex flex-col justify-center p-7 sm:p-10 lg:p-12">
                 <p class="eyebrow">{labels[project.slug]}</p>
-                <h3 class="mt-2 text-2xl font-semibold">{project.data.title}</h3>
-                <p class="mt-3 leading-relaxed text-muted">{project.data.summary}</p>
-                <ul aria-label="Selected technologies" class="mt-5 flex flex-wrap gap-2">
-                  {project.data.stack.slice(0, 3).map((item) => (<li class="rounded-md border border-border px-2.5 py-1 text-xs text-muted">{item}</li>))}
+                <h3 class="mt-4 text-3xl font-semibold">{projectTitle(project)}</h3>
+                <p class="mt-5 leading-relaxed text-muted">{project.data.summary}</p>
+                <ul aria-label="Selected technologies" class="mt-6 flex flex-wrap gap-2">
+                  {project.data.stack.slice(0, 3).map((item) => (<li class="tag">{item}</li>))}
                 </ul>
-                <a href={projectHref(project)} class="focus-ring mt-6 inline-flex self-start text-sm font-semibold text-accent hover:text-accent-dark">{project.slug === "atlas-beren-console" ? "Explore the ABS Tooling case study" : "Read the project breakdown"} <span aria-hidden="true" class="ml-2">→</span></a>
+                <a href={projectHref(project)} class="text-link mt-8 self-start">{project.slug === "atlas-beren-console" ? "Explore ABS Console" : "Read the project breakdown"} <span aria-hidden="true">↗</span></a>
               </div>
             </article>
           ))}
         </div>
       </section>
 
-      <section aria-labelledby="briefs-heading" class="mt-14">
+      <section aria-labelledby="briefs-heading" class="section-space">
         <div class="max-w-2xl">
           <p class="eyebrow">Focused system briefs</p>
-          <h2 id="briefs-heading" class="mt-2 text-2xl font-semibold">Routing, reporting, and operational visibility</h2>
-          <p class="mt-3 text-muted">Shorter writeups of the constraints and implementation choices behind specific business workflows.</p>
+          <h2 id="briefs-heading" class="mt-4 text-3xl font-semibold sm:text-4xl">Routing, reporting, and operational visibility</h2>
+          <p class="mt-5 leading-relaxed text-muted">Shorter writeups of the constraints and implementation choices behind specific business workflows.</p>
         </div>
-        <div class="mt-6 grid gap-5 md:grid-cols-3">
+        <div class="mt-9 grid gap-8 md:grid-cols-3 md:gap-10">
           {briefs.map((project) => (
-            <article id={project.slug} class="surface flex flex-col p-6">
+            <article id={project.slug} class="flex flex-col border-t border-border pt-6">
               <h3 class="text-xl font-semibold">{project.data.title}</h3>
-              <p class="mt-3 text-sm leading-relaxed text-muted">{project.data.summary}</p>
-              <a href={projectHref(project)} class="focus-ring mt-5 inline-flex self-start text-sm font-semibold text-accent hover:text-accent-dark" aria-label={`Read the ${project.data.title} brief`}>Read the system brief →</a>
+              <p class="mb-5 mt-3 flex-1 text-sm leading-relaxed text-muted">{project.data.summary}</p>
+              <a href={projectHref(project)} class="text-link mt-auto self-start" aria-label={`Read the ${project.data.title} brief`}>Read the system brief <span aria-hidden="true">↗</span></a>
             </article>
           ))}
         </div>
       </section>
 
-      <div class="mt-12 grid gap-5 md:grid-cols-2">
-        <article class="surface-muted p-6 sm:p-8">
+      <div class="grid gap-5 md:grid-cols-2">
+        <article class="surface-muted p-7 sm:p-9">
           <p class="eyebrow">Business and field operations</p>
-          <h2 class="mt-2 text-xl font-semibold">Kansas Electric and delivery programs</h2>
+          <h2 class="mt-4 text-2xl font-semibold">Kansas Electric and delivery programs</h2>
           <p class="mt-3 text-muted">Commercial results, field coordination, and the systems that supported the work.</p>
-          <a class="focus-ring mt-4 inline-flex text-sm font-semibold text-accent hover:text-accent-dark" href="/work">Explore experience & case studies →</a>
+          <a class="text-link mt-6" href="/work">Explore experience & case studies <span aria-hidden="true">↗</span></a>
         </article>
-        <article class="surface-muted p-6 sm:p-8">
+        <article class="surface-muted p-7 sm:p-9">
           <p class="eyebrow">Long-running engineering work</p>
-          <h2 class="mt-2 text-xl font-semibold">Eden</h2>
+          <h2 class="mt-4 text-2xl font-semibold">Eden</h2>
           <p class="mt-3 text-muted">C# server work, game systems, diagnostics, and community operations in a live multiplayer environment.</p>
-          <a class="focus-ring mt-4 inline-flex text-sm font-semibold text-accent hover:text-accent-dark" href="/eden">Explore Eden engineering →</a>
+          <a class="text-link mt-6" href="/eden">Explore Eden engineering <span aria-hidden="true">↗</span></a>
         </article>
       </div>
     </div>
   </section>
 </Base>
+
+<style>
+  .project-card { transition: border-color 180ms ease; }
+  .project-card:hover { border-color: #aac2ac; }
+  .project-visual img { box-shadow: 0 6px 20px rgb(23 35 31 / 8%); }
+</style>

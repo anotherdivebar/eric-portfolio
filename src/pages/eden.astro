@@ -16,27 +16,28 @@ const challenges = [
 ---
 
 <Base title="Eden: Live MMO Engineering - Eric Martin" description="Eric Martin’s work on Eden: C# and .NET server systems, PostgreSQL persistence, game design, support tooling, and reliability in a live multiplayer environment.">
-  <section class="py-12 sm:py-16">
+  <section class="page-heading">
     <div class="page-container-mid">
-      <a href="/technical-projects" class="focus-ring inline-flex text-sm font-semibold text-accent hover:text-accent-dark">← All projects</a>
-      <div class="section-dark mt-6 rounded-[32px] border border-slate-800 p-6 text-white sm:p-10">
+      <a href="/technical-projects" class="text-link">← All projects</a>
+      <div class="mt-10 sm:mt-12">
         <p class="eyebrow">Live service / software engineering</p>
-        <h1 class="mt-3 text-4xl font-semibold tracking-tight sm:text-5xl">Eden</h1>
-        <p class="mt-4 max-w-2xl text-2xl leading-snug text-slate-100">Building and operating a persistent multiplayer world.</p>
-        <p class="mt-5 max-w-3xl leading-relaxed text-slate-300">Eden is a long-running MMO with active players, persistent state, and live uptime expectations. My work combined server engineering, game design, operational tools, and the ongoing responsibility of keeping a shared world running.</p>
-        <dl class="mt-8 grid gap-6 border-t border-white/15 pt-6 sm:grid-cols-3">
-          <div><dt class="text-xs uppercase tracking-[0.16em] text-slate-400">Community</dt><dd class="mt-2 text-sm leading-relaxed text-slate-100">Grew to roughly 30,000 players</dd></div>
-          <div><dt class="text-xs uppercase tracking-[0.16em] text-slate-400">Core stack</dt><dd class="mt-2 text-sm leading-relaxed text-slate-100">C# / .NET, PostgreSQL, JavaScript</dd></div>
-          <div><dt class="text-xs uppercase tracking-[0.16em] text-slate-400">My role</dt><dd class="mt-2 text-sm leading-relaxed text-slate-100">Engineering, design, balance, and live operations</dd></div>
+        <h1 class="page-title mt-5">Eden</h1>
+        <p class="mt-5 max-w-2xl text-2xl font-medium leading-snug text-ink sm:text-3xl">Building and operating a persistent multiplayer world.</p>
+        <p class="page-intro mt-6">Eden is a long-running MMO with active players, persistent state, and live uptime expectations. My work combined server engineering, game design, operational tools, and the ongoing responsibility of keeping a shared world running.</p>
+        <dl class="surface-muted mt-10 grid gap-8 p-7 sm:mt-12 sm:grid-cols-3 sm:p-9">
+          <div><dt class="eyebrow">Community grew to</dt><dd class="mt-4"><span class="block text-4xl font-medium tracking-tight text-accent">~30,000</span><span class="mt-2 block text-sm text-muted">players</span></dd></div>
+          <div class="border-t border-border pt-6 sm:border-l sm:border-t-0 sm:pl-7 sm:pt-0"><dt class="eyebrow">Core stack</dt><dd class="mt-4 text-lg font-medium leading-relaxed">C# / .NET<br />PostgreSQL<br />JavaScript</dd></div>
+          <div class="border-t border-border pt-6 sm:border-l sm:border-t-0 sm:pl-7 sm:pt-0"><dt class="eyebrow">My role</dt><dd class="mt-4 text-lg font-medium leading-relaxed">Engineering, design, balance, and live operations</dd></div>
         </dl>
       </div>
 
-      <section class="mt-12" aria-labelledby="ownership-heading">
-        <h2 id="ownership-heading" class="text-2xl font-semibold text-ink">What I owned</h2>
-        <p class="mt-3 max-w-3xl leading-relaxed text-muted">The work covered the player-facing systems and the tools needed to maintain them. Reliability, support, and product decisions were part of the same engineering responsibility.</p>
-        <div class="mt-6 grid gap-5 md:grid-cols-2">
+      <section class="section-space" aria-labelledby="ownership-heading">
+        <p class="eyebrow">End-to-end responsibility</p>
+        <h2 id="ownership-heading" class="mt-4 text-3xl font-semibold text-ink sm:text-4xl">What I owned</h2>
+        <p class="mt-5 max-w-3xl leading-relaxed text-muted">The work covered the player-facing systems and the tools needed to maintain them. Reliability, support, and product decisions were part of the same engineering responsibility.</p>
+        <div class="mt-9 grid gap-x-12 gap-y-8 md:grid-cols-2">
           {responsibilities.map((item) => (
-            <article class="surface p-6">
+            <article class="border-t border-border pt-6">
               <h3 class="text-lg font-semibold text-ink">{item.title}</h3>
               <p class="mt-3 text-sm leading-relaxed text-muted">{item.detail}</p>
             </article>
@@ -44,25 +45,26 @@ const challenges = [
         </div>
       </section>
 
-      <section class="mt-12" aria-labelledby="challenges-heading">
-        <h2 id="challenges-heading" class="text-2xl font-semibold text-ink">The engineering constraints</h2>
-        <div class="mt-6 space-y-5">
-          {challenges.map((item, index) => (
-            <article class="surface-muted flex gap-4 p-6 sm:gap-6">
-              <span aria-hidden="true" class="mt-1 text-sm font-semibold text-accent">{String(index + 1).padStart(2, "0")}</span>
+      <section aria-labelledby="challenges-heading">
+        <p class="eyebrow">Designing for a live world</p>
+        <h2 id="challenges-heading" class="mt-4 text-3xl font-semibold text-ink sm:text-4xl">The engineering constraints</h2>
+        <div class="mt-8 space-y-4">
+          {challenges.map((item) => (
+            <article class="surface p-6 sm:p-8">
               <div><h3 class="text-lg font-semibold text-ink">{item.title}</h3><p class="mt-3 text-sm leading-relaxed text-muted">{item.detail}</p></div>
             </article>
           ))}
         </div>
       </section>
 
-      <section class="mt-12 grid gap-6 md:grid-cols-2" aria-labelledby="operations-heading">
+      <section class="section-space grid gap-8 md:grid-cols-2 md:gap-12" aria-labelledby="operations-heading">
         <div>
-          <h2 id="operations-heading" class="text-2xl font-semibold text-ink">Operating the software</h2>
-          <p class="mt-3 leading-relaxed text-muted">A release was one part of the job. The surrounding work included diagnosing problems, protecting data, maintaining support workflows, and evolving a codebase that had to keep serving players.</p>
+          <p class="eyebrow">Beyond the release</p>
+          <h2 id="operations-heading" class="mt-4 text-3xl font-semibold text-ink">Operating the software</h2>
+          <p class="mt-5 leading-relaxed text-muted">A release was one part of the job. The surrounding work included diagnosing problems, protecting data, maintaining support workflows, and evolving a codebase that had to keep serving players.</p>
         </div>
-        <div class="surface p-6">
-          <ul class="list-disc space-y-3 pl-5 text-sm leading-relaxed text-muted">
+        <div class="border-t border-border pt-6">
+          <ul class="list-disc space-y-4 pl-5 text-sm leading-relaxed text-muted marker:text-accent">
             <li>Structured logging, metrics, and audit trails for investigation</li>
             <li>JavaScript tools for moderation, support, and data maintenance</li>
             <li>GitHub-based build and release automation</li>
@@ -71,12 +73,12 @@ const challenges = [
         </div>
       </section>
 
-      <div class="surface-muted mt-12 p-6 sm:p-8">
+      <div class="surface-muted p-7 sm:p-10">
         <h2 class="text-2xl font-semibold text-ink">How it connects to my other work</h2>
         <p class="mt-4 max-w-3xl leading-relaxed text-muted">The same concerns show up in business software: persistent state, clear permissions, useful diagnostics, safe releases, and tools that help a person recover when something goes wrong. Eden is where those concerns met the immediate feedback of a live community.</p>
         <div class="mt-6 flex flex-wrap gap-x-6 gap-y-3">
-          <a href="/abs-tooling" class="focus-ring text-sm font-semibold text-accent hover:text-accent-dark">Explore ABS Tooling →</a>
-          <a href="/contact" class="focus-ring text-sm font-semibold text-accent hover:text-accent-dark">Talk about a systems challenge →</a>
+          <a href="/abs-tooling" class="text-link">Explore ABS Console <span aria-hidden="true">↗</span></a>
+          <a href="/contact" class="text-link">Talk about a systems challenge <span aria-hidden="true">↗</span></a>
         </div>
       </div>
     </div>

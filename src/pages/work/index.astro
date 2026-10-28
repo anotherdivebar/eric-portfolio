@@ -10,65 +10,78 @@ const programDelivery = caseStudies.find((study) => study.slug === "program-deli
 const operatingExamples = caseStudies.filter((study) => !["kansas-electric", "program-delivery-at-scale"].includes(study.slug));
 ---
 
-<Base title="Work & Case Studies - Eric Martin" description="Explore ABS Tooling, building Kansas Electric's sales and marketing function, and growing Vale Field Services from employee one to operations across the U.S. and Canada.">
-  <section class="py-12 sm:py-16">
+<Base title="Sales & Growth Results - Eric Martin" description="How Eric Martin turns customer relationships into new business: approximately $2M closed in 60 days at Kansas Electric and a role in growing Vale Field Services to approximately $4M in annual revenue.">
+  <section class="page-heading">
     <div class="page-container">
-      <div class="max-w-3xl">
-        <p class="eyebrow mb-3">Work / systems and operations</p>
-        <h1 class="text-4xl font-semibold tracking-tight text-ink sm:text-5xl">From business problem to working system.</h1>
-        <p class="mt-5 text-lg leading-relaxed text-muted">The detailed builds show the software, workflows, and decisions behind the work. The shorter operating writeups describe how I approach ownership, handoffs, and delivery.</p>
+      <div class="max-w-4xl">
+        <p class="eyebrow">Sales & growth results</p>
+        <h1 class="page-title mt-5">Win the relationship. Deliver the value. Build on it.</h1>
+        <p class="page-intro mt-7">I connect customer needs to work the business can deliver. These stories show my role in developing relationships, closing opportunities, and building the operations that support sustainable growth.</p>
       </div>
 
-      <section class="mt-10" aria-labelledby="case-studies-heading">
-        <h2 id="case-studies-heading" class="text-2xl font-semibold text-ink">Inside the builds</h2>
-        <div class="mt-6 grid gap-6 md:grid-cols-2">
-          <article class="section-dark flex flex-col rounded-2xl border border-slate-800 p-6 text-white sm:p-8">
-            <p class="eyebrow">Atlas-Beren Systems / featured build</p>
-            <h3 class="mt-3 text-2xl font-semibold">ABS Tooling</h3>
-            <p class="mt-4 flex-1 leading-relaxed text-slate-300">Prospect research, outreach, project delivery, finance, and connected operations in the Atlas-Beren Console. A detailed look at workflows, architecture, screenshots, and rollout boundaries.</p>
-            <a class="focus-ring mt-6 inline-flex font-semibold text-white underline decoration-white/40 underline-offset-4 hover:decoration-white" href="/abs-tooling">Explore ABS Tooling →</a>
-          </article>
+      <section class="mt-14 sm:mt-20" aria-labelledby="case-studies-heading">
+        <h2 id="case-studies-heading" class="eyebrow">Commercial results, with the story behind them</h2>
+        <div class="mt-6 grid gap-5 md:grid-cols-2">
           {kansasElectric && (
-            <article class="surface flex flex-col p-6 sm:p-8">
-              <p class="eyebrow">Kansas Electric / sales, marketing, and systems</p>
-              <h3 class="mt-3 text-2xl font-semibold text-ink">{kansasElectric.data.title}</h3>
-              <p class="mt-4 leading-relaxed text-muted">{kansasElectric.data.summary}</p>
-              <p class="mt-4 flex-1 text-sm leading-relaxed text-ink">{kansasElectric.data.impact}</p>
-              <a class="focus-ring mt-6 inline-flex font-semibold text-accent hover:text-accent-dark" href="/work/kansas-electric">Explore Kansas Electric →</a>
+            <article class="section-dark result-card flex flex-col rounded-xl p-7 text-white sm:p-10">
+              <p class="eyebrow">Kansas Electric · 2024–2025</p>
+              <p class="result-number mt-8">~$2M</p>
+              <p class="mt-3 text-sm text-white/70">in new work closed in my first 60 days</p>
+              <div class="mb-7 mt-8 h-px bg-white/15"></div>
+              <h3 class="text-2xl font-semibold">{kansasElectric.data.title}</h3>
+              <p class="mt-4 flex-1 leading-relaxed text-white/70">Built a dedicated sales and marketing function. Won a Walmart engagement through established relationships, owned the customer relationship, and oversaw delivery through the project managers.</p>
+              <a class="focus-ring mt-7 inline-flex items-center justify-between gap-4 text-sm font-semibold text-white" href="/work/kansas-electric">Read the sales & growth story <span aria-hidden="true">↗</span></a>
+            </article>
+          )}
+          {programDelivery && (
+            <article class="surface result-card flex flex-col p-7 sm:p-10">
+              <p class="eyebrow">Vale Field Services · 2019–2024</p>
+              <p class="result-number mt-8 text-accent">~$4M</p>
+              <p class="mt-3 text-sm text-muted">in annual revenue at a company I helped grow</p>
+              <div class="mb-7 mt-8 h-px bg-border"></div>
+              <h3 class="text-2xl font-semibold text-ink">{programDelivery.data.title}</h3>
+              <p class="mt-4 flex-1 leading-relaxed text-muted">Joined as employee one, doing field work and building customer relationships. Grew into leading operations for 35 employees and technology rollouts across hundreds of restaurant locations.</p>
+              <a class="text-link mt-7 justify-between" href="/work/program-delivery-at-scale">Read the growth & delivery story <span aria-hidden="true">↗</span></a>
             </article>
           )}
         </div>
       </section>
 
-      {programDelivery && (
-        <article class="surface-muted mt-8 p-6 sm:p-8">
-          <p class="eyebrow">Vale Field Services / July 2019–October 2024</p>
-          <h2 class="mt-3 text-2xl font-semibold">{programDelivery.data.title}</h2>
-          <p class="mt-3 max-w-3xl leading-relaxed text-muted">{programDelivery.data.summary}</p>
-          <p class="mt-4 max-w-3xl text-sm leading-relaxed text-ink">{programDelivery.data.impact}</p>
-          <a class="focus-ring mt-5 inline-flex text-sm font-semibold text-accent hover:text-accent-dark" href="/work/program-delivery-at-scale">Explore Vale's growth and operations →</a>
-        </article>
-      )}
+      <article class="surface-muted mt-5 grid items-center gap-7 p-7 sm:p-10 lg:grid-cols-[1fr_auto] lg:gap-12">
+        <div>
+          <p class="eyebrow">The systems that support growth</p>
+          <h2 class="mt-4 text-2xl font-semibold sm:text-3xl">ABS Console / Atlas-Beren Systems</h2>
+          <p class="mt-4 max-w-3xl leading-relaxed text-muted">I also build software to support the work around a sale: understanding accounts, following up, planning delivery, and connecting customer activity to financial results. ABS Console brings those workflows into a shared platform.</p>
+        </div>
+        <a class="button-secondary" href="/abs-tooling">Explore the platform <span aria-hidden="true">↗</span></a>
+      </article>
 
-      <section class="mt-12" aria-labelledby="operating-heading">
-        <h2 id="operating-heading" class="text-2xl font-semibold text-ink">Operating approaches</h2>
-        <p class="mt-3 max-w-3xl text-muted">Short writeups on the structure behind revenue and delivery work: what needs to be clear, what should be automated, and where a team needs visibility.</p>
-        <div class="mt-6 grid gap-5 md:grid-cols-2">
+      <section class="section-space" aria-labelledby="operating-heading">
+        <p class="eyebrow">Behind the results</p>
+        <h2 id="operating-heading" class="mt-4 text-3xl font-semibold text-ink sm:text-4xl">Operating approaches</h2>
+        <p class="mt-4 max-w-2xl leading-relaxed text-muted">Short writeups on the structure behind revenue and delivery work: what needs to be clear, what should be automated, and where a team needs visibility.</p>
+        <div class="mt-9 grid gap-x-12 gap-y-9 md:grid-cols-2">
           {operatingExamples.map((study) => (
-            <article class="surface flex flex-col p-6">
+            <article class="flex flex-col border-t border-border pt-6">
               <p class="eyebrow">{study.data.category}</p>
               <h3 class="mt-3 text-xl font-semibold text-ink">{study.data.title}</h3>
               <p class="mt-3 flex-1 text-sm leading-relaxed text-muted">{study.data.summary}</p>
-              <a class="focus-ring mt-5 inline-flex text-sm font-semibold text-accent hover:text-accent-dark" href={`/work/${study.slug}`} aria-label={`Read ${study.data.title}`}>Read the approach →</a>
+              <a class="text-link mt-5" href={`/work/${study.slug}`} aria-label={`Read ${study.data.title}`}>Read the approach <span aria-hidden="true">↗</span></a>
             </article>
           ))}
         </div>
       </section>
 
-      <div class="mt-10 flex flex-wrap gap-x-6 gap-y-3 border-t border-border pt-7">
-        <a class="focus-ring text-sm font-semibold text-accent hover:text-accent-dark" href="/technical-projects">Browse all projects →</a>
-        <a class="focus-ring text-sm font-semibold text-accent hover:text-accent-dark" href="/resume">Read my professional background →</a>
+      <div class="flex flex-wrap gap-x-6 gap-y-3 border-t border-border pt-7">
+        <a class="text-link" href="/technical-projects">Browse all projects <span aria-hidden="true">↗</span></a>
+        <a class="text-link" href="/resume">Read my professional background <span aria-hidden="true">↗</span></a>
       </div>
     </div>
   </section>
 </Base>
+
+<style>
+  .result-number { font-size: clamp(3.5rem, 8vw, 5rem); font-weight: 500; letter-spacing: -0.065em; line-height: 1; font-variant-numeric: tabular-nums; }
+  .result-card { transition: border-color 180ms ease; }
+  .result-card:hover { border-color: #9ebaa7; }
+</style>

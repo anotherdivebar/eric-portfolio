@@ -1,35 +1,33 @@
 ---
 import "../styles/global.css";
-
 const {
-  title = "Eric Martin - Revenue Operations & Technical Systems Leader",
-  description = "Eric Martin builds the systems behind growth and delivery: business development, field operations, internal applications, and governed automation.",
+  title = "Eric Martin — Sales, Growth & Connected Systems",
+  description = "Eric Martin grows revenue through trusted relationships, practical solutions, and the systems that support sustainable growth.",
   type = "website"
 } = Astro.props;
-
 const path = Astro.url.pathname.replace(/\/$/, "") || "/";
 const navigation = [
-  { href: "/technical-projects", label: "Projects", active: path.startsWith("/technical-projects") || path.startsWith("/work") || path === "/abs-tooling" || path === "/eden" },
-  { href: "/skills", label: "Skills", active: path === "/skills" },
-  { href: "/resume", label: "Resume", active: path === "/resume" },
+  { href: "/work", label: "Results", active: path.startsWith("/work") },
+  { href: "/abs-tooling", label: "ABS Console", active: path === "/abs-tooling" },
+  { href: "/technical-projects", label: "Projects", active: path.startsWith("/technical-projects") || path === "/eden" },
   { href: "/about", label: "About", active: path === "/about" },
-  { href: "/contact", label: "Contact", active: path === "/contact" }
+  { href: "/resume", label: "Resume", active: path === "/resume" }
 ];
 const moreWork = [
-  { href: "/technical-projects", label: "Projects" },
-  { href: "/work", label: "Experience & case studies" },
-  { href: "/eden", label: "Eden engineering" },
-  { href: "/blog", label: "Insights" },
-  { href: "/resume", label: "Resume" }
+  { href: "/work", label: "Sales & growth results" },
+  { href: "/abs-tooling", label: "ABS Console" },
+  { href: "/technical-projects", label: "Projects & engineering" },
+  { href: "/skills", label: "Skills & capabilities" },
+  { href: "/resume", label: "Resume" },
+  { href: "/blog", label: "Insights" }
 ];
 ---
-
 <!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="theme-color" content="#0b1320" />
+    <meta name="theme-color" content="#152e27" />
     <title>{title}</title>
     <meta name="description" content={description} />
     <meta name="robots" content="index, follow" />
@@ -41,52 +39,71 @@ const moreWork = [
   </head>
   <body class="flex min-h-screen flex-col text-ink">
     <a href="#main-content" class="focus-ring sr-only focus:not-sr-only focus:fixed focus:left-4 focus:top-4 focus:z-50 focus:rounded-md focus:bg-white focus:px-3 focus:py-2 focus:text-sm focus:text-ink">Skip to content</a>
-    <header class="sticky top-0 z-20 border-b border-border bg-white/95 backdrop-blur-xl">
-      <div class="page-container flex items-center justify-between gap-5 py-3">
-        <a href="/" class="focus-ring shrink-0 text-lg font-semibold tracking-tight" aria-label="Eric Martin home">Eric Martin</a>
-        <nav aria-label="Main navigation" class="hidden items-center gap-1 text-sm lg:flex">
-          {navigation.map((item) => (
-            <a href={item.href} aria-current={item.active ? (path === item.href ? "page" : "location") : undefined} class:list={["focus-ring rounded-lg px-3 py-2 font-medium transition", item.active ? "bg-blue-50 text-accent" : "text-muted hover:bg-panel hover:text-ink"]}>{item.label}</a>
-          ))}
+    <header class="site-header">
+      <div class="page-container header-row">
+        <a href="/" class="wordmark" aria-label="Eric Martin home">
+          <span class="wordmark-symbol" aria-hidden="true">em.</span>
+          <span><span class="wordmark-name">Eric Martin</span><span class="wordmark-caption">Growth · Operations · Technology</span></span>
+        </a>
+        <nav aria-label="Main navigation" class="desktop-nav">
+          {navigation.map((item) => <a href={item.href} class="nav-link" aria-current={item.active ? (path === item.href ? "page" : "location") : undefined}>{item.label}</a>)}
         </nav>
-        <div class="flex items-center gap-5">
-          <a class="focus-ring hidden text-sm font-medium text-muted hover:text-ink xl:inline-flex" href="tel:+13162149102">(316) 214-9102</a>
-          <a href="/contact" class="focus-ring inline-flex min-h-11 items-center justify-center rounded-lg bg-accent px-4 py-2 text-sm font-semibold text-white transition hover:bg-accent-dark">Let's talk</a>
-        </div>
+        <a href="/contact" class="button-primary desktop-contact">Let's talk <span aria-hidden="true">↗</span></a>
+        <details class="mobile-menu">
+          <summary aria-label="Open navigation">Menu <span aria-hidden="true">☰</span></summary>
+          <nav aria-label="Mobile navigation">
+            {navigation.map((item) => <a href={item.href} class="nav-link" aria-current={item.active ? (path === item.href ? "page" : "location") : undefined}>{item.label}</a>)}
+            <a class="nav-link" href="/skills">Skills & capabilities</a>
+            <a class="button-primary mt-2" href="/contact">Let's talk ↗</a>
+          </nav>
+        </details>
       </div>
-      <nav aria-label="Mobile navigation" class="border-t border-border lg:hidden">
-        <div class="page-container flex justify-between gap-0 overflow-x-auto py-1 text-[13px] sm:text-sm">
-          {navigation.map((item) => (
-            <a href={item.href} aria-current={item.active ? (path === item.href ? "page" : "location") : undefined} class:list={["focus-ring flex min-h-11 shrink-0 items-center rounded-lg px-1.5 font-medium", item.active ? "bg-blue-50 text-accent" : "text-muted hover:bg-panel hover:text-ink"]}>{item.label}</a>
-          ))}
-        </div>
-      </nav>
     </header>
-
     <main id="main-content" tabindex="-1" class="flex-1 outline-none"><slot /></main>
-
-    <footer class="mt-8 border-t border-white/10 bg-[#0b1320] py-10 text-sm text-slate-300">
-      <div class="page-container grid gap-8 sm:grid-cols-2 lg:grid-cols-[1.3fr_1fr_1fr]">
-        <div>
-          <a href="/" class="focus-ring text-lg font-semibold text-white">Eric Martin</a>
-          <p class="mt-3 max-w-xs leading-relaxed text-slate-400">Business development, operations, and software built around the work people need to do.</p>
-          <p class="mt-5 text-xs text-slate-400">© {new Date().getFullYear()} Eric Martin</p>
+    <footer class="site-footer section-dark">
+      <div class="page-container">
+        <div class="footer-top">
+          <div class="max-w-2xl">
+            <p class="eyebrow">A good next step starts with a conversation.</p>
+            <h2 class="mt-4 text-3xl font-medium leading-tight tracking-tight text-white sm:text-4xl">What could we grow together?</h2>
+          </div>
+          <a class="button-primary shrink-0" href="/contact">Let's talk about it <span aria-hidden="true">↗</span></a>
         </div>
-        <nav aria-label="More work">
-          <h2 class="text-xs font-semibold uppercase tracking-[0.16em] text-slate-400">Explore the work</h2>
-          <ul class="mt-3 space-y-2">
-            {moreWork.map((item) => (<li><a class="focus-ring inline-flex py-1 hover:text-white" href={item.href}>{item.label}</a></li>))}
-          </ul>
-        </nav>
-        <div>
-          <h2 class="text-xs font-semibold uppercase tracking-[0.16em] text-slate-400">Get in touch</h2>
-          <ul class="mt-3 space-y-2">
-            <li><a class="focus-ring inline-flex break-all py-1 hover:text-white" href="mailto:ericm93.2023@outlook.com">ericm93.2023@outlook.com</a></li>
-            <li><a class="focus-ring inline-flex py-1 hover:text-white" href="tel:+13162149102">(316) 214-9102</a></li>
-            <li><a class="focus-ring inline-flex py-1 hover:text-white" href="https://www.linkedin.com/in/eric-m-53b374174/">LinkedIn</a></li>
-          </ul>
+        <div class="footer-grid">
+          <div>
+            <a href="/" class="text-xl font-semibold tracking-tight text-white">Eric Martin<span class="text-mint">.</span></a>
+            <p class="mt-4 max-w-xs text-sm leading-relaxed">Relationships that create opportunity. Solutions that deliver value. Systems that help it last.</p>
+          </div>
+          <nav aria-label="More work">
+            <h2 class="eyebrow">Explore</h2>
+            <ul class="mt-4 grid gap-2 text-sm">
+              {moreWork.map((item) => <li><a class="inline-flex py-1" href={item.href}>{item.label}</a></li>)}
+            </ul>
+          </nav>
+          <div>
+            <h2 class="eyebrow">Connect</h2>
+            <ul class="mt-4 grid gap-3 text-sm">
+              <li><a class="break-all" href="mailto:ericm93.2023@outlook.com">ericm93.2023@outlook.com</a></li>
+              <li><a href="tel:+13162149102">(316) 214-9102</a></li>
+              <li><a href="https://www.linkedin.com/in/eric-m-53b374174/">LinkedIn ↗</a></li>
+              <li><a href="/about">A little more about me →</a></li>
+            </ul>
+          </div>
         </div>
+        <div class="footer-meta"><p>© {new Date().getFullYear()} Eric Martin</p><p>Business development. Built on understanding.</p></div>
       </div>
     </footer>
+    <script>
+      const menu = document.querySelector<HTMLDetailsElement>('.mobile-menu');
+      document.addEventListener('keydown', (event) => {
+        if (event.key === 'Escape' && menu?.open) {
+          menu.open = false;
+          menu.querySelector('summary')?.focus();
+        }
+      });
+      document.addEventListener('click', (event) => {
+        if (menu?.open && event.target instanceof Node && !menu.contains(event.target)) menu.open = false;
+      });
+    </script>
   </body>
 </html>

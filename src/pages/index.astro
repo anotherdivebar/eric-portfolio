@@ -1,132 +1,165 @@
 ---
 import Base from "../layouts/Base.astro";
-
-const proofPoints = [
-  { value: "~$2M", label: "closed in the first 60 days", context: "Kansas Electric · 2024–25 role", href: "/work/kansas-electric" },
-  { value: "$100M+", label: "opportunities presented", context: "Kansas Electric · 2025", href: "/work/kansas-electric" },
-  { value: "$200M+", label: "forward 24-month pipeline", context: "Kansas Electric · 2024–25 role", href: "/work/kansas-electric" },
-  { value: "~$4M", label: "annual operating scale", context: "Vale Field Services", href: "/work/program-delivery-at-scale" }
-];
-const selectedWork = [
-  {
-    label: "Connected business platform", title: "ABS Tooling", href: "/abs-tooling",
-    image: "/assets/atlas-beren/workspace-overview.png", alt: "ABS Console overview with business workflow modules", width: 1264, height: 625,
-    body: "Customer and project context carried from CRM through estimating, field delivery, billing, payments, and profit reporting.",
-    detail: "New: customer self-service, Gmail/Outlook calendars, recurring billing workflows, reviewed migration, and tested recovery tooling.", cta: "Explore the full build"
-  },
-  {
-    label: "Sales, marketing & systems", title: "Kansas Electric", href: "/work/kansas-electric",
-    image: "/assets/kse/CRM%20Main.png", alt: "Kansas Electric internal CRM workspace", width: 1255, height: 942,
-    body: "Built an electrical contractor's sales and marketing function, from strategy and rebranding to customer development and paid campaigns.",
-    detail: "See the Walmart engagement and the CRM, estimating, and field-reporting tools supporting the work.", cta: "Read the case study"
-  },
-  {
-    label: "Product website & demos", title: "Atlas-Beren Systems", href: "/technical-projects/atlas-beren-website",
-    image: "/assets/atlas-beren-website/home.png", alt: "Atlas-Beren website with an interactive product walkthrough", width: 1440, height: 6389, crop: true,
-    body: "Product positioning, fictional workflow demos, industry paths, and contextual inquiries for the business behind ABS.",
-    detail: "See how the website turns a broad operating platform into a clear buyer journey.", cta: "Explore the website build"
-  }
+const proof = [
+  { value: "~$2M", label: "New work closed in my first 60 days", note: "Kansas Electric · 2024–25", href: "/work/kansas-electric" },
+  { value: "~$4M", label: "Annual revenue at a company I helped grow", note: "Vale Field Services · From startup to 35 employees", href: "/work/program-delivery-at-scale" },
+  { value: "$200M+", label: "Forward pipeline over 24 months", note: "Kansas Electric · Pipeline, separate from closed work", href: "/work/kansas-electric" }
 ];
 const approach = [
-  { number: "01", title: "Understand the work", body: "Trace how an opportunity becomes a commitment, how work reaches the field, and where people lose context or wait for a decision." },
-  { number: "02", title: "Build around the handoffs", body: "Make ownership, required information, and review points explicit. Then build the application, integration, or automation that supports them." },
-  { number: "03", title: "Stay through delivery", body: "Test the difficult cases, work through rollout, and keep the reporting useful to both the person doing the work and the person accountable for it." }
+  { title: "Earn the conversation.", body: "Build trust through curiosity, preparation, and consistent follow-up. Learn what matters to the person across the table." },
+  { title: "Understand the need.", body: "Get clear on the problem, its cost to the business, and what a better outcome would look like." },
+  { title: "Connect the right solution.", body: "Show how a service or capability solves that specific problem. Make the value and next step clear." },
+  { title: "Follow through and grow.", body: "Stay close through delivery. Keep commitments visible and find the next opportunity as the relationship develops." }
 ];
 ---
-
-<Base title="Eric Martin - Revenue Operations & Technical Systems Leader" description="Eric Martin connects business development, field operations, and software. Explore ABS Tooling, the Atlas-Beren website, Kansas Electric, and the systems behind the work.">
-  <section class="pb-12 pt-10 sm:pt-14">
-    <div class="page-container">
-      <div class="section-dark overflow-hidden rounded-[32px] border border-slate-800 px-6 py-9 text-white sm:px-10 sm:py-12">
-        <div class="grid items-center gap-9 lg:grid-cols-[1.6fr_0.8fr] lg:gap-14">
-          <div>
-            <p class="eyebrow">Revenue operations / systems / software</p>
-            <h1 class="mt-4 max-w-2xl text-4xl font-semibold leading-tight sm:text-5xl">I connect growth, operations, and software.</h1>
-            <p class="mt-5 max-w-2xl text-lg leading-relaxed text-slate-300">I build the systems behind the work: finding opportunities, managing delivery, and giving people a clear next step. My background spans business development, national field programs, and hands-on software engineering.</p>
-            <div class="mt-7 flex flex-wrap gap-3">
-              <a class="focus-ring inline-flex min-h-11 items-center justify-center rounded-lg bg-accent px-5 py-3 text-sm font-semibold text-white hover:bg-accent-dark" href="#selected-work">Explore my work ↓</a>
-              <a class="focus-ring inline-flex min-h-11 items-center justify-center rounded-lg border border-white/25 px-5 py-3 text-sm font-semibold text-white hover:bg-white/10" href="/resume">View resume →</a>
-            </div>
-          </div>
-          <img src="/eric%202026%20headshot.png" alt="Eric Martin" width="560" height="700" class="mx-auto aspect-[4/5] w-full max-w-[250px] rounded-2xl border border-white/15 object-cover lg:max-w-[280px]" decoding="async" fetchpriority="high" />
-        </div>
-        <div class="mt-9 grid grid-cols-2 gap-x-5 gap-y-7 border-t border-white/15 pt-7 lg:grid-cols-4">
-          {proofPoints.map((item) => (
-            <a href={item.href} class="focus-ring rounded-md">
-              <p class="text-2xl font-semibold tabular-nums tracking-tight text-white sm:text-3xl">{item.value}</p>
-              <p class="mt-1 text-sm leading-snug text-slate-200">{item.label}</p>
-              <p class="mt-2 text-xs leading-relaxed text-slate-400">{item.context}</p>
-            </a>
-          ))}
-        </div>
+<Base title="Eric Martin — Relationship-Based Sales & Sustainable Growth" description="I grow revenue by earning trust and solving the right problems. Explore Eric Martin's sales results, operational leadership, and ABS Console platform.">
+  <section class="home-hero page-container" aria-labelledby="hero-heading">
+    <div class="hero-copy">
+      <p class="eyebrow hero-eyebrow"><span aria-hidden="true"></span> Relationship-based sales. Sustainable growth.</p>
+      <h1 id="hero-heading">I grow revenue<br />by <em>earning trust</em><br />and solving the<br class="hidden xl:block" /> right problems.</h1>
+      <p class="hero-intro">I understand what a prospect is facing, connect their needs to the right solution, and turn trust into new business. Then I stay involved to help it grow.</p>
+      <div class="mt-7 flex flex-wrap gap-3">
+        <a class="button-primary" href="#growth-results">See the results <span aria-hidden="true">↗</span></a>
+        <a class="button-secondary" href="/abs-tooling">Explore ABS Console <span aria-hidden="true">→</span></a>
       </div>
+    </div>
+    <div class="portrait-composition">
+      <div class="portrait-frame">
+        <img src="/eric%202026%20headshot.png" alt="Eric Martin" width="560" height="700" decoding="async" fetchpriority="high" />
+      </div>
+      <div class="portrait-caption"><span class="eyebrow">Eric Martin</span><p>Commercial instinct.<br />Operational experience.<br />Technical depth.</p></div>
+      <span class="portrait-index" aria-hidden="true">A connected perspective</span>
     </div>
   </section>
 
-  <section id="selected-work" class="py-8 sm:py-12" aria-labelledby="selected-work-heading">
-    <div class="page-container">
-      <div class="flex flex-wrap items-end justify-between gap-5">
-        <div class="max-w-2xl">
-          <p class="eyebrow">Selected work</p>
-          <h2 id="selected-work-heading" class="mt-2 text-3xl font-semibold">The systems, and the problems behind them.</h2>
-          <p class="mt-3 text-muted">Detailed examples of what I designed, built, and operated.</p>
-        </div>
-        <a class="focus-ring text-sm font-semibold text-accent hover:text-accent-dark" href="/technical-projects">All projects →</a>
-      </div>
-      <div class="mt-7 grid gap-6 lg:grid-cols-3">
-        {selectedWork.map((project) => (
-          <article class="surface flex flex-col overflow-hidden">
-            <a class="focus-ring block border-b border-border bg-panel p-3" href={project.href} aria-label={`Explore ${project.title}`}>
-              <img src={project.image} alt={project.alt} width={project.width} height={project.height} class:list={["aspect-[16/10] w-full rounded-lg", project.crop ? "object-cover object-top" : "object-contain"]} loading="lazy" decoding="async" />
-            </a>
-            <div class="flex flex-1 flex-col p-6">
-              <p class="eyebrow">{project.label}</p>
-              <h3 class="mt-2 text-2xl font-semibold">{project.title}</h3>
-              <p class="mt-3 leading-relaxed text-muted">{project.body}</p>
-              <p class="mt-4 text-sm leading-relaxed text-muted">{project.detail}</p>
-              <a class="focus-ring mt-6 inline-flex self-start text-sm font-semibold text-accent hover:text-accent-dark" href={project.href}>{project.cta} →</a>
-            </div>
-          </article>
-        ))}
-      </div>
-      <div class="mt-6 flex flex-wrap gap-x-6 gap-y-3 text-sm font-semibold">
-        <a class="focus-ring text-accent hover:text-accent-dark" href="/work">Business experience & case studies →</a>
-        <a class="focus-ring text-accent hover:text-accent-dark" href="/eden">Eden engineering →</a>
-      </div>
+  <section class="page-container" aria-label="Sales and growth highlights">
+    <div class="proof-band">
+      {proof.map((item) => <a href={item.href} class="proof-item"><span class="proof-value">{item.value}</span><span class="proof-label">{item.label}</span><span class="proof-note">{item.note}</span><span class="proof-arrow" aria-hidden="true">↗</span></a>)}
     </div>
   </section>
 
-  <section class="py-10 sm:py-14" aria-labelledby="approach-heading">
-    <div class="page-container">
-      <p class="eyebrow">How I work</p>
-      <h2 id="approach-heading" class="mt-2 text-3xl font-semibold">From a visible problem to a working system.</h2>
-      <div class="mt-7 grid gap-6 md:grid-cols-3">
-        {approach.map((step) => (
-          <div class="border-t-2 border-accent pt-5">
-            <p class="text-sm font-semibold tabular-nums text-accent">{step.number}</p>
-            <h3 class="mt-3 text-xl font-semibold">{step.title}</h3>
-            <p class="mt-3 leading-relaxed text-muted">{step.body}</p>
-          </div>
-        ))}
-      </div>
-      <a class="focus-ring mt-7 inline-flex text-sm font-semibold text-accent hover:text-accent-dark" href="/skills">See the skills behind the work →</a>
+  <section id="growth-results" class="section-space page-container" aria-labelledby="growth-heading">
+    <div class="section-heading-row">
+      <div><p class="eyebrow">Relationships into results</p><h2 id="growth-heading" class="section-title mt-4 max-w-2xl">Win the work.<br />Build the ability to deliver.</h2></div>
+      <a class="text-link" href="/work">All sales & growth stories <span aria-hidden="true">↗</span></a>
+    </div>
+    <div class="growth-grid">
+      <article class="growth-story growth-story-current">
+        <div class="story-top"><span class="eyebrow">Atlas-Beren Systems</span><span class="story-year story-year-current">2026—Present</span></div>
+        <h3>Founded ABS. Built the Console.</h3>
+        <p>I founded Atlas-Beren Systems and built ABS Console for trade and field-service businesses, turning my sales and operations experience into connected software.</p>
+        <div class="story-detail"><span>Understand → Build → Connect</span><p>Seven modules connect prospect research, CRM, marketing, projects, operations, finance, and automation. I own the product direction, design, and full-stack engineering.</p></div>
+        <a class="text-link" href="/abs-tooling">Explore my ABS work <span aria-hidden="true">↗</span></a>
+      </article>
+      <article class="growth-story">
+        <div class="story-top"><span class="eyebrow">Kansas Electric</span><span class="story-year">2024—2025</span></div>
+        <h3>An established relationship. A new Walmart engagement.</h3>
+        <p>I reached into the network I had built at Vale and won an emergency lighting and relay project for Walmart across the Midwest and Southeast.</p>
+        <div class="story-detail"><span>Need → Solution → Delivery</span><p>I connected the customer's electrical needs to Kansas Electric's services, owned the relationship, and oversaw the project managers delivering the work.</p></div>
+        <a class="text-link" href="/work/kansas-electric#from-an-existing-relationship-to-a-walmart-project">Read the sales story <span aria-hidden="true">↗</span></a>
+      </article>
+      <article class="growth-story growth-story-tint">
+        <div class="story-top"><span class="eyebrow">Vale Field Services</span><span class="story-year">2019—2024</span></div>
+        <h3>From employee one to a business doing ~$4M a year.</h3>
+        <p>I started in the field, building customer relationships, and grew into leading operations as Vale reached 35 employees.</p>
+        <div class="story-detail"><span>Relationships → Capacity → Growth</span><p>Customer needs connected to planning, staffing, vendor networks, and quality standards for restaurant technology rollouts across the U.S. and Canada.</p></div>
+        <a class="text-link" href="/work/program-delivery-at-scale">Read the growth story <span aria-hidden="true">↗</span></a>
+      </article>
     </div>
   </section>
 
-  <section class="py-8 sm:py-12">
-    <div class="page-container grid gap-6 md:grid-cols-2">
-      <div class="surface-muted p-6 sm:p-8">
-        <p class="eyebrow">Background</p>
-        <h2 class="mt-2 text-2xl font-semibold">An operator who builds.</h2>
-        <p class="mt-3 leading-relaxed text-muted">My work has moved across industrial services, distributed field delivery, and software. The common thread is making the commercial promise and the delivery reality line up.</p>
-        <a class="focus-ring mt-5 inline-flex text-sm font-semibold text-accent hover:text-accent-dark" href="/about">More about me →</a>
+  <section id="selected-work" class="console-feature section-dark" aria-labelledby="console-heading">
+    <div class="page-container section-space">
+      <div class="console-feature-heading">
+        <div><p class="eyebrow">Featured product · Built by me</p><h2 id="console-heading">ABS Console<span>.</span></h2><p class="console-subtitle">One business. A connected way to run it.</p></div>
+        <div class="console-feature-intro"><p>I built a full-stack platform that carries customer context from prospecting and sales through projects, operations, and financial decisions.</p><a class="button-primary mt-6" href="/abs-tooling">Inside the Console <span aria-hidden="true">↗</span></a></div>
       </div>
-      <div class="section-dark rounded-2xl p-6 text-white sm:p-8">
-        <p class="eyebrow">Start a conversation</p>
-        <h2 class="mt-2 text-2xl font-semibold">What needs to work better?</h2>
-        <p class="mt-3 leading-relaxed text-slate-300">If the challenge crosses growth, operations, and software, I would like to hear about it.</p>
-        <a class="focus-ring mt-5 inline-flex rounded-lg bg-white px-5 py-3 text-sm font-semibold text-ink" href="/contact">Let's talk →</a>
-      </div>
+      <a href="/abs-tooling" class="console-preview-link" aria-label="Explore the updated ABS Console and its seven modules">
+        <div class="preview-toolbar"><span><i></i><i></i><i></i></span><span>ABS Console / Your business, connected</span><span aria-hidden="true">↗</span></div>
+        <div class="console-preview"><img src="/assets/abs-console/today-desktop.png" alt="Updated ABS Console demo workspace with Today, sales, marketing, financial, projects, operations, and automation navigation" width="1265" height="1189" loading="lazy" decoding="async" /></div>
+      </a>
+      <div class="console-feature-bottom"><p>7 connected modules <span aria-hidden="true">/</span> Product, architecture & implementation</p><p>Next.js · React · TypeScript · Supabase</p></div>
+      <p class="mt-3 text-xs text-[#aebfb3]">Current interface, October 2026. Screenshots show a demo workspace with sample data.</p>
+    </div>
+  </section>
+
+  <section class="section-space page-container" aria-labelledby="approach-heading">
+    <div class="section-heading-row"><div><p class="eyebrow">How I work</p><h2 id="approach-heading" class="section-title mt-4 max-w-2xl">Good sales starts<br />with a better understanding.</h2></div><p class="max-w-sm leading-relaxed text-muted">A relationship opens the conversation. Understanding the problem gives it direction. Follow-through makes it last.</p></div>
+    <ol class="approach-grid">
+      {approach.map((step) => <li><h3>{step.title}</h3><p>{step.body}</p></li>)}
+    </ol>
+    <a class="text-link mt-8" href="/skills">Explore the capabilities behind the work <span aria-hidden="true">↗</span></a>
+  </section>
+
+  <section class="page-container pb-12" aria-labelledby="more-work-heading">
+    <div class="more-work-header"><p class="eyebrow">A broader perspective</p><h2 id="more-work-heading" class="section-title mt-4">Business experience.<br />Hands-on engineering.</h2><p class="mt-5 max-w-2xl leading-relaxed text-muted">I have developed relationships, closed new work, led national field delivery, and built software. That range helps me connect what a customer needs with what a business can deliver.</p></div>
+    <div class="more-work-grid">
+      <a href="/technical-projects" class="work-link"><span class="eyebrow">Builds & systems</span><span class="work-link-title">Explore the engineering.</span><span class="text-sm text-muted">Product websites, internal applications, and live systems.</span><span class="work-link-arrow" aria-hidden="true">↗</span></a>
+      <a href="/about" class="work-link"><span class="eyebrow">The person behind the work</span><span class="work-link-title">Get to know me.</span><span class="text-sm text-muted">My background, principles, and what I bring to a team.</span><span class="work-link-arrow" aria-hidden="true">↗</span></a>
     </div>
   </section>
 </Base>
+<style>
+  .home-hero { display: grid; grid-template-columns: 1.35fr .8fr; gap: clamp(40px, 7vw, 110px); align-items: center; padding-block: clamp(56px, 7vw, 100px) 72px; }
+  .hero-eyebrow { display: flex; align-items: center; gap: 10px; }
+  .hero-eyebrow span { width: 7px; height: 7px; border-radius: 50%; background: #176958; flex-shrink: 0; }
+  h1 { margin-top: 24px; font-size: clamp(2.7rem, 4.8vw, 4.5rem); line-height: 1.07; font-weight: 550; letter-spacing: -.055em; }
+  h1 em { color: #176958; font-style: normal; }
+  .hero-intro { margin-top: 26px; max-width: 530px; font-size: 1.06rem; line-height: 1.8; color: #5d6a63; }
+  .portrait-composition { position: relative; padding: 0 0 32px 24px; }
+  .portrait-frame { overflow: hidden; border-radius: 160px 160px 20px 20px; background: #dae2d5; }
+  .portrait-frame img { display: block; width: 100%; aspect-ratio: 4/5; object-fit: cover; }
+  .portrait-caption { position: relative; margin: -90px 24px 0 -24px; width: fit-content; background: #eaf2df; border: 1px solid #dce6d3; border-radius: 12px; padding: 20px 25px; box-shadow: 0 10px 30px rgb(23 35 31 / 5%); }
+  .portrait-caption p { font-size: .95rem; line-height: 1.55; font-weight: 500; margin-top: 8px; }
+  .portrait-index { display: block; margin: 20px 0 0 4px; font-size: .62rem; text-transform: uppercase; letter-spacing: .16em; color: #5d6a63; }
+  .proof-band { border-block: 1px solid #cfd9cf; display: grid; grid-template-columns: repeat(3, 1fr); padding: 32px 0; }
+  .proof-item { position: relative; display: flex; flex-direction: column; padding: 0 32px; border-left: 1px solid #dce3dc; }
+  .proof-item:first-child { padding-left: 0; border: 0; }
+  .proof-item:last-child { padding-right: 0; }
+  .proof-value { font-size: clamp(2.3rem, 3.8vw, 3.4rem); line-height: 1; letter-spacing: -.06em; font-weight: 550; }
+  .proof-label { font-size: .88rem; line-height: 1.5; margin-top: 12px; max-width: 250px; }
+  .proof-note { font-size: .68rem; line-height: 1.6; color: #5d6a63; margin-top: 8px; }
+  .proof-arrow { position: absolute; top: 0; right: 32px; color: #176958; font-size: 22px; transition: transform .2s; }
+  .proof-item:hover .proof-arrow { transform: translate(3px,-3px); }
+  .section-heading-row { display: flex; justify-content: space-between; align-items: flex-end; gap: 36px; }
+  .growth-grid { display: grid; grid-template-columns: repeat(3,minmax(0,1fr)); gap: 24px; margin-top: 40px; }
+  .growth-story { display: flex; flex-direction: column; padding: clamp(24px,2.3vw,32px); border: 1px solid #dce3dc; background: #fff; border-radius: 18px; }
+  .growth-story-current { background: #eaf2df; border-color: #c8d9bf; }
+  .growth-story-tint { background: #edf1e9; }
+  .story-top { display: grid; gap: 8px; }
+  .story-year { font-size: .7rem; color: #5d6a63; }
+  .story-year-current { color: #176958; font-weight: 650; }
+  .growth-story h3 { font-size: clamp(1.45rem,2vw,1.75rem); line-height: 1.25; font-weight: 550; margin-top: 22px; }
+  .growth-story > p { margin-top: 20px; font-size: .94rem; line-height: 1.8; color: #5d6a63; }
+  .growth-story > a { align-self: flex-start; margin-top: auto; padding-top: 26px; }
+  .story-detail { margin-top: 26px; border-top: 1px solid #dce3dc; padding-top: 22px; }
+  .story-detail > span { font-size: .7rem; font-weight: 600; color: #176958; }
+  .story-detail p { margin-top: 10px; font-size: .85rem; line-height: 1.8; color: #5d6a63; }
+  .console-feature { overflow: hidden; }
+  .console-feature-heading { display: grid; grid-template-columns: 1.2fr 1fr; gap: 70px; align-items: end; }
+  .console-feature h2 { margin-top: 22px; font-size: clamp(2.8rem, 5vw, 4.6rem); line-height: 1; font-weight: 550; letter-spacing: -.055em; }
+  .console-feature h2 span { color: #ccebb8; }
+  .console-subtitle { margin-top: 18px; font-size: clamp(1.1rem,2vw,1.5rem); color: #d8e3da; }
+  .console-feature-intro > p { color: #bdcec4; font-size: .95rem; line-height: 1.8; }
+  .console-preview-link { display: block; margin-top: 46px; overflow: hidden; border: 1px solid #60786c; border-radius: 14px; background: #0b1b18; box-shadow: 0 24px 70px rgb(0 0 0 / 12%); }
+  .preview-toolbar { display: flex; align-items: center; justify-content: space-between; gap: 20px; padding: 13px 18px; font-size: .65rem; color: #bdcec4; }
+  .preview-toolbar > span:first-child { display: flex; gap: 5px; }
+  .preview-toolbar i { width: 6px; height: 6px; border-radius: 50%; background: #789287; }
+  .console-preview { max-height: 560px; overflow: hidden; }
+  .console-preview img { width: 100%; display: block; }
+  .console-feature-bottom { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 14px; margin-top: 24px; font-size: .77rem; color: #d8e3da; }
+  .console-feature-bottom span { color: #7f9b8a; margin-inline: 10px; }
+  .approach-grid { margin-top: 45px; display: grid; grid-template-columns: repeat(4, 1fr); gap: 28px; }
+  .approach-grid li { border-top: 1px solid #bbcbbc; padding-top: 22px; }
+  .approach-grid h3 { font-size: 1.2rem; line-height: 1.3; font-weight: 600; }
+  .approach-grid p { margin-top: 14px; color: #5d6a63; font-size: .88rem; line-height: 1.8; }
+  .more-work-header { border-top: 1px solid #dce3dc; padding-top: 40px; }
+  .more-work-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 24px; margin-top: 35px; }
+  .work-link { display: flex; flex-direction: column; gap: 14px; position: relative; padding: 28px; border: 1px solid #dce3dc; border-radius: 14px; transition: background .2s; }
+  .work-link:hover { background: #eaf0e5; }
+  .work-link-title { font-size: 1.45rem; font-weight: 550; letter-spacing: -.035em; }
+  .work-link-arrow { position: absolute; right: 28px; top: 24px; color: #176958; font-size: 24px; }
+  @media (max-width: 1023px) { .home-hero { grid-template-columns: 1.3fr .8fr; gap: 30px; } .portrait-caption { padding: 18px; margin-right: 0; } .proof-item { padding-inline: 24px; } .proof-arrow { right: 20px; } .growth-grid { grid-template-columns: 1fr; } .console-feature-heading { gap: 35px; } .approach-grid { grid-template-columns: repeat(2,1fr); } }
+  @media (max-width: 700px) { .home-hero { grid-template-columns: 1fr; padding-block: 42px; gap: 30px; } h1 { font-size: clamp(2.75rem,8vw,3.8rem); } .hero-eyebrow { font-size: .6rem; } .portrait-composition { display: none; } .hero-intro { font-size: 1rem; } .proof-band { grid-template-columns: 1fr; padding: 0; } .proof-item, .proof-item:first-child, .proof-item:last-child { padding: 24px 0; border-left: 0; border-top: 1px solid #dce3dc; } .proof-item:first-child { border-top: 0; } .proof-value { font-size: 2.7rem; } .proof-label { max-width: none; } .proof-arrow { top: 25px; right: 0; } .growth-grid, .console-feature-heading, .more-work-grid { grid-template-columns: 1fr; } .section-heading-row { align-items: flex-start; flex-direction: column; gap: 24px; } .console-preview { max-height: 330px; } .console-preview img { min-width: 620px; } .console-feature-bottom { font-size: .7rem; } .console-feature-bottom span { margin-inline: 3px; } .preview-toolbar { font-size: .55rem; gap: 10px; padding-inline: 12px; } }
+  @media (max-width: 420px) { .approach-grid { grid-template-columns: 1fr; gap: 28px; } }
+</style>

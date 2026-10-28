@@ -1,85 +1,206 @@
 ---
 import Base from "../layouts/Base.astro";
 import { getEntry } from "astro:content";
-
+import { modules, stackGroups, platformCapabilities, integrationNote, productEvidenceNote } from "../data/abs-console";
 const project = await getEntry("technical-projects", "atlas-beren-console");
-if (!project) throw new Error("ABS Tooling case study is missing.");
-const { Content, headings } = await project.render();
-
-const sections = headings.filter((heading) => heading.depth === 2).map((heading) => ({ id: heading.slug, label: heading.text }));
+if (!project) throw new Error("ABS Console case study is missing.");
+const { Content } = await project.render();
+const labels: Record<string, string> = { crm: "CRM & sales", prospecting: "Prospect Finding", marketing: "Marketing", financial: "Financial", projects: "Projects", operations: "Operations & CMMS", automation: "Automation" };
+const flows: Record<string, string[]> = {
+  crm: ["Understand the account", "Own the next commitment", "Connect the delivery handoff"],
+  prospecting: ["Discover relevant businesses", "Research fit with sources", "Bring context into CRM"],
+  marketing: ["Review visibility & evidence", "Plan campaigns and content", "Connect spend to job results"],
+  financial: ["Connect the source records", "Inspect margin & cash timing", "Review the accounting handoff"],
+  projects: ["Translate scope into tasks", "Coordinate people & changes", "Carry progress into billing"],
+  operations: ["Estimate and agree the work", "Schedule, supply, and execute", "Record costs and bill the job"],
+  automation: ["Explain the trigger", "Review and execute the steps", "Track the run and recover"]
+};
+const images: Record<string, { src: string; height: number; alt: string }> = {
+  crm: { src: "/assets/abs-console/sales-pipeline.png", height: 1523, alt: "ABS Console sales pipeline with sample opportunities, follow-up queues, and forecast controls" },
+  operations: { src: "/assets/abs-console/operations-dashboard.png", height: 1991, alt: "ABS Console demo operations workspace connecting estimates, field work, maintenance, and financial activity" }
+};
 ---
+<Base title="ABS Console — A Connected Business Platform by Eric Martin" description="Explore every ABS Console module: CRM, prospect research, marketing, financials, projects, operations, and automation. Product design, full-stack engineering, AI, and business workflows by Eric Martin.">
+  <section class="page-container page-heading" aria-labelledby="abs-title">
+    <a href="/technical-projects" class="text-link">← All projects</a>
+    <div class="abs-heading-grid">
+      <div><p class="eyebrow">Featured product / Atlas-Beren Systems</p><h1 id="abs-title">ABS Console<span>.</span></h1><p class="abs-deck">The whole business.<br />Working together.</p></div>
+      <div class="abs-intro"><p>I built a connected platform for the work between winning a customer and delivering lasting value. Seven modules bring sales, marketing, delivery, money, and automation into one operating picture.</p><div class="mt-6 flex flex-wrap gap-3"><a class="button-primary" href="#modules">Explore the modules ↓</a><a class="button-secondary" href="#full-stack">See the full stack ↗</a></div></div>
+    </div>
+    <dl class="abs-facts"><div><dt>My role</dt><dd>Product direction, design & full-stack engineering</dd></div><div><dt>Built for</dt><dd>Service, trade, project & operational businesses</dd></div><div><dt>Current showcase</dt><dd>October 2026 · Seven connected modules</dd></div></dl>
+  </section>
 
-<Base title="ABS Tooling / Atlas-Beren Console - Eric Martin" description="Inside Eric Martin’s ABS Tooling build: connected CRM-to-payment workflows, shared profit reporting, a customer portal, mail and calendars, field operations, migration, and recovery.">
-  <section class="pb-12 pt-10 sm:pt-14">
-    <div class="page-container">
-      <a href="/technical-projects#atlas-beren-console" class="focus-ring inline-flex text-sm font-semibold text-accent hover:text-accent-dark">← All projects</a>
-      <div class="section-dark mt-6 overflow-hidden rounded-[32px] border border-slate-800 px-6 py-9 text-white sm:px-10 sm:py-12">
-        <p class="eyebrow">Featured build / Atlas-Beren Systems</p>
-        <h1 class="mt-4 text-4xl font-semibold tracking-tight sm:text-6xl">ABS Tooling</h1>
-        <p class="mt-4 max-w-3xl text-2xl leading-snug text-slate-100 sm:text-3xl">One connected path from opportunity to payment and repeat service.</p>
-        <p class="mt-5 max-w-3xl text-base leading-relaxed text-slate-300 sm:text-lg">
-          I built Atlas-Beren Console to connect the work that usually falls between tools:
-          finding customers, testing whether new jobs fit, planning crews and materials, and carrying
-          actual work through billing, payments, and profit reporting. Customer self-service, shared
-          communications, and reviewed migration now extend that workflow beyond the office.
-        </p>
-        <dl class="mt-9 grid gap-6 border-t border-white/15 pt-7 sm:grid-cols-3">
-          <div><dt class="text-xs uppercase tracking-[0.16em] text-slate-400">My role</dt><dd class="mt-2 text-sm leading-relaxed text-slate-100">Product direction, workflow design, architecture, and implementation</dd></div>
-          <div><dt class="text-xs uppercase tracking-[0.16em] text-slate-400">Built for</dt><dd class="mt-2 text-sm leading-relaxed text-slate-100">Atlas-Beren operators and service, project, manufacturing, and restaurant workspaces</dd></div>
-          <div><dt class="text-xs uppercase tracking-[0.16em] text-slate-400">Core idea</dt><dd class="mt-2 text-sm leading-relaxed text-slate-100">Carry context, evidence, and ownership from one step to the next</dd></div>
-        </dl>
+  <section class="page-container" aria-label="The updated ABS Console interface">
+    <figure class="product-stage">
+      <div class="product-frame"><div class="product-chrome"><span aria-hidden="true">● ● ●</span><span>ABS Console / Your business, connected</span><span>Demo workspace</span></div><a href="/assets/abs-console/today-desktop.png" aria-label="View full-size ABS Console workspace screenshot"><img src="/assets/abs-console/today-desktop.png" alt="The updated ABS Console Today view with sales, marketing, financial, projects, operations, and automation navigation" width="1265" height="1189" decoding="async" fetchpriority="high" /></a></div>
+      <figcaption><span>A clear next step, with the rest of the business connected.</span><a href="/assets/abs-console/today-desktop.png">View full-size screenshot ↗</a></figcaption>
+    </figure>
+    <p class="image-note">Current interface captured October 28, 2026. All screens use demo or sample records.</p>
+  </section>
+
+  <section class="section-space page-container" aria-labelledby="connected-heading">
+    <div class="connected-intro"><p class="eyebrow">The idea behind the product</p><div><h2 id="connected-heading" class="section-title">Keep the context.<br />Connect the next step.</h2><p class="mt-5 max-w-2xl leading-relaxed text-muted">A prospect becomes an account. An accepted estimate becomes a job. Completed work becomes an invoice. I designed the platform so the customer, commitments, evidence, and costs can follow that journey.</p></div></div>
+    <ol class="journey-strip"><li>Find the fit</li><li>Win the work</li><li>Deliver the promise</li><li>Understand the return</li></ol>
+  </section>
+
+  <section id="modules" class="module-section" aria-labelledby="modules-heading">
+    <div class="page-container section-space">
+      <div class="module-section-heading"><div><p class="eyebrow">Inside the platform</p><h2 id="modules-heading" class="section-title mt-4">Seven modules.<br />One connected business.</h2></div><p>Explore what each module does and how it supports the next part of the workflow. CRM and Prospect Finding share the Sales workspace in the application.</p></div>
+      <div class="module-explorer" data-module-explorer>
+        <div class="module-selector" role="tablist" aria-label="ABS Console modules" aria-orientation="vertical" hidden>
+          {modules.map((module) => <button type="button" id={`tab-${module.id}`} role="tab" aria-controls={module.id} aria-selected="false" tabindex="-1" data-module-target={module.id}><span>{labels[module.id]}</span><span class="module-arrow" aria-hidden="true">↗</span></button>)}
+        </div>
+        <div class="module-panels">
+          {modules.map((module) => (
+            <section id={module.id} class="module-panel" data-module-panel>
+              <p class="eyebrow">{module.kicker}</p>
+              <h3>{module.title}</h3><p class="module-description">{module.description}</p>
+              <div class="module-detail-grid">
+                <div><h4>What it can do</h4><ul class="module-capabilities">{module.capabilities.map((item) => <li><span aria-hidden="true">↗</span>{item}</li>)}</ul></div>
+                <aside class="module-connection"><p class="eyebrow">How the work connects</p><ol>{flows[module.id].map((step, stepIndex) => <li><span aria-hidden="true">0{stepIndex + 1}</span>{step}</li>)}</ol><p>{module.connection}</p></aside>
+              </div>
+              {images[module.id] && <figure class="module-screenshot"><a href={images[module.id].src} aria-label={`View full-size ${labels[module.id]} screenshot`}><img src={images[module.id].src} alt={images[module.id].alt} width="1265" height={images[module.id].height} loading="lazy" decoding="async" /></a><figcaption>Current {labels[module.id]} interface · Demo records <a href={images[module.id].src}>View full size ↗</a></figcaption></figure>}
+            </section>
+          ))}
+        </div>
       </div>
-      <p class="mt-5 text-sm leading-relaxed text-muted">Updated October 25, 2026 · New: automatic record handoffs, connected financial reporting, customer portal, mail and calendars, field job desk, migration, and recovery tooling.</p>
     </div>
   </section>
 
-  <div class="page-container grid items-start gap-8 pb-16 lg:grid-cols-[210px_minmax(0,1fr)] lg:gap-12">
-    <aside class="rounded-2xl border border-border bg-white p-5 lg:sticky lg:top-28 lg:max-h-[calc(100dvh-8rem)] lg:overflow-y-auto">
-      <p id="case-study-nav" class="eyebrow">Inside the build</p>
-      <nav aria-labelledby="case-study-nav" class="mt-4 flex flex-wrap gap-x-5 gap-y-3 lg:flex-col">
-        {sections.map((section) => (
-          <a class="focus-ring text-sm leading-relaxed text-muted transition hover:text-accent" href={`#${section.id}`}>{section.label}</a>
-        ))}
-      </nav>
-    </aside>
-    <article class="abs-story min-w-0">
-      <Content />
-      <div class="mt-12 flex flex-wrap items-center justify-between gap-4 border-t border-border pt-7">
-        <a class="focus-ring text-sm font-semibold text-accent hover:text-accent-dark" href="/technical-projects">← Explore more projects</a>
-        <a class="focus-ring rounded-lg bg-accent px-5 py-3 text-sm font-semibold text-white hover:bg-accent-dark" href="/contact">Talk about a similar challenge</a>
-      </div>
-    </article>
-  </div>
-</Base>
+  <section class="section-space page-container" aria-labelledby="shared-heading">
+    <div class="max-w-3xl"><p class="eyebrow">The shared foundation</p><h2 id="shared-heading" class="section-title mt-4">The useful part is<br />how it all works together.</h2></div>
+    <div class="shared-grid">{platformCapabilities.map((capability) => <article><h3>{capability.title}</h3><p>{capability.description}</p></article>)}</div>
+    <div class="mobile-product-note"><img src="/assets/abs-console/today-mobile.png" alt="ABS Console demo Today view on a mobile screen" width="375" height="1859" loading="lazy" decoding="async" /><div><p class="eyebrow">From the office to the field</p><h3>Designed around<br />the person doing the work.</h3><p>Responsive workspaces, a daily action view, customer self-service, and offline field reporting bring the next useful action closer to the people responsible for it.</p><a class="text-link" href="/assets/abs-console/today-mobile.png">See the mobile workspace ↗</a></div></div>
+  </section>
 
-<style is:global>
-  .abs-story { color: #5a616d; line-height: 1.8; }
-  .abs-story h2 { color: #0e0f12; font-size: clamp(1.5rem, 3vw, 2rem); font-weight: 600; line-height: 1.25; margin: 3.5rem 0 1rem; scroll-margin-top: 10rem; }
-  .abs-story h2:first-child { margin-top: 0; }
-  .abs-story h3 { color: #0e0f12; font-size: 1.125rem; font-weight: 600; line-height: 1.4; margin: 1.75rem 0 0.65rem; }
-  .abs-story p { margin-bottom: 1rem; }
-  .abs-story strong { color: #0e0f12; font-weight: 600; }
-  .abs-story ul { margin: 1rem 0 1.5rem; padding-left: 1.25rem; list-style: disc; }
-  .abs-story li { margin-bottom: 0.65rem; }
-  .abs-story .project-screenshot { margin: 1.75rem 0; }
-  .abs-story .project-screenshot p { margin: 0; }
-  .abs-story .build-note { margin: 1.5rem 0; border-left: 3px solid #1f4fd1; background: #edf2fc; padding: 1rem 1.25rem; border-radius: 0 0.75rem 0.75rem 0; font-size: 0.875rem; }
-  .abs-story .build-note p:last-child { margin-bottom: 0; }
-  .abs-story .capability-grid { display: grid; gap: 1rem; margin: 1.5rem 0; }
-  .abs-story .capability-grid > div { padding: 1.25rem; background: white; border: 1px solid #e2e6ea; border-radius: 1rem; }
-  .abs-story .capability-grid h3 { margin-top: 0; }
-  .abs-story .capability-grid p { margin-bottom: 0; font-size: 0.9375rem; }
-  .abs-story .capability-grid a { display: block; margin-top: 0.75rem; color: #1f4fd1; font-weight: 600; }
-  .abs-story .capability-grid a:hover { text-decoration: underline; }
-  .abs-story .capability-grid a:focus-visible { outline: 2px solid #1f4fd1; outline-offset: 4px; border-radius: 2px; }
-  .abs-story .workflow-steps { list-style: none; padding: 0; margin: 1.5rem 0; counter-reset: workflow; }
-  .abs-story .workflow-steps li { position: relative; padding: 0 0 1.25rem 3.25rem; margin: 0; counter-increment: workflow; }
-  .abs-story .workflow-steps li::before { content: counter(workflow, decimal-leading-zero); position: absolute; left: 0; top: 0; color: #1f4fd1; background: #eaf0fd; border-radius: 0.5rem; width: 2.25rem; height: 2.25rem; display: grid; place-items: center; font-size: 0.8rem; font-weight: 600; }
-  .abs-story .workflow-steps strong { display: block; }
-  .abs-story .workflow-steps p { margin: 0.25rem 0 0; }
-  .abs-story .finance-screens { display: grid; align-items: start; gap: 1rem; margin: 1.75rem 0; }
-  .abs-story .finance-screens .project-screenshot { margin: 0; }
-  .abs-story .finance-screens .project-screenshot:last-child { width: min(100%, 280px); justify-self: center; }
-  @media (min-width: 640px) { .abs-story .capability-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
-  @media (min-width: 768px) { .abs-story .finance-screens { grid-template-columns: minmax(0, 1fr) 220px; } }
+  <section id="full-stack" class="section-dark" aria-labelledby="stack-heading">
+    <div class="section-space page-container">
+      <div class="stack-heading"><div><p class="eyebrow">From the interface to the database</p><h2 id="stack-heading" class="section-title mt-4">The full stack.<br />Built with a business purpose.</h2></div><p>My work spans the product model, responsive interface, server logic, database policies, integrations, automation, and verification.</p></div>
+      <div class="stack-grid">{stackGroups.map((group) => <article><h3>{group.title}</h3><ul aria-label={`${group.title} technologies`}>{group.technologies.map((technology) => <li>{technology}</li>)}</ul><p>{group.purpose}</p></article>)}</div>
+      <div class="integration-row"><h3>Connected services</h3><p>Zoho Mail · Gmail & Google Calendar · Outlook & Microsoft Calendar · QuickBooks Online · Xero · Stripe · Hunter</p></div>
+      <p class="integration-note">{integrationNote}</p>
+    </div>
+  </section>
+
+  <section id="engineering" class="section-space page-container" aria-labelledby="engineering-heading">
+    <div class="engineering-grid"><div class="engineering-title"><p class="eyebrow">Ownership & implementation</p><h2 id="engineering-heading" class="section-title mt-4">Behind the<br />working product.</h2><p class="mt-5 text-sm leading-relaxed text-muted">The decisions that keep customer context, permissions, and financial records connected.</p><a class="text-link mt-6" href="/contact">Talk about a similar challenge ↗</a></div><article class="prose min-w-0"><Content /></article></div>
+    <div class="evidence-note"><p>{productEvidenceNote}</p><a class="text-link" href="/technical-projects">Explore more projects ↗</a></div>
+  </section>
+</Base>
+<script>
+  const explorer = document.querySelector<HTMLElement>('[data-module-explorer]');
+  if (explorer) {
+    const tabs = Array.from(explorer.querySelectorAll<HTMLButtonElement>('[data-module-target]'));
+    const panels = Array.from(explorer.querySelectorAll<HTMLElement>('[data-module-panel]'));
+    const selectModule = (id: string, focus = false) => {
+      const selected = tabs.find((tab) => tab.dataset.moduleTarget === id);
+      if (!selected) return;
+      tabs.forEach((tab) => { const active = tab === selected; tab.setAttribute('aria-selected', String(active)); tab.tabIndex = active ? 0 : -1; });
+      panels.forEach((panel) => { panel.hidden = panel.id !== id; panel.setAttribute('role', 'tabpanel'); panel.setAttribute('aria-labelledby', `tab-${panel.id}`); panel.tabIndex = 0; });
+      if (focus) selected.focus();
+    };
+    explorer.querySelector<HTMLElement>('[role="tablist"]')!.hidden = false;
+    explorer.classList.add('is-enhanced');
+    const initialId = location.hash.slice(1);
+    const hasInitialModule = tabs.some((tab) => tab.dataset.moduleTarget === initialId);
+    selectModule(hasInitialModule ? initialId : tabs[0].dataset.moduleTarget!);
+    if (hasInitialModule) document.getElementById(initialId)?.scrollIntoView({ block: 'start' });
+    tabs.forEach((tab, index) => {
+      tab.addEventListener('click', () => selectModule(tab.dataset.moduleTarget!));
+      tab.addEventListener('keydown', (event) => {
+        let target = index;
+        if (event.key === 'ArrowDown' || event.key === 'ArrowRight') target = (index + 1) % tabs.length;
+        else if (event.key === 'ArrowUp' || event.key === 'ArrowLeft') target = (index - 1 + tabs.length) % tabs.length;
+        else if (event.key === 'Home') target = 0;
+        else if (event.key === 'End') target = tabs.length - 1;
+        else return;
+        event.preventDefault(); selectModule(tabs[target].dataset.moduleTarget!, true);
+      });
+    });
+    window.addEventListener('hashchange', () => {
+      const id = location.hash.slice(1);
+      if (tabs.some((tab) => tab.dataset.moduleTarget === id)) {
+        selectModule(id);
+        document.getElementById(id)?.scrollIntoView({ block: 'start' });
+      }
+    });
+  }
+</script>
+<style>
+  .abs-heading-grid { display: grid; grid-template-columns: 1.1fr 1fr; align-items: end; gap: 60px; margin-top: 48px; }
+  h1 { margin-top: 20px; font-size: clamp(3.3rem,7vw,6.7rem); font-weight: 550; line-height: .98; letter-spacing: -.065em; }
+  h1 span { color: #176958; }
+  .abs-deck { margin-top: 24px; font-size: clamp(1.8rem,3vw,2.5rem); line-height: 1.2; letter-spacing: -.04em; }
+  .abs-intro > p { font-size: 1.05rem; line-height: 1.8; color: #5d6a63; }
+  .abs-facts { display: grid; grid-template-columns: 1.15fr 1fr 1fr; gap: 30px; margin-top: 48px; padding-top: 25px; border-top: 1px solid #dce3dc; }
+  .abs-facts dt { font-size: .64rem; letter-spacing: .13em; text-transform: uppercase; color: #5d6a63; }
+  .abs-facts dd { margin-top: 9px; font-size: .8rem; line-height: 1.6; }
+  .product-stage { padding: clamp(14px,3vw,38px); border-radius: 24px; background: #dfe9d9; border: 1px solid #d4dfce; }
+  .product-frame { border: 1px solid #becdc4; border-radius: 12px; overflow: hidden; background: #fff; box-shadow: 0 20px 50px rgb(23 35 31 / 8%); }
+  .product-chrome { display: flex; justify-content: space-between; gap: 15px; padding: 12px 18px; color: #5d6a63; font-size: .62rem; }
+  .product-chrome span:first-child { color: #a1b6a5; font-size: .55rem; letter-spacing: 3px; }
+  .product-frame > a { display: block; max-height: 660px; overflow: hidden; }
+  .product-frame img { width: 100%; height: auto; display: block; }
+  .product-stage figcaption { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 15px; padding-top: 20px; font-size: .75rem; color: #415c4c; }
+  figcaption a { text-decoration: underline; text-underline-offset: 4px; }
+  .image-note { margin-top: 14px; font-size: .7rem; color: #5d6a63; }
+  .connected-intro { display: grid; grid-template-columns: 1fr 2fr; gap: 45px; }
+  .journey-strip { display: grid; grid-template-columns: repeat(4,1fr); border-block: 1px solid #dce3dc; margin-top: 42px; }
+  .journey-strip li { padding: 22px 18px 22px 0; font-size: .85rem; font-weight: 550; }
+  .module-section { background: #edf1e9; border-block: 1px solid #dce3dc; }
+  .module-section-heading { display: grid; grid-template-columns: 1.2fr 1fr; align-items: end; gap: 60px; }
+  .module-section-heading > p { font-size: .95rem; line-height: 1.8; color: #5d6a63; }
+  .module-explorer { margin-top: 40px; }
+  .module-explorer.is-enhanced { display: grid; grid-template-columns: 230px minmax(0,1fr); gap: 26px; align-items: start; }
+  .module-selector { display: grid; gap: 6px; position: sticky; top: 112px; }
+  .module-selector button { display: flex; align-items: center; gap: 12px; padding: 16px 14px; min-height: 54px; border: 1px solid transparent; border-radius: 9px; text-align: left; color: #5d6a63; font-size: .83rem; transition: background .15s; }
+  .module-selector button:hover { background: #e1e9dc; }
+  .module-selector button[aria-selected="true"] { background: #152e27; color: #fff; border-color: #152e27; }
+  .module-arrow { margin-left: auto; color: #ccebb8; opacity: 0; }
+  [aria-selected="true"] .module-arrow { opacity: 1; }
+  .module-panel { background: #fff; border: 1px solid #dce3dc; border-radius: 18px; padding: clamp(24px,3vw,38px); margin-bottom: 20px; min-width: 0; }
+  .module-panel > h3 { font-size: clamp(1.8rem,3vw,2.4rem); line-height: 1.15; font-weight: 550; margin-top: 16px; }
+  .module-description { color: #5d6a63; font-size: .94rem; line-height: 1.8; margin-top: 16px; max-width: 65ch; }
+  .module-detail-grid { display: grid; grid-template-columns: 1.2fr .85fr; gap: 26px; margin-top: 28px; align-items: start; }
+  h4 { font-size: .8rem; font-weight: 650; }
+  .module-capabilities { margin-top: 18px; display: grid; gap: 15px; }
+  .module-capabilities li { display: flex; gap: 10px; font-size: .82rem; line-height: 1.7; color: #5d6a63; }
+  .module-capabilities li > span { color: #176958; flex-shrink: 0; }
+  .module-connection { background: #f3f6ee; padding: 22px; border-radius: 12px; }
+  .module-connection ol { display: grid; gap: 16px; margin-top: 18px; }
+  .module-connection li { display: flex; gap: 10px; font-size: .78rem; font-weight: 550; line-height: 1.6; }
+  .module-connection li span { font-size: .62rem; color: #176958; padding-top: 2px; }
+  .module-connection > p:last-child { border-top: 1px solid #dce3dc; margin-top: 20px; padding-top: 16px; color: #5d6a63; font-size: .75rem; line-height: 1.7; }
+  .module-screenshot { margin-top: 32px; border: 1px solid #dce3dc; border-radius: 10px; overflow: hidden; }
+  .module-screenshot > a { display: block; max-height: 400px; overflow: hidden; }
+  .module-screenshot img { width: 100%; display: block; }
+  .module-screenshot figcaption { display: flex; flex-wrap: wrap; gap: 12px; justify-content: space-between; padding: 13px 16px; font-size: .66rem; color: #5d6a63; border-top: 1px solid #dce3dc; }
+  .shared-grid { display: grid; grid-template-columns: repeat(2,1fr); gap: 30px 45px; margin-top: 40px; }
+  .shared-grid article { padding-top: 24px; border-top: 1px solid #cfd9cf; }
+  .shared-grid h3 { font-size: 1.3rem; font-weight: 550; }
+  .shared-grid p { font-size: .9rem; line-height: 1.8; margin-top: 14px; color: #5d6a63; }
+  .mobile-product-note { display: grid; grid-template-columns: 200px 1fr; gap: 70px; align-items: center; margin-top: 56px; padding: 40px 70px 0; border-radius: 20px; background: #e6edde; max-height: 430px; overflow: hidden; }
+  .mobile-product-note img { width: 200px; align-self: start; border: 6px solid #152e27; border-radius: 26px; }
+  .mobile-product-note > div { align-self: start; padding-block: 20px 40px; }
+  .mobile-product-note h3 { margin-top: 16px; font-size: 2.1rem; line-height: 1.15; font-weight: 550; }
+  .mobile-product-note p:not(.eyebrow) { margin-block: 18px; max-width: 480px; color: #5d6a63; font-size: .9rem; line-height: 1.8; }
+  .stack-heading { display: grid; grid-template-columns: 1.2fr 1fr; gap: 60px; align-items: end; }
+  .stack-heading > p { color: #bdcec4; line-height: 1.8; font-size: .95rem; }
+  .stack-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 36px; margin-top: 48px; }
+  .stack-grid article { border-top: 1px solid #496052; padding-top: 22px; }
+  .stack-grid h3 { font-size: 1.15rem; font-weight: 550; }
+  .stack-grid ul { display: flex; flex-wrap: wrap; gap: 7px; margin-block: 20px; }
+  .stack-grid li { padding: 5px 9px; border: 1px solid #496052; border-radius: 5px; font-size: .65rem; color: #d8e5d9; }
+  .stack-grid article > p:last-child { color: #bdcec4; font-size: .8rem; line-height: 1.8; }
+  .integration-row { display: grid; grid-template-columns: 1fr 3fr; gap: 25px; margin-top: 42px; padding-top: 26px; border-top: 1px solid #496052; }
+  .integration-row h3 { font-size: .85rem; font-weight: 550; }
+  .integration-row p { color: #d8e5d9; font-size: .82rem; line-height: 1.8; }
+  .integration-note { margin-top: 20px; font-size: .73rem; line-height: 1.8; color: #aebfb3; }
+  .engineering-grid { display: grid; grid-template-columns: .85fr 1.6fr; gap: 80px; align-items: start; }
+  .engineering-title { position: sticky; top: 118px; }
+  .evidence-note { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 24px; border-top: 1px solid #dce3dc; margin-top: 40px; padding-top: 25px; }
+  .evidence-note > p { max-width: 700px; font-size: .75rem; color: #5d6a63; line-height: 1.8; }
+  @media (max-width: 1023px) { .abs-heading-grid { gap: 35px; } .module-explorer.is-enhanced { grid-template-columns: 190px minmax(0,1fr); gap: 18px; } .module-detail-grid { grid-template-columns: 1fr; } .module-connection ol { grid-template-columns: repeat(3,1fr); gap: 10px; } .module-connection li { flex-direction: column; } .stack-grid { grid-template-columns: repeat(2,1fr); } .engineering-grid { gap: 40px; } .mobile-product-note { gap: 40px; padding-inline: 40px; } }
+  @media (max-width: 700px) { .abs-heading-grid, .connected-intro, .module-section-heading, .stack-heading, .engineering-grid { grid-template-columns: 1fr; gap: 28px; } .abs-heading-grid { margin-top: 32px; } .abs-facts { grid-template-columns: 1fr; gap: 20px; margin-top: 32px; } .product-chrome { padding: 10px; font-size: .5rem; } .product-chrome span:last-child { display: none; } .product-frame > a { max-height: 400px; } .product-frame img { min-width: 600px; } .product-stage figcaption { font-size: .67rem; } .journey-strip { grid-template-columns: repeat(2,1fr); } .journey-strip li { font-size: .73rem; } .module-explorer.is-enhanced { display: block; } .module-selector { position: static; grid-template-columns: repeat(2, minmax(0,1fr)); gap: 6px; margin-bottom: 20px; } .module-selector button { font-size: .75rem; padding: 12px 10px; gap: 8px; } .module-arrow { display: none; } .module-panel { padding: 24px; } .module-connection ol { grid-template-columns: 1fr; } .module-connection li { flex-direction: row; } .shared-grid { grid-template-columns: 1fr; } .mobile-product-note { grid-template-columns: 110px 1fr; gap: 22px; padding: 24px 24px 0; max-height: 450px; } .mobile-product-note img { width: 110px; border-width: 4px; border-radius: 18px; } .mobile-product-note > div { padding-top: 0; } .mobile-product-note h3 { font-size: 1.4rem; } .mobile-product-note p:not(.eyebrow) { font-size: .8rem; } .mobile-product-note .text-link { font-size: .73rem; } .stack-grid { gap: 30px 24px; } .integration-row { grid-template-columns: 1fr; gap: 12px; } .engineering-title { position: static; } }
+  @media (max-width: 420px) { .stack-grid { grid-template-columns: 1fr; } .mobile-product-note { grid-template-columns: 1fr; max-height: none; padding: 24px; } .mobile-product-note img { display: none; } .mobile-product-note > div { padding-bottom: 0; } }
 </style>

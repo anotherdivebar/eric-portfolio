@@ -11,14 +11,21 @@ interface Props {
 const { src, alt, caption, width, height, cropPreview = false } = Astro.props;
 ---
 
-<figure class="project-screenshot not-prose overflow-hidden rounded-2xl border border-border bg-white">
-  <a href={src} class="focus-ring block bg-panel" aria-label={`Open full-size screenshot: ${alt}`}>
-    <img src={src} alt={alt} width={width} height={height} loading="lazy" decoding="async" class:list={["w-full", cropPreview ? "aspect-[4/3] object-cover object-top" : "h-auto"]} />
+<figure class="project-screenshot not-prose overflow-hidden rounded-xl border border-border bg-white">
+  <a href={src} class="focus-ring block bg-panel p-3 sm:p-5" aria-label={`Open full-size screenshot: ${alt}`}>
+    <img src={src} alt={alt} width={width} height={height} loading="lazy" decoding="async" class:list={["w-full rounded-md border border-border", cropPreview ? "aspect-[4/3] object-cover object-top" : "h-auto"]} />
   </a>
-  <figcaption class="border-t border-border px-5 py-4">
-    <p class="text-sm leading-relaxed text-muted">{caption}</p>
-    <a href={src} class="focus-ring mt-2 inline-flex text-xs font-semibold text-accent hover:text-accent-dark" aria-label={`View full size: ${alt}`}>
-      View full size <span class="ml-1" aria-hidden="true">→</span>
+  <figcaption class="flex flex-col justify-between gap-3 border-t border-border px-5 py-5 sm:flex-row sm:items-center sm:gap-6 sm:px-6">
+    <p class="max-w-3xl text-sm leading-relaxed text-muted">{caption}</p>
+    <a href={src} class="text-link shrink-0" aria-label={`View full size: ${alt}`}>
+      View full size <span aria-hidden="true">↗</span>
     </a>
   </figcaption>
 </figure>
+
+<style>
+  .project-screenshot figcaption p { margin: 0; }
+  .project-screenshot > a { text-decoration: none; }
+  .project-screenshot figcaption a { font-size: 0.75rem; text-decoration: none; }
+  .project-screenshot figcaption a:hover { text-decoration: underline; }
+</style>
