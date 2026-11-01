@@ -71,12 +71,22 @@ const approach = [
     <div class="page-container section-space">
       <div class="console-feature-heading">
         <div><p class="eyebrow">My current work · Atlas-Beren Systems</p><h2 id="console-heading">ABS Console<span>.</span></h2><p class="console-subtitle">Keep the customer context.<br />Carry the sales promise through.</p></div>
-        <div class="console-feature-intro"><p>As founder, I built a platform that connects the work around a sale: research, follow-up, delivery, and financial visibility. See how the pieces support one customer journey.</p><a class="button-primary mt-6" href="/abs-tooling#customer-journey">Follow the workflow <span aria-hidden="true">↗</span></a></div>
+        <div class="console-feature-intro"><p>A sale can start in a CRM, move into a spreadsheet, and reach the field without the context behind the promise. I built ABS Console to connect customer commitments, delivery, and financial records—so the next person can pick up the work with the context intact.</p><a class="button-primary mt-6" href="/abs-tooling#problem">See the problem & solution <span aria-hidden="true">↗</span></a></div>
       </div>
       <a href="/abs-tooling" class="console-preview-link" aria-label="Explore the updated ABS Console and its seven modules">
         <div class="preview-toolbar"><span><i></i><i></i><i></i></span><span>ABS Console / Your business, connected</span><span aria-hidden="true">↗</span></div>
         <div class="console-preview"><img src="/assets/abs-console/today-desktop.png" alt="Updated ABS Console demo workspace with Today, sales, marketing, financial, projects, operations, and automation navigation" width="1265" height="1189" loading="lazy" decoding="async" /></div>
       </a>
+      <div class="console-evidence">
+        <figure>
+          <a href="/assets/abs-console/sales-pipeline.png" aria-label="Open full-size ABS Console sales screenshot"><img src="/assets/abs-console/sales-pipeline.png" alt="ABS Console sales workspace showing follow-ups, forecast coverage, and opportunities by stage" width="1265" height="1523" loading="lazy" decoding="async" /></a>
+          <figcaption><span>01 / Sales context</span><h3>Keep the next commitment visible.</h3><p>When follow-ups and deal context live in separate places, the next action is easy to lose. The sales workspace brings opportunities, follow-up queues, and forecast coverage together.</p><a href="/abs-tooling#crm">Explore the sales workspace ↗</a></figcaption>
+        </figure>
+        <figure>
+          <a href="/assets/abs-console/operations-dashboard.png" aria-label="Open full-size ABS Console operations screenshot"><img src="/assets/abs-console/operations-dashboard.png" alt="ABS Console operations workspace connecting estimates, field work, maintenance, and financial activity" width="1265" height="1991" loading="lazy" decoding="async" /></a>
+          <figcaption><span>02 / Delivery context</span><h3>Carry the promise into the work.</h3><p>A won deal still needs scope, staffing, and follow-through. Connected estimates, jobs, and financial records help the office and field follow the same customer commitment.</p><a href="/abs-tooling#operations">Explore the operations workspace ↗</a></figcaption>
+        </figure>
+      </div>
       <div class="console-feature-bottom"><p>7 connected modules <span aria-hidden="true">/</span> Product, architecture & implementation</p><p>Next.js · React · TypeScript · Supabase</p></div>
       <p class="mt-3 text-xs text-[#aebfb3]">Current interface, October 2026. Screenshots show a demo workspace with sample data.</p>
     </div>
@@ -99,6 +109,17 @@ const approach = [
   </section>
 </Base>
 <style>
+  .console-evidence { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 24px; margin-top: 24px; }
+  .console-evidence figure { overflow: hidden; border: 1px solid #60786c; border-radius: 14px; }
+  .console-evidence figure > a { display: block; aspect-ratio: 4 / 3; overflow: hidden; background: #fff; }
+  .console-evidence img { display: block; width: 100%; height: auto; }
+  .console-evidence figcaption { padding: 24px; }
+  .console-evidence figcaption > span { color: #ccebb8; font-size: .7rem; text-transform: uppercase; letter-spacing: .1em; }
+  .console-evidence h3 { margin-top: 12px; font-size: 1.35rem; line-height: 1.3; }
+  .console-evidence p { margin-top: 12px; color: #bdcec4; font-size: .9rem; line-height: 1.75; }
+  .console-evidence figcaption a { display: inline-block; margin-top: 18px; color: #ccebb8; font-size: .8rem; text-decoration: underline; text-underline-offset: 4px; }
+  @media (max-width: 700px) { .console-evidence { grid-template-columns: 1fr; } }
+
   .home-hero { display: grid; grid-template-columns: 1.45fr .75fr; gap: clamp(36px, 6vw, 80px); align-items: center; padding-block: 40px; }
   .hero-eyebrow { display: flex; align-items: center; gap: 10px; }
   .hero-eyebrow span { width: 7px; height: 7px; border-radius: 50%; background: #176958; flex-shrink: 0; }
