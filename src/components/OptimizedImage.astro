@@ -1,0 +1,14 @@
+---
+import type { HTMLAttributes } from "astro/types";
+import images from "../data/image-manifest.json";
+
+interface Props extends HTMLAttributes<"img"> {
+  src: string;
+  alt: string;
+  widths?: never;
+}
+
+const { src, alt, sizes = "(max-width: 700px) calc(100vw - 40px), 1000px", loading = "lazy", decoding = "async", ...attributes } = Astro.props;
+const optimized = (images as Record<string, { src: string; srcset: string }>)[decodeURIComponent(src)];
+---
+<img {...attributes} src={optimized?.src ?? src} srcset={optimized?.srcset} sizes={optimized ? sizes : undefined} alt={alt} loading={loading} decoding={decoding} />

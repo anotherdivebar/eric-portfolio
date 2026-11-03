@@ -27,21 +27,21 @@ const capabilities = [
     title: "Revenue and customer systems",
     description: "Give the team a shared view of customer needs, account history, next steps, and delivery commitments so follow-through can scale with the business.",
     examples: ["Account research, CRM, and opportunity tracking", "Sales-to-delivery handoffs and customer self-service", "Connected billing and customer profit reporting"],
-    evidence: "ABS Tooling: customer context from opportunity to payment",
+    evidence: "ABS Console: customer context from opportunity to payment",
     href: "/abs-tooling"
   },
   {
     title: "Practical AI workflows",
     description: "Give AI a specific role in research, extraction, or drafting. Keep its sources, uncertainty, and proposed actions visible to the person reviewing the work.",
     examples: ["Evidence-backed research and structured outreach drafts", "Private workspace answers with verified sources", "Permission checks, review gates, and AI usage budgets"],
-    evidence: "ABS Tooling: evidence-backed research and governed AI",
+    evidence: "ABS Console: evidence-backed research and governed AI",
     href: "/abs-tooling#workspace-ai-helper"
   },
   {
     title: "Reliable software and live systems",
     description: "Work through the details behind a usable interface: permissions, validation, persistent state, failure handling, testing, and the tools needed to support a live service.",
     examples: ["Provider reconciliation and uncertain-result recovery", "Reviewed data migration and permission boundaries", "Encrypted restore drills and database concurrency checks"],
-    evidence: "ABS Tooling: migration, recovery, and verification",
+    evidence: "ABS Console: migration, recovery, and verification",
     href: "/abs-tooling#migration-and-recovery"
   }
 ];
@@ -75,11 +75,11 @@ const toolGroups = [
     <div class="page-container">
       <div class="max-w-4xl">
         <p class="eyebrow">Sales, growth & technical skills</p>
-        <h1 class="page-title mt-5">Understand the customer. Win the work. Support the growth.</h1>
+        <h1 class="page-title mt-5">The skills behind<br />the results.</h1>
         <p class="page-intro mt-7">
-          I bring relationship-based sales and business development together with
-          the operational experience to deliver and the technical skills to build
-          what the team needs. Each capability connects to examples from my work.
+          Customer discovery, commercial ownership, operational delivery, and
+          hands-on engineering. Each capability below links to work that shows
+          how I use it.
         </p>
       </div>
 
@@ -92,7 +92,7 @@ const toolGroups = [
               {capability.examples.map((example) => <li>{example}</li>)}
             </ul>
             <a class="text-link mt-auto text-sm leading-relaxed" href={capability.href}>
-              {capability.evidence.replace("ABS Tooling", "ABS Console")} <span aria-hidden="true">↗</span>
+              {capability.evidence} <span aria-hidden="true">↗</span>
             </a>
           </article>
         ))}

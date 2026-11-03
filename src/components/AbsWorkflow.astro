@@ -1,4 +1,5 @@
 ---
+import OptimizedImage from "./OptimizedImage.astro";
 const steps = [
   {
     stage: "Research",
@@ -45,11 +46,11 @@ const steps = [
   </ol>
   <div class="workflow-screens">
     <figure>
-      <a class="workflow-capture sales-capture" href="/assets/abs-console/sales-pipeline.png" aria-label="View the full-size ABS Console sales demo screenshot"><img src="/assets/abs-console/sales-pipeline.png" alt="Cropped ABS Console demo sales view showing forecast coverage, a follow-up queue, and opportunities arranged by stage" width="1265" height="1523" loading="lazy" decoding="async" /><span class="capture-label">Sales workspace · Demo</span></a>
+      <a class="workflow-capture sales-capture" href="/assets/abs-console/sales-pipeline.png" aria-label="View the full-size ABS Console sales demo screenshot"><OptimizedImage src="/assets/abs-console/sales-pipeline.png" alt="Cropped ABS Console demo sales view showing forecast coverage, a follow-up queue, and opportunities arranged by stage" width="1265" height="1523" loading="lazy" decoding="async" /><span class="capture-label">Sales workspace · Demo</span></a>
       <figcaption><h3>Make the next conversation count.</h3><p><strong>Relationship context:</strong> opportunities and follow-ups stay together. Unpriced deals remain visible without inflating the forecast.</p><a href="/assets/abs-console/sales-pipeline.png">Inspect the sales screen <span aria-hidden="true">↗</span></a></figcaption>
     </figure>
     <figure>
-      <a class="workflow-capture operations-capture" href="/assets/abs-console/operations-dashboard.png" aria-label="View the full-size ABS Console operations demo screenshot"><img src="/assets/abs-console/operations-dashboard.png" alt="Cropped ABS Console demo operations view showing connected estimates, field work, financials, and delivery priorities" width="1265" height="1991" loading="lazy" decoding="async" /><span class="capture-label">Operations workspace · Demo</span></a>
+      <a class="workflow-capture operations-capture" href="/assets/abs-console/operations-dashboard.png" aria-label="View the full-size ABS Console operations demo screenshot"><OptimizedImage src="/assets/abs-console/operations-dashboard.png" alt="Cropped ABS Console demo operations view showing connected estimates, field work, financials, and delivery priorities" width="1265" height="1991" loading="lazy" decoding="async" /><span class="capture-label">Operations workspace · Demo</span></a>
       <figcaption><h3>Keep the handoff visible.</h3><p><strong>Delivery context:</strong> estimates, field work, and financials share a workspace, with deadlines and unassigned work surfaced for follow-through.</p><a href="/assets/abs-console/operations-dashboard.png">Inspect the operations screen <span aria-hidden="true">↗</span></a></figcaption>
     </figure>
   </div>
@@ -70,7 +71,7 @@ const steps = [
   .workflow-screens { display: grid; grid-template-columns: repeat(2,minmax(0,1fr)); gap: 24px; margin-top: 28px; }
   figure { min-width: 0; border: 1px solid #dce3dc; border-radius: 16px; overflow: hidden; background: #edf1e9; }
   .workflow-capture { display: block; position: relative; aspect-ratio: 1.55; overflow: hidden; border-bottom: 1px solid #dce3dc; background: #f3f7f7; }
-  .workflow-capture img { position: absolute; width: 125%; max-width: none; height: auto; left: -25%; }
+  .workflow-capture :global(img) { position: absolute; width: 125%; max-width: none; height: auto; left: -25%; }
   .sales-capture img { top: -66%; }
   .operations-capture img { top: -49%; }
   .capture-label { position: absolute; bottom: 12px; left: 12px; padding: 6px 10px; border: 1px solid #b8cdbb; border-radius: 5px; background: #f6f7f3; color: #415c4c; font-size: .6rem; line-height: 1.4; box-shadow: 0 2px 8px rgb(23 35 31 / 6%); }

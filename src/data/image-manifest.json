@@ -1,0 +1,78 @@
+{
+  "/assets/abs-console/operations-dashboard.png": {
+    "src": "/images/optimized/operations-dashboard-eeede2c98c-1265.webp",
+    "srcset": "/images/optimized/operations-dashboard-eeede2c98c-480.webp 480w, /images/optimized/operations-dashboard-eeede2c98c-800.webp 800w, /images/optimized/operations-dashboard-eeede2c98c-1200.webp 1200w, /images/optimized/operations-dashboard-eeede2c98c-1265.webp 1265w"
+  },
+  "/assets/abs-console/sales-pipeline.png": {
+    "src": "/images/optimized/sales-pipeline-7c6742357c-1265.webp",
+    "srcset": "/images/optimized/sales-pipeline-7c6742357c-480.webp 480w, /images/optimized/sales-pipeline-7c6742357c-800.webp 800w, /images/optimized/sales-pipeline-7c6742357c-1200.webp 1200w, /images/optimized/sales-pipeline-7c6742357c-1265.webp 1265w"
+  },
+  "/assets/abs-console/today-desktop.png": {
+    "src": "/images/optimized/today-desktop-8677cc7951-1265.webp",
+    "srcset": "/images/optimized/today-desktop-8677cc7951-480.webp 480w, /images/optimized/today-desktop-8677cc7951-800.webp 800w, /images/optimized/today-desktop-8677cc7951-1200.webp 1200w, /images/optimized/today-desktop-8677cc7951-1265.webp 1265w"
+  },
+  "/assets/abs-console/today-mobile.png": {
+    "src": "/images/optimized/today-mobile-0a9d9b4e42-375.webp",
+    "srcset": "/images/optimized/today-mobile-0a9d9b4e42-375.webp 375w"
+  },
+  "/assets/atlas-beren-website/contact.png": {
+    "src": "/images/optimized/contact-927b54005f-1440.webp",
+    "srcset": "/images/optimized/contact-927b54005f-480.webp 480w, /images/optimized/contact-927b54005f-800.webp 800w, /images/optimized/contact-927b54005f-1200.webp 1200w, /images/optimized/contact-927b54005f-1440.webp 1440w"
+  },
+  "/assets/atlas-beren-website/home.png": {
+    "src": "/images/optimized/home-bb7a4b056d-1440.webp",
+    "srcset": "/images/optimized/home-bb7a4b056d-480.webp 480w, /images/optimized/home-bb7a4b056d-800.webp 800w, /images/optimized/home-bb7a4b056d-1200.webp 1200w, /images/optimized/home-bb7a4b056d-1440.webp 1440w"
+  },
+  "/assets/atlas-beren-website/pricing.png": {
+    "src": "/images/optimized/pricing-804379316a-1440.webp",
+    "srcset": "/images/optimized/pricing-804379316a-480.webp 480w, /images/optimized/pricing-804379316a-800.webp 800w, /images/optimized/pricing-804379316a-1200.webp 1200w, /images/optimized/pricing-804379316a-1440.webp 1440w"
+  },
+  "/assets/kse/CRM AI Assist.png": {
+    "src": "/images/optimized/crm-ai-assist-d077ecfa69-605.webp",
+    "srcset": "/images/optimized/crm-ai-assist-d077ecfa69-480.webp 480w, /images/optimized/crm-ai-assist-d077ecfa69-605.webp 605w"
+  },
+  "/assets/kse/CRM Activity.png": {
+    "src": "/images/optimized/crm-activity-71573b5bbe-901.webp",
+    "srcset": "/images/optimized/crm-activity-71573b5bbe-480.webp 480w, /images/optimized/crm-activity-71573b5bbe-800.webp 800w, /images/optimized/crm-activity-71573b5bbe-901.webp 901w"
+  },
+  "/assets/kse/CRM Briefing.png": {
+    "src": "/images/optimized/crm-briefing-76087a414a-700.webp",
+    "srcset": "/images/optimized/crm-briefing-76087a414a-480.webp 480w, /images/optimized/crm-briefing-76087a414a-700.webp 700w"
+  },
+  "/assets/kse/CRM Debrief.png": {
+    "src": "/images/optimized/crm-debrief-aeb9206d0b-708.webp",
+    "srcset": "/images/optimized/crm-debrief-aeb9206d0b-480.webp 480w, /images/optimized/crm-debrief-aeb9206d0b-708.webp 708w"
+  },
+  "/assets/kse/CRM Main.png": {
+    "src": "/images/optimized/crm-main-9aad191635-1255.webp",
+    "srcset": "/images/optimized/crm-main-9aad191635-480.webp 480w, /images/optimized/crm-main-9aad191635-800.webp 800w, /images/optimized/crm-main-9aad191635-1200.webp 1200w, /images/optimized/crm-main-9aad191635-1255.webp 1255w"
+  },
+  "/assets/kse/Estimate Confidence and Intelligence.png": {
+    "src": "/images/optimized/estimate-confidence-and-intelligence-3c082e1aca-706.webp",
+    "srcset": "/images/optimized/estimate-confidence-and-intelligence-3c082e1aca-480.webp 480w, /images/optimized/estimate-confidence-and-intelligence-3c082e1aca-706.webp 706w"
+  },
+  "/assets/kse/Estimate Parsing and Take-Off.png": {
+    "src": "/images/optimized/estimate-parsing-and-take-off-24e6319388-708.webp",
+    "srcset": "/images/optimized/estimate-parsing-and-take-off-24e6319388-480.webp 480w, /images/optimized/estimate-parsing-and-take-off-24e6319388-708.webp 708w"
+  },
+  "/assets/kse/Estimate Upload.png": {
+    "src": "/images/optimized/estimate-upload-d55a31a3af-697.webp",
+    "srcset": "/images/optimized/estimate-upload-d55a31a3af-480.webp 480w, /images/optimized/estimate-upload-d55a31a3af-697.webp 697w"
+  },
+  "/assets/kse/Field Reporting Parsed Transcript Fields.png": {
+    "src": "/images/optimized/field-reporting-parsed-transcript-fields-cb6f30c304-515.webp",
+    "srcset": "/images/optimized/field-reporting-parsed-transcript-fields-cb6f30c304-480.webp 480w, /images/optimized/field-reporting-parsed-transcript-fields-cb6f30c304-515.webp 515w"
+  },
+  "/assets/kse/Field Reporting Summary.png": {
+    "src": "/images/optimized/field-reporting-summary-95fedbc923-523.webp",
+    "srcset": "/images/optimized/field-reporting-summary-95fedbc923-480.webp 480w, /images/optimized/field-reporting-summary-95fedbc923-523.webp 523w"
+  },
+  "/assets/kse/Field Reporting Video With Overlay Prompts.png": {
+    "src": "/images/optimized/field-reporting-video-with-overlay-prompts-80dc36f449-520.webp",
+    "srcset": "/images/optimized/field-reporting-video-with-overlay-prompts-80dc36f449-480.webp 480w, /images/optimized/field-reporting-video-with-overlay-prompts-80dc36f449-520.webp 520w"
+  },
+  "/eric 2026 headshot.png": {
+    "src": "/images/optimized/eric-2026-headshot-f409fb7413-800.webp",
+    "srcset": "/images/optimized/eric-2026-headshot-f409fb7413-320.webp 320w, /images/optimized/eric-2026-headshot-f409fb7413-640.webp 640w, /images/optimized/eric-2026-headshot-f409fb7413-800.webp 800w"
+  }
+}

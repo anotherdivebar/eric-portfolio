@@ -1,5 +1,6 @@
 ---
 import Base from "../layouts/Base.astro";
+import OptimizedImage from "../components/OptimizedImage.astro";
 
 const headshotUrl = "/eric%202026%20headshot.png";
 
@@ -16,12 +17,12 @@ const principles = [
     <div class="page-container">
       <div class="grid items-center gap-10 lg:grid-cols-[minmax(0,1fr)_300px] lg:gap-20">
         <div>
-          <p class="eyebrow">Eric Martin · Sales & business development leadership</p>
-          <h1 class="page-title mt-5">Growth starts with understanding people and their problems.</h1>
+          <p class="eyebrow">About Eric Martin</p>
+          <h1 class="page-title mt-5">Sales instincts.<br />An operator's perspective.</h1>
           <p class="page-intro mt-7">
-            I lead growth by understanding what a customer needs to accomplish,
-            connecting that need to the right solution, and building the sales
-            process and delivery capacity to follow through.
+            I've done the field work, led the teams, won the business, and built
+            the software. That experience shapes how I sell: understand the
+            customer, make a practical commitment, and see it through.
           </p>
           <p class="mt-5 max-w-2xl leading-relaxed text-muted">
             I have done that from the field, in business development, and while
@@ -40,7 +41,7 @@ const principles = [
         </div>
         <figure class="max-w-[300px] lg:self-start lg:pt-12">
           <div class="portrait-frame">
-            <img src={headshotUrl} alt="Eric Martin" width="400" height="500" class="aspect-[4/5] w-full rounded-lg object-cover" decoding="async" />
+            <OptimizedImage src={headshotUrl} alt="Eric Martin" width="400" height="500" sizes="280px" loading="eager" class="aspect-[4/5] h-auto w-full rounded-lg object-cover" />
           </div>
           <figcaption class="mt-5 flex items-center justify-between gap-4 text-xs text-muted"><span>Eric Martin</span><span>Relationships → Results</span></figcaption>
         </figure>
@@ -48,23 +49,23 @@ const principles = [
 
       <section class="section-space mt-8 border-t border-border" aria-labelledby="background-heading">
         <p class="eyebrow">The experience behind my approach</p>
-        <h2 id="background-heading" class="mt-4 max-w-2xl text-3xl font-semibold text-ink sm:text-4xl">From the first conversation to delivered work.</h2>
+        <h2 id="background-heading" class="mt-4 max-w-2xl text-3xl font-semibold text-ink sm:text-4xl">Three roles. One connected perspective.</h2>
         <div class="mt-10 grid gap-8 md:grid-cols-3 md:gap-10">
           <article class="flex flex-col border-t border-border pt-6">
             <p class="text-sm font-semibold text-accent">Founder, Atlas-Beren Systems · 2026–Present</p>
-            <h3 class="mt-4 text-xl font-semibold text-ink">Building for the whole customer relationship</h3>
+            <h3 class="mt-4 text-xl font-semibold text-ink">Turning experience into a product</h3>
             <p class="mt-3 text-sm leading-relaxed text-muted">I founded ABS and built its seven-module Console to connect prospect research and sales with projects, operations, and finance. I own the product from business problem through working software.</p>
             <a class="text-link mt-6" href="/abs-tooling">Inside ABS Console <span aria-hidden="true">↗</span></a>
           </article>
           <article class="flex flex-col border-t border-border pt-6">
             <p class="text-sm font-semibold text-accent">Kansas Electric · 2024–2025</p>
-            <h3 class="mt-4 text-xl font-semibold text-ink">Growing relationships and a sales function</h3>
+            <h3 class="mt-4 text-xl font-semibold text-ink">Building the commercial function</h3>
             <p class="mt-3 text-sm leading-relaxed text-muted">I developed and grew relationships with industrial and commercial contractors and business owners. I built the sales and marketing function to support account development, consistent follow-up, and customer relationships through delivery.</p>
             <a class="text-link mt-6" href="/work/kansas-electric">Kansas Electric case study <span aria-hidden="true">↗</span></a>
           </article>
           <article class="flex flex-col border-t border-border pt-6">
             <p class="text-sm font-semibold text-accent">Vale Field Services · 2019–2024</p>
-            <h3 class="mt-4 text-xl font-semibold text-ink">Relationships & delivery</h3>
+            <h3 class="mt-4 text-xl font-semibold text-ink">Scaling field delivery</h3>
             <p class="mt-3 text-sm leading-relaxed text-muted">I joined Vale Field Services as employee one, doing field work and building relationships, then grew into leading operations for 35 employees and restaurant technology rollouts across the U.S. and Canada.</p>
             <a class="text-link mt-6" href="/work/program-delivery-at-scale">Vale Field Services case study <span aria-hidden="true">↗</span></a>
           </article>

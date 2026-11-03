@@ -1,0 +1,58 @@
+---
+interface Props {
+  headings: { slug: string; text: string }[];
+  label?: string;
+}
+const { headings, label = "On this page" } = Astro.props;
+---
+<details class="page-contents" data-page-contents open>
+  <summary class="eyebrow">{label}<span aria-hidden="true">⌄</span></summary>
+  <nav class="contents-nav" aria-label={label}>
+    {headings.map((heading) => <a href={`#${heading.slug}`}>{heading.text}</a>)}
+  </nav>
+</details>
+<script>
+  document.querySelectorAll<HTMLDetailsElement>('[data-page-contents]').forEach((contents) => {
+    const desktop = matchMedia('(min-width: 1024px)');
+    contents.open = desktop.matches;
+    desktop.addEventListener('change', () => { contents.open = desktop.matches; });
+    const links = Array.from(contents.querySelectorAll<HTMLAnchorElement>('a[href^="#"]'));
+    const sections = links.map((link) => document.getElementById(decodeURIComponent(link.hash.slice(1))));
+    const update = () => {
+      let current = 0;
+      sections.forEach((section, index) => {
+        if (section && section.getBoundingClientRect().top <= 170) current = index;
+      });
+      links.forEach((link, index) => {
+        if (index === current) link.setAttribute('aria-current', 'location');
+        else link.removeAttribute('aria-current');
+      });
+    };
+    if ('IntersectionObserver' in window) {
+      let observer: IntersectionObserver;
+      const observe = () => {
+        observer?.disconnect();
+        // A narrow band triggers as a heading reaches the reading position,
+        // including when a smooth anchor scroll stops below the sticky header.
+        observer = new IntersectionObserver(update, { rootMargin: `-160px 0px -${Math.max(0, window.innerHeight - 161)}px 0px` });
+        sections.forEach((section) => { if (section) observer.observe(section); });
+        update();
+      };
+      observe();
+      window.addEventListener('resize', observe);
+    }
+  });
+</script>
+<style>
+  .page-contents { border-block: 1px solid var(--line); padding-block: 16px; }
+  summary { display: flex; justify-content: space-between; gap: 16px; align-items: center; min-height: 32px; list-style: none; }
+  summary::-webkit-details-marker { display: none; }
+  summary span { font-size: 1rem; transition: transform .18s; }
+  [open] summary span { transform: rotate(180deg); }
+  nav { margin-top: 16px; display: grid; gap: 6px; }
+  @media (min-width: 1024px) {
+    .page-contents { border: 0; padding: 0; }
+    nav { max-height: calc(100dvh - 230px); overflow-y: auto; scrollbar-width: thin; padding-right: 8px; }
+  }
+  @media print { .page-contents { display: none; } }
+</style>

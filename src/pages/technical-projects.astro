@@ -1,5 +1,6 @@
 ---
 import Base from "../layouts/Base.astro";
+import OptimizedImage from "../components/OptimizedImage.astro";
 import { getCollection } from "astro:content";
 
 const projects = (await getCollection("technical-projects")).sort((a, b) => a.data.order - b.data.order);
@@ -21,9 +22,9 @@ const projectTitle = (project: typeof projects[number]) => project.slug === "atl
   <section class="page-heading">
     <div class="page-container">
       <div class="max-w-4xl">
-        <p class="eyebrow">Selected builds / product and engineering</p>
-        <h1 class="page-title mt-5">Projects and systems</h1>
-        <p class="page-intro mt-7">A closer look at the software behind the workflow: the problem, the decisions, the interface, and the boundaries of each build.</p>
+        <p class="eyebrow">Product & engineering</p>
+        <h1 class="page-title mt-5">Business problems.<br />Working software.</h1>
+        <p class="page-intro mt-7">Products and internal tools I've built, with the business problem, interface, technical decisions, and current scope of each.</p>
         <div class="mt-8 flex flex-wrap gap-3">
           <a class="button-primary" href="#featured-builds">Explore the builds <span aria-hidden="true">↓</span></a>
           <a class="button-secondary" href="/work">Business experience & case studies <span aria-hidden="true">↗</span></a>
@@ -43,7 +44,7 @@ const projectTitle = (project: typeof projects[number]) => project.slug === "atl
             <article id={project.slug} class:list={["surface project-card overflow-hidden", ["atlas-beren-console", "atlas-beren-website"].includes(project.slug) && "lg:col-span-2 lg:grid lg:grid-cols-[1.05fr_0.95fr]"]}>
               {visuals[project.slug] && (
                 <a href={projectHref(project)} class="focus-ring project-visual flex items-center border-b border-border bg-panel p-5 sm:p-8 lg:border-b-0 lg:border-r" aria-label={`Explore ${projectTitle(project)}`}>
-                  <img src={visuals[project.slug].src} alt={visuals[project.slug].alt} width={visuals[project.slug].width} height={visuals[project.slug].height} class="aspect-[4/3] w-full rounded-lg border border-border object-cover object-top" loading="lazy" decoding="async" />
+                  <OptimizedImage src={visuals[project.slug].src} alt={visuals[project.slug].alt} width={visuals[project.slug].width} height={visuals[project.slug].height} sizes="(max-width: 1023px) calc(100vw - 100px), 560px" class="aspect-[4/3] h-auto w-full rounded-lg border border-border object-cover object-top" />
                 </a>
               )}
               <div class="flex flex-col justify-center p-7 sm:p-10 lg:p-12">
@@ -63,7 +64,7 @@ const projectTitle = (project: typeof projects[number]) => project.slug === "atl
       <section aria-labelledby="briefs-heading" class="section-space">
         <div class="max-w-2xl">
           <p class="eyebrow">Focused system briefs</p>
-          <h2 id="briefs-heading" class="mt-4 text-3xl font-semibold sm:text-4xl">Routing, reporting, and operational visibility</h2>
+          <h2 id="briefs-heading" class="mt-4 text-3xl font-semibold sm:text-4xl">Smaller systems. Specific problems.</h2>
           <p class="mt-5 leading-relaxed text-muted">Shorter writeups of the constraints and implementation choices behind specific business workflows.</p>
         </div>
         <div class="mt-9 grid gap-8 md:grid-cols-3 md:gap-10">
@@ -98,5 +99,5 @@ const projectTitle = (project: typeof projects[number]) => project.slug === "atl
 <style>
   .project-card { transition: border-color 180ms ease; }
   .project-card:hover { border-color: #aac2ac; }
-  .project-visual img { box-shadow: 0 6px 20px rgb(23 35 31 / 8%); }
+  .project-visual :global(img) { box-shadow: 0 6px 20px rgb(23 35 31 / 8%); }
 </style>

@@ -1,5 +1,6 @@
 ---
 import Base from "../../layouts/Base.astro";
+import PageContents from "../../components/PageContents.astro";
 import { getCollection, type CollectionEntry } from "astro:content";
 
 export async function getStaticPaths() {
@@ -25,7 +26,7 @@ const isCaseStudy = ["kansas-electric", "program-delivery-at-scale"].includes(en
     <div class="page-container">
       <a href="/work" class="text-link">← Sales & growth results</a>
       <div class="mt-10 max-w-4xl sm:mt-12">
-        <p class="eyebrow">{isCaseStudy ? "Case study" : "Operating approach"} / {entry.data.category}</p>
+        <p class="eyebrow">{entry.data.category}</p>
         <h1 class="page-title mt-5">{entry.data.title}</h1>
         <p class="page-intro mt-7">{entry.data.summary}</p>
       </div>
@@ -44,13 +45,8 @@ const isCaseStudy = ["kansas-electric", "program-delivery-at-scale"].includes(en
 
   <div class:list={["page-container grid items-start gap-10 pb-16 sm:pb-24", sections.length > 0 && "lg:grid-cols-[210px_minmax(0,1fr)] lg:gap-16"]}>
     {sections.length > 0 && (
-      <aside class="border-b border-border pb-7 lg:sticky lg:top-28 lg:max-h-[calc(100vh-9rem)] lg:overflow-y-auto lg:border-b-0 lg:border-l lg:pb-0 lg:pl-5">
-        <p id="work-contents" class="eyebrow">On this page</p>
-        <nav aria-labelledby="work-contents" class="mt-5 flex flex-wrap gap-x-5 gap-y-4 lg:flex-col">
-          {sections.map((heading) => (
-            <a class="focus-ring text-sm leading-relaxed text-muted transition hover:text-accent" href={`#${heading.slug}`}>{heading.text}</a>
-          ))}
-        </nav>
+      <aside class="lg:sticky lg:top-28">
+        <PageContents headings={sections} />
       </aside>
     )}
     <div class="min-w-0">

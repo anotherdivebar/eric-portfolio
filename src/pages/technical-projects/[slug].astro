@@ -1,5 +1,6 @@
 ---
 import Base from "../../layouts/Base.astro";
+import PageContents from "../../components/PageContents.astro";
 import { getCollection } from "astro:content";
 
 export async function getStaticPaths() {
@@ -32,13 +33,7 @@ const facts = [
         <section class="md:border-l md:border-border md:pl-12" aria-labelledby="project-result"><h2 id="project-result" class="eyebrow">What the build provides</h2><p class="mt-4 leading-relaxed text-ink">{project.data.outcome}</p></section>
       </div>
       {sections.length > 1 && (
-        <nav aria-label="Project sections" class="surface-muted mt-8 p-6 sm:p-7">
-          <p class="eyebrow">In this project</p>
-          <ul class="mt-4 flex flex-wrap gap-x-6 gap-y-3">
-            {sections.map((section) => (<li><a class="focus-ring text-sm font-medium text-accent hover:text-accent-dark" href={`#${section.slug}`}>{section.text}</a></li>))}
-            <li><a class="focus-ring text-sm font-medium text-accent hover:text-accent-dark" href="#implementation">Build details</a></li>
-          </ul>
-        </nav>
+        <div class="surface-muted mt-8 p-6 sm:p-7"><PageContents headings={[...sections, { slug: "implementation", text: "Build details" }]} label="In this project" /></div>
       )}
       {!isBrief && <article class="prose mt-12 max-w-none"><Content /></article>}
       <section id="implementation" class="section-space" aria-labelledby="implementation-heading">
