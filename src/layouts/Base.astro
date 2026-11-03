@@ -1,4 +1,5 @@
 ---
+import Analytics from "@vercel/analytics/astro";
 import "../styles/global.css";
 const {
   title = "Eric Martin — Sales Leadership & Business Development",
@@ -115,6 +116,7 @@ const isContact = path === "/contact";
         <div class="footer-meta"><p>© {new Date().getFullYear()} Eric Martin</p><a href="#main-content">Back to top <span aria-hidden="true">↑</span></a></div>
       </div>
     </footer>
+    <Analytics />
     <script>
       const menus = Array.from(document.querySelectorAll<HTMLDetailsElement>('[data-nav-disclosure]'));
       const closeMenu = (menu: HTMLDetailsElement, restoreFocus = false) => {
