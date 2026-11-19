@@ -2,19 +2,19 @@
 import Base from "../layouts/Base.astro";
 
 const responsibilities = [
-  { title: "Server systems & persistence", detail: "I modeled player data and maintained the checks that run when the server updates a player’s state." },
-  { title: "Support & moderation tools", detail: "I built the tools that support staff used to investigate reports, maintain player data, and escalate suspected abuse." },
-  { title: "Game design & balance", detail: "I designed changes to gameplay and implemented balance adjustments in the C# server." }
+  { title: "Saving player data", detail: "I designed how the game stores player data and maintained the checks the server runs when it updates a player’s state." },
+  { title: "Support and moderation", detail: "I built the tools support staff used to investigate reports, maintain player data, and flag suspected abuse for administrators." },
+  { title: "Game design and balance", detail: "I designed gameplay changes and wrote the C# code to adjust game balance." }
 ];
 
 const challenges = [
   { title: "Simultaneous player actions", detail: "When players acted on the same world at once, the server had to keep their active sessions and saved data in sync." },
-  { title: "Unpredictable load", detail: "During peak events, I used telemetry to find performance bottlenecks and shipped hotfixes while the game was live." },
-  { title: "Existing player data", detail: "Migrations had to preserve progress for players returning after an update." }
+  { title: "Busy events", detail: "When the game was busiest, I used server metrics to find what was slowing it down and released fixes while players were online." },
+  { title: "Existing player data", detail: "When an update changed how the database stored player data, the migration had to preserve each player’s progress." }
 ];
 ---
 
-<Base title="Eden Multiplayer Game Engineering | Eric Martin" description="Eric Martin’s engineering and design work on Eden, a multiplayer game with a community of about 30,000 players. Built with C#, .NET, and PostgreSQL.">
+<Base title="Eden Multiplayer Game Engineering | Eric Martin" description="Eric Martin built C# server features and moderation tools for Eden, a multiplayer game whose community grew to about 30,000 players.">
   <section class="page-heading">
     <div class="page-container-mid">
       <a href="/technical-projects" class="text-link">← All projects</a>
@@ -23,7 +23,7 @@ const challenges = [
         <p class="mt-5 max-w-2xl text-2xl font-medium leading-snug text-ink sm:text-3xl">A multiplayer game that saved each player’s progress between sessions.</p>
         <dl class="surface-muted mt-10 grid gap-8 p-7 sm:mt-12 sm:grid-cols-2 sm:p-9">
           <div><dt class="eyebrow">Community grew to</dt><dd class="mt-4"><span class="block text-4xl font-medium tracking-tight text-accent">~30,000</span><span class="mt-2 block text-sm text-muted">players</span></dd></div>
-          <div class="border-t border-border pt-6 sm:border-l sm:border-t-0 sm:pl-7 sm:pt-0"><dt class="eyebrow">Core stack</dt><dd class="mt-4 text-lg font-medium leading-relaxed">C# / .NET game server<br />PostgreSQL player data<br />JavaScript support tools</dd></div>
+          <div class="border-t border-border pt-6 sm:border-l sm:border-t-0 sm:pl-7 sm:pt-0"><dt class="eyebrow">Technology</dt><dd class="mt-4 text-lg font-medium leading-relaxed">C# / .NET game server<br />PostgreSQL player data<br />JavaScript support tools</dd></div>
         </dl>
       </div>
 
@@ -56,9 +56,9 @@ const challenges = [
         </div>
         <div class="border-t border-border pt-6">
           <ul class="list-disc space-y-4 pl-5 text-sm leading-relaxed text-muted marker:text-accent">
-            <li>Structured logging, metrics, and audit trails for investigation</li>
-            <li>GitHub-based build and release automation</li>
-            <li>Versioned releases, recovery playbooks, and rollback planning</li>
+            <li>We used structured logs, metrics, and audit trails to investigate problems.</li>
+            <li>We automated builds and releases through GitHub.</li>
+            <li>We tracked release versions and kept instructions for recovery, including how to roll back an update.</li>
           </ul>
         </div>
       </section>

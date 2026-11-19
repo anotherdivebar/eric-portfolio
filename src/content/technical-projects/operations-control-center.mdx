@@ -3,17 +3,17 @@ title: "Operations control center"
 summary: "Operations managers could check field capacity and job status in one dashboard and export figures for leadership reports."
 why: "Managers had to piece together several spreadsheets to find out where a job was at risk."
 constraints:
-  - "Field data arrived at different times and with uneven quality"
-  - "The operations team had little time for training"
+  - "Field updates arrived at different times, and some were more reliable than others."
+  - "The operations team had little time for training."
 stack:
   - "C# / .NET"
   - "PostgreSQL"
   - "JavaScript dashboard UI"
 decisions:
-  - "Started with the three to five measures the team used most often, including field capacity and job status"
-  - "Added an export for leadership reports"
+  - "I started with the three to five measures managers checked most often, including field capacity and job status."
+  - "Managers could export those figures for their leadership reports."
 tradeoffs:
-  - "The dashboard updated on a schedule, so field changes appeared at the next refresh"
-outcome: "Jobs needing intervention appeared at the top of the dashboard so managers could act sooner."
+  - "The dashboard updated on a schedule, so field changes appeared at the next refresh."
+outcome: "Managers saw at-risk jobs at the top of the dashboard and could act sooner."
 order: 5
 ---

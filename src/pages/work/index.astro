@@ -9,14 +9,14 @@ const results = {
     years: "2024–2025",
     value: "$2M",
     context: "in new work I closed in my first 60 days",
-    description: "I took over sales from project managers. A relationship I’d built at Vale helped me win Walmart emergency lighting and relay work in the Midwest and Southeast.",
+    description: "I won Walmart’s emergency lighting and relay work through someone I knew from Vale. I stayed on as Walmart’s contact for the Midwest and Southeast.",
     link: "Read the Kansas Electric case study",
   },
   "program-delivery-at-scale": {
     years: "2019–2024",
     value: "$4M",
-    context: "in annual revenue at a company I helped grow",
-    description: "I was Vale’s first employee. I started in the field and went on to lead operations for a 35-person company installing technology in hundreds of restaurants.",
+    context: "in annual revenue as we grew to 35 people",
+    description: "I was Vale’s first employee. At first I installed point-of-sale systems myself. Later I ran operations for the crews putting them into hundreds of restaurants.",
     link: "Read the Vale case study",
   },
 };
@@ -27,7 +27,7 @@ const commercialStories = caseStudies.flatMap((study) => {
 const operatingExamples = caseStudies.filter((study) => !(study.slug in results));
 ---
 
-<Base title="Sales & Growth Results | Eric Martin" description="Eric Martin’s work in sales and business development at Kansas Electric, operational growth at Vale Field Services, and product development at Atlas-Beren Systems.">
+<Base title="Sales & Growth Results | Eric Martin" description="How I won electrical work at Kansas Electric, ran restaurant installations at Vale Field Services, and built sales software at Atlas-Beren Systems.">
   <div class="page-container">
     <header class="work-intro">
       <h1 class="page-title">Sales and<br /><em>field operations.</em></h1>
@@ -54,7 +54,7 @@ const operatingExamples = caseStudies.filter((study) => !(study.slug in results)
       <div class="founder-copy">
         <p class="eyebrow">Founder, Atlas-Beren Systems · Since January 2026</p>
         <h2 class="section-title">Building ABS Console</h2>
-        <p>I built the sales pipeline shown here for trade and field-service businesses. A manager can open a submitted forecast and compare it with the deals the team went on to win.</p>
+        <p>I built this sales pipeline for contractors. It saves the forecast a manager submits, so they can come back later and see which jobs the team actually won.</p>
         <a href="/abs-tooling" class="button-secondary">Explore ABS Console</a>
       </div>
       <figure class="founder-figure">

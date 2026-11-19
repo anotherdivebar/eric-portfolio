@@ -3,10 +3,10 @@ title: "Atlas-Beren Systems Website"
 summary: "Contractors can build a sample estimate, see the saved proposal in dispatch, and compare the cost of software and onboarding."
 why: "A contractor evaluating the software needs to see how an estimate becomes a job and a bill, and what it would cost to get started."
 constraints:
-  - "Public demos use fictional records and cannot trigger live business actions"
-  - "Downloadable PDFs are fixed sample documents"
-  - "Analytics record a defined set of visitor events and exclude form descriptions and email addresses"
-  - "Creating a customer in ABS Console is a separate step after inquiry delivery"
+  - "The public demos use fictional records. Trying a job or a payment in a demo has no effect on a real business."
+  - "Visitors can download sample PDFs. The files stay the same when a visitor edits a demo."
+  - "Analytics track selected actions on the site and exclude visitors’ email addresses and written descriptions of their work."
+  - "After an inquiry arrives, creating a customer record in ABS Console takes a separate step."
 stack:
   - "Next.js, React, and TypeScript"
   - "Tailwind CSS and Framer Motion"
@@ -14,7 +14,7 @@ stack:
   - "PDF.js and deterministic demo models"
 decisions: []
 tradeoffs: []
-outcome: "The team can see which task the visitor asked about, which buyer category the inquiry came from, and where they opened the form."
+outcome: "Each inquiry tells the team which task the visitor asked about, which type of buyer the page was for, and where the visitor opened the form."
 order: 0.5
 ---
 
@@ -41,9 +41,9 @@ I built the public site for [ABS Console](/abs-tooling), Atlas-Beren’s operati
 
 In the guided demo, a visitor takes an estimate through to a completed job and invoice. Recording a partial payment reduces the balance on that invoice. Changes stay in browser memory and reset on refresh.
 
-In the estimating demo, visitors select costs from a local catalog, edit scope and exclusions, and choose which suggestions to accept from a rules-based assistant. A saved proposal appears in the sample CRM and dispatch views.
+In the estimating demo, visitors select costs from a local catalog, specify what the job includes or excludes, and choose which suggestions to accept from a rules-based assistant. When they save the proposal, it appears in the sample CRM and dispatch views.
 
-The scheduling demo shows task dependencies and overlapping crew assignments.
+The scheduling demo shows which tasks have to finish before others can start and where crew assignments overlap.
 
 <div id="give-different-buyers-a-clear-route"></div>
 
@@ -57,9 +57,9 @@ A visitor looking at maintenance arrives at the inquiry form with maintenance al
 
 ## Subscription pricing and service costs
 
-One subscription includes the supported core modules and ten full users. Buyers can add hands-on onboarding, custom implementation, or managed services. Links for retired packages still take visitors to the current software inquiry.
+One subscription includes the supported core modules and accounts for ten full users. Buyers can add hands-on onboarding, custom implementation, or managed services. Links to retired packages still lead to the current inquiry form.
 
-I put monthly tasks, customer responsibilities, setup costs, and first-month totals next to each managed-service offer. The site also identifies provider usage, advertising spend, and other subscriptions a buyer may need to budget for. The team confirms early-access availability and capacity.
+For each managed service, I listed the monthly work, what the customer handles, the setup cost, and the first-month total. I also listed usage charges from other providers, advertising costs, and any extra subscriptions a buyer may need. The team confirms early-access availability and whether it can take on the work.
 
 <ProjectScreenshot
   src="/assets/atlas-beren-website/pricing.png"
@@ -83,16 +83,16 @@ Someone requesting a walkthrough can suggest times and a time zone. A team membe
   caption="The form asks where work gets stuck and which tools the business already uses."
 />
 
-The Next.js route checks the origin, content type, payload size, required fields, email address, and selected interests before sending the inquiry through Resend. A spam trap filters automated submissions. The interface confirms receipt only after the email provider accepts the request. If the response is uncertain, the visitor sees that delivery is unconfirmed.
+Before sending an inquiry through Resend, the Next.js route checks the request’s origin, content type, size, required fields, email address, and selected interests. A spam trap filters automated submissions. The form shows a confirmation only after Resend accepts the request. If Resend gives no clear answer, the form tells the visitor it couldn’t confirm delivery.
 
 <div id="build-a-consistent-experience"></div>
 
 ## Shared pricing and page design
 
-Pricing, onboarding, and product pages draw from one offer definition. The site publishes canonical URLs, structured data, a sitemap, and robots directives.
+The pricing, onboarding, and product pages all read prices and subscription terms from the same source. The site publishes canonical URLs, structured data, a sitemap, and robots directives.
 
 The same paper, ink, and gold palette carries through the product pages, pricing, and inquiry forms on desktop and mobile.
 
 ## Evidence and current scope
 
-As of October 2, 2026, automated checks covered demo steps, inquiry validation, topic selection, analytics filtering, and email-provider errors. A September 30 production build passed alongside nine checks of the path from product discovery to inquiry. The pricing page was reviewed on desktop and onboarding on mobile. Production deployment and paid conversion results were unverified at the time.
+As of October 2, 2026, automated checks covered demo steps, inquiry validation, topic selection, analytics filtering, and email-provider errors. A September 30 production build passed, along with nine checks covering the steps from finding a product to sending an inquiry. The review covered the pricing page on desktop and onboarding on mobile. It did not confirm a production deployment or measure how many visitors became paying customers.

@@ -1,7 +1,7 @@
 ---
 title: "Forecasting electrical work at Kansas Electric"
 category: "Sales forecasting"
-summary: "I built a 90-day forecast for Kansas Electric. Project managers had been handling sales alongside active jobs, and teams used different stage weights for open bids."
+summary: "At Kansas Electric, teams counted open bids differently. I built a 90-day forecast that gave each bid the same weight as others at its stage."
 impact: "Sales and leadership could review a 90-day forecast using the same stage weights."
 bullets:
   - "Route website inquiries to the sales team"
@@ -14,14 +14,14 @@ order: 1
 
 ## <span id="define-the-lifecycle-before-the-dashboard">From website inquiry to account history</span>
 
-<p id="where-this-approach-applies">Sales conversations lived in inboxes and spreadsheets. I built a CRM that routed website inquiries to the sales team and synced account activity with Acumatica. Before calling a customer back, a rep could pull up the previous conversation.</p>
+<p id="where-this-approach-applies">If a customer called back, their last conversation might be in someone else’s inbox or spreadsheet. I built a CRM that kept those conversations with the account, sent website inquiries to the sales team, and synced activity with Acumatica.</p>
 
 ## <span id="make-handoffs-reviewable">Putting a number on open bids</span>
 
-Opportunity Radar refreshed the list of open opportunities on a schedule. In a separate tool, BD Forecast, I used Google Sheets and Apps Script to apply the same stage weights across teams and save a snapshot of the 90-day forecast.
+Opportunity Radar kept the list of open bids up to date. For the forecast itself, I built a separate tool called BD Forecast in Google Sheets. Apps Script applied the same weights to each team’s bids based on how far along they were, then saved a copy of the 90-day forecast.
 
 ## <span id="build-a-recurring-decision-loop">Reviewing the pipeline with leadership</span>
 
-For longer-term planning, I tracked opportunities over 24 months. In leadership reviews, I kept the value of that pipeline separate from the value of proposals we had presented and work we had closed.
+When I sat down with leadership, we looked beyond the next 90 days. I tracked what we might win over two years, what we’d already put in front of customers, and what we’d actually closed. Each had its own total.
 
 <p id="see-the-approach-in-a-built-system"><a href="/work/kansas-electric#commercial-results-and-system-outcomes">See the closed work, proposals, and pipeline figures at Kansas Electric.</a></p>

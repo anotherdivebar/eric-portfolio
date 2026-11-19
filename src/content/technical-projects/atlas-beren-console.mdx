@@ -3,7 +3,7 @@ title: "ABS Console"
 summary: "I built the estimating, dispatch, and billing software for Atlas-Beren Systems. A contractor can trace an invoice back to the estimate the customer approved."
 why: "An estimate can lose its connection to the original sales conversation or the final invoice. The team needs those records when a customer asks what they agreed to or why a bill changed."
 constraints:
-  - "Keep organizations and private records separate while supporting delegated agency access"
+  - "Keep each organization’s records private and let it grant an agency access"
   - "Keep the source record and the person who approved each change"
   - "Handle concurrent edits, repeated requests, and uncertain provider responses"
   - "Keep forecasts, sample data, and recorded business results clearly distinguishable"
@@ -19,13 +19,13 @@ stack:
   - "Vitest, PGlite / PostgreSQL behavior tests, and Playwright browser verification"
 decisions:
   - "Link opportunities, projects, jobs, and invoices by record ID"
-  - "Calculate financial and forecast totals in application and database logic, with source drill-downs"
-  - "Separate AI answers and prepared changes from approval and execution"
+  - "Calculate revenue and forecasts in the application and database. Let readers open the deals or invoices behind each total."
+  - "Let the AI answer questions and draft changes. A person approves a change before it runs."
   - "Keep submitted forecasts and individual automation attempts in history"
 tradeoffs:
   - "Saved simulations retain the crew, material, and cash assumptions used for the prediction"
-  - "Provider integrations require account configuration, authorization, and live acceptance checks"
-  - "Pause a run for reconciliation when an external provider’s response leaves the outcome unclear"
+  - "Customers have to set up, authorize, and test each outside service they use"
+  - "If an outside service gives an unclear answer, pause the run until someone checks what happened"
 outcome: "Customers can approve a saved quote or request a service visit through the portal. The office can match the resulting job to its invoice and recorded costs."
 order: 0
 detailUrl: "/abs-tooling"
@@ -33,21 +33,21 @@ detailUrl: "/abs-tooling"
 
 ## Connected records and handoffs
 
-The console links original records by ID. A won opportunity can reuse its delivery project, and an imported accounting copy can point to the invoice that created it. A matching name or amount alone is too uncertain to establish that link.
+The console links original records by ID. When a deal closes, the team can keep using its existing project. An invoice imported from accounting can link back to the original, but a matching name or amount alone isn’t enough to join the two.
 
-A missing or conflicting link goes to a person for review. The console saves a required link and its record in one transaction. If a second editor has changed the record, the revision check rejects the stale update.
+If the link is missing or two records disagree, someone has to check them. The console saves a required link and its record in one transaction. If someone else has already edited the record, the revision check stops an older edit from overwriting it.
 
 ## Revenue decisions with evidence
 
-A submitted forecast is frozen. A manager can compare it with later wins without changing the original. Scheduled reports also preserve their filters, dates, and underlying figures.
+Once a rep submits a forecast, that version stays on file. A manager can look back and see which deals actually closed. Scheduled reports also preserve their filters, dates, and underlying figures.
 
-Opportunity value and invoiced revenue are reported separately. Missing close dates and amounts stay visible.
+Reports show what deals are worth separately from the amount already invoiced. Missing close dates and amounts stay visible.
 
 ## Connected profit and costs
 
 The same invoice appears in customer, project, campaign, and financial reports. It contributes revenue once. The calculation accounts separately for tax, payments, deposits, and linked accounting copies.
 
-Time, materials, other project costs, returns, credits, and reversals retain links to their original records. An imported supplier bill and its payment need to be classified so the same cost is counted once. If the source changes, the earlier review may need to be repeated.
+You can trace time, materials, other job costs, returns, credits, and reversals back to their source. When a supplier bill and its payment both come in from accounting, someone has to identify which entry records the cost so it only counts once. If the source changes, it may need another look.
 
 Reports keep currencies separate. An owner can open the records behind a margin figure and see which costs are incomplete or still need assigning.
 
@@ -55,36 +55,36 @@ Reports keep currencies separate. An owner can open the records behind a margin 
 
 Someone using **Ask AI** might ask “Which invoices are overdue?” or “What is blocking this project?” The assistant can search the records that person has permission to read and link to the sources behind its answer. It works across all seven modules.
 
-If a customer mentions a payment and asks to change a service date in the same note, the assistant can prepare two changes for review. It flags missing amounts, uncertain customer matches, or missing evidence of acceptance.
+If a customer mentions a payment and asks to change a service date in the same note, the assistant can prepare two changes for review. It shows what needs checking, such as a missing amount, an uncertain customer match, or a change that still needs proof of acceptance.
 
-Approving a proposed change runs the same permission, validation, and revision checks as editing the record directly. Drawing analysis and accounting review open their respective workspaces. Users can read only the conversation history and provider usage allowed by their current access.
+Approving a proposed change runs the same permission, validation, and revision checks as editing the record directly. For a drawing or an accounting question that needs a closer look, the assistant opens the relevant workspace. The same access rules limit which conversations and usage records a user can see.
 
 ## Automation that explains its actions
 
 The scheduled worker checks for ready tasks every five minutes. Before executing an action it rechecks the operator’s permissions and whether that action already ran.
 
-Run history shows each attempt, failure, and completed step. An administrator can cancel eligible work with a reason or retest a failure against the latest records. If an outside service gives an uncertain answer, the system holds the action for reconciliation before anyone tries again.
+Run history shows each attempt, failure, and completed step. An administrator can cancel eligible work with a reason or retest a failure against the latest records. If an outside service leaves it unclear whether an action went through, the console holds the retry until someone checks.
 
 ## Customer portal
 
 Customers can open the saved version of a quote, approve it, request service, choose an available appointment, and see their service history and bills. Access requires a verified customer identity. Internal notes and private costs stay with the office.
 
-Changing a quote requires fresh approval. Booking an appointment rechecks staffing and reservations before confirming the linked job.
+If the office changes a quote, the customer has to approve it again. Before it confirms an appointment, the portal checks the crew schedule and existing reservations.
 
 ## Business Simulator
 
-An owner can compare up to eight proposed jobs over a 13-week USD planning window. Moving a start date can reveal a crew or stock conflict. Changing a deposit shows its effect on daily cash.
+An owner can compare up to eight proposed jobs over 13 weeks. The simulator calculates cash in US dollars. Moving a start date can reveal a crew or stock conflict. Changing a deposit shows its effect on daily cash.
 
 A saved prediction preserves the inputs and their timestamps so the team can compare an estimate with actual results. Booking the job, scheduling the crew, buying stock, and posting accounting entries are separate actions.
 
 ## Migration and recovery
 
-CSV and spreadsheet imports carry over customers, equipment, service history, price lists, agreements, documents, and opening balances. A preview identifies conflicts and held rows. An approved import commits in one transaction, and repeat submissions return the original result.
+CSV and spreadsheet imports carry over customers, equipment, service history, price lists, agreements, documents, and opening balances. The preview shows which rows need attention and why they’re on hold. Once approved, the import saves in one transaction. Submitting it again returns the original result.
 
-Recovery tools create encrypted bundles of database records and documents with manifests for verification. Testing included an isolated restore with synthetic records, permission checks, and concurrent requests. Production recovery still depends on the customer’s hosting, storage, identity, and provider configuration.
+The recovery tools package database records and documents in an encrypted backup with a manifest listing its contents. Tests included restoring synthetic records in isolation, checking permissions, and handling simultaneous requests. Recovering a customer’s live system also depends on how its hosting, storage, identity provider, and other services are set up.
 
 ## Delivery and boundaries
 
 Unit and database tests cover financial calculations and access across organizations. Browser tests follow complete workflows using fictional records.
 
-As of October 28, 2026, marketing tools cover research, planning, and measurement. Campaign publishing and live ad management are outside the supported scope.
+In the October 28, 2026 version, the marketing team can research, plan, and measure campaigns. It still needs separate tools to publish them or manage live ads.

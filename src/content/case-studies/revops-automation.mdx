@@ -1,7 +1,7 @@
 ---
 title: "What happens to an unassigned sales request?"
 category: "Lead routing"
-summary: "In the routing service I built, a CRM request with missing information goes into a review queue. Staff can see why it landed there and change the assignment rule themselves."
+summary: "If the CRM can’t tell which rep should get a request, my tool holds it for someone to check. The team can see what went wrong and change the rule themselves."
 impact: "Staff could inspect an assignment, see its response deadline, and edit the routing policy."
 bullets:
   - "Send incomplete CRM records to a review queue"
@@ -14,14 +14,14 @@ order: 3
 
 ## <span id="start-with-the-input">When the rule can’t pick a rep</span>
 
-<p id="where-this-approach-applies">A blank or inconsistent CRM field can leave a request without an owner. The service keeps that request in the exception queue. It also logs routing decisions so staff can trace how a request reached a particular rep.</p>
+<p id="where-this-approach-applies">Sometimes a field is blank. Sometimes two entries disagree. When the tool can’t pick a rep, it puts the request in a queue for the team to review. It also saves the rule behind each assignment, so if a request goes to the wrong person, we can see why.</p>
 
 ## <span id="connect-the-signal-to-an-action">When the response is overdue</span>
 
-Once a request has an owner, a timer tracks how long the rep has to respond. If the deadline passes, the escalation rule flags the missed follow-up.
+Once a rep gets a request, a timer starts. If they miss the deadline, the tool flags the request for follow-up.
 
 ## <span id="review-the-exceptions">Fixing a record or changing the rule</span>
 
-A missing field calls for a correction to the customer record. If complete records keep reaching the wrong rep, staff can change the policy in the admin interface without waiting for a code release.
+If a request is missing a detail, the team can fix the customer record. If the details are right and the wrong rep keeps getting the requests, the rule needs to change. I built an admin screen so the team can do that without waiting for me to release new code.
 
-<p id="related-implementations"><a href="/technical-projects/lead-routing-automation">See how I implemented lead routing in .NET and PostgreSQL.</a></p>
+<p id="related-implementations"><a href="/technical-projects/lead-routing-automation">How I built the routing service in .NET and PostgreSQL.</a></p>

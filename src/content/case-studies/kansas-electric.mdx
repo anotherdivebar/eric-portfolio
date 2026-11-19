@@ -2,7 +2,7 @@
 title: "Kansas Electric"
 category: "Case study · Sales & business development"
 summary: "I took over sales from project managers and won Walmart emergency lighting and relay work across two regions. I also built the tools our reps, estimators, and field crews used."
-impact: "I closed about $2M in new work in my first 60 days. Separately, opportunities presented in 2025 exceeded $100M, and the pipeline for the following 24 months exceeded $200M."
+impact: "I closed about $2M in new work in my first 60 days. In 2025 we presented more than $100M in opportunities. Looking ahead 24 months, we had over $200M in potential work in the pipeline."
 bullets:
   - "Developed accounts with industrial and commercial contractors and business owners"
   - "Set up the sales process and took on Director of Marketing responsibilities"
@@ -15,30 +15,30 @@ order: 0
 import AppShowcaseCard from "../../components/AppShowcaseCard.astro";
 import ProjectScreenshot from "../../components/ProjectScreenshot.astro";
 
-## From an existing relationship to a Walmart project
+## <span id="from-an-existing-relationship-to-a-walmart-project">How I won the Walmart work</span>
 
-<p id="developing-relationships-across-industrial-and-commercial-markets">Walmart needed emergency lighting and relay work at locations in the Midwest and Southeast. A relationship I’d built at Vale Field Services helped me win the work for Kansas Electric. After the sale I remained the customer’s point of contact and oversaw the project managers responsible for both regions.</p>
+<p id="developing-relationships-across-industrial-and-commercial-markets">Walmart needed emergency lighting and relay work at stores in the Midwest and Southeast. A contact I knew from Vale helped me win the work for Kansas Electric. I stayed on as the person Walmart called and oversaw the project managers doing the work in both regions.</p>
 
-## Building a dedicated sales function
+## <span id="building-a-dedicated-sales-function">Why I took over sales</span>
 
-When I arrived, project managers handled sales alongside the jobs they were delivering. I took responsibility for developing accounts with industrial and commercial contractors and business owners. I set up a sales process, recorded customer conversations, and reviewed the pipeline and forecast with leadership.
+When I joined, project managers were selling the next job while running the current one. I took over the industrial and commercial accounts, working with contractors and business owners. I tracked our conversations and bids, then sat down with leadership to review which jobs we expected to win.
 
 ## <span id="taking-ownership-of-marketing">Billboards, the website, and digital advertising</span>
 
-I also became Director of Marketing. I led the rebrand, rebuilt the website, designed signage and billboards, and ran digital campaigns with about $5,000 in monthly ad spend. I also helped with recruiting.
+As Director of Marketing, I led the rebrand, rebuilt the website, and designed our signs and billboards. I ran the online ads on a budget of about $5,000 a month and helped with recruiting.
 
 ## <span id="constraints">Working around crew schedules and patchy connections</span>
 
 <p id="building-the-systems-behind-the-function">We had a small team and little engineering time. Crews worked changing schedules and sometimes lacked a connection on site. New tools had to fit around active jobs and the spreadsheets people already relied on.</p>
 
-## CRM: account context and follow-through
+## <span id="crm-account-context-and-follow-through">What we knew before the next sales call</span>
 <div id="how-the-tools-fit-together" class="grid gap-5 md:grid-cols-2">
   <div class="md:col-span-2">
     <AppShowcaseCard
       title="CRM Console"
-      problem="Account, activity, and follow-up data lived across inboxes and scattered sheets."
-      stack="JavaScript PWA, Dexie / IndexedDB, Chart.js, AI-assisted briefing and summarization, Acumatica integration"
-      impact="Website requests went to the right sales team. Staff could log calls, prepare for meetings, and sync account activity in both directions with Acumatica."
+      problem="Before a call, a rep had to piece together the account history from emails and spreadsheets."
+      impact="I built a CRM that sent website inquiries to the right sales team. Reps could log a call, get an AI briefing before a meeting, and keep account activity in sync with Acumatica in both directions."
+      stack="JavaScript PWA, Dexie, IndexedDB, Chart.js"
     />
   </div>
 </div>
@@ -47,7 +47,7 @@ I also became Director of Marketing. I led the rebrand, rebuilt the website, des
   <div class="md:col-span-2">
     <ProjectScreenshot
       src="/assets/kse/CRM%20Main.png"
-      alt="Kansas Electric CRM console with account and activity workflows"
+      alt="Kansas Electric CRM showing customer accounts and recent sales activity"
       caption="The main screen shows accounts and recent sales activity together."
       width={1255}
       height={942}
@@ -55,7 +55,7 @@ I also became Director of Marketing. I led the rebrand, rebuilt the website, des
   </div>
   <ProjectScreenshot
     src="/assets/kse/CRM%20Activity.png"
-    alt="Kansas Electric CRM activity logging with pipeline context"
+    alt="Kansas Electric CRM screen for logging a sales call and checking the pipeline"
     caption="Reps can record a call and see how quickly opportunities are moving."
     width={901}
     height={764}
@@ -70,27 +70,27 @@ I also became Director of Marketing. I led the rebrand, rebuilt the website, des
   <ProjectScreenshot
     src="/assets/kse/CRM%20Briefing.png"
     alt="Kansas Electric customer briefing with account context and early opportunity signals"
-    caption="A briefing combines account notes with signs of upcoming work before a request for proposals is issued."
+    caption="Before a customer puts a job out for bid, the rep can already see account notes and signs of upcoming work."
     width={700}
     height={409}
   />
   <ProjectScreenshot
     src="/assets/kse/CRM%20Debrief.png"
     alt="Kansas Electric CRM debrief showing next steps and follow-up planning"
-    caption="After a meeting, the rep records what was agreed and when to follow up."
+    caption="After a meeting, the rep records what they agreed with the customer and when to call back."
     width={708}
     height={419}
   />
 </div>
 
-## Field Reports: capture now, synchronize later
+## <span id="field-reports-capture-now-synchronize-later">Filing a report from a site with no signal</span>
 <div class="grid gap-5 md:grid-cols-2">
   <div class="md:col-span-2">
     <AppShowcaseCard
       title="Field Reports"
       problem="A technician needed to finish the daily report even when the job site had no connection."
-      stack="Offline-first PWA, Apps Script, Drive + Sheets, guided video capture, AI-assisted structured reporting"
-      impact="Crews could record a report offline and review the summary before sending it."
+      impact="Crews could record a video offline, then check the AI-generated report before it went to the office."
+      stack="Offline PWA, Apps Script, Google Drive and Sheets"
     />
   </div>
 </div>
@@ -119,15 +119,15 @@ I also became Director of Marketing. I led the rebrand, rebuilt the website, des
   />
 </div>
 
-## Estimate Accelerator: documents to reviewable take-offs
+## <span id="estimate-accelerator-documents-to-reviewable-take-offs">Getting quantities out of a bid package</span>
 
 <div class="grid gap-5 md:grid-cols-2">
   <div class="md:col-span-2">
     <AppShowcaseCard
       title="Estimate Accelerator"
-      problem="RFP packages took too long to convert into structured take-offs."
-      stack="PWA, Web Worker parsing, OpenAI Vision, OCR fallback, confidence scoring, historical pricing signals"
-      impact="Estimators checked quantities against the source documents before export. The app cut estimating time by about 50–60% and improved estimating accuracy by about 25%."
+      problem="Before our estimators could price a job, they had to go through the bid documents and pull out the quantities by hand."
+      impact="The app pulled out a first pass at the quantities. Estimators checked them against the documents before exporting the take-off. That cut estimating time by about 50–60% and improved accuracy by about 25%."
+      stack="PWA, Web Workers, OpenAI Vision with an OCR fallback"
     />
   </div>
 </div>
@@ -161,37 +161,35 @@ I also became Director of Marketing. I led the rebrand, rebuilt the website, des
   <AppShowcaseCard
     title="Opportunity Radar"
     problem="Opportunity lists lived in separate spreadsheets and went out of date."
-    stack="Apps Script web app, Google Sheets backend, trigger-driven refreshes, stage-weighted rollups"
-    impact="Reps could check one list for open bids without asking for the latest spreadsheet."
+    impact="Reps had one list of open bids. It refreshed on a schedule and tallied their value using the weight for each sales stage."
+    stack="Apps Script and Google Sheets"
   />
   <AppShowcaseCard
     title="Smart Contacts"
     problem="Reps spent time looking for the right contact before a call."
-    stack="Web app, client-side indexed search, tag filters, fast table rendering"
-    impact="A rep could look up a contact by name, company, tag, or role."
+    impact="A rep could search by name, company, tag, or role. I indexed the contacts in the browser to keep the list fast."
   />
   <AppShowcaseCard
     title="Labor Planner"
-    problem="Managers had to total crew assignments by division by hand."
-    stack="Apps Script automation, Sheets templates, daily rollups, division-level summaries"
-    impact="Managers received daily staffing totals by division."
+    problem="Every day, managers counted crew assignments by hand to see how many people each division had."
+    impact="I set up a script to count the assignments in our Google Sheets templates and send managers the daily totals."
+    stack="Google Apps Script"
   />
   <AppShowcaseCard
     title="BD Forecast"
-    problem="Stage-based forecasting was inconsistent across teams."
-    stack="Apps Script automation, standardized stages, weighted pipeline math, scheduled snapshots"
-    impact="Teams used the same stage weights to produce a 90-day forecast."
+    problem="Two teams could look at bids at the same stage and count them differently in the forecast."
+    impact="I gave the teams one set of stage weights and used Apps Script to save a snapshot of the 90-day forecast on a schedule."
   />
   <AppShowcaseCard
     title="Customer Intel"
-    problem="Before a customer call, a rep had to look up both the account research and the sources behind it."
-    stack="Apps Script automation, research capture forms, structured Sheets schema, enrichment links"
-    impact="Reps could find their research and source links in one place."
+    problem="A rep might have notes on a customer but still have to hunt for the source before a call."
+    impact="I built a form that saved the research and the original links together in Google Sheets."
+    stack="Google Apps Script"
   />
 </div>
 
-## Architecture choices
+## <span id="architecture-choices">Keeping the apps running</span>
 
-**Offline field reports.** I used service worker caching and IndexedDB to keep reports on the device until the crew had a connection. Apps Script stored the media in Drive and the report rows in Sheets.
+I used a service worker and IndexedDB so crews could open the app and keep a report on the device until they had a connection. Apps Script saved the video in Drive and the report details in Sheets.
 
-<p id="what-i-owned"><strong>Rollout and maintenance.</strong> I built the public site with Astro and Tailwind, documented the procedures, and maintained the internal apps, their supporting services, and the GitHub workflows used to ship changes.</p>
+<p id="what-i-owned">I built the public website with Astro and Tailwind. I also wrote the instructions for our team and looked after the apps, the services they used, and the GitHub workflows I used to release updates.</p>

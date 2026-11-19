@@ -33,7 +33,7 @@ const moduleScreens: Record<string, { href: string; label: string }> = {
         <figcaption><span>Demo workspace with sample records · October 28, 2026</span><a href="/assets/abs-console/today-desktop.png">View full size</a></figcaption>
       </figure>
     </div>
-    <dl class="abs-facts"><div><dt>Founder · 2026–Present</dt><dd>Atlas-Beren Systems<br />Product design, application code, and database design</dd></div><div><dt>Built for</dt><dd>Trade contractors, field-service businesses, and project teams</dd></div></dl>
+    <dl class="abs-facts"><div><dt>Founder · 2026–Present</dt><dd>Atlas-Beren Systems<br />I designed the interface and database.</dd></div><div><dt>Built for</dt><dd>Trade contractors, field-service businesses, and project teams</dd></div></dl>
     <nav class="section-nav mt-8" aria-label="ABS Console sections"><a href="#customer-journey">Workflow</a><a href="#modules">Modules</a><a href="#full-stack">Technology</a><a href="#engineering">Engineering</a><a href="#delivery-and-boundaries">Current scope</a></nav>
   </section>
 
@@ -63,7 +63,7 @@ const moduleScreens: Record<string, { href: string; label: string }> = {
     <div class="section-space page-container">
       <h2 id="stack-heading" class="section-title">How I built<br />ABS Console.</h2>
       <div class="stack-grid">{stackGroups.map((group) => <article><h3>{group.title}</h3><ul aria-label={`${group.title} technologies`}>{group.technologies.map((technology) => <li>{technology}</li>)}</ul><p>{group.purpose}</p></article>)}</div>
-      <div class="integration-row"><h3>Provider adapters</h3><p>Zoho Mail · Gmail & Google Calendar · Outlook & Microsoft Calendar · QuickBooks Online · Xero · Stripe · Hunter</p></div>
+      <div class="integration-row"><h3>Service integrations</h3><p>Zoho Mail · Gmail & Google Calendar · Outlook & Microsoft Calendar · QuickBooks Online · Xero · Stripe · Hunter</p></div>
       <p class="integration-note">{integrationNote}</p>
     </div>
   </section>
