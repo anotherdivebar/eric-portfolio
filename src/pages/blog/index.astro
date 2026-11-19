@@ -12,9 +12,6 @@ const posts = (await getCollection("blog")).sort(
     <div class="page-container">
       <div class="max-w-2xl">
         <h1 class="page-title mt-5">Field notes.</h1>
-        <p class="page-intro mt-7">
-          Notes on what happens between winning a job, doing the work, and getting paid.
-        </p>
       </div>
       <div class="mt-12 border-b border-border sm:mt-16">
         {posts.map((post) => (

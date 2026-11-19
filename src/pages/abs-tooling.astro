@@ -23,12 +23,11 @@ const images: Record<string, { src: string; height: number; alt: string }> = {
   operations: { src: "/assets/abs-console/operations-dashboard.png", height: 1991, alt: "ABS Console demo operations workspace connecting estimates, field work, maintenance, and financial activity" }
 };
 ---
-<Base title="ABS Console | Product and Engineering by Eric Martin" description="Eric Martin built ABS Console to connect sales, field jobs, and billing. Explore the seven modules, demo screens, and engineering decisions behind the product.">
+<Base title="ABS Console | Product and Engineering by Eric Martin" description="Eric Martin built ABS Console to connect sales, field jobs, and billing for trade and field-service businesses. One customer record links estimates, jobs, and invoices.">
   <section class="page-container abs-hero" aria-labelledby="abs-title">
     <a href="/technical-projects" class="text-link">All projects</a>
     <div class="abs-heading-grid">
       <div>
-        <p class="eyebrow">Featured product / Atlas-Beren Systems</p>
         <h1 id="abs-title">ABS <em>Console.</em></h1>
         <p class="abs-deck">Sales, field work, and billing in one place.</p>
         <p class="abs-intro">I founded Atlas-Beren Systems and built ABS Console for trade and field-service businesses. It keeps the customer’s approved estimate with the job, so the crew can see what was promised and the office can see what to bill.</p>
@@ -49,11 +48,11 @@ const images: Record<string, { src: string; height: number; alt: string }> = {
   </section>
 
   <section id="problem" class="page-container section-space" aria-labelledby="problem-heading">
-    <div class="problem-heading"><p class="eyebrow">The problem I set out to solve</p><h2 id="problem-heading" class="section-title mt-4">What did we promise<br />the customer?</h2><p>When an estimate lives in one tool, the crew schedule in another, and costs in a spreadsheet, someone has to piece together the answer before work can start or an invoice can go out.</p></div>
+    <div class="problem-heading" id="the-business-problem"><h2 id="problem-heading" class="section-title">What did we promise<br />the customer?</h2><p>When an estimate lives in one tool, the crew schedule in another, and costs in a spreadsheet, someone has to piece together the answer before work can start or an invoice can go out.</p></div>
     <div class="problem-grid">
-      <article><span>The problem</span><h3>The crew needs the agreed scope.</h3><p>Sales knows what the customer agreed to. The crew needs that scope on site. Once the job is done, finance needs the completion record and costs to prepare the bill.</p></article>
-      <article><span>What I built</span><h3>One customer record links the work.</h3><p>I linked research, sales opportunities, estimates, projects, field jobs, and invoices to the same customer. Each team can open the original record as work changes hands.</p></article>
-      <article><span>In practice</span><h3>Trace the estimate through billing.</h3><p>An accepted estimate creates a linked job. An owner can open that job to compare the invoice with recorded costs and see which costs are still missing.</p></article>
+      <article><h3>The crew needs the agreed scope.</h3><p>Once the job is done, finance needs the completion record and costs to prepare the bill.</p></article>
+      <article><h3>One customer record links the work.</h3><p>I linked research, sales opportunities, estimates, projects, field jobs, and invoices to the same customer. Each team can open the original record as work changes hands.</p></article>
+      <article><h3>Trace the estimate through billing.</h3><p>An accepted estimate creates a linked job. An owner can open that job to compare the invoice with recorded costs and see which costs are still missing.</p></article>
     </div>
     <p class="image-note">The screens on this page use fictional customer and job records.</p>
   </section>
@@ -62,7 +61,7 @@ const images: Record<string, { src: string; height: number; alt: string }> = {
 
   <section id="modules" class="module-section" aria-labelledby="modules-heading">
     <div class="page-container section-space">
-      <div class="module-section-heading"><div><p class="eyebrow">Inside the platform</p><h2 id="modules-heading" class="section-title mt-4">The seven modules</h2></div><p>Start with a part of the business you know. CRM and Prospect Finding share the Sales workspace.</p></div>
+      <div class="module-section-heading"><h2 id="modules-heading" class="section-title">The seven modules</h2><p>CRM and Prospect Finding share the Sales workspace.</p></div>
       <div class="module-explorer" data-module-explorer>
         <div class="module-selector" role="tablist" aria-label="ABS Console modules" aria-orientation="vertical" hidden>
           {modules.map((module) => <button type="button" id={`tab-${module.id}`} role="tab" aria-controls={module.id} aria-selected="false" tabindex="-1" data-module-target={module.id}><span>{labels[module.id]}</span><span class="module-arrow" aria-hidden="true">↗</span></button>)}
@@ -70,11 +69,10 @@ const images: Record<string, { src: string; height: number; alt: string }> = {
         <div class="module-panels">
           {modules.map((module) => (
             <section id={module.id} class="module-panel" data-module-panel>
-              <p class="eyebrow">{module.kicker}</p>
               <h3>{module.title}</h3><p class="module-description">{module.description}</p>
               <div class="module-detail-grid">
-                <div><h4>What it can do</h4><ul class="module-capabilities">{module.capabilities.map((item) => <li><span aria-hidden="true">↗</span>{item}</li>)}</ul></div>
-                <aside class="module-connection"><p class="eyebrow">How the work connects</p><ol>{flows[module.id].map((step, stepIndex) => <li><span aria-hidden="true">0{stepIndex + 1}</span>{step}</li>)}</ol><p>{module.connection}</p></aside>
+                <div><h4>Capabilities</h4><ul class="module-capabilities">{module.capabilities.map((item) => <li><span aria-hidden="true">↗</span>{item}</li>)}</ul></div>
+                <aside class="module-connection"><h4>Workflow</h4><ol>{flows[module.id].map((step, stepIndex) => <li><span aria-hidden="true">0{stepIndex + 1}</span>{step}</li>)}</ol><p>{module.connection}</p></aside>
               </div>
               {images[module.id] && <figure class="module-screenshot"><a href={images[module.id].src} aria-label={`View full-size ${labels[module.id]} screenshot`}><OptimizedImage src={images[module.id].src} alt={images[module.id].alt} width="1265" height={images[module.id].height} sizes="(max-width: 700px) calc(100vw - 90px), 850px" /></a><figcaption>{labels[module.id]} · Sample records <a href={images[module.id].src}>View full size ↗</a></figcaption></figure>}
             </section>
@@ -85,14 +83,14 @@ const images: Record<string, { src: string; height: number; alt: string }> = {
   </section>
 
   <section class="section-space page-container" aria-labelledby="shared-heading">
-    <div class="max-w-3xl"><p class="eyebrow">The shared foundation</p><h2 id="shared-heading" class="section-title mt-4">Tools that work<br />across modules.</h2></div>
+    <div class="max-w-3xl"><h2 id="shared-heading" class="section-title">Tools that work<br />across modules.</h2></div>
     <div class="shared-grid">{platformCapabilities.map((capability) => <article><h3>{capability.title}</h3><p>{capability.description}</p></article>)}</div>
-    <div class="mobile-product-note"><OptimizedImage src="/assets/abs-console/today-mobile.png" alt="ABS Console demo Today view on a mobile screen" width="375" height="1859" sizes="200px" /><div><p class="eyebrow">From the office to the field</p><h3>A daily view for the field.</h3><p>The Today view puts priorities on a phone. Crews can record work offline, and customers can check quotes, appointments, and bills through their own portal.</p><a class="text-link" href="/assets/abs-console/today-mobile.png">See the mobile workspace ↗</a></div></div>
+    <div class="mobile-product-note"><OptimizedImage src="/assets/abs-console/today-mobile.png" alt="ABS Console demo Today view on a mobile screen" width="375" height="1859" sizes="200px" /><div><h3>A daily view for the field.</h3><p>The Today view puts priorities on a phone. Crews can record work offline, and customers can check quotes, appointments, and bills through their own portal.</p><a class="text-link" href="/assets/abs-console/today-mobile.png">See the mobile workspace ↗</a></div></div>
   </section>
 
   <section id="full-stack" class="section-dark" aria-labelledby="stack-heading">
     <div class="section-space page-container">
-      <div class="stack-heading"><div><p class="eyebrow">From the interface to the database</p><h2 id="stack-heading" class="section-title mt-4">How I built<br />ABS Console.</h2></div><p>I designed the interface, wrote the server and database logic, built the integrations, and tested what happens when work crosses from one module to the next.</p></div>
+      <h2 id="stack-heading" class="section-title">How I built<br />ABS Console.</h2>
       <div class="stack-grid">{stackGroups.map((group) => <article><h3>{group.title}</h3><ul aria-label={`${group.title} technologies`}>{group.technologies.map((technology) => <li>{technology}</li>)}</ul><p>{group.purpose}</p></article>)}</div>
       <div class="integration-row"><h3>Connected services</h3><p>Zoho Mail · Gmail & Google Calendar · Outlook & Microsoft Calendar · QuickBooks Online · Xero · Stripe · Hunter</p></div>
       <p class="integration-note">{integrationNote}</p>
@@ -100,7 +98,7 @@ const images: Record<string, { src: string; height: number; alt: string }> = {
   </section>
 
   <section id="engineering" class="section-space page-container" aria-labelledby="engineering-heading">
-    <div class="engineering-grid"><div class="engineering-title"><p class="eyebrow">Ownership & implementation</p><h2 id="engineering-heading" class="section-title mt-4">Engineering decisions</h2><p class="mt-5 text-sm leading-relaxed text-muted">How the console handles two people editing a job, a forecast that changes, or an invoice that appears twice.</p><div class="mt-7 engineering-contents"><PageContents headings={headings.filter((heading) => heading.depth === 2)} label="Engineering details" /></div></div><article class="prose min-w-0"><Content /></article></div>
+    <div class="engineering-grid"><div class="engineering-title"><h2 id="engineering-heading" class="section-title">Engineering decisions</h2><div class="mt-7 engineering-contents"><PageContents headings={headings.filter((heading) => heading.depth === 2)} label="Engineering details" /></div></div><article class="prose min-w-0"><Content /></article></div>
     <div class="evidence-note"><p>{productEvidenceNote}</p><a class="text-link" href="/technical-projects">Explore more projects ↗</a></div>
   </section>
 </Base>
@@ -161,14 +159,13 @@ const images: Record<string, { src: string; height: number; alt: string }> = {
   .problem-heading > p:last-child { margin-top: 24px; color: #5d6a63; line-height: 1.8; font-size: 1.05rem; }
   .problem-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 24px; margin-top: 32px; }
   .problem-grid article { padding: 28px; border: 1px solid #dce3dc; border-radius: 16px; background: #edf1e9; }
-  .problem-grid span { color: #176958; font-size: .68rem; letter-spacing: .08em; text-transform: uppercase; }
-  .problem-grid h3 { margin-top: 16px; font-size: 1.35rem; line-height: 1.3; }
+  .problem-grid h3 { font-size: 1.35rem; line-height: 1.3; }
   .problem-grid p { margin-top: 14px; color: #5d6a63; font-size: .9rem; line-height: 1.8; }
   @media (max-width: 800px) { .problem-grid { grid-template-columns: 1fr; } }
 
   .abs-hero { padding-top: clamp(1.4rem, 3vw, 3rem); }
   .abs-heading-grid { display: grid; grid-template-columns: minmax(0, .85fr) minmax(0, 1.15fr); align-items: center; gap: clamp(1.75rem, 4vw, 4rem); margin-top: clamp(1.3rem, 2.8vw, 2.75rem); }
-  #abs-title { margin-top: .65rem; font-family: var(--display); font-size: clamp(3.7rem, 7.5vw, 7rem); font-weight: 400; line-height: .98; letter-spacing: -.035em; }
+  #abs-title { font-family: var(--display); font-size: clamp(3.7rem, 7.5vw, 7rem); font-weight: 400; line-height: .98; letter-spacing: -.035em; }
   #abs-title em { color: var(--accent); }
   .abs-deck { margin-top: 1.15rem; font-weight: 550; font-size: clamp(1.2rem, 1.8vw, 1.55rem); line-height: 1.35; letter-spacing: -.035em; }
   .abs-intro { margin-top: .8rem; max-width: 52ch; color: var(--muted); line-height: 1.7; }
@@ -199,7 +196,7 @@ const images: Record<string, { src: string; height: number; alt: string }> = {
   .module-arrow { margin-left: auto; color: #ccebb8; opacity: 0; }
   [aria-selected="true"] .module-arrow { opacity: 1; }
   .module-panel { background: #fff; border: 1px solid #dce3dc; border-radius: 18px; padding: clamp(24px,3vw,38px); margin-bottom: 20px; min-width: 0; }
-  .module-panel > h3 { font-size: clamp(1.8rem,3vw,2.4rem); line-height: 1.15; font-weight: 550; margin-top: 16px; }
+  .module-panel > h3 { font-size: clamp(1.8rem,3vw,2.4rem); line-height: 1.15; font-weight: 550; }
   .module-description { color: #5d6a63; font-size: .94rem; line-height: 1.8; margin-top: 16px; max-width: 65ch; }
   .module-detail-grid { display: grid; grid-template-columns: 1.2fr .85fr; gap: 26px; margin-top: 28px; align-items: start; }
   h4 { font-size: .8rem; font-weight: 650; }
@@ -222,10 +219,8 @@ const images: Record<string, { src: string; height: number; alt: string }> = {
   .mobile-product-note { display: grid; grid-template-columns: 200px 1fr; gap: 70px; align-items: center; margin-top: 56px; padding: 40px 70px 0; border-radius: 20px; background: #e6edde; max-height: 430px; overflow: hidden; }
   .mobile-product-note :global(img) { width: 200px; align-self: start; border: 6px solid #152e27; border-radius: 26px; }
   .mobile-product-note > div { align-self: start; padding-block: 20px 40px; }
-  .mobile-product-note h3 { margin-top: 16px; font-size: 2.1rem; line-height: 1.15; font-weight: 550; }
+  .mobile-product-note h3 { font-size: 2.1rem; line-height: 1.15; font-weight: 550; }
   .mobile-product-note p:not(.eyebrow) { margin-block: 18px; max-width: 480px; color: #5d6a63; font-size: .9rem; line-height: 1.8; }
-  .stack-heading { display: grid; grid-template-columns: 1.2fr 1fr; gap: 60px; align-items: end; }
-  .stack-heading > p { color: #bdcec4; line-height: 1.8; font-size: .95rem; }
   .stack-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 36px; margin-top: 48px; }
   .stack-grid article { border-top: 1px solid #496052; padding-top: 22px; }
   .stack-grid h3 { font-size: 1.15rem; font-weight: 550; }
@@ -244,6 +239,6 @@ const images: Record<string, { src: string; height: number; alt: string }> = {
   .evidence-note { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 24px; border-top: 1px solid #dce3dc; margin-top: 40px; padding-top: 25px; }
   .evidence-note > p { max-width: 700px; font-size: .75rem; color: #5d6a63; line-height: 1.8; }
   @media (max-width: 1023px) { .module-explorer.is-enhanced { grid-template-columns: 190px minmax(0,1fr); gap: 18px; } .module-detail-grid { grid-template-columns: 1fr; } .module-connection ol { grid-template-columns: repeat(3,1fr); gap: 10px; } .module-connection li { flex-direction: column; } .stack-grid { grid-template-columns: repeat(2,1fr); } .engineering-grid { gap: 40px; } .mobile-product-note { gap: 40px; padding-inline: 40px; } }
-  @media (max-width: 700px) { .module-section-heading, .stack-heading, .engineering-grid { grid-template-columns: 1fr; gap: 28px; } .abs-facts { grid-template-columns: 1fr; gap: 20px; margin-top: 32px; } .module-explorer.is-enhanced { display: block; } .module-selector { position: static; grid-template-columns: repeat(2, minmax(0,1fr)); gap: 6px; margin-bottom: 20px; } .module-selector button { font-size: .75rem; padding: 12px 10px; gap: 8px; } .module-arrow { display: none; } .module-panel { padding: 24px; } .module-connection ol { grid-template-columns: 1fr; } .module-connection li { flex-direction: row; } .shared-grid { grid-template-columns: 1fr; } .mobile-product-note { grid-template-columns: 110px 1fr; gap: 22px; padding: 24px 24px 0; max-height: 450px; } .mobile-product-note :global(img) { width: 110px; border-width: 4px; border-radius: 18px; } .mobile-product-note > div { padding-top: 0; } .mobile-product-note h3 { font-size: 1.4rem; } .mobile-product-note p:not(.eyebrow) { font-size: .8rem; } .mobile-product-note .text-link { font-size: .73rem; } .stack-grid { gap: 30px 24px; } .integration-row { grid-template-columns: 1fr; gap: 12px; } .engineering-title { position: static; } }
+  @media (max-width: 700px) { .module-section-heading, .engineering-grid { grid-template-columns: 1fr; gap: 28px; } .abs-facts { grid-template-columns: 1fr; gap: 20px; margin-top: 32px; } .module-explorer.is-enhanced { display: block; } .module-selector { position: static; grid-template-columns: repeat(2, minmax(0,1fr)); gap: 6px; margin-bottom: 20px; } .module-selector button { font-size: .75rem; padding: 12px 10px; gap: 8px; } .module-arrow { display: none; } .module-panel { padding: 24px; } .module-connection ol { grid-template-columns: 1fr; } .module-connection li { flex-direction: row; } .shared-grid { grid-template-columns: 1fr; } .mobile-product-note { grid-template-columns: 110px 1fr; gap: 22px; padding: 24px 24px 0; max-height: 450px; } .mobile-product-note :global(img) { width: 110px; border-width: 4px; border-radius: 18px; } .mobile-product-note > div { padding-top: 0; } .mobile-product-note h3 { font-size: 1.4rem; } .mobile-product-note p:not(.eyebrow) { font-size: .8rem; } .mobile-product-note .text-link { font-size: .73rem; } .stack-grid { gap: 30px 24px; } .integration-row { grid-template-columns: 1fr; gap: 12px; } .engineering-title { position: static; } }
   @media (max-width: 420px) { .stack-grid { grid-template-columns: 1fr; } .mobile-product-note { grid-template-columns: 1fr; max-height: none; padding: 24px; } .mobile-product-note :global(img) { display: none; } .mobile-product-note > div { padding-bottom: 0; } }
 </style>

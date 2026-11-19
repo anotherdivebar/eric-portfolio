@@ -92,11 +92,9 @@
 .nav-disclosure summary::-webkit-details-marker { display: none; }
 .menu-chevron { transition: transform .18s; }
 .nav-disclosure[open] .menu-chevron { transform: rotate(180deg); }
-.nav-dropdown { position: absolute; top: calc(100% + 12px); right: -24px; width: 320px; padding: 8px; border: 1px solid var(--line); border-radius: 14px; background: #fff; box-shadow: 0 16px 48px rgb(23 35 31 / 12%); }
-.nav-dropdown a { display: block; padding: 14px; border-radius: 8px; }
+.nav-dropdown { position: absolute; top: calc(100% + 12px); right: -24px; width: max-content; min-width: 12rem; padding: 8px; border: 1px solid var(--line); border-radius: 14px; background: #fff; box-shadow: 0 16px 48px rgb(23 35 31 / 12%); }
+.nav-dropdown a { display: block; padding: 14px; border-radius: 8px; font-size: .875rem; font-weight: 600; color: var(--ink); }
 .nav-dropdown a:hover, .nav-dropdown a[aria-current] { background: #edf1e9; }
-.nav-dropdown span { display: block; font-size: .875rem; font-weight: 600; color: var(--ink); }
-.nav-dropdown small { display: block; margin-top: 4px; font-size: .75rem; line-height: 1.5; color: var(--muted); }
 .mobile-menu { display: none; }
 .site-footer { background: var(--night); color: #c2d0d0; margin-top: 64px; padding-block: 64px 28px; }
 .footer-invitation { margin-top: 1rem; color: var(--canvas); font: 400 clamp(2.4rem, 4.2vw, 4rem)/1.06 var(--display); }

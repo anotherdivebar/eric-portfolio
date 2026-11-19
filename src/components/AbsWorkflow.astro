@@ -36,10 +36,7 @@ const steps = [
 ];
 ---
 <section id="customer-journey" class="section-space page-container" aria-labelledby="connected-heading">
-  <div class="workflow-heading">
-    <div><p class="eyebrow">A service job in ABS Console</p><h2 id="connected-heading" class="section-title mt-4">From first contact<br />to invoice.</h2></div>
-    <p>Follow a service job through four stages. Each team starts with the record the previous team handed over.</p>
-  </div>
+  <h2 id="connected-heading" class="section-title">From first contact<br />to invoice.</h2>
   <p class="workflow-example">Example workflow with fictional records</p>
   <ol class="workflow-steps" aria-label="From prospect research to invoiced work">
     {steps.map((step) => <li><p class="workflow-stage">{step.stage}</p><h3>{step.title}</h3><p class="workflow-description">{step.description}</p><p class="workflow-handoff">{step.handoff}</p><a href={step.href}>{step.link}<span aria-hidden="true"> ↗</span></a></li>)}
@@ -56,8 +53,6 @@ const steps = [
   </div>
 </section>
 <style>
-  .workflow-heading { display: grid; grid-template-columns: 1.2fr 1fr; gap: 60px; align-items: end; }
-  .workflow-heading > p { color: #5d6a63; font-size: .95rem; line-height: 1.8; max-width: 48ch; }
   .workflow-example { margin-top: 32px; color: #5d6a63; font-size: .7rem; line-height: 1.6; }
   .workflow-steps { display: grid; grid-template-columns: repeat(4,minmax(0,1fr)); margin-top: 14px; border: 1px solid #dce3dc; border-radius: 16px; overflow: hidden; background: #fff; }
   .workflow-steps > li { display: flex; flex-direction: column; padding: 26px 23px; min-width: 0; }
@@ -80,7 +75,7 @@ const steps = [
   figcaption p { margin-top: 10px; color: #5d6a63; font-size: .78rem; line-height: 1.75; }
   figcaption strong { font-weight: 600; color: #415c4c; }
   figcaption a { display: inline-block; margin-top: 15px; font-size: .72rem; color: #176958; font-weight: 550; }
-  @media (max-width: 1023px) { .workflow-heading { gap: 35px; } .workflow-steps { grid-template-columns: repeat(2,minmax(0,1fr)); } .workflow-steps > li:nth-child(3) { border-left: 0; } .workflow-steps > li:nth-child(n+3) { border-top: 1px solid #dce3dc; } }
-  @media (max-width: 700px) { .workflow-heading { grid-template-columns: 1fr; gap: 22px; } .workflow-heading > p { font-size: .88rem; } .workflow-screens { grid-template-columns: 1fr; gap: 20px; } .workflow-steps > li { padding: 22px 20px; } .workflow-steps h3 { font-size: 1.12rem; } .workflow-example { margin-top: 24px; } }
+  @media (max-width: 1023px) { .workflow-steps { grid-template-columns: repeat(2,minmax(0,1fr)); } .workflow-steps > li:nth-child(3) { border-left: 0; } .workflow-steps > li:nth-child(n+3) { border-top: 1px solid #dce3dc; } }
+  @media (max-width: 700px) { .workflow-screens { grid-template-columns: 1fr; gap: 20px; } .workflow-steps > li { padding: 22px 20px; } .workflow-steps h3 { font-size: 1.12rem; } .workflow-example { margin-top: 24px; } }
   @media (max-width: 480px) { .workflow-steps { grid-template-columns: 1fr; } .workflow-steps > li + li { border-left: 0; border-top: 1px solid #dce3dc; } .workflow-handoff { padding-top: 16px; } figcaption { padding: 20px; } }
 </style>

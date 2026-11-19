@@ -3,7 +3,6 @@ export const modules = [
   {
     id: "crm",
     title: "CRM & revenue management",
-    kicker: "Sales and forecasting",
     description: "A sales rep can open an account and see its conversations, opportunities, and next follow-up. A manager can open the deals behind a forecast.",
     capabilities: [
       "Configurable pipelines, deal stages, owners, activity history, and follow-up queues.",
@@ -17,7 +16,6 @@ export const modules = [
   {
     id: "prospecting",
     title: "Prospect Finding",
-    kicker: "Prospect research",
     description: "Find businesses in a territory, check what they do, and save questions for the first conversation. Each finding links back to its source.",
     capabilities: [
       "Geographic business discovery using Overture Maps, saved searches, and qualification filters.",
@@ -31,7 +29,6 @@ export const modules = [
   {
     id: "marketing",
     title: "Marketing & growth",
-    kicker: "Campaign planning and reporting",
     description: "A marketing team can plan content, track search visibility, and run campaigns in one place. Each campaign can link its spending to the jobs it helped generate.",
     capabilities: [
       "Saved homepage SEO and answer-engine readiness audits with findings and history.",
@@ -45,7 +42,6 @@ export const modules = [
   {
     id: "financial",
     title: "Financial visibility",
-    kicker: "Cash, costs, and margin",
     description: "Owners can see what they have invoiced, when they expect payment, and which costs have been recorded. Reports keep currencies separate and flag gaps in the source records.",
     capabilities: [
       "Cash, receivables, payables, overdue balances, and operating-health views.",
@@ -59,7 +55,6 @@ export const modules = [
   {
     id: "projects",
     title: "Project management",
-    kicker: "Project delivery",
     description: "Turn the agreed scope into tasks with owners and dependencies. Project teams can see what is holding up the work and how an approved change affects costs.",
     capabilities: [
       "Tasks, milestones, RFIs, submittals, punch items, and change requests.",
@@ -73,7 +68,6 @@ export const modules = [
   {
     id: "operations",
     title: "Connected Operations & CMMS",
-    kicker: "Field service and maintenance",
     description: "Dispatchers, crews, and the office share the same job record from estimate to invoice. A maintenance team can also track assets, assign technicians, and check which parts are available.",
     capabilities: [
       "Itemized estimates, PDF drawing measurement, source-cited AI bid review, and customer acceptance.",
@@ -88,7 +82,6 @@ export const modules = [
   {
     id: "automation",
     title: "Automation & agent operations",
-    kicker: "Recurring tasks and approvals",
     description: "Build a recipe for a recurring task, see why its conditions matched, and review the proposed actions. Run history shows which steps succeeded if the task needs another attempt.",
     capabilities: [
       "Native recipe builder with AND/OR conditions, branches, and explained test results.",

@@ -24,9 +24,9 @@ const moreWork = [
   { href: "/blog", label: "Field notes" }
 ];
 const aboutLinks = [
-  { href: "/about", label: "My background", detail: "Experience, principles, and life outside work" },
-  { href: "/skills", label: "Skills & capabilities", detail: "Sales, operations, and hands-on engineering" },
-  { href: "/blog", label: "Field notes", detail: "Essays on sales, delivery, and software" }
+  { href: "/about", label: "My background" },
+  { href: "/skills", label: "Skills & capabilities" },
+  { href: "/blog", label: "Field notes" }
 ];
 const isContact = path === "/contact";
 ---
@@ -64,7 +64,7 @@ const isContact = path === "/contact";
             <details class="nav-disclosure" data-nav-disclosure>
               <summary class:list={["nav-link", item.active && "nav-link-active"]}>About <span class="menu-chevron" aria-hidden="true">⌄</span></summary>
               <div class="nav-dropdown">
-                {aboutLinks.map((link) => <a href={link.href} aria-current={path === link.href ? "page" : path.startsWith(`${link.href}/`) ? "location" : undefined}><span>{link.label}</span><small>{link.detail}</small></a>)}
+                {aboutLinks.map((link) => <a href={link.href} aria-current={path === link.href ? "page" : path.startsWith(`${link.href}/`) ? "location" : undefined}>{link.label}</a>)}
               </div>
             </details>
           ) : <a href={item.href} class="nav-link" aria-current={item.active ? (path === item.href ? "page" : "location") : undefined}>{item.label}</a>)}

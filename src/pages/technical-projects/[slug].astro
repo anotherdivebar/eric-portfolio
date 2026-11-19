@@ -24,8 +24,7 @@ const facts = [
     <div class="page-container-mid">
       <a class="text-link" href={`/technical-projects#${project.slug}`}>← All projects</a>
       <header class="mt-10 sm:mt-12">
-        <p class="eyebrow">{isBrief ? "System brief" : "Project breakdown"}</p>
-        <h1 class="page-title mt-5">{project.data.title}</h1>
+        <h1 class="page-title">{project.data.title}</h1>
         <p class="page-intro mt-7">{project.data.summary}</p>
       </header>
       <div class="mt-10 grid gap-8 border-y border-border py-8 md:grid-cols-2 md:gap-12 sm:mt-12 sm:py-10">
@@ -37,8 +36,7 @@ const facts = [
       )}
       {!isBrief && <article class="prose mt-12 max-w-none"><Content /></article>}
       <section id="implementation" class="section-space" aria-labelledby="implementation-heading">
-        <p class="eyebrow">Engineering</p>
-        <h2 id="implementation-heading" class="mt-4 text-3xl font-semibold sm:text-4xl">Build details</h2>
+        <h2 id="implementation-heading" class="text-3xl font-semibold sm:text-4xl">Build details</h2>
         <div class="mt-9 grid gap-x-12 gap-y-9 md:grid-cols-2">
           {facts.map((fact) => (
             <div class="border-t border-border pt-6"><h3 class="text-lg font-semibold">{fact.title}</h3><ul class="mt-4 list-disc space-y-3 pl-5 text-sm leading-relaxed text-muted marker:text-accent">{fact.items.map((item) => (<li>{item}</li>))}</ul></div>

@@ -53,14 +53,10 @@ const isCaseStudy = ["kansas-electric", "program-delivery-at-scale"].includes(en
       <article class="work-story prose max-w-none">
         <Content />
       </article>
-      <div class="surface-muted mt-14 p-7 sm:p-9">
-        <h2 class="mt-4 text-2xl font-semibold text-ink">{isCaseStudy ? "Get in touch" : "How this works in ABS Console"}</h2>
-        <p class="mt-4 leading-relaxed text-muted">{isCaseStudy ? "If you’re hiring for sales or business development, I’d like to hear about your customers and the work you want to win." : "The Console case study shows how I connect prospect research, sales, job planning, and billing. It also covers what the current release supports."}</p>
-        <div class="mt-6 flex flex-wrap gap-x-6 gap-y-3">
-          <a href="/contact" class="text-link">Contact Eric <span aria-hidden="true">↗</span></a>
-          <a href="/abs-tooling" class="text-link">Explore ABS Console <span aria-hidden="true">↗</span></a>
-        </div>
-      </div>
+      <nav aria-label="Related portfolio pages" class="mt-14 flex flex-wrap gap-x-6 gap-y-3 border-t border-border pt-5">
+        <a href="/contact" class="text-link">Contact Eric</a>
+        <a href="/abs-tooling" class="text-link">Explore ABS Console</a>
+      </nav>
     </div>
   </div>
 </Base>

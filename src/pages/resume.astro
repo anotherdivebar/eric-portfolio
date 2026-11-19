@@ -76,7 +76,6 @@ const systems = [
           <a class="button-primary" href={resumeUrl} download="Resume - Eric Martin.pdf">Download resume <span class="text-white/70">PDF ↓</span></a>
           <a class="button-secondary" href="/contact">Get in touch <span aria-hidden="true">↗</span></a>
         </div>
-          <p class="mt-4 max-w-2xl text-xs leading-relaxed text-muted">This web resume and the downloadable PDF are maintained separately.</p>
       </div>
 
       <section class="resume-evidence mt-12 grid gap-8 rounded-xl p-7 sm:mt-16 sm:p-10 md:grid-cols-2 md:gap-12" aria-label="Selected sales and growth results">
@@ -154,14 +153,13 @@ const systems = [
       <section id="resume-pdf" class="border-t border-border pt-8" aria-labelledby="pdf-heading">
         <h2 id="pdf-heading" class="text-2xl font-semibold text-ink">Resume PDF</h2>
         <details class="surface-muted mt-5 p-5 sm:p-7" data-resume-preview>
-          <summary class="focus-ring cursor-pointer font-semibold text-accent">Preview the resume <span class="ml-2 text-xs font-normal text-muted">PDF</span></summary>
-          <p class="mt-4 text-sm text-muted">You can also <a class="focus-ring font-semibold text-accent hover:text-accent-dark" href={resumeUrl}>open the PDF directly</a> or use the download link above.</p>
+          <summary class="focus-ring cursor-pointer font-semibold text-accent">Preview the resume</summary>
+          <p class="mt-4 text-sm text-muted"><a class="focus-ring font-semibold text-accent hover:text-accent-dark" href={resumeUrl}>Open the PDF directly</a></p>
           <template>
             <object data={resumeUrl} type="application/pdf" title="Eric Martin resume" class="mt-5 h-[65vh] min-h-[360px] w-full rounded-xl border border-border bg-panel">
               <p class="p-5 text-sm text-muted">Your browser cannot display this PDF. <a class="focus-ring font-semibold text-accent" href={resumeUrl}>Open the resume PDF</a>.</p>
             </object>
           </template>
-          <noscript><p class="mt-4 text-sm"><a class="text-link" href={resumeUrl}>Open the resume PDF</a></p></noscript>
         </details>
       </section>
     </div>
