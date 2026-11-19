@@ -3,6 +3,7 @@ import Base from "../layouts/Base.astro";
 import OptimizedImage from "../components/OptimizedImage.astro";
 import PageContents from "../components/PageContents.astro";
 import AbsWorkflow from "../components/AbsWorkflow.astro";
+import ConsoleDemos from "../components/ConsoleDemos.astro";
 import { getEntry } from "astro:content";
 import { modules, stackGroups, integrationNote } from "../data/abs-console";
 const project = await getEntry("technical-projects", "atlas-beren-console");
@@ -14,29 +15,30 @@ const moduleScreens: Record<string, { href: string; label: string }> = {
   operations: { href: "/assets/abs-console/operations-dashboard.png", label: "View full-size operations dashboard" },
 };
 ---
-<Base title="ABS Console | Product and Engineering by Eric Martin" description="Eric Martin built ABS Console to connect sales, field jobs, and billing for trade and field-service businesses. One customer record links estimates, jobs, and invoices.">
+<Base title="ABS Console | Product and Engineering by Eric Martin" description="Explore Eric Martin’s software for contractors. Try field video tools, rehearse a sales call, and compare crew schedules and job margins in the public AI Studio.">
   <section class="page-container abs-hero" aria-labelledby="abs-title">
     <a href="/technical-projects" class="text-link">All projects</a>
     <div class="abs-heading-grid">
       <div id="problem">
         <h1 id="abs-title">ABS <em>Console.</em></h1>
-        <p id="the-business-problem" class="abs-intro"><span id="problem-heading">I built ABS Console for contractors who estimate, schedule, and bill for field work. The office can open a job and see the approved estimate alongside the crew’s recorded time and materials.</span></p>
+        <p id="the-business-problem" class="abs-intro"><span id="problem-heading">I built ABS Console for contractors who sell, schedule, and bill for field work. A project manager can mark a valve in a job photo and leave a voice note. On the next visit, the assigned technician can point their phone at the valve, hear the note, and compare what changed.</span></p>
         <div class="mt-6 flex flex-wrap gap-3">
-          <a class="button-primary" href="#customer-journey">Follow the workflow</a>
-          <a class="button-secondary" href="#modules">Explore the modules</a>
+          <a class="button-primary" href="#ai-studio">Try the demos</a>
+          <a class="button-secondary" href="#customer-journey">Follow the workflow</a>
         </div>
       </div>
       <figure class="product-stage">
-        <a class="product-frame" href="/assets/abs-console/today-desktop.png" aria-label="View full-size ABS Console workspace screenshot">
-          <OptimizedImage src="/assets/abs-console/today-desktop.png" alt="ABS Console Today view with daily priorities and navigation for sales, delivery, and finance" width="1265" height="1189" sizes="(max-width: 800px) calc(100vw - 70px), (max-width: 1264px) 48vw, 590px" loading="eager" fetchpriority="high" />
+        <a class="product-frame" href="https://atlas-beren-agent-console.vercel.app/demos/room-memory" aria-label="Try the Room Memory demo">
+          <OptimizedImage src="/assets/abs-console/room-memory.jpg" alt="A divider lines up two photos of the same pump. Its housing is gray on the first visit and green on the second." width="810" height="450" sizes="(max-width: 800px) calc(100vw - 70px), (max-width: 1264px) 48vw, 590px" loading="eager" fetchpriority="high" />
         </a>
-        <figcaption><span>Demo workspace with sample records · October 28, 2026</span><a href="/assets/abs-console/today-desktop.png">View full size</a></figcaption>
+        <figcaption><span>Room Memory · Sample return visit</span><a href="https://atlas-beren-agent-console.vercel.app/demos/room-memory">Compare the visits</a></figcaption>
       </figure>
     </div>
     <dl class="abs-facts"><div><dt>Founder · 2026–Present</dt><dd>Atlas-Beren Systems<br />I designed the interface and database.</dd></div><div><dt>Built for</dt><dd>Trade contractors, field-service businesses, and project teams</dd></div></dl>
-    <nav class="section-nav mt-8" aria-label="ABS Console sections"><a href="#customer-journey">Workflow</a><a href="#modules">Modules</a><a href="#full-stack">Technology</a><a href="#engineering">Engineering</a><a href="#delivery-and-boundaries">Current scope</a></nav>
+    <nav class="section-nav mt-8" aria-label="ABS Console sections"><a href="#ai-studio">AI Studio</a><a href="#customer-journey">Workflow</a><a href="#modules">Modules</a><a href="#full-stack">Technology</a><a href="#engineering">Engineering</a><a href="#delivery-and-boundaries">Current scope</a></nav>
   </section>
 
+  <ConsoleDemos />
   <AbsWorkflow />
 
   <section id="modules" class="module-section" aria-labelledby="modules-heading">
@@ -136,14 +138,13 @@ const moduleScreens: Record<string, { href: string; label: string }> = {
   .abs-facts dt { font-size: .78rem; letter-spacing: .08em; text-transform: uppercase; color: var(--muted); }
   .abs-facts dd { margin-top: .5rem; font-size: .92rem; line-height: 1.6; }
   .product-stage { min-width: 0; padding: clamp(.85rem, 2.5vw, 2.25rem) clamp(.85rem, 2.5vw, 2.25rem) 0; border-radius: 1rem; background: linear-gradient(145deg, #275354, var(--night) 82%); }
-  .product-frame { display: block; aspect-ratio: 1.53; overflow: hidden; border: 1px solid #829e99; border-radius: .55rem; box-shadow: 0 .8rem 2rem #07191d4d; }
+  .product-frame { display: block; overflow: hidden; border: 1px solid #829e99; border-radius: .55rem; box-shadow: 0 .8rem 2rem #07191d4d; }
   .product-frame :global(img) { display: block; width: 100%; height: auto; }
   .product-stage figcaption { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: .15rem 1rem; padding-block: .35rem; color: #d4e3de; font-size: .8rem; }
   .product-stage figcaption a { display: inline-flex; align-items: center; min-height: 40px; color: var(--mint); font-weight: 600; }
   .product-stage a:focus-visible { outline-color: var(--mint); }
   @media (max-width: 800px) {
     .abs-heading-grid { grid-template-columns: 1fr; gap: 1.75rem; }
-    .product-frame { aspect-ratio: 1.7; }
   }
   figcaption a { text-decoration: underline; text-underline-offset: 4px; }
   .module-section { background: #edf1e9; border-block: 1px solid #dce3dc; }

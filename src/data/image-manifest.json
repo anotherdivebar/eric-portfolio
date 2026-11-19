@@ -1,11 +1,23 @@
 {
+  "/assets/abs-console/field-pointer.jpg": {
+    "src": "/images/optimized/field-pointer-c4b71fee4f-779.webp",
+    "srcset": "/images/optimized/field-pointer-c4b71fee4f-480.webp 480w, /images/optimized/field-pointer-c4b71fee4f-779.webp 779w"
+  },
   "/assets/abs-console/operations-dashboard.png": {
     "src": "/images/optimized/operations-dashboard-eeede2c98c-1265.webp",
     "srcset": "/images/optimized/operations-dashboard-eeede2c98c-480.webp 480w, /images/optimized/operations-dashboard-eeede2c98c-800.webp 800w, /images/optimized/operations-dashboard-eeede2c98c-1200.webp 1200w, /images/optimized/operations-dashboard-eeede2c98c-1265.webp 1265w"
   },
+  "/assets/abs-console/room-memory.jpg": {
+    "src": "/images/optimized/room-memory-ecfeaad2c1-810.webp",
+    "srcset": "/images/optimized/room-memory-ecfeaad2c1-480.webp 480w, /images/optimized/room-memory-ecfeaad2c1-800.webp 800w, /images/optimized/room-memory-ecfeaad2c1-810.webp 810w"
+  },
   "/assets/abs-console/sales-pipeline.png": {
     "src": "/images/optimized/sales-pipeline-7c6742357c-1265.webp",
     "srcset": "/images/optimized/sales-pipeline-7c6742357c-480.webp 480w, /images/optimized/sales-pipeline-7c6742357c-800.webp 800w, /images/optimized/sales-pipeline-7c6742357c-1200.webp 1200w, /images/optimized/sales-pipeline-7c6742357c-1265.webp 1265w"
+  },
+  "/assets/abs-console/sketch-room.jpg": {
+    "src": "/images/optimized/sketch-room-a286fd3541-863.webp",
+    "srcset": "/images/optimized/sketch-room-a286fd3541-480.webp 480w, /images/optimized/sketch-room-a286fd3541-800.webp 800w, /images/optimized/sketch-room-a286fd3541-863.webp 863w"
   },
   "/assets/abs-console/today-desktop.png": {
     "src": "/images/optimized/today-desktop-8677cc7951-1265.webp",

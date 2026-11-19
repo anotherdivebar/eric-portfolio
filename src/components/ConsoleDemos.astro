@@ -1,0 +1,50 @@
+---
+import OptimizedImage from "./OptimizedImage.astro";
+
+const studio = "https://atlas-beren-agent-console.vercel.app/demos";
+---
+<section id="ai-studio" class="studio" aria-labelledby="studio-heading">
+  <div class="page-container section-space">
+    <div class="studio-heading">
+      <h2 id="studio-heading" class="section-title">Try the AI Studio.</h2>
+      <p>Start with a return visit in <a href={`${studio}/room-memory`}>Room Memory</a>, or try a sales call, a delivery, or a bid below. Each demo opens with sample records and works without a login.</p>
+    </div>
+    <div class="studio-grid">
+      <figure>
+        <a href={`${studio}/sketch-room`} aria-label="Try the Sketch Room demo">
+          <OptimizedImage src="/assets/abs-console/sketch-room.jpg" width="863" height="457" sizes="(max-width: 760px) 90vw, (max-width: 1264px) 45vw, 545px" alt="A cutaway of the room built from the sample sketch, with the doorway, pump, and valve labeled" />
+        </a>
+        <figcaption><h3><a href={`${studio}/sketch-room`}>Sketch Room</a></h3><p>Draw a room with a doorway, pump, and valve. Walk through it in 3D, then move the valve on paper and scan the drawing again.</p></figcaption>
+      </figure>
+      <div class="studio-examples">
+        <div>
+          <h3>Check a delivery</h3>
+          <p>Read a pump label against the purchase order in <a href={`${studio}/ai-studio#field-lens`}>Field Lens</a> or mark a valve on video in <a href={`${studio}/field-pointer`}>Field Pointer</a>. If a replacement is late, compare crew assignments and promised dates in <a href={`${studio}/dispatch-replay`}>Dispatch Replay</a>.</p>
+        </div>
+        <div>
+          <h3>Prepare for a sales call</h3>
+          <p>Rehearse a budget objection in <a href={`${studio}/deal-coach`}>Deal Coach</a>. In <a href={`${studio}/buyer-signals`}>Buyer Signals</a>, choose the buyer’s exact words to include in a sales brief.</p>
+        </div>
+        <div>
+          <h3>Test a decision against past jobs</h3>
+          <p>Change the remaining work on a fixed-price job in <a href={`${studio}/margin-lab`}>Margin Lab</a> to see the effect on margin. In <a href={`${studio}/exception-lab`}>Exception Lab</a>, replay a proposed assignment rule to find the cases it would miss.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<style>
+  .studio { margin-top: 2rem; background: #edf1e9; border-block: 1px solid var(--line); }
+  .studio-heading, .studio-grid { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1.05fr); gap: clamp(2rem, 6vw, 5rem); }
+  .studio-heading { align-items: end; margin-bottom: 2rem; }
+  .studio p { line-height: 1.65; color: var(--muted); }
+  .studio h3 { font-size: 1.15rem; line-height: 1.35; font-weight: 600; }
+  figure { overflow: hidden; align-self: start; background: white; border: 1px solid var(--line); border-radius: .8rem; }
+  figure > a, figure :global(img) { display: block; width: 100%; }
+  figure > a:focus-visible { outline-offset: -4px; outline-color: var(--mint); }
+  figcaption { padding: 1.2rem 1.4rem; }
+  figcaption p, .studio-examples p { margin-top: .45rem; }
+  figcaption a, .studio p a { color: var(--accent); text-decoration: underline; text-underline-offset: .2em; }
+  .studio-examples > div + div { margin-top: 1rem; padding-top: 1rem; border-top: 1px solid var(--line); }
+  @media (max-width: 760px) { .studio-heading, .studio-grid { grid-template-columns: minmax(0, 1fr); } .studio-heading { gap: .8rem; } }
+</style>

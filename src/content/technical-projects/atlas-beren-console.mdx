@@ -1,6 +1,6 @@
 ---
 title: "ABS Console"
-summary: "I built the estimating, dispatch, and billing software for Atlas-Beren Systems. A contractor can trace an invoice back to the estimate the customer approved."
+summary: "I built ABS Console so contractors can compare bids against the crew and cash they have, get a project manager’s decision on a field video call, and trace the final invoice back to the quote."
 why: "An estimate can lose its connection to the original sales conversation or the final invoice. The team needs those records when a customer asks what they agreed to or why a bill changed."
 constraints:
   - "Keep each organization’s records private and let it grant an agency access"
@@ -16,6 +16,7 @@ stack:
   - "Overture Maps, Hunter, Zoho, Gmail, Outlook, and calendar adapters"
   - "QuickBooks Online, Xero, Stripe, Twilio, and Mapbox integration paths"
   - "PDF.js, pdf-lib, ExcelJS, and scoped MCP tools"
+  - "WebRTC field calls and on-device optical character recognition"
   - "Vitest, PGlite / PostgreSQL behavior tests, and Playwright browser verification"
 decisions:
   - "Link opportunities, projects, jobs, and invoices by record ID"
@@ -41,7 +42,7 @@ If the link is missing or two records disagree, someone has to check them. The c
 
 Once a rep submits a forecast, that version stays on file. A manager can look back and see which deals actually closed. Scheduled reports also preserve their filters, dates, and underlying figures.
 
-Reports show what deals are worth separately from the amount already invoiced. Missing close dates and amounts stay visible.
+Before a rep promises a start date, they can compare up to three open deals with draft estimates. The comparison shows which combinations the crew can cover, when materials would run short, and what a larger deposit would do for cash. The rep can carry the chosen terms into the draft quote for review.
 
 ## Connected profit and costs
 
@@ -49,15 +50,23 @@ The same invoice appears in customer, project, campaign, and financial reports. 
 
 You can trace time, materials, other job costs, returns, credits, and reversals back to their source. When a supplier bill and its payment both come in from accounting, someone has to identify which entry records the cost so it only counts once. If the source changes, it may need another look.
 
-Reports keep currencies separate. An owner can open the records behind a margin figure and see which costs are incomplete or still need assigning.
+The job history puts approved labor, invoices, receipts, credits, and deposits in date order. An owner can trace a low margin to a specific cost, then see how much the customer still owes. Costs that still need assigning stay visible.
 
 ## Workspace AI Helper
 
 Someone using **Ask AI** might ask “Which invoices are overdue?” or “What is blocking this project?” The assistant can search the records that person has permission to read and link to the sources behind its answer. It works across all seven modules.
 
-If a customer mentions a payment and asks to change a service date in the same note, the assistant can prepare two changes for review. It shows what needs checking, such as a missing amount, an uncertain customer match, or a change that still needs proof of acceptance.
+I added decision reviews for individual records. A sales rep can compare a buyer’s email with the exclusions in a quote, check the passages behind a finding, correct it, and record what the buyer decided. The same review can use a selected PDF page, a photo, or a text excerpt.
 
-Approving a proposed change runs the same permission, validation, and revision checks as editing the record directly. For a drawing or an accounting question that needs a closer look, the assistant opens the relevant workspace. The same access rules limit which conversations and usage records a user can see.
+For supported records, the reviewer can turn a decision into a proposed edit in Workspace Updates. Approving it runs the same permission, validation, and revision checks as editing the record directly.
+
+## Field video and project manager calls
+
+A technician can record a narrated walkthrough on an assigned job. If the connection drops, the device keeps the clip queued for upload. The office can read an equipment label on the device or use a configured video model to suggest findings. Each finding has a timestamp so a reviewer can replay the moment and correct the observation before sharing it.
+
+During a live call, a project manager can tap a valve on the technician’s video. The technician sees a ring follow that feature as the camera moves. If the camera loses sight of the valve, the ring disappears. The manager can publish a marked still with the decision, owner, and next action. The technician assigned to the job can open it later.
+
+With **Room Memory**, the manager can use that still or a new photo to leave a voice note on a specific piece of equipment. On a return visit, the technician’s phone matches the saved view to the camera image. They can play the note and slide between visits to inspect what changed. The phone processes the live comparison frames locally.
 
 ## Automation that explains its actions
 
@@ -69,13 +78,13 @@ Run history shows each attempt, failure, and completed step. An administrator ca
 
 Customers can open the saved version of a quote, approve it, request service, choose an available appointment, and see their service history and bills. Access requires a verified customer identity. Internal notes and private costs stay with the office.
 
-If the office changes a quote, the customer has to approve it again. Before it confirms an appointment, the portal checks the crew schedule and existing reservations.
+A customer planning equipment replacements can move assets between budget years, check the service and warranty history, and approve the first phase from its saved quotes. They can also ask about an exclusion or line item and open the part of their shared quote that answers it.
 
 ## Business Simulator
 
 An owner can compare up to eight proposed jobs over 13 weeks. The simulator calculates cash in US dollars. Moving a start date can reveal a crew or stock conflict. Changing a deposit shows its effect on daily cash.
 
-A saved prediction preserves the inputs and their timestamps so the team can compare an estimate with actual results. Booking the job, scheduling the crew, buying stock, and posting accounting entries are separate actions.
+A saved prediction keeps the source data and assumptions used for that run. An estimator can replay it later and compare the forecast with reviewed costs and hours from the job. The estimator chooses when to apply terms to the draft quote, and dispatch still books the visit.
 
 ## Migration and recovery
 
@@ -85,6 +94,4 @@ The recovery tools package database records and documents in an encrypted backup
 
 ## Delivery and boundaries
 
-Unit and database tests cover financial calculations and access across organizations. Browser tests follow complete workflows using fictional records.
-
-In the October 28, 2026 version, the marketing team can research, plan, and measure campaigns. It still needs separate tools to publish them or manage live ads.
+The public AI Studio uses fictional jobs, buyers, and equipment records. In a customer workspace, access to clips, quotes, and reviewed decisions follows the person’s role and job assignment. Field calls between networks require a configured relay. Video analysis uses the workspace’s model connection and budget.

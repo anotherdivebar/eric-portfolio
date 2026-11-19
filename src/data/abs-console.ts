@@ -1,4 +1,4 @@
-/** Portfolio copy checked against the ABS Console source at b048d86 (October 28, 2026). */
+/** Portfolio copy checked against ABS Console at c4e5a79 (November 19, 2026). */
 export const modules = [
   {
     id: "crm",
@@ -7,7 +7,8 @@ export const modules = [
       "Configure deal stages, assign owners, and keep an activity history for each account.",
       "Build sales reports from custom fields and formulas. Open the deals behind a total and save the view to a dashboard.",
       "Set sales quotas and record what managers have committed to. Each rep can submit a forecast and schedule their own reports.",
-      "Use the account research to write a series of messages. Review them before sending, then track replies and outcomes.",
+      "Compare the buyer’s request with the scope and exclusions in the draft quote. Review the passages behind a possible conflict.",
+      "Shortlist up to three deals and test what happens to crew availability and cash if you offer a later start or ask for a larger deposit.",
     ],
   },
   {
@@ -15,7 +16,7 @@ export const modules = [
     title: "Prospect Finding",
     capabilities: [
       "Search a territory with Overture Maps, filter for relevant businesses, and save the search.",
-      "Save why the company looks like a fit, where you found that information, and when you checked it. Check the fit score against what the buyer tells you.",
+      "Save the source and date behind each finding. Compare a prospect with customers whose completed jobs earned more than their recorded costs, then check the fit with the buyer.",
       "Record who a contact is and check their email separately with Hunter.",
       "Track company news and send reviewed research to the CRM or a marketing campaign. Research can cover a website, social media, or a specific business workflow.",
     ],
@@ -25,8 +26,8 @@ export const modules = [
     title: "Marketing & growth",
     capabilities: [
       "Save the results of homepage audits for search engines and AI answer engines. The marketing team enters keyword, AI visibility, and backlink findings by hand.",
-      "Plan keyword and content experiments. Editors can review AI-generated drafts against the brief.",
-      "Set campaign goals, attach sources and UTM links, and check that tracking is in place.",
+      "Plan a campaign experiment around an objection in a buyer’s reply. Follow the link back to the reply to check the wording.",
+      "Clear individual excerpts for public use, then draft a customer case study from those passages. Editors can check the citations and fill gaps before publication.",
       "Once campaign costs are reviewed, tie them to the jobs the campaign helped bring in. Reports show the contribution from those invoices separately from audit scores and projections.",
     ],
   },
@@ -36,8 +37,8 @@ export const modules = [
     capabilities: [
       "See how much cash is on hand, what customers owe, which bills need paying, and what’s overdue.",
       "Test how a late payment would affect projected cash and when a shortfall might occur.",
-      "Compare customer, project, and campaign margins and open the source records behind a figure.",
-      "Track deposits, credits, refunds, and payments against invoices. An imported accounting copy can be matched to its original invoice.",
+      "Trace a job’s contribution to its invoices, credits and recorded costs. Follow the receipts, deposits and refunds to see how much cash changed hands.",
+      "Use the billing recovery desk to review completed work awaiting an invoice, overdue balances and unused deposits. Reopen a review to see what was billed, collected or applied since it began.",
     ],
   },
   {
@@ -46,26 +47,26 @@ export const modules = [
     capabilities: [
       "Set milestones and give each task an owner. The team can also assign RFIs, submittals, punch list items, and change requests.",
       "Check dependencies and recurring tasks on the timeline. A workload preview shows available capacity before a crew is reserved.",
-      "Check what might delay the job. Open the team’s comments, files, and progress updates, or save the view for the next project meeting.",
-      "Track approved changes, time, and additional costs against the project’s margin.",
+      "Check which deadlines depend on a delayed task. Open the linked jobs and purchases before proposing a new task or RFI.",
+      "At closeout, record a baseline and the actual result in the same units. Share a lesson with the estimators or sellers who will quote similar work.",
     ],
   },
   {
     id: "operations",
     title: "Connected Operations & CMMS",
     capabilities: [
-      "Measure distances on a calibrated PDF drawing. AI bid review can extract quantities stated on the drawing and cite where they appear.",
-      "Schedule crews and arrival windows. Field reports support photos, signatures, and offline entry.",
-      "Check which materials a job needs and what’s in stock by lot. Look up supplier prices, record purchases, and follow materials through production.",
-      "Schedule maintenance and check whether the parts are on hand. Supervisors can also approve time and manage quality checks.",
-      "Keep the customer’s service agreement, messages, and invoices with the job.",
+      "Measure a scaled drawing. When pricing the job, check suggested changes to labor or material waste against similar completed jobs.",
+      "Use Supplier Finder to compare quotes for an outstanding purchase line. Check the cost and expected arrival against the job’s dates before drafting a purchase.",
+      "When a supplier or subcontractor changes a date, compare the cost of expediting with moving the visits. Review replacement crews and arrival windows together before saving the schedule.",
+      "Record a narrated walkthrough for office review, or call the project manager from the job. The manager can point at equipment on camera and save a marked still with the agreed next step.",
+      "Look up an asset’s service history and the parts it needs. Customers can compare replacement quotes against their annual equipment budget and approve the first phase through the portal.",
     ],
   },
   {
     id: "automation",
     title: "Automation & agent operations",
     capabilities: [
-      "Build recipes with AND/OR conditions and branches. Test which inputs meet the conditions before enabling the recipe.",
+      "Test a proposed recipe condition against up to 50 past inputs. See what actually ran and what the current and proposed rules would do in each case.",
       "A scheduled task can wait, resume, and retry a failed step up to a set limit. You can check when the background worker last ran.",
       "See what an agent proposes to do and why. The approval queue keeps a record of the decision.",
     ],
@@ -75,8 +76,8 @@ export const modules = [
 export const stackGroups = [
   {
     title: "Application & interface",
-    technologies: ["Next.js 16", "React 19", "TypeScript", "Tailwind CSS 4", "shadcn / Base UI"],
-    purpose: "Next.js renders the page on the server. The Today view works on desktop and on a field crew’s phone.",
+    technologies: ["Next.js 16", "React 19", "TypeScript", "Tailwind CSS 4", "shadcn / Base UI", "WebRTC"],
+    purpose: "Next.js renders the workspace. On a job, WebRTC carries the technician’s camera feed and the project manager’s pointer between their devices.",
   },
   {
     title: "Data & access",
@@ -91,7 +92,7 @@ export const stackGroups = [
   {
     title: "AI & research",
     technologies: ["Vercel AI SDK", "AI Gateway", "OpenAI Responses API", "Google Vertex AI", "Overture Maps", "Hunter"],
-    purpose: "The bid reviewer links a finding to its source drawing. Prospect research records the web page behind a finding and the date it was checked.",
+    purpose: "With a configured video model, a reviewer can trace an observation to the moment it appeared in a walkthrough. A separate reader can extract equipment labels on the reviewer’s device.",
   },
   {
     title: "Scheduled jobs & integrations",
@@ -105,5 +106,4 @@ export const stackGroups = [
   },
 ] as const;
 
-
-export const integrationNote = "Each customer needs to authorize and test the services they use. The October 2026 review did not verify live accounting or payment connections.";
+export const integrationNote = "Each customer authorizes the services they use. Testing a payment through to accounting requires a Stripe test account and a designated QuickBooks or Xero test company.";

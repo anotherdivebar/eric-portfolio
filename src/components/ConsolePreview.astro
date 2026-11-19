@@ -2,9 +2,10 @@
 import OptimizedImage from "./OptimizedImage.astro";
 
 const views = [
-  { id: "today", label: "Daily overview", file: "today-desktop.png", height: 1189, alt: "ABS Console daily workspace with priority tasks and recent activity" },
-  { id: "pipeline", label: "Sales pipeline", file: "sales-pipeline.png", height: 1523, alt: "Sales pipeline showing sample opportunities, follow-ups, and forecast controls" },
-  { id: "operations", label: "Operations", file: "operations-dashboard.png", height: 1991, alt: "Operations dashboard showing demo estimates, jobs, maintenance, and billing activity" }
+  { id: "today", label: "Daily overview", src: "/assets/abs-console/today-desktop.png", height: 1189, alt: "ABS Console daily workspace with priority tasks and recent activity" },
+  { id: "pointer", label: "Field Pointer", src: "/assets/abs-console/field-pointer.jpg", width: 779, height: 488, alt: "The project manager’s tracking ring on a red valve in the Field Pointer demo", caption: "Field Pointer · November 2026" },
+  { id: "pipeline", label: "Sales pipeline", src: "/assets/abs-console/sales-pipeline.png", height: 1523, alt: "Sales pipeline showing sample opportunities, follow-ups, and forecast controls" },
+  { id: "operations", label: "Operations", src: "/assets/abs-console/operations-dashboard.png", height: 1991, alt: "Operations dashboard showing demo estimates, jobs, maintenance, and billing activity" }
 ];
 ---
 <fieldset class="preview">
@@ -16,9 +17,9 @@ const views = [
         <label for={`view-${view.id}`}>{view.label}</label>
         <figure>
           <div class="screen">
-            <OptimizedImage src={`/assets/abs-console/${view.file}`} alt={view.alt} width="1265" height={view.height} sizes="(max-width: 800px) 90vw, (max-width: 1280px) 54vw, 670px" />
+            <OptimizedImage src={view.src} alt={view.alt} width={view.width ?? 1265} height={view.height} sizes="(max-width: 800px) 90vw, (max-width: 1280px) 54vw, 670px" />
           </div>
-          <figcaption><span>Demo workspace · October 2026</span><a href={`/assets/abs-console/${view.file}`} aria-label={`View full-size ${view.label.toLowerCase()} screenshot`}>View full size</a></figcaption>
+          <figcaption><span>{view.caption ?? "Demo workspace · October 2026"}</span><a href={view.src} aria-label={`View full-size ${view.label.toLowerCase()} screenshot`}>View full size</a></figcaption>
         </figure>
       </>
     ))}
@@ -26,7 +27,7 @@ const views = [
 </fieldset>
 <style>
   .preview { min-width: 0; margin: 0; padding: 0; }
-  .preview-grid { display: grid; grid-template-columns: repeat(3, 1fr); min-width: 0; overflow: hidden; border: 1px solid #b6cbc5; border-radius: 9px; background: #fff; box-shadow: 0 20px 48px -24px rgb(12 47 43 / 45%); }
+  .preview-grid { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); min-width: 0; overflow: hidden; border: 1px solid #b6cbc5; border-radius: 9px; background: #fff; box-shadow: 0 20px 48px -24px rgb(12 47 43 / 45%); }
   label { grid-row: 1; display: grid; align-items: center; justify-content: center; min-height: 48px; padding: .55rem .3rem; border-bottom: 2px solid transparent; color: #526661; background: #f3f7f4; cursor: pointer; text-align: center; font-size: .875rem; font-weight: 550; }
   label:hover { background: #e4ede8; color: var(--ink); }
   input:checked + label { color: var(--accent); background: white; border-color: var(--accent); }
