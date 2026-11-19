@@ -79,13 +79,8 @@ const projectHref = (project: typeof projects[number]) => project.data.detailUrl
     </section>
 
     <section id="system-briefs" class="section-space" aria-labelledby="briefs-heading">
-      <div class="brief-heading">
-        <div>
-          <p class="eyebrow">System briefs</p>
-          <h2 id="briefs-heading" class="section-title mt-4">Tools I built<br />for internal teams.</h2>
-        </div>
-        <p>Who owns this lead? Can we trust the forecast? Which jobs need attention? Each tool answers one of those questions.</p>
-      </div>
+      <p class="eyebrow">System briefs</p>
+      <h2 id="briefs-heading" class="section-title mt-4">Tools I built<br />for internal teams.</h2>
       <div class="briefs">
         {briefs.map((project) => (
           <article id={project.slug} class="brief">
@@ -145,9 +140,7 @@ const projectHref = (project: typeof projects[number]) => project.data.detailUrl
   .console-build .build-stage { background: linear-gradient(130deg, #285057, #3e716b 57%, #82b5a0); }
   .console-build .build-display { inset: 11% 13% -1px 5%; border-color: #486565; }
   .build-phone { right: 4%; top: 31%; width: 24%; aspect-ratio: 9 / 18.5; border: clamp(3px, .38vw, 6px) solid #10272c; border-radius: clamp(.7rem, 1.6vw, 1.5rem); background: #f5f9f7; }
-  .brief-heading { display: grid; grid-template-columns: 1.1fr 1fr; align-items: end; gap: 3rem; }
-  .brief-heading > p { max-width: 43ch; }
-  .brief-heading > p, .brief p, .related article > p:not(.eyebrow) { color: var(--muted); line-height: 1.65; }
+  .brief p, .related article > p:not(.eyebrow) { color: var(--muted); line-height: 1.65; }
   .briefs { margin-top: clamp(1.8rem, 4vw, 3.5rem); border-bottom: 1px solid var(--line); }
   .brief { display: grid; grid-template-columns: 1fr 1.35fr auto; gap: 2.2rem; align-items: center; padding-block: 1.6rem; border-top: 1px solid var(--line); }
   .brief h3, .related h2 { font-size: clamp(1.25rem, 2vw, 1.6rem); line-height: 1.2; font-weight: 600; }
@@ -157,7 +150,7 @@ const projectHref = (project: typeof projects[number]) => project.data.detailUrl
   .related h2 { margin-block: .55rem .8rem; }
   .related a { padding-top: 1rem; margin-top: auto; }
   @media (max-width: 820px) {
-    .projects-intro, .brief-heading { grid-template-columns: 1fr; gap: 1.4rem; }
+    .projects-intro { grid-template-columns: 1fr; gap: 1.4rem; }
     .projects-intro-copy { max-width: 55ch; }
     .build, .console-build { grid-template-columns: 1fr; grid-template-areas: "picture" "copy"; }
     .build-stage { min-height: 0; aspect-ratio: 1.9; }
