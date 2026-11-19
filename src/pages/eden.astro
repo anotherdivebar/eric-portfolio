@@ -2,16 +2,15 @@
 import Base from "../layouts/Base.astro";
 
 const responsibilities = [
-  { title: "Server systems & persistence", detail: "I wrote server features in C# and .NET and modeled player data in PostgreSQL. I also maintained the checks that run when the game updates a player’s state." },
-  { title: "Reliability & incident response", detail: "I investigated performance bottlenecks and shipped hotfixes while the game was live." },
-  { title: "Support & moderation tools", detail: "I built tools that let support staff investigate reports, maintain player data, and escalate suspected abuse to administrators." },
-  { title: "Game design & balance", detail: "I designed and balanced game systems, then implemented changes on the server that players used." }
+  { title: "Server systems & persistence", detail: "I modeled player data and maintained the checks that run when the server updates a player’s state." },
+  { title: "Support & moderation tools", detail: "I built the tools that support staff used to investigate reports, maintain player data, and escalate suspected abuse." },
+  { title: "Game design & balance", detail: "I designed gameplay changes, balanced them, and implemented them on the server." }
 ];
 
 const challenges = [
   { title: "Shared state under concurrency", detail: "Several players can act on the same world at once. The server has to carry those changes consistently across active sessions and into saved data." },
-  { title: "Unpredictable load and behavior", detail: "During peak events, I used telemetry to find bottlenecks. I also investigated unexpected behavior and maintained the checks that protect the live game." },
-  { title: "Changes to a long-lived system", detail: "A release had to work with existing player data. We needed a safe migration and a way to roll back if the update caused trouble." }
+  { title: "Unpredictable load", detail: "During peak events, I used telemetry to find performance bottlenecks and shipped hotfixes while the game was live." },
+  { title: "Existing player data", detail: "Migrations had to preserve progress for players returning after an update." }
 ];
 ---
 
@@ -22,17 +21,15 @@ const challenges = [
       <div class="mt-10 sm:mt-12">
         <h1 class="page-title">Eden</h1>
         <p class="mt-5 max-w-2xl text-2xl font-medium leading-snug text-ink sm:text-3xl">Building and operating a persistent multiplayer world.</p>
-        <p class="page-intro mt-6">I built server features, balanced gameplay, and supported the people running Eden. Player progress persisted between sessions, so every release had to work with the world players already knew.</p>
-        <dl class="surface-muted mt-10 grid gap-8 p-7 sm:mt-12 sm:grid-cols-3 sm:p-9">
+        <dl class="surface-muted mt-10 grid gap-8 p-7 sm:mt-12 sm:grid-cols-2 sm:p-9">
           <div><dt class="eyebrow">Community grew to</dt><dd class="mt-4"><span class="block text-4xl font-medium tracking-tight text-accent">~30,000</span><span class="mt-2 block text-sm text-muted">players</span></dd></div>
-          <div class="border-t border-border pt-6 sm:border-l sm:border-t-0 sm:pl-7 sm:pt-0"><dt class="eyebrow">Core stack</dt><dd class="mt-4 text-lg font-medium leading-relaxed">C# / .NET<br />PostgreSQL<br />JavaScript</dd></div>
-          <div class="border-t border-border pt-6 sm:border-l sm:border-t-0 sm:pl-7 sm:pt-0"><dt class="eyebrow">My role</dt><dd class="mt-4 text-lg font-medium leading-relaxed">Engineering, design, balance, and live operations</dd></div>
+          <div class="border-t border-border pt-6 sm:border-l sm:border-t-0 sm:pl-7 sm:pt-0"><dt class="eyebrow">Core stack</dt><dd class="mt-4 text-lg font-medium leading-relaxed">C# / .NET game server<br />PostgreSQL player data<br />JavaScript support tools</dd></div>
         </dl>
       </div>
 
       <section class="section-space" aria-labelledby="ownership-heading">
         <h2 id="ownership-heading" class="text-3xl font-semibold text-ink sm:text-4xl">What I owned</h2>
-        <div class="mt-9 grid gap-x-12 gap-y-8 md:grid-cols-2">
+        <div class="mt-9 grid gap-x-12 gap-y-8 md:grid-cols-3">
           {responsibilities.map((item) => (
             <article class="border-t border-border pt-6">
               <h3 class="text-lg font-semibold text-ink">{item.title}</h3>
@@ -56,12 +53,10 @@ const challenges = [
       <section class="section-space grid gap-8 md:grid-cols-2 md:gap-12" aria-labelledby="operations-heading">
         <div>
           <h2 id="operations-heading" class="text-3xl font-semibold text-ink">Operating the software</h2>
-          <p class="mt-5 leading-relaxed text-muted">When a player reported a problem after a release, the team needed to trace what happened and have a way back. I maintained the tools and release procedures behind that response.</p>
         </div>
         <div class="border-t border-border pt-6">
           <ul class="list-disc space-y-4 pl-5 text-sm leading-relaxed text-muted marker:text-accent">
             <li>Structured logging, metrics, and audit trails for investigation</li>
-            <li>JavaScript tools for moderation, support, and data maintenance</li>
             <li>GitHub-based build and release automation</li>
             <li>Versioned releases, recovery playbooks, and rollback planning</li>
           </ul>
@@ -70,7 +65,7 @@ const challenges = [
 
       <div class="surface-muted p-7 sm:p-10">
         <h2 class="text-2xl font-semibold text-ink">How it connects to my other work</h2>
-        <p class="mt-4 max-w-3xl leading-relaxed text-muted">At Eden, a bad update could affect someone when they next logged in. I drew on that experience when building permission checks, audit histories, and recovery tools for ABS Console.</p>
+        <p class="mt-4 max-w-3xl leading-relaxed text-muted">I drew on my experience operating Eden when building permission checks, audit histories, and recovery tools for ABS Console.</p>
         <div class="mt-6 flex flex-wrap gap-x-6 gap-y-3">
           <a href="/abs-tooling" class="text-link">Explore ABS Console <span aria-hidden="true">↗</span></a>
           <a href="/contact" class="text-link">Talk about a systems challenge <span aria-hidden="true">↗</span></a>

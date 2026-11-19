@@ -16,7 +16,7 @@ const facts = [
   { title: "Technology", items: project.data.stack },
   { title: "Key decisions", items: project.data.decisions },
   { title: "Tradeoffs", items: project.data.tradeoffs }
-];
+].filter((fact) => fact.items.length > 0);
 ---
 
 <Base title={`${project.data.title} | Eric Martin`} description={project.data.summary}>
@@ -25,7 +25,6 @@ const facts = [
       <a class="text-link" href={`/technical-projects#${project.slug}`}>← All projects</a>
       <header class="mt-10 sm:mt-12">
         <h1 class="page-title">{project.data.title}</h1>
-        <p class="page-intro mt-7">{project.data.summary}</p>
       </header>
       <div class="mt-10 grid gap-8 border-y border-border py-8 md:grid-cols-2 md:gap-12 sm:mt-12 sm:py-10">
         <section aria-labelledby="project-problem"><h2 id="project-problem" class="eyebrow">The problem</h2><p class="mt-4 leading-relaxed text-muted">{project.data.why}</p></section>

@@ -4,43 +4,37 @@ import Base from "../layouts/Base.astro";
 const capabilities = [
   {
     title: "Customer conversations",
-    description: "I ask what the customer needs to accomplish, who the decision affects, and what would make the work worth doing.",
-    examples: ["Building contractor and business-owner accounts", "Identifying needs, deadlines, and budget limits", "Agreeing on the next step and following up"],
+    description: "I ask what the customer needs to accomplish, who the decision affects, and what their budget and deadline will allow.",
     evidence: "How I won the Walmart project at Kansas Electric",
     href: "/work/kansas-electric"
   },
   {
     title: "Business development & growth strategy",
-    description: "At Kansas Electric, I took over sales from the project managers and established a routine for finding new work, reviewing bids, and following up.",
-    examples: ["Sales strategy and process development", "Brand and advertising campaigns", "Pipeline reviews, forecasting, and leadership reporting"],
+    description: "At Kansas Electric, I took over sales from project managers, led advertising campaigns, and reviewed accounts and forecasts with leadership.",
     evidence: "How I set up sales at Kansas Electric",
     href: "/work/kansas-electric#building-a-dedicated-sales-function"
   },
   {
     title: "Operations and delivery",
-    description: "I check site readiness, line up crews and suppliers, and stay involved until the customer’s issues are resolved.",
-    examples: ["Customer onboarding and delivery planning", "Distributed teams, vendor networks, and quality standards", "Closing out jobs and checking the finished work"],
+    description: "I check site readiness, line up crews and suppliers, and follow the job through final quality checks.",
     evidence: "How I led field operations at Vale",
     href: "/work/program-delivery-at-scale"
   },
   {
     title: "Revenue and customer systems",
-    description: "I build systems where the people selling, doing, and billing a job can find the customer’s original request and agreed scope.",
-    examples: ["Account research, CRM, and opportunity tracking", "Sales-to-delivery handoffs and customer self-service", "Billing and reporting on profit by customer"],
+    description: "I connect the original sales scope to the work order and invoice, so a team can see what it agreed to deliver and what it earned on the job.",
     evidence: "Follow a customer through ABS Console",
     href: "/abs-tooling"
   },
   {
     title: "AI for research and drafting",
-    description: "I use AI to find sources, extract fields from documents, or draft a message. The reviewer can check the sources and approve proposed changes.",
-    examples: ["Account research with source links", "Answers limited to records the user can access", "Approval before changes and limits on AI spend"],
+    description: "I use AI to research accounts, extract fields from documents, and draft messages. I limit AI usage by budget and restrict answers to records the user is allowed to see. Proposed changes go to the user for review.",
     evidence: "See the AI helper in ABS Console",
     href: "/abs-tooling#workspace-ai-helper"
   },
   {
     title: "Reliable software and live systems",
-    description: "I test what happens when two people edit the same record, a provider times out, or a team needs to restore its data.",
-    examples: ["Checking whether an external service completed a request", "Previewing imports and checking user permissions", "Testing encrypted backups and concurrent database updates"],
+    description: "I test what happens when two people edit the same record, a provider times out, or a team needs to restore an encrypted backup.",
     evidence: "How I tested migration and recovery",
     href: "/abs-tooling#migration-and-recovery"
   }
@@ -49,22 +43,18 @@ const capabilities = [
 const toolGroups = [
   {
     title: "Applications and interfaces",
-    context: "Internal tools, responsive workspaces, and offline field applications.",
     tools: ["JavaScript / TypeScript", "React / Next.js", "Node.js", "PWAs", "React Query / Zod"]
   },
   {
     title: "Data and integrations",
-    context: "Customer records, account permissions, and integrations.",
     tools: ["SQL / PostgreSQL", "Supabase / RLS", "REST APIs / OAuth", "Stripe / QuickBooks / Xero", "Gmail / Microsoft Graph", "Python"]
   },
   {
     title: "AI and automation",
-    context: "Account research, document parsing, and proposed changes for review.",
     tools: ["OpenAI API", "Vercel AI Gateway", "Google Cloud / Vertex AI", "OCR / vision", "MCP tools", "Scheduled workflows"]
   },
   {
     title: "Quality and operations",
-    context: "Automated tests, releases, and backup and restore tests.",
     tools: ["Vitest / Playwright", "PostgreSQL policy tests", "GitHub CI/CD", "Vercel", "C# / .NET"]
   }
 ];
@@ -75,19 +65,13 @@ const toolGroups = [
     <div class="page-container">
       <div class="max-w-4xl">
         <h1 class="page-title">Sales, operations,<br />and software.</h1>
-        <p class="page-intro mt-7">
-          At Kansas Electric I sold electrical work. At Vale I scheduled the people who did the installations. Both jobs shape the software I build today.
-        </p>
       </div>
 
       <div class="mt-12 grid gap-x-12 gap-y-0 border-b border-border md:grid-cols-2 lg:mt-16 lg:gap-x-16">
         {capabilities.map((capability) => (
           <article class="capability flex flex-col border-t border-border py-8 sm:py-10">
             <h2 class="max-w-sm text-2xl font-semibold text-ink">{capability.title}</h2>
-            <p class="mt-5 leading-relaxed text-muted">{capability.description}</p>
-            <ul class="capability-examples mb-7 mt-5 space-y-2 text-sm leading-relaxed text-muted">
-              {capability.examples.map((example) => <li>{example}</li>)}
-            </ul>
+            <p class="mb-5 mt-5 leading-relaxed text-muted">{capability.description}</p>
             <a class="text-link mt-auto text-sm leading-relaxed" href={capability.href}>
               {capability.evidence} <span aria-hidden="true">↗</span>
             </a>
@@ -102,13 +86,11 @@ const toolGroups = [
       <div class="grid gap-10 lg:grid-cols-[0.75fr_1.25fr] lg:gap-16">
         <div>
           <h2 class="text-3xl font-semibold text-ink sm:text-4xl">Tools I use</h2>
-          <p class="mt-5 leading-relaxed text-muted">My field apps collect reports offline. In a shared workspace I test who can read and change each record and how the team can recover a backup.</p>
         </div>
         <div class="grid gap-8 sm:grid-cols-2">
           {toolGroups.map((group) => (
             <div class="border-t border-border pt-5">
               <h3 class="text-lg font-semibold text-ink">{group.title}</h3>
-              <p class="mt-2 text-sm leading-relaxed text-muted">{group.context}</p>
               <ul class="mt-4 flex flex-wrap gap-2" aria-label={group.title}>
                 {group.tools.map((tool) => (
                   <li class="rounded-md border border-border bg-white/70 px-2.5 py-1.5 text-xs font-medium text-ink">{tool}</li>
@@ -119,12 +101,6 @@ const toolGroups = [
         </div>
       </div>
 
-      <a class="button-primary mt-12" href="/abs-tooling">Explore ABS Console <span aria-hidden="true">↗</span></a>
     </div>
   </section>
 </Base>
-
-<style>
-  .capability-examples li { display: flex; gap: 10px; }
-  .capability-examples li::before { content: ""; flex-shrink: 0; width: 4px; height: 4px; margin-top: 9px; border-radius: 50%; background: #176958; }
-</style>

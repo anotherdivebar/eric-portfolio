@@ -4,20 +4,16 @@ summary: "I built a dashboard where operations managers could check field capaci
 why: "Managers had to piece together several spreadsheets to find out where a job was at risk."
 constraints:
   - "Field data arrived at different times and with uneven quality"
-  - "Managers needed current figures that a small system could maintain"
-  - "Minimal training time for operations teams"
+  - "The operations team had little time for training"
 stack:
   - "C# / .NET"
   - "PostgreSQL"
   - "JavaScript dashboard UI"
-  - "Scheduled data sync"
 decisions:
-  - "Started with three to five measures the team used most often"
-  - "Put jobs that needed intervention at the top of the dashboard"
+  - "Started with the three to five measures the team used most often, including field capacity and job status"
   - "Added an export for leadership reports"
 tradeoffs:
-  - "Limited the number of metrics so teams could learn the dashboard quickly"
   - "Scheduled updates kept the system simple, with a delay between refreshes"
-outcome: "Managers could see which jobs were at risk in one place and intervene sooner."
+outcome: "Jobs needing intervention appeared at the top of the dashboard so managers could act sooner."
 order: 5
 ---

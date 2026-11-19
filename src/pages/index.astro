@@ -10,21 +10,15 @@ const results = [
 ];
 const stories = [
   {
-    company: "Kansas Electric", years: "2024–2025", title: "Winning a multi-state electrical project.",
-    body: "A relationship I brought over from Vale led to emergency lighting and relay work for Walmart. I won the project and oversaw the managers responsible for delivery in the Midwest and Southeast.",
+    company: "Kansas Electric", years: "2024–2025", title: "Emergency lighting and relay work for Walmart.",
+    body: "I won the work through a relationship I’d built at Vale, then oversaw the project managers responsible for delivery in the Midwest and Southeast.",
     href: "/work/kansas-electric"
   },
   {
     company: "Vale Field Services", years: "2019–2024", title: "From first employee to head of operations.",
-    body: "I started in the field installing restaurant technology. As Vale grew to 35 people, I managed four field supervisors and coordinated vendors on rollouts that typically covered hundreds of restaurants.",
+    body: "I managed four field supervisors and coordinated vendors on technology rollouts that typically covered hundreds of restaurants.",
     href: "/work/program-delivery-at-scale"
   }
-];
-const approach = [
-  { title: "Prepare for the conversation.", body: "I learn what I can about the account before we meet. That gives us time to talk about what matters to the customer." },
-  { title: "Ask what it costs.", body: "Where does the problem show up? What is it costing in time or money? The answers tell me whether the work is worth pursuing." },
-  { title: "Agree on the work.", body: "I explain what our team can deliver, check that it solves the problem, and agree on the next step with the customer." },
-  { title: "Stay involved.", body: "I make sure the delivery team knows what I promised. If something changes in the field, the customer knows who to call." }
 ];
 ---
 <Base title="Eric Martin | Sales Leadership & Business Development" description="Eric Martin built the sales function at Kansas Electric, led field operations at Vale, and founded Atlas-Beren Systems.">
@@ -33,7 +27,7 @@ const approach = [
       <div class="hero-copy">
         <p class="eyebrow ruled-label">Business development &amp; sales leadership</p>
         <h1 id="hero-heading">I turn customer<br /><em>relationships</em><br />into revenue.</h1>
-        <p class="hero-intro">I built Kansas Electric’s sales function and led field operations at Vale. Today I build software for the people who estimate, schedule, and deliver service work.</p>
+        <p class="hero-intro">I built Kansas Electric’s sales function after leading field operations at Vale Field Services.</p>
         <div class="hero-actions">
           <a class="button-primary" href="#growth-results">See my results</a>
           <a class="quiet-link" href="/resume">View my resume</a>
@@ -84,24 +78,15 @@ const approach = [
       <div class="product-copy">
         <p class="eyebrow ruled-label">My current work</p>
         <h2 id="console-heading">ABS Console<span>.</span></h2>
-        <p class="product-body">I founded Atlas-Beren Systems to build software for trade and field-service businesses. In ABS Console, teams can turn an accepted estimate into a job, track labor and materials, and invoice the customer against that same job.</p>
+        <p class="product-body">A contractor can turn an accepted estimate into a job, track labor and materials, and invoice the customer from the job record.</p>
         <a class="button-primary" href="/abs-tooling">Explore ABS Console</a>
       </div>
       <ConsolePreview />
     </div>
   </section>
 
-  <section class="page-container section-space" aria-labelledby="approach-heading">
-    <div class="approach-heading">
-      <div><h2 id="approach-heading" class="section-title">How I work with customers.</h2></div>
-      <a class="inline-link" href="/skills">See my skills</a>
-    </div>
-    <ol class="approach-grid">
-      {approach.map((step) => <li><h3>{step.title}</h3><p>{step.body}</p></li>)}
-    </ol>
-  </section>
-
   <nav id="more-work-heading" class="page-container more-work" aria-label="More about Eric and his work">
+    <a id="approach-heading" href="/skills"><span class="more-title">Skills &amp; capabilities</span></a>
     <a href="/technical-projects"><span class="more-title">Projects &amp; engineering</span></a>
     <a href="/about"><span class="more-title">About Eric</span></a>
   </nav>
@@ -157,7 +142,7 @@ const approach = [
   .story-company { font-size: .9rem; font-weight: 650; color: var(--accent); }
   .story h3 { margin-top: .8rem; font: 400 clamp(2rem, 2.5vw, 2.75rem)/1.12 var(--display); letter-spacing: -.015em; }
   .story h3 a:hover { color: var(--accent); }
-  .story-body, .product-body, .approach-grid p { margin-top: .85rem; font-size: 1rem; line-height: 1.7; color: var(--muted); }
+  .story-body, .product-body { margin-top: .85rem; font-size: 1rem; line-height: 1.7; color: var(--muted); }
   .story > .inline-link { margin-top: .5rem; }
   .product { border-block: 1px solid #c6d9d0; background: #deebe3; }
   .product-inner { display: grid; grid-template-columns: minmax(0, .78fr) minmax(0, 1.22fr); align-items: center; gap: clamp(2rem, 5vw, 5rem); }
@@ -165,12 +150,7 @@ const approach = [
   .product h2 span { color: var(--accent); }
   .product-body { max-width: 45ch; }
   .product-copy > a { margin-top: 1.5rem; }
-  .approach-heading { display: flex; align-items: end; justify-content: space-between; gap: 2rem; }
-  .approach-heading .section-title { max-width: 23ch; }
-  .approach-grid { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 2rem; margin-top: 2.75rem; }
-  .approach-grid li { border-top: 1px solid #aebfb5; padding-top: 1.35rem; }
-  .approach-grid h3 { font: 400 1.85rem/1.05 var(--display); letter-spacing: -.012em; }
-  .more-work { display: grid; grid-template-columns: repeat(2, 1fr); border-block: 1px solid var(--line); }
+  .more-work { display: grid; grid-template-columns: repeat(3, 1fr); margin-top: 3rem; border-block: 1px solid var(--line); }
   .more-work a { display: block; padding: 1.8rem 0; }
   .more-work a + a { border-left: 1px solid var(--line); padding-left: 2.5rem; }
   .more-title { font: 400 clamp(1.75rem, 2.7vw, 2.6rem)/1.15 var(--display); }
@@ -179,7 +159,6 @@ const approach = [
     .home-hero { grid-template-columns: minmax(0, 1.25fr) minmax(0, .85fr); gap: 2rem; }
     .hero-copy h1 { font-size: clamp(4.15rem, 8.1vw, 4.8rem); }
     .story-section { grid-template-columns: minmax(0, .72fr) minmax(0, 1.28fr); gap: 2.5rem; }
-    .approach-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
   }
   @media (max-width: 800px) {
     .product-inner { grid-template-columns: 1fr; gap: 2rem; }
@@ -209,11 +188,8 @@ const approach = [
     .proof-source { font-size: .75rem; }
     .story-section { grid-template-columns: 1fr; gap: 1.5rem; }
     .section-aside > a { margin-top: .55rem; }
-    .approach-heading { align-items: start; flex-direction: column; gap: .4rem; }
-    .approach-grid { margin-top: 1.4rem; gap: 1.75rem 1.25rem; }
     .more-work { grid-template-columns: 1fr; }
     .more-work a + a { border-left: 0; border-top: 1px solid var(--line); padding-left: 0; }
     .more-work a { padding-block: 1.3rem; }
   }
-  @media (max-width: 480px) { .approach-grid { grid-template-columns: 1fr; } }
 </style>

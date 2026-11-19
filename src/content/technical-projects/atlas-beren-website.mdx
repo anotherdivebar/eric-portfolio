@@ -1,28 +1,20 @@
 ---
 title: "Atlas-Beren Systems Website"
-summary: "I built the website and interactive demos for Atlas-Beren Systems. Visitors can try a service job, compare subscription and service options, and ask about the workflow they just explored."
+summary: "Interactive demos let contractors try a service job and compare software, onboarding, and managed-service options."
 why: "A contractor evaluating the software needs to see how an estimate becomes a job and a bill, and what it would cost to get started."
 constraints:
-  - "Explain software, implementation, and managed services without blending their commitments"
-  - "Make demos useful without exposing customer records or invoking live business actions"
-  - "Carry the visitor’s workflow context into a validated inquiry"
-  - "Keep a growing set of product and industry pages consistent on desktop and mobile"
+  - "Public demos use fictional records and cannot trigger live business actions"
+  - "Downloadable PDFs are fixed sample documents"
+  - "Analytics record a defined set of visitor events and exclude form descriptions and email addresses"
+  - "Creating a customer in ABS Console is a separate step after inquiry delivery"
 stack:
   - "Next.js, React, and TypeScript"
   - "Tailwind CSS and Framer Motion"
   - "Resend and Vercel Analytics"
   - "PDF.js and deterministic demo models"
-decisions:
-  - "Lead with connected work and offer an interactive customer-to-payment walkthrough"
-  - "Centralize buyer paths, product content, and allowed inquiry context"
-  - "Keep fictional demo state in the browser with explicit reset behavior"
-  - "Validate inquiries on the server and report success only after provider acceptance"
-tradeoffs:
-  - "Downloadable PDFs are fixed sample documents"
-  - "A team member confirms available times after a walkthrough request"
-  - "Creating a customer record is a separate step after inquiry delivery"
-  - "Analytics track visitor actions. Conversion lift has yet to be measured."
-outcome: "A visitor can try the product with sample records and send the team an inquiry that identifies the workflow they tried."
+decisions: []
+tradeoffs: []
+outcome: "The team receives the visitor’s workflow, audience, and source page with each inquiry."
 order: 0.5
 ---
 
@@ -30,7 +22,7 @@ import ProjectScreenshot from "../../components/ProjectScreenshot.astro";
 
 ## Make the platform understandable
 
-Atlas-Beren sells [operating software](/abs-tooling) for service businesses and offers help implementing and running it. I designed the public site so a buyer can start with their industry, try a familiar task, and see which parts of the offer they need.
+I built the public site for [ABS Console](/abs-tooling), Atlas-Beren’s operating software for service businesses.
 
 <ProjectScreenshot
   src="/assets/atlas-beren-website/home.png"
@@ -43,21 +35,21 @@ Atlas-Beren sells [operating software](/abs-tooling) for service businesses and 
 
 ## Let visitors try the handoffs
 
-In the guided demo, a visitor takes a fictional customer from estimate to completed job, invoice, and payment. Each step uses the result of the last. For example, recording a partial payment reduces the balance on the same invoice. Demo records stay in browser memory and reset on refresh.
+In the guided demo, a visitor takes an estimate through to a completed job and invoice. Recording a partial payment reduces the balance on that invoice. Changes stay in browser memory and reset on refresh.
 
-I built more detailed examples for sales, estimating, scheduling, finance, and field operations. In the estimating demo, visitors select costs from a local catalog, edit scope and exclusions, and choose which suggestions to accept from a rules-based assistant. A saved proposal appears in the sample CRM and dispatch views.
+In the estimating demo, visitors select costs from a local catalog, edit scope and exclusions, and choose which suggestions to accept from a rules-based assistant. A saved proposal appears in the sample CRM and dispatch views.
 
-The scheduling demo shows task dependencies and overlapping crew assignments. Visitors can also download fixed sample PDFs. Adjustments in the demo affect only the browser session.
+The scheduling demo shows task dependencies and overlapping crew assignments.
 
 ## Give different buyers a clear route
 
 A service contractor can start with dispatch. An equipment operator can start with maintenance. Examples for light manufacturing and restaurants show how purchasing, inventory, scheduling, production, and checks fit those businesses. The site also groups website, growth, and operations services under Digital Foundation, Growth Engine, and Operations System.
 
-When someone asks about a workflow, the inquiry carries the topic, audience, and page they came from. For example, a visitor looking at maintenance arrives at the form with maintenance already selected. The form checks these values against a list of supported choices.
+A visitor looking at maintenance arrives at the inquiry form with maintenance already selected.
 
 ## Make the offer concrete
 
-One subscription includes the supported core modules, workspace activation, and ten full users. Buyers can add hands-on onboarding, custom implementation, or managed services. Pricing, onboarding, industry, and product pages use the same offer definition. Links for retired packages still take visitors to the current software inquiry.
+One subscription includes the supported core modules and ten full users. Buyers can add hands-on onboarding, custom implementation, or managed services. Links for retired packages still take visitors to the current software inquiry.
 
 I put monthly tasks, customer responsibilities, setup costs, and first-month totals next to each managed-service offer. The site also identifies provider usage, advertising spend, and other subscriptions a buyer may need to budget for. The team confirms early-access availability and capacity.
 
@@ -71,28 +63,24 @@ I put monthly tasks, customer responsibilities, setup costs, and first-month tot
 
 ## Make the inquiry useful
 
-The form asks where work gets stuck and which tools the business already uses. Someone requesting a walkthrough can suggest times and a time zone. A team member follows up to confirm availability.
+Someone requesting a walkthrough can suggest times and a time zone. A team member follows up to confirm availability.
 
 <ProjectScreenshot
   src="/assets/atlas-beren-website/contact.png"
   alt="Atlas-Beren inquiry form with fields for the buyer’s business, existing tools, and workflow"
   width={1440}
   height={1132}
-  caption="The person answering the inquiry gets the business question along with the visitor’s contact details."
+  caption="The form asks where work gets stuck and which tools the business already uses."
 />
 
 The Next.js route checks the origin, content type, payload size, required fields, email address, and selected interests before sending the inquiry through Resend. A spam trap filters automated submissions. The interface confirms receipt only after the email provider accepts the request. If the response is uncertain, the visitor sees that delivery is unconfirmed.
 
-Analytics record a defined set of events and properties. Form descriptions and email addresses stay private. Creating a customer in ABS Console is a separate step.
-
 ## Build a consistent experience
 
-I built the site with Next.js, React, TypeScript, Tailwind CSS, and Framer Motion. Shared content definitions keep navigation, service descriptions, and product pages consistent. Canonical URLs, structured data, a sitemap, and robots directives help search engines find the right pages.
+Pricing, onboarding, and product pages draw from one offer definition. Canonical URLs, structured data, a sitemap, and robots directives help search engines find the right pages.
 
 The same paper, ink, and gold palette carries through the product pages, pricing, and inquiry forms on desktop and mobile.
 
 ## Evidence and current scope
 
 As of October 2, 2026, automated checks covered demo steps, inquiry validation, topic selection, analytics filtering, and email-provider errors. A September 30 production build passed alongside nine checks of the path from product discovery to inquiry. The pricing page was reviewed on desktop and onboarding on mobile. Production deployment and paid conversion results were unverified at the time.
-
-For the software behind the demos, see the [ABS Console case study](/abs-tooling).

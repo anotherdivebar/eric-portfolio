@@ -2,34 +2,26 @@
 import OptimizedImage from "./OptimizedImage.astro";
 const steps = [
   {
-    stage: "Research",
     title: "Research the account.",
     description: "Save what you learned about the business, where you found it, and what to ask in the first conversation.",
-    handoff: "Business context → CRM",
     href: "#prospecting",
     link: "Explore prospect research",
   },
   {
-    stage: "Sale",
     title: "Agree on the scope.",
     description: "Confirm what the customer needs, assign the next follow-up, and link the opportunity to a project.",
-    handoff: "Customer commitment → Scope",
     href: "#crm",
     link: "Explore CRM & sales",
   },
   {
-    stage: "Project",
     title: "Turn the estimate into a job.",
     description: "Create the estimate from the project. When the customer accepts, the team can track the crew, progress, and costs against the linked job.",
-    handoff: "Accepted estimate → Linked job",
     href: "#projects",
     link: "Explore project delivery",
   },
   {
-    stage: "Invoice",
     title: "Compare revenue and costs.",
     description: "Issue the invoice against the job. Review invoiced revenue alongside recorded time, materials, and other costs.",
-    handoff: "Invoice and job costs → Reports",
     href: "#financial",
     link: "Explore financial visibility",
   },
@@ -37,38 +29,39 @@ const steps = [
 ---
 <section id="customer-journey" class="section-space page-container" aria-labelledby="connected-heading">
   <h2 id="connected-heading" class="section-title">From first contact<br />to invoice.</h2>
-  <p class="workflow-example">Example workflow with fictional records</p>
   <ol class="workflow-steps" aria-label="From prospect research to invoiced work">
-    {steps.map((step) => <li><p class="workflow-stage">{step.stage}</p><h3>{step.title}</h3><p class="workflow-description">{step.description}</p><p class="workflow-handoff">{step.handoff}</p><a href={step.href}>{step.link}<span aria-hidden="true"> ↗</span></a></li>)}
+    {steps.map((step) => <li><h3>{step.title}</h3><p class="workflow-description">{step.description}</p><a href={step.href}>{step.link}<span aria-hidden="true"> ↗</span></a></li>)}
   </ol>
   <div class="workflow-screens">
     <figure>
       <a class="workflow-capture sales-capture" href="/assets/abs-console/sales-pipeline.png" aria-label="View the full-size ABS Console sales demo screenshot"><OptimizedImage src="/assets/abs-console/sales-pipeline.png" alt="Cropped ABS Console demo sales view showing forecast coverage, a follow-up queue, and opportunities arranged by stage" width="1265" height="1523" loading="lazy" decoding="async" /><span class="capture-label">Sales workspace · Demo</span></a>
-      <figcaption><h3>Sales pipeline and follow-ups</h3><p>A rep can see which opportunities need a call. Deals without a price still appear in the pipeline, and the forecast counts only known values.</p><a href="/assets/abs-console/sales-pipeline.png">Inspect the sales screen <span aria-hidden="true">↗</span></a></figcaption>
+      <figcaption><h3>Sales pipeline and follow-ups</h3><p>Deals without a price still appear in the pipeline, and the forecast counts only known values.</p><a href="/assets/abs-console/sales-pipeline.png">Inspect the sales screen <span aria-hidden="true">↗</span></a></figcaption>
     </figure>
     <figure>
       <a class="workflow-capture operations-capture" href="/assets/abs-console/operations-dashboard.png" aria-label="View the full-size ABS Console operations demo screenshot"><OptimizedImage src="/assets/abs-console/operations-dashboard.png" alt="Cropped ABS Console demo operations view showing connected estimates, field work, financials, and delivery priorities" width="1265" height="1991" loading="lazy" decoding="async" /><span class="capture-label">Operations workspace · Demo</span></a>
-      <figcaption><h3>Estimates and field jobs</h3><p>The operations view shows jobs approaching a deadline and work that still needs an owner. Estimates and financial records sit alongside the field work.</p><a href="/assets/abs-console/operations-dashboard.png">Inspect the operations screen <span aria-hidden="true">↗</span></a></figcaption>
+      <figcaption><h3>Estimates and field jobs</h3><p>The operations view shows jobs approaching a deadline and work that still needs an owner.</p><a href="/assets/abs-console/operations-dashboard.png">Inspect the operations screen <span aria-hidden="true">↗</span></a></figcaption>
+    </figure>
+    <figure>
+      <a class="workflow-capture mobile-capture" href="/assets/abs-console/today-mobile.png" aria-label="View the full-size ABS Console mobile demo screenshot"><OptimizedImage src="/assets/abs-console/today-mobile.png" alt="ABS Console Today view with daily priorities on a phone" width="375" height="1859" sizes="165px" /><span class="capture-label">Mobile workspace · Demo</span></a>
+      <figcaption><h3>Today on mobile</h3><p>The daily view puts a crew member’s priorities on their phone.</p><a href="/assets/abs-console/today-mobile.png">Inspect the mobile screen <span aria-hidden="true">↗</span></a></figcaption>
     </figure>
   </div>
 </section>
 <style>
-  .workflow-example { margin-top: 32px; color: #5d6a63; font-size: .7rem; line-height: 1.6; }
-  .workflow-steps { display: grid; grid-template-columns: repeat(4,minmax(0,1fr)); margin-top: 14px; border: 1px solid #dce3dc; border-radius: 16px; overflow: hidden; background: #fff; }
+  .workflow-steps { display: grid; grid-template-columns: repeat(4,minmax(0,1fr)); margin-top: 30px; border: 1px solid #dce3dc; border-radius: 16px; overflow: hidden; background: #fff; }
   .workflow-steps > li { display: flex; flex-direction: column; padding: 26px 23px; min-width: 0; }
   .workflow-steps > li + li { border-left: 1px solid #dce3dc; }
-  .workflow-stage { color: #176958; font-size: .7rem; font-weight: 650; letter-spacing: .09em; text-transform: uppercase; }
-  .workflow-steps h3 { margin-top: 13px; font-size: 1.2rem; font-weight: 550; line-height: 1.25; letter-spacing: -.025em; }
-  .workflow-description { margin-top: 13px; color: #5d6a63; font-size: .79rem; line-height: 1.75; }
-  .workflow-handoff { margin-top: auto; padding-top: 24px; color: #415c4c; font-size: .68rem; line-height: 1.6; font-weight: 550; }
-  .workflow-steps a { margin-top: 12px; padding-top: 12px; border-top: 1px solid #e6ebe3; color: #176958; font-size: .72rem; line-height: 1.6; font-weight: 550; }
+  .workflow-steps h3 { font-size: 1.2rem; font-weight: 550; line-height: 1.25; letter-spacing: -.025em; }
+  .workflow-description { margin-top: 13px; color: #5d6a63; font-size: .9rem; line-height: 1.65; margin-bottom: 16px; }
+  .workflow-steps a { margin-top: auto; padding-top: 12px; border-top: 1px solid #e6ebe3; color: #176958; font-size: .72rem; line-height: 1.6; font-weight: 550; }
   .workflow-steps a:hover, figcaption a:hover { text-decoration: underline; text-underline-offset: 4px; }
-  .workflow-screens { display: grid; grid-template-columns: repeat(2,minmax(0,1fr)); gap: 24px; margin-top: 28px; }
+  .workflow-screens { display: grid; grid-template-columns: repeat(3,minmax(0,1fr)); gap: 24px; margin-top: 28px; }
   figure { min-width: 0; border: 1px solid #dce3dc; border-radius: 16px; overflow: hidden; background: #edf1e9; }
   .workflow-capture { display: block; position: relative; aspect-ratio: 1.55; overflow: hidden; border-bottom: 1px solid #dce3dc; background: #f3f7f7; }
   .workflow-capture :global(img) { position: absolute; width: 125%; max-width: none; height: auto; left: -25%; }
-  .sales-capture img { top: -66%; }
-  .operations-capture img { top: -49%; }
+  .mobile-capture :global(img) { width: min(55%, 165px); left: 50%; top: 8%; transform: translateX(-50%); border: 4px solid #152e27; border-radius: 14px; }
+  .sales-capture :global(img) { top: -66%; }
+  .operations-capture :global(img) { top: -49%; }
   .capture-label { position: absolute; bottom: 12px; left: 12px; padding: 6px 10px; border: 1px solid #b8cdbb; border-radius: 5px; background: #f6f7f3; color: #415c4c; font-size: .6rem; line-height: 1.4; box-shadow: 0 2px 8px rgb(23 35 31 / 6%); }
   figcaption { padding: 22px 24px; }
   figcaption h3 { font-size: 1.05rem; font-weight: 550; line-height: 1.4; }
@@ -76,6 +69,6 @@ const steps = [
   figcaption strong { font-weight: 600; color: #415c4c; }
   figcaption a { display: inline-block; margin-top: 15px; font-size: .72rem; color: #176958; font-weight: 550; }
   @media (max-width: 1023px) { .workflow-steps { grid-template-columns: repeat(2,minmax(0,1fr)); } .workflow-steps > li:nth-child(3) { border-left: 0; } .workflow-steps > li:nth-child(n+3) { border-top: 1px solid #dce3dc; } }
-  @media (max-width: 700px) { .workflow-screens { grid-template-columns: 1fr; gap: 20px; } .workflow-steps > li { padding: 22px 20px; } .workflow-steps h3 { font-size: 1.12rem; } .workflow-example { margin-top: 24px; } }
-  @media (max-width: 480px) { .workflow-steps { grid-template-columns: 1fr; } .workflow-steps > li + li { border-left: 0; border-top: 1px solid #dce3dc; } .workflow-handoff { padding-top: 16px; } figcaption { padding: 20px; } }
+  @media (max-width: 700px) { .workflow-screens { grid-template-columns: 1fr; gap: 20px; } .workflow-steps > li { padding: 22px 20px; } .workflow-steps h3 { font-size: 1.12rem; } }
+  @media (max-width: 480px) { .workflow-steps { grid-template-columns: 1fr; } .workflow-steps > li + li { border-left: 0; border-top: 1px solid #dce3dc; } figcaption { padding: 20px; } }
 </style>

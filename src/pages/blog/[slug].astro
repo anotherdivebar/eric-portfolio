@@ -25,7 +25,6 @@ const readingMinutes = Math.max(1, Math.ceil(entry.body.trim().split(/\s+/).leng
         All field notes
       </a>
       <h1 class="page-title mt-10 sm:mt-12">{entry.data.title}</h1>
-      <p class="page-intro mt-7">{entry.data.description}</p>
       <p class="mt-7 border-b border-border pb-8 text-sm leading-relaxed text-muted">By Eric Martin · {readingMinutes} min read · Published <time datetime={entry.data.publishDate.toISOString()}>{entry.data.publishDate.toLocaleDateString("en-US", {
           year: "numeric",
           month: "long",

@@ -33,19 +33,15 @@ detailUrl: "/abs-tooling"
 
 ## Connected records and handoffs
 
-A customer ID connects prospect research, sales opportunities, estimates, projects, field jobs, and financial records. Each module keeps its original records and links to the others by ID.
-
-Starting an estimate from a project brings in its customer and scope. Acceptance creates a linked job. A won opportunity can reuse its existing delivery project. An imported accounting copy can link back to the invoice that created it. Matching a name or an amount alone is too uncertain to join records automatically.
+The console links original records by ID. A won opportunity can reuse its delivery project, and an imported accounting copy can point to the invoice that created it. A matching name or amount alone is too uncertain to establish that link.
 
 Conflicts go to a person for review. When someone saves a change, the new relationships and the records they depend on are saved together. A revision check catches cases where another person has already edited the same record.
 
 ## Revenue decisions with evidence
 
-Sales teams can assign follow-ups, configure deal stages, and build reports from custom fields and formulas. From a saved dashboard, a manager can open the individual deals behind a forecast total.
+A submitted forecast is frozen. A manager can compare it with later wins without changing the original. Scheduled reports also preserve their filters, dates, and underlying figures.
 
-Submitting a forecast freezes that version. Later, a manager can compare the original submission with actual wins, quotas, and commitments. Scheduled reports save the filters, dates, and underlying figures so the reader can return to what was known at the time.
-
-The reports distinguish opportunity value from invoiced revenue and flag missing close dates and amounts.
+Opportunity value and invoiced revenue are reported separately. Missing close dates and amounts stay visible.
 
 ## Connected profit and costs
 
@@ -65,7 +61,7 @@ The person approving each change needs the same permissions as someone editing t
 
 ## Automation that explains its actions
 
-Before a recipe runs, an operator can see which values met its conditions, which branch it selected, and what it proposes to change. A database worker takes scheduled tasks in batches, checks permissions again, and guards against repeating a completed action.
+A database worker takes scheduled tasks in batches, rechecks the operator’s permissions, and guards against repeating a completed action.
 
 Run history shows each attempt, failure, and completed step. An administrator can cancel eligible work with a reason or retest a failure against the latest records. If an outside service gives an uncertain answer, the system holds the action for reconciliation before anyone tries again.
 
@@ -79,7 +75,7 @@ Changing a quote requires fresh approval. Booking an appointment rechecks staffi
 
 The simulator lets an owner test a proposed job against 13 weeks of qualified labor, material availability, and daily cash. They can change the deposit, start date, or staffing and see how each option affects the plan.
 
-Saving a prediction preserves the inputs, their timestamps, and the calculated result. The team can later compare it with recorded outcomes. Booking the job, scheduling the crew, buying stock, and posting accounting entries are separate actions.
+A saved prediction preserves the inputs and their timestamps so the team can compare an estimate with actual results. Booking the job, scheduling the crew, buying stock, and posting accounting entries are separate actions.
 
 ## Migration and recovery
 
@@ -89,6 +85,6 @@ Recovery tools create encrypted bundles of database records and documents with m
 
 ## Delivery and boundaries
 
-Database policies separate each organization’s records. Module permissions and review steps govern who can change them. Unit and database tests cover calculations and access. Browser tests follow complete workflows using fictional records.
+Unit and database tests cover financial calculations and access across organizations. Browser tests follow complete workflows using fictional records.
 
-The October 28, 2026 version includes adapters for email, calendars, accounting, payments, research, and automation. Enabling one for a customer requires configuration, provider authorization, and live testing. Marketing tools cover research, planning, and measurement. Publishing campaigns and managing live ads are outside this version’s scope.
+As of October 28, 2026, marketing tools cover research, planning, and measurement. Campaign publishing and live ad management are outside the supported scope.

@@ -8,62 +8,42 @@ bullets:
   - "Set up the sales process and took on Director of Marketing responsibilities"
   - "Led the rebrand and advertising campaigns with about $5,000 in monthly ad spend"
   - "Built tools for estimating, CRM, field reporting, and labor planning"
-scope: "Sales, marketing, and internal software, October 2024 to December 2025."
-ownership: "As Director of Business Development & Technical Systems, I managed accounts, built internal tools, and oversaw project managers on the Walmart engagement. I also took responsibility for marketing."
+scope: "October 2024 to December 2025"
+ownership: "Director, Business Development & Technical Systems"
 order: 0
 ---
 import AppShowcaseCard from "../../components/AppShowcaseCard.astro";
 import ProjectScreenshot from "../../components/ProjectScreenshot.astro";
 
-## Developing relationships across industrial and commercial markets
-
-I worked with contractors and business owners to understand their electrical needs, find work Kansas Electric could deliver, and stay in touch as plans developed.
-
 ## From an existing relationship to a Walmart project
 
-Walmart needed emergency lighting and relay work at locations in the Midwest and Southeast. A relationship I’d built at Vale Field Services helped me win the work for Kansas Electric. After the sale I remained the customer’s point of contact and oversaw the project managers responsible for both regions.
+<p id="developing-relationships-across-industrial-and-commercial-markets">Walmart needed emergency lighting and relay work at locations in the Midwest and Southeast. A relationship I’d built at Vale Field Services helped me win the work for Kansas Electric. After the sale I remained the customer’s point of contact and oversaw the project managers responsible for both regions.</p>
 
 ## Building a dedicated sales function
 
-When I arrived, project managers handled sales alongside the jobs they were delivering. I took responsibility for finding and developing accounts. I set up a sales process, recorded customer conversations, and reviewed the pipeline and forecast with leadership.
+When I arrived, project managers handled sales alongside the jobs they were delivering. I took responsibility for developing accounts with industrial and commercial contractors and business owners. I set up a sales process, recorded customer conversations, and reviewed the pipeline and forecast with leadership.
 
 ## Taking ownership of marketing
 
 I also became Director of Marketing. I led the rebrand, rebuilt the website, designed signage and billboards, and ran digital campaigns with about $5,000 in monthly ad spend. I also helped with recruiting.
 
-## Building the systems behind the function
-
-Sales activity lived in inboxes and spreadsheets. Estimators pulled information from bid documents by hand, and field updates arrived in different formats. I built tools for those jobs while running sales and marketing.
-
 ## Constraints
 
-We had a small team and little engineering time. Crews worked changing schedules and sometimes lacked a connection on site. New tools had to fit around active jobs and the spreadsheets people already relied on.
-
-## What I owned
-
-I ran sales and marketing, handled account follow-up, and kept the Walmart engagement on track after the sale. For the internal apps, I wrote the interface and services, documented the procedures, and supported rollout and maintenance.
-
-## How the tools fit together
-
-1. **Accounts.** Requests from the website went to the right team. The CRM kept contact details, account research, and conversations together.
-2. **Estimates.** Estimators uploaded bid documents, checked the extracted scope and quantities, and exported a take-off.
-3. **Field reports.** Crews recorded updates and media offline, then reviewed a summary before submitting the report.
-4. **Planning.** Managers used opportunity updates, forecasts, and daily labor summaries to plan sales follow-up and staffing.
+<p id="building-the-systems-behind-the-function">We had a small team and little engineering time. Crews worked changing schedules and sometimes lacked a connection on site. New tools had to fit around active jobs and the spreadsheets people already relied on.</p>
 
 ## CRM: account context and follow-through
-<div class="grid gap-5 md:grid-cols-2">
+<div id="how-the-tools-fit-together" class="grid gap-5 md:grid-cols-2">
   <div class="md:col-span-2">
     <AppShowcaseCard
       title="CRM Console"
       problem="Account, activity, and follow-up data lived across inboxes and scattered sheets."
       stack="JavaScript PWA, Dexie / IndexedDB, Chart.js, AI-assisted briefing and summarization, Acumatica integration"
-      impact="Sales staff could log calls, prepare for meetings, and sync account activity in both directions with Acumatica."
+      impact="Website requests went to the right sales team. Staff could log calls, prepare for meetings, and sync account activity in both directions with Acumatica."
     />
   </div>
 </div>
 
-## CRM interface
-<div class="grid gap-4 md:grid-cols-2">
+<div id="crm-interface" class="grid gap-4 md:grid-cols-2">
   <div class="md:col-span-2">
     <ProjectScreenshot
       src="/assets/kse/CRM%20Main.png"
@@ -115,8 +95,7 @@ I ran sales and marketing, handled account follow-up, and kept the Walmart engag
   </div>
 </div>
 
-## Field reporting snapshots
-<div class="grid gap-4 md:grid-cols-2">
+<div id="field-reporting-snapshots" class="grid gap-4 md:grid-cols-2">
   <ProjectScreenshot
     src="/assets/kse/Field%20Reporting%20Video%20With%20Overlay%20Prompts.png"
     alt="Field reporting video capture with prompts overlaid on the recording view"
@@ -142,21 +121,18 @@ I ran sales and marketing, handled account follow-up, and kept the Walmart engag
 
 ## Estimate Accelerator: documents to reviewable take-offs
 
-The app cut estimating time by about 50–60% and improved estimating accuracy by about 25%. Estimators checked the scope and quantities it extracted from bid documents, with confidence scores and past pricing to guide their review.
-
 <div class="grid gap-5 md:grid-cols-2">
   <div class="md:col-span-2">
     <AppShowcaseCard
       title="Estimate Accelerator"
       problem="RFP packages took too long to convert into structured take-offs."
       stack="PWA, Web Worker parsing, OpenAI Vision, OCR fallback, confidence scoring, historical pricing signals"
-      impact="Estimators could check quantities against the source documents and export the reviewed take-off."
+      impact="Estimators checked quantities against the source documents before export. The app cut estimating time by about 50–60% and improved estimating accuracy by about 25%."
     />
   </div>
 </div>
 
-## Estimate Accelerator snapshots
-<div class="grid gap-4 md:grid-cols-2">
+<div id="estimate-accelerator-snapshots" class="grid gap-4 md:grid-cols-2">
   <ProjectScreenshot
     src="/assets/kse/Estimate%20Upload.png"
     alt="Estimate Accelerator upload flow for bid packages and RFP documents"
@@ -218,14 +194,4 @@ The app cut estimating time by about 50–60% and improved estimating accuracy b
 
 **Offline field reports.** I used service worker caching and IndexedDB to keep reports on the device until the crew had a connection. Apps Script stored the media in Drive and the report rows in Sheets.
 
-**Planning in Sheets.** The teams already worked in spreadsheets. Apps Script let me schedule updates, standardize fields, weight forecasts by sales stage, and send daily labor summaries. The CRM also synced with Acumatica.
-
-**Estimator review.** Estimate Accelerator uses a Web Worker to parse documents, with OpenAI Vision and OCR as a fallback. Estimators see confidence scores and historical prices before they export a take-off.
-
-**Rollout and maintenance.** I built the public site with Astro and Tailwind and maintained the internal apps, their supporting services, and the GitHub workflows used to ship changes.
-
-## Commercial results and system outcomes
-
-I closed about $2M in new work in my first 60 days. The other figures describe prospective work. Opportunities presented in 2025 exceeded $100M, and the pipeline for the following 24 months exceeded $200M.
-
-The estimating app reduced the time needed to prepare a bid by about 50–60%. Estimating accuracy improved by about 25%.
+<p id="what-i-owned"><strong>Rollout and maintenance.</strong> I built the public site with Astro and Tailwind, documented the procedures, and maintained the internal apps, their supporting services, and the GitHub workflows used to ship changes.</p>

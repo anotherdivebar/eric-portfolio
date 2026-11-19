@@ -30,10 +30,7 @@ const operatingExamples = caseStudies.filter((study) => !(study.slug in results)
 <Base title="Sales & Growth Results | Eric Martin" description="Eric Martin’s work in sales and business development at Kansas Electric, operational growth at Vale Field Services, and product development at Atlas-Beren Systems.">
   <div class="page-container">
     <header class="work-intro">
-      <div>
-        <h1 class="page-title">Sales and<br /><em>field operations.</em></h1>
-      </div>
-      <p class="work-intro-copy">I built Kansas Electric’s sales function after leading restaurant technology installations at Vale. I now build software for businesses that sell and deliver field work.</p>
+      <h1 class="page-title">Sales and<br /><em>field operations.</em></h1>
     </header>
 
     <section id="case-studies-heading" class="result-spread" aria-label="Commercial results and case studies">
@@ -55,9 +52,9 @@ const operatingExamples = caseStudies.filter((study) => !(study.slug in results)
 
     <article class="founder">
       <div class="founder-copy">
-        <p class="eyebrow">Atlas-Beren Systems · 2026–Present</p>
+        <p class="eyebrow">Founder, Atlas-Beren Systems · Since January 2026</p>
         <h2 class="section-title">Building ABS Console</h2>
-        <p>I founded Atlas-Beren Systems in January 2026 and built ABS Console for trade and field-service businesses. Its seven modules connect prospecting, sales, project delivery, and finance. I decide what to build, design the interface, and write the software.</p>
+        <p>I design and develop the seven modules that connect prospecting, sales, project delivery, and finance for trade and field-service businesses.</p>
         <a href="/abs-tooling" class="button-secondary">Explore ABS Console</a>
       </div>
       <figure class="founder-figure">
@@ -92,9 +89,8 @@ const operatingExamples = caseStudies.filter((study) => !(study.slug in results)
 </Base>
 
 <style>
-  .work-intro { display: grid; grid-template-columns: 1.65fr 1fr; align-items: end; gap: clamp(1.5rem, 5vw, 5rem); padding-block: clamp(3rem, 6.5vw, 6rem) clamp(2.5rem, 5vw, 4.5rem); }
+  .work-intro { padding-block: clamp(3rem, 6.5vw, 6rem) clamp(2.5rem, 5vw, 4.5rem); }
   .page-title em { color: var(--accent); }
-  .work-intro-copy { max-width: 38ch; margin-bottom: .2rem; font-size: clamp(1.05rem, 1.5vw, 1.22rem); line-height: 1.65; color: var(--muted); }
   .result-spread { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); overflow: hidden; border-radius: 1rem; }
   .result { --result-ink: #153834; --result-muted: #385c56; --result-rule: #aacac0; display: flex; flex-direction: column; padding: clamp(1.5rem, 3.9vw, 3.7rem); background: #d7eee5; color: var(--result-ink); }
   .result-ink { --result-ink: #f0faf7; --result-muted: #bdd5d0; --result-rule: #395752; background: var(--night); }
@@ -122,9 +118,7 @@ const operatingExamples = caseStudies.filter((study) => !(study.slug in results)
   .approach { border-top: 1px solid var(--line); padding-block: 1.35rem; }
   .work-next { display: flex; flex-wrap: wrap; gap: .75rem 2rem; padding-block: 1.4rem; border-top: 1px solid var(--line); }
   @media (max-width: 760px) {
-    .work-intro, .result-spread, .founder, .operating { grid-template-columns: 1fr; }
-    .work-intro { gap: 1.4rem; }
-    .work-intro-copy { max-width: 55ch; }
+    .result-spread, .founder, .operating { grid-template-columns: 1fr; }
     .result { padding: clamp(1.5rem, 6vw, 2.5rem); }
     .result-context { max-width: 35ch; }
     .founder-figure { max-width: 36rem; }
