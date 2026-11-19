@@ -1,39 +1,33 @@
 ---
-title: "Lifecycle automation"
-category: "Operating approach · Revenue operations"
-summary: "How I turn data validation, routing, and pipeline or renewal signals into reviewable actions with clear ownership."
-impact: "Automation designed around accountable follow-up, visible exceptions, and consistent information across teams."
+title: "Follow-up rules for sales and renewals"
+category: "Sales automation"
+summary: "How I flag missing information, assign follow-up, and give the team a way to catch overdue requests."
+impact: "A rep can see why a record needs attention, when a response is due, and who can resolve an exception."
 bullets:
-  - "Validate and enrich records before they enter downstream workflows"
-  - "Give alerts an owner, response expectation, and escalation path"
-  - "Review exceptions and adoption alongside the automation itself"
-scope: "Lifecycle workflows spanning intake, pipeline monitoring, handoffs, and renewal signals."
-ownership: "Automation design, implementation, and adoption support."
+  - "Check incoming records for missing or inconsistent information"
+  - "Assign each alert to someone and set a response deadline"
+  - "Review exceptions with the people using the rules"
+scope: "Incoming requests, pipeline changes, handoffs, and renewals."
+ownership: "I design the rules, implement them, and help the team adopt them."
 order: 3
 ---
 
 ## Where this approach applies
 
-This brief describes my approach to lifecycle automation. It applies when teams spend too much time reconciling records, ownership is unclear at handoff, or a risk signal arrives without a practical next step.
-
-The useful unit of automation is a complete workflow: a dependable input, an understandable rule, an accountable owner, and a way to see whether the action happened.
+A renewal alert is easy to overlook when it lands in a shared inbox. I design the rule around what a person needs to do next, then work backward to the information that should trigger it.
 
 ## Start with the input
 
-Validation and enrichment should make records more usable before they reach the next team. Missing or inconsistent information needs to be visible so the workflow can direct it to review instead of silently carrying the problem forward.
-
-Shared field and lifecycle definitions are part of that work. A routing rule or risk alert is only as useful as the information it depends on.
+I check records for missing or inconsistent details before sending them to the next team. Sales and support need to agree on what the fields mean. If a record is incomplete, I send it for review instead of guessing who should receive it.
 
 ## Connect the signal to an action
 
-A pipeline or renewal signal needs context: what changed, who owns the follow-up, and what response is expected. SLA monitoring and escalation make those expectations visible when the normal workflow stalls.
-
-I keep the action path close to the signal so teams can move from reviewing a record to deciding what to do about it.
+For a pipeline change or upcoming renewal, the alert should say what changed, who should follow up, and when a response is due. If the deadline passes, the workflow shows the overdue item and who can help resolve it.
 
 ## Review the exceptions
 
-Exception queues and recurring reviews help distinguish a data problem, an unclear policy, and a missed handoff. That feedback can improve the underlying workflow as teams adopt it.
+I review missed handoffs with the team. An incorrect customer record calls for a data correction. If valid records keep reaching the wrong person, we need to change the rule.
 
 ## Related implementations
 
-[ABS Console](/abs-tooling) connects findings, approval queues, and operational workflows in one workspace.
+In ABS Console, an operator can inspect the rule that ran, the records it used, and any action waiting for approval. [Explore ABS Console](/abs-tooling)

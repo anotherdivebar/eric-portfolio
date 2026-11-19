@@ -1,11 +1,11 @@
 ---
 title: "Revenue signal pipeline"
-summary: "Unified GTM data into a shared model for reporting, forecasting, and decision-making."
-why: "Leadership needed reliable pipeline and conversion signals across sales, marketing, and finance."
+summary: "I brought sales, marketing, and finance data into one reporting model so teams could use the same pipeline and conversion figures."
+why: "When teams defined a sales stage differently, reconciling their numbers took time and made forecasts harder to trust."
 constraints:
   - "Multiple systems with inconsistent definitions"
-  - "Low trust in reporting and manual reconciliation"
-  - "Had to maintain business continuity during migration"
+  - "Teams reconciled conflicting reports by hand"
+  - "Teams still needed their reports while the data moved"
 stack:
   - "PostgreSQL"
   - "ETL workflows"
@@ -13,11 +13,11 @@ stack:
   - "BI dashboards"
 decisions:
   - "Defined shared lifecycle stages before moving data"
-  - "Built data contracts to enforce consistent definitions"
-  - "Prioritized repeatable reporting over one-off analysis"
+  - "Defined the fields and rules each system had to supply"
+  - "Built repeatable reports for figures that leadership reviewed regularly"
 tradeoffs:
-  - "Chose consistency over speed to ensure durable reporting"
-  - "Limited early scope to core KPIs instead of every possible metric"
-outcome: "More consistent forecast inputs and executive reporting the team could trust."
+  - "Reconciling definitions took time before the first reports could ship"
+  - "Started with the pipeline and conversion measures the teams shared"
+outcome: "Sales and finance could use consistent inputs for forecasts and leadership reports."
 order: 4
 ---

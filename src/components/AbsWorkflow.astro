@@ -3,33 +3,33 @@ import OptimizedImage from "./OptimizedImage.astro";
 const steps = [
   {
     stage: "Research",
-    title: "Find a reason to talk.",
-    description: "Research the business, identify a possible need, and carry the sources into a useful discovery conversation.",
+    title: "Research the account.",
+    description: "Save what you learned about the business, where you found it, and what to ask in the first conversation.",
     handoff: "Business context → CRM",
     href: "#prospecting",
     link: "Explore prospect research",
   },
   {
     stage: "Sale",
-    title: "Agree on the right work.",
-    description: "Confirm the problem, own the next commitment, and connect the opportunity to its delivery project.",
+    title: "Agree on the scope.",
+    description: "Confirm what the customer needs, assign the next follow-up, and link the opportunity to a project.",
     handoff: "Customer commitment → Scope",
     href: "#crm",
     link: "Explore CRM & sales",
   },
   {
     stage: "Project",
-    title: "Deliver the promise.",
-    description: "Carry project context into an estimate. Acceptance creates a linked job, with people, progress, and costs to track.",
+    title: "Turn the estimate into a job.",
+    description: "Create the estimate from the project. When the customer accepts, the team can track the crew, progress, and costs against the linked job.",
     handoff: "Accepted estimate → Linked job",
     href: "#projects",
     link: "Explore project delivery",
   },
   {
     stage: "Invoice",
-    title: "See what the work earned.",
+    title: "Compare revenue and costs.",
     description: "Issue the invoice against the job. Review invoiced revenue alongside recorded time, materials, and other costs.",
-    handoff: "Invoice + cost evidence → Reports",
+    handoff: "Invoice and job costs → Reports",
     href: "#financial",
     link: "Explore financial visibility",
   },
@@ -37,21 +37,21 @@ const steps = [
 ---
 <section id="customer-journey" class="section-space page-container" aria-labelledby="connected-heading">
   <div class="workflow-heading">
-    <div><p class="eyebrow">The customer journey, connected</p><h2 id="connected-heading" class="section-title mt-4">From a good conversation<br />to a lasting relationship.</h2></div>
-    <p>Winning the work is one part of growth. I designed ABS Console to keep what we learn about a customer connected to what we promise, deliver, and earn.</p>
+    <div><p class="eyebrow">A service job in ABS Console</p><h2 id="connected-heading" class="section-title mt-4">From first contact<br />to invoice.</h2></div>
+    <p>Follow a service job through four stages. Each team starts with the record the previous team handed over.</p>
   </div>
-  <p class="workflow-example">Illustrative service-business workflow · Screens below use demo records</p>
+  <p class="workflow-example">Example workflow with fictional records</p>
   <ol class="workflow-steps" aria-label="From prospect research to invoiced work">
     {steps.map((step) => <li><p class="workflow-stage">{step.stage}</p><h3>{step.title}</h3><p class="workflow-description">{step.description}</p><p class="workflow-handoff">{step.handoff}</p><a href={step.href}>{step.link}<span aria-hidden="true"> ↗</span></a></li>)}
   </ol>
   <div class="workflow-screens">
     <figure>
       <a class="workflow-capture sales-capture" href="/assets/abs-console/sales-pipeline.png" aria-label="View the full-size ABS Console sales demo screenshot"><OptimizedImage src="/assets/abs-console/sales-pipeline.png" alt="Cropped ABS Console demo sales view showing forecast coverage, a follow-up queue, and opportunities arranged by stage" width="1265" height="1523" loading="lazy" decoding="async" /><span class="capture-label">Sales workspace · Demo</span></a>
-      <figcaption><h3>Make the next conversation count.</h3><p><strong>Relationship context:</strong> opportunities and follow-ups stay together. Unpriced deals remain visible without inflating the forecast.</p><a href="/assets/abs-console/sales-pipeline.png">Inspect the sales screen <span aria-hidden="true">↗</span></a></figcaption>
+      <figcaption><h3>Sales pipeline and follow-ups</h3><p>A rep can see which opportunities need a call. Deals without a price still appear in the pipeline, and the forecast counts only known values.</p><a href="/assets/abs-console/sales-pipeline.png">Inspect the sales screen <span aria-hidden="true">↗</span></a></figcaption>
     </figure>
     <figure>
       <a class="workflow-capture operations-capture" href="/assets/abs-console/operations-dashboard.png" aria-label="View the full-size ABS Console operations demo screenshot"><OptimizedImage src="/assets/abs-console/operations-dashboard.png" alt="Cropped ABS Console demo operations view showing connected estimates, field work, financials, and delivery priorities" width="1265" height="1991" loading="lazy" decoding="async" /><span class="capture-label">Operations workspace · Demo</span></a>
-      <figcaption><h3>Keep the handoff visible.</h3><p><strong>Delivery context:</strong> estimates, field work, and financials share a workspace, with deadlines and unassigned work surfaced for follow-through.</p><a href="/assets/abs-console/operations-dashboard.png">Inspect the operations screen <span aria-hidden="true">↗</span></a></figcaption>
+      <figcaption><h3>Estimates and field jobs</h3><p>The operations view shows jobs approaching a deadline and work that still needs an owner. Estimates and financial records sit alongside the field work.</p><a href="/assets/abs-console/operations-dashboard.png">Inspect the operations screen <span aria-hidden="true">↗</span></a></figcaption>
     </figure>
   </div>
 </section>

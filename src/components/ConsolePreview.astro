@@ -1,0 +1,45 @@
+---
+import OptimizedImage from "./OptimizedImage.astro";
+
+const views = [
+  { id: "today", label: "Daily overview", file: "today-desktop.png", height: 1189, alt: "ABS Console daily workspace with priority tasks and recent activity" },
+  { id: "pipeline", label: "Sales pipeline", file: "sales-pipeline.png", height: 1523, alt: "Sales pipeline showing sample opportunities, follow-ups, and forecast controls" },
+  { id: "operations", label: "Operations", file: "operations-dashboard.png", height: 1991, alt: "Operations dashboard showing demo estimates, jobs, maintenance, and billing activity" }
+];
+---
+<fieldset class="preview">
+  <legend class="sr-only">Choose an ABS Console screenshot</legend>
+  <div class="preview-grid">
+    {views.map((view, i) => (
+      <>
+        <input class="sr-only" type="radio" name="console-view" id={`view-${view.id}`} checked={i === 0} />
+        <label for={`view-${view.id}`}>{view.label}</label>
+        <figure>
+          <div class="screen">
+            <OptimizedImage src={`/assets/abs-console/${view.file}`} alt={view.alt} width="1265" height={view.height} sizes="(max-width: 800px) 90vw, (max-width: 1280px) 54vw, 670px" />
+          </div>
+          <figcaption><span>Demo workspace · October 2026</span><a href={`/assets/abs-console/${view.file}`} aria-label={`View full-size ${view.label.toLowerCase()} screenshot`}>View full size</a></figcaption>
+        </figure>
+      </>
+    ))}
+  </div>
+</fieldset>
+<style>
+  .preview { min-width: 0; margin: 0; padding: 0; }
+  .preview-grid { display: grid; grid-template-columns: repeat(3, 1fr); min-width: 0; overflow: hidden; border: 1px solid #b6cbc5; border-radius: 9px; background: #fff; box-shadow: 0 20px 48px -24px rgb(12 47 43 / 45%); }
+  label { grid-row: 1; display: grid; align-items: center; justify-content: center; min-height: 48px; padding: .55rem .3rem; border-bottom: 2px solid transparent; color: #526661; background: #f3f7f4; cursor: pointer; text-align: center; font-size: .875rem; font-weight: 550; }
+  label:hover { background: #e4ede8; color: var(--ink); }
+  input:checked + label { color: var(--accent); background: white; border-color: var(--accent); }
+  input:focus-visible + label { outline: 2px solid var(--accent); outline-offset: -4px; }
+  figure { display: none; margin: 0; grid-column: 1 / -1; grid-row: 2; }
+  input:checked + label + figure { display: block; }
+  .screen { aspect-ratio: 1.87; overflow: hidden; background: #fafbfa; }
+  .screen :global(img) { display: block; width: 100%; height: auto; }
+  figcaption { display: flex; justify-content: space-between; align-items: center; gap: .75rem; padding: .25rem 1rem; border-top: 1px solid #d6e0da; font-size: .78rem; color: #50635e; }
+  figcaption a { display: inline-flex; align-items: center; min-height: 40px; font-weight: 600; color: var(--accent); text-decoration: underline; text-underline-offset: 4px; }
+  @media (max-width: 550px) {
+    .screen { aspect-ratio: 1.5; }
+    label { font-size: .8rem; }
+    figcaption { flex-wrap: wrap; gap: 0 .75rem; padding-inline: .75rem; }
+  }
+</style>

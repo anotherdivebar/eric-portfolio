@@ -1,7 +1,7 @@
 ---
 title: "ABS Console"
-summary: "Seven connected modules for CRM, prospect finding, marketing, financial visibility, projects, operations, and automation—built around the customer relationship from first conversation to delivery and collected revenue."
-why: "Sustainable growth depends on what happens after the sale. I built ABS Console to preserve customer context, commitments, and financial evidence as work moves between teams."
+summary: "I built a platform for trade and field-service businesses that links customer research, sales, projects, field jobs, and billing. Teams can trace an invoice back to the work the customer approved."
+why: "An estimate can lose its connection to the original sales conversation or the final invoice. The team needs those records when a customer asks what they agreed to or why a bill changed."
 constraints:
   - "Keep organizations and private records separate while supporting delegated agency access"
   - "Preserve source evidence, approval history, and explicit customer relationships"
@@ -26,81 +26,73 @@ tradeoffs:
   - "Planning tools expose assumptions and coverage rather than promising a guaranteed outcome"
   - "Provider integrations require account configuration, authorization, and live acceptance checks"
   - "Bounded workflows favor understandable behavior and reliable recovery over unlimited automation"
-outcome: "A connected platform spanning seven business modules, with shared Ask AI, customer self-service, revenue reporting, business simulation, and auditable workflows. The current build adds custom sales reports, forecast submissions, scheduled reporting, enterprise identity, and native workflow recovery."
+outcome: "Seven modules share customer and job records, with a self-service portal, sales reporting, forecasts, planning tools, and an audit history for automated work."
 order: 0
 detailUrl: "/abs-tooling"
 ---
 
 ## The business problem
 
-Winning a customer is only the beginning. The research behind the opportunity, the promises made in a conversation, and the agreed scope all need to survive the move into delivery. Completed work then needs an accurate invoice and a clear view of its costs.
-
-I built ABS Console around that customer journey. My work spans product design, the interface, business logic, database permissions, integrations, and verification. The aim is practical: give each person the context to make the next decision and keep the commercial consequences visible.
+A field crew needs to know what sales promised. The person preparing the invoice needs to know what the crew delivered and what it cost. I designed ABS Console so they can both work from the accepted estimate.
 
 ## Connected records and handoffs
 
-A shared customer identity connects prospect research, CRM opportunities, estimates, projects, field jobs, and financial records. Each module keeps its original records; explicit relationships make those records available wherever the work continues.
+A customer ID connects prospect research, sales opportunities, estimates, projects, field jobs, and financial records. Each module keeps its original records and links to the others by ID.
 
-Starting an estimate from a project carries its customer and project context forward. Accepting that estimate creates a linked job. A won opportunity can reuse its delivery project, while an imported accounting copy can link back to the original invoice. Matching names or amounts alone never establish identity.
+Starting an estimate from a project brings in its customer and scope. Acceptance creates a linked job. A won opportunity can reuse its existing delivery project. An imported accounting copy can link back to the invoice that created it. Matching a name or an amount alone is too uncertain to join records automatically.
 
-Established connections follow the workflow automatically. Missing or conflicting relationships prompt a focused review. Required connections and their source changes save together, while revision checks prevent an older editor from overwriting newer work.
+Conflicts go to a person for review. When someone saves a change, the new relationships and the records they depend on are saved together. A revision check catches cases where another person has already edited the same record.
 
 ## Revenue decisions with evidence
 
-The sales workspace connects relationship management to inspection: follow-up queues, configurable stages, scoped reports, custom fields, arithmetic formulas, and saved dashboards. Each report can open the deals behind its totals.
+Sales teams can assign follow-ups, configure deal stages, and build reports from custom fields and formulas. From a saved dashboard, a manager can open the individual deals behind a forecast total.
 
-Quotas and manager commitments sit alongside immutable forecast submissions. Teams can compare an earlier submission with subsequently recorded wins without rewriting the original forecast. Personal scheduled reports preserve their filters, resolved dates, and source snapshot for later review.
+Submitting a forecast freezes that version. Later, a manager can compare the original submission with actual wins, quotas, and commitments. Scheduled reports save the filters, dates, and underlying figures so the reader can return to what was known at the time.
 
-These choices make sales judgment easier to examine. Opportunity value stays distinct from invoiced revenue; missing close dates and incomplete values remain visible.
+The reports distinguish opportunity value from invoiced revenue and flag missing close dates and amounts.
 
 ## Connected profit and costs
 
-Financial, project, customer, and campaign views use a shared source model for invoiced revenue and recorded costs. Issued invoices contribute revenue once. Tax, payments, deposits, and explicitly linked accounting copies do not become additional revenue.
+The same invoice appears in customer, project, campaign, and financial reports. It contributes revenue once. The calculation accounts separately for tax, payments, deposits, and linked accounting copies.
 
-Approved time, actual materials, additional project costs, inventory returns, credits, and reversals retain their original identities. Imported expenses require classification so a supplier bill and its payment cannot silently count as two costs. Changed evidence can invalidate an earlier review.
+Time, materials, other project costs, returns, credits, and reversals retain links to their original records. An imported supplier bill and its payment need to be classified so the same cost is counted once. If the source changes, the earlier review may need to be repeated.
 
-Reports keep currencies separate and identify incomplete costs or ambiguous attribution. The resulting view helps an owner understand contribution and cash exposure while preserving the path back to the work behind each number.
+Reports keep currencies separate. An owner can open the records behind a margin figure and see which costs are incomplete or still need assigning.
 
 ## Workspace AI Helper
 
-**Ask AI** is available across all seven modules. A user can ask which follow-ups need attention, what is blocking a project, or which invoices are overdue. The answer reads accessible records and links to the sources it actually retrieved.
+Someone using **Ask AI** might ask “Which invoices are overdue?” or “What is blocking this project?” The assistant can search the records that person has permission to read and link to the sources behind its answer. It works across all seven modules.
 
-The same entry point can turn a conversation into prepared updates. A note about a customer payment and requested service date can produce separate proposed steps for review. Missing amounts, ambiguous customers, and required receipt or acceptance evidence remain explicit.
+If a customer mentions a payment and asks to change a service date in the same note, the assistant can prepare two changes for review. It flags missing amounts, uncertain customer matches, or missing evidence of acceptance.
 
-I separated interpretation from execution. Read tools answer questions; reviewed commands use the existing module permissions, validators, and revision checks. Specialized work such as drawing analysis or accounting review opens the appropriate workspace. Private conversation history and metered provider usage follow the user's current access.
+The person approving each change needs the same permissions as someone editing the record directly. The same validation and revision checks apply. Drawing analysis and accounting reviews open the relevant workspace. Conversation history and metered usage respect the user’s access.
 
 ## Automation that explains its actions
 
-Native recipes expose their conditions, matching values, selected branch, and proposed effects before execution. Scheduled work uses a database worker with bounded batches, current-permission checks, and replay protection.
+Before a recipe runs, an operator can see which values met its conditions, which branch it selected, and what it proposes to change. A database worker takes scheduled tasks in batches, checks permissions again, and guards against repeating a completed action.
 
-Run history preserves individual attempts, failures, and completed effects. Administrators can cancel eligible work with a reason or retest a failed run against current evidence. An uncertain external response is held for reconciliation instead of triggering a blind repeat.
-
-This makes automation a process the operator can inspect and recover, with a clear connection between the source event and the resulting action.
+Run history shows each attempt, failure, and completed step. An administrator can cancel eligible work with a reason or retest a failure against the latest records. If an outside service gives an uncertain answer, the system holds the action for reconciliation before anyone tries again.
 
 ## Customer portal
 
-The customer portal carries the relationship beyond the sale. Customers can review an exact saved quote, approve it, request service, select reviewed appointment options, and inspect customer-facing service history and billing.
+Customers can open the saved version of a quote, approve it, request service, choose an available appointment, and see their service history and bills. Access requires a verified customer identity. Internal notes and private costs stay with the office.
 
-Access is tied to the intended verified customer identity. Internal notes and private costs remain outside that view. Changed quotes require a fresh review; appointment booking rechecks current staffing and reservations before confirming the same underlying job.
+Changing a quote requires fresh approval. Booking an appointment rechecks staffing and reservations before confirming the linked job.
 
 ## Business Simulator
 
-The simulator tests proposed jobs against a 13-week view of qualified labor, material availability, and daily cash. It can compare deposit requirements, later start dates, or additional staffing using the same underlying assumptions.
+The simulator lets an owner test a proposed job against 13 weeks of qualified labor, material availability, and daily cash. They can change the deposit, start date, or staffing and see how each option affects the plan.
 
-A saved prediction freezes the inputs, source timestamps, and calculated results. Later observations retain evidence so the team can compare the plan with recorded actuals. Running a scenario does not book a job, reserve a crew, purchase stock, or change accounting.
-
-It reflects how I approach sustainable growth: understand the delivery and cash constraints before treating another sale as an automatic win.
+Saving a prediction preserves the inputs, their timestamps, and the calculated result. The team can later compare it with recorded outcomes. Booking the job, scheduling the crew, buying stock, and posting accounting entries are separate actions.
 
 ## Migration and recovery
 
-A useful business system also needs a credible way to adopt it. Reviewed CSV and spreadsheet imports preserve source identities for customers, equipment, service history, price libraries, agreements, documents, and opening balances. Previews expose held rows and conflicts before an atomic commit; repeat submissions recover the same result.
+CSV and spreadsheet imports carry over customers, equipment, service history, price lists, agreements, documents, and opening balances. A preview identifies conflicts and held rows. An approved import commits in one transaction, and repeat submissions return the original result.
 
-Recovery tooling creates encrypted database and document bundles with verification manifests. The verification approach includes an actual isolated restore of synthetic records, permission checks, and concurrent-request tests. That exercises the recovery path while keeping a production recovery plan dependent on the real hosting, identity, storage, and provider configuration.
+Recovery tools create encrypted bundles of database records and documents with manifests for verification. Testing included an isolated restore with synthetic records, permission checks, and concurrent requests. Production recovery still depends on the customer’s hosting, storage, identity, and provider configuration.
 
 ## Delivery and boundaries
 
-The application combines tenant-scoped database policies with module permissions, guarded commands, and explicit review at consequential handoffs. Unit and database behavior tests check calculations and access; browser fixtures exercise complete workflows with fictional records.
+Database policies separate each organization’s records. Module permissions and review steps govern who can change them. Unit and database tests cover calculations and access. Browser tests follow complete workflows using fictional records.
 
-This case study reflects the source reviewed on **October 28, 2026**, at revision **b048d86**. The console includes email, calendar, accounting, payment, research, and automation adapters. Each provider still needs appropriate configuration, authorization, and live acceptance checks before its workflow is enabled for a customer. Marketing publishing and live ad-platform management remain outside the current supported workflow.
-
-The product demonstrates how I connect customer discovery, relationship-based sales, operational delivery, and financial discipline in one system.
+This description covers the October 28, 2026 version. The console includes adapters for email, calendars, accounting, payments, research, and automation. Enabling one for a customer requires configuration, provider authorization, and live testing. Marketing tools cover research, planning, and measurement. Publishing campaigns and managing live ads are outside this version’s scope.

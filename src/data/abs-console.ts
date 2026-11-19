@@ -3,78 +3,78 @@ export const modules = [
   {
     id: "crm",
     title: "CRM & revenue management",
-    kicker: "Turn relationships into a repeatable sales process",
-    description: "Keep the customer, conversation, next commitment, and commercial opportunity together. Sales teams can see what needs attention, while leaders can inspect the evidence behind a forecast.",
+    kicker: "Sales and forecasting",
+    description: "A sales rep can open an account and see its conversations, opportunities, and next follow-up. A manager can open the deals behind a forecast.",
     capabilities: [
       "Configurable pipelines, deal stages, owners, activity history, and follow-up queues.",
-      "Scoped sales reports with exact deal drill-downs, custom fields, and arithmetic formulas.",
+      "Filtered sales reports with links to individual deals, custom fields, and arithmetic formulas.",
       "Saved sales dashboards, personal scheduled reports, quotas, and manager commitments.",
-      "Immutable forecast submissions compared with subsequently recorded wins.",
+      "Saved forecasts that managers can compare with later wins.",
       "Researched outreach sequences, approvals, reply triage, and recorded outcomes.",
     ],
-    connection: "Qualified accounts carry their research into the relationship; accepted work stays connected to the customer, delivery, and financial records.",
+    connection: "Research stays with the account when it enters the CRM. Accepted work links to the customer, project, and invoice.",
   },
   {
     id: "prospecting",
     title: "Prospect Finding",
-    kicker: "Understand the problem before proposing the solution",
-    description: "Find relevant businesses, investigate their operating context, and build a reason to start a useful conversation. Research remains traceable to its sources, with clear questions to validate with the buyer.",
+    kicker: "Prospect research",
+    description: "Find businesses in a territory, check what they do, and save questions for the first conversation. Each finding links back to its source.",
     capabilities: [
       "Geographic business discovery using Overture Maps, saved searches, and qualification filters.",
-      "Company research, website observations, fit evidence, and source freshness.",
-      "Contact dossiers that distinguish identity evidence from email verification.",
+      "Company and website research with source dates and reasons the business might be a fit.",
+      "Contact records that track identity and email verification separately.",
       "Offer-specific research for websites, social media, and connected business modules.",
       "Market intelligence, news watches, and reviewed handoffs into CRM and campaigns.",
     ],
-    connection: "Research becomes context for discovery and follow-up. A fit score is a conversation hypothesis; the prospect still confirms the need.",
+    connection: "A rep can take the research into a call and ask the prospect whether the need behind a fit score is real.",
   },
   {
     id: "marketing",
     title: "Marketing & growth",
-    kicker: "Give growth work ownership and measurable intent",
-    description: "Bring search visibility, content, campaigns, and experiments into one working plan. Connect the work to its sources, deadlines, and commercial results instead of leaving it in disconnected documents.",
+    kicker: "Campaign planning and reporting",
+    description: "A marketing team can plan content, track search visibility, and run campaigns in one place. Each campaign can link its spending to the jobs it helped generate.",
     capabilities: [
       "Saved homepage SEO and answer-engine readiness audits with findings and history.",
       "Keyword, content, competitor, local SEO, backlink, and experiment workspaces.",
       "Content briefs and provider-backed AI drafts prepared for editorial review.",
-      "Campaign goals, evidence references, UTM links, and measurement-readiness checks.",
+      "Campaign goals, sources, UTM links, and checks that tracking is in place.",
       "Reviewed campaign spend and job attribution linked to invoiced contribution.",
     ],
-    connection: "Campaign work can connect to customers, jobs, and recorded economics. Audit scores and planning scenarios are kept distinct from measured results.",
+    connection: "Teams can trace campaign spending to a customer and job, then review invoiced contribution. Reports distinguish audit scores and planning scenarios from measured results.",
   },
   {
     id: "financial",
     title: "Financial visibility",
-    kicker: "See whether growth is becoming healthy cash flow",
-    description: "Connect revenue activity to receivables, payment timing, and recorded costs. Owners can inspect margin and cash exposure with source coverage and separate currencies visible throughout.",
+    kicker: "Cash, costs, and margin",
+    description: "Owners can see what they have invoiced, when they expect payment, and which costs have been recorded. Reports keep currencies separate and flag gaps in the source records.",
     capabilities: [
       "Cash, receivables, payables, overdue balances, and operating-health views.",
-      "Cash scenarios with collection-delay assumptions and shortfall visibility.",
+      "Cash projections that show what happens if customers pay late.",
       "Connected customer, project, and campaign profit reports with duplicate-source checks.",
       "Invoices, deposits, credits, refunds, and payment history connected to the original job.",
       "QuickBooks Online, Xero, and Stripe handoff adapters with reconciliation and recovery controls.",
     ],
-    connection: "Sales commitments become delivery records and invoices; recorded costs and collections make the commercial consequences visible. External accounting and payments require provider setup and acceptance testing.",
+    connection: "An owner can trace an invoice back to the job, its costs, and its payments. External accounting and payment providers require setup and live testing.",
   },
   {
     id: "projects",
     title: "Project management",
-    kicker: "Deliver on the promise made during the sale",
-    description: "Move agreed scope into work with clear ownership, dependencies, and commercial context. Teams can see blockers early and keep delivery changes connected to the customer commitment.",
+    kicker: "Project delivery",
+    description: "Turn the agreed scope into tasks with owners and dependencies. Project teams can see what is holding up the work and how an approved change affects costs.",
     capabilities: [
       "Tasks, milestones, RFIs, submittals, punch items, and change requests.",
       "Dependencies, timelines, workload views, recurring tasks, and capacity planning previews.",
       "Delivery risk review, progress updates, comments, files, and saved working views.",
       "Time, additional costs, approved changes, and project profitability.",
-      "Explicit customer and delivery-job links, with connected financial source records.",
+      "Links to the customer, field job, and original financial records.",
     ],
     connection: "Scope, people, time, and cost stay connected from the sales handoff through delivery and billing.",
   },
   {
     id: "operations",
     title: "Connected Operations & CMMS",
-    kicker: "Make the entire job work together",
-    description: "Connect estimating, field delivery, inventory, maintenance, and billing around the same customer and job. Supporting business tools extend that workflow into people, purchasing, production, and quality.",
+    kicker: "Field service and maintenance",
+    description: "Dispatchers, crews, and the office share the same job record from estimate to invoice. A maintenance team can also track assets, assign technicians, and check which parts are available.",
     capabilities: [
       "Itemized estimates, PDF drawing measurement, source-cited AI bid review, and customer acceptance.",
       "Dispatch planning, arrival commitments, field forms, photos, signatures, and offline reports.",
@@ -83,21 +83,21 @@ export const modules = [
       "Customer portal access for quotes, appointments, requests, service history, and billing.",
       "Connected invoices, service agreements, customer communications, and payment workflows.",
     ],
-    connection: "Accepted scope becomes scheduled work; completion evidence feeds job costs and billing. Customers and the office can follow the same service relationship.",
+    connection: "An approved estimate becomes a job the office can schedule. Crews record time and materials for billing, and the customer can follow the job through their portal.",
   },
   {
     id: "automation",
     title: "Automation & agent operations",
-    kicker: "Make repeatable work reliable and reviewable",
-    description: "Turn recurring business processes into inspectable workflows. Teams can understand why a condition matched, review proposed actions, and recover from failures without losing the history.",
+    kicker: "Recurring tasks and approvals",
+    description: "Build a recipe for a recurring task, see why its conditions matched, and review the proposed actions. Run history shows which steps succeeded if the task needs another attempt.",
     capabilities: [
       "Native recipe builder with AND/OR conditions, branches, and explained test results.",
       "Scheduled execution, durable waits, bounded retries, and a database-backed worker.",
       "Searchable run history, individual attempt records, and cancellation with a reason.",
-      "Agent runs, evidence-readiness checks, approval queues, and audit trails.",
+      "Agent runs with checks for required evidence, an approval queue, and an audit trail.",
       "Replay protection, current-permission checks, and visible worker health.",
     ],
-    connection: "Workflows act on shared records under the same workspace permissions, preserving the connection between the trigger, decision, and result.",
+    connection: "The run history links the triggering record to each decision and action. Each step uses the workspace’s existing permissions.",
   },
 ] as const;
 
@@ -105,7 +105,7 @@ export const stackGroups = [
   {
     title: "Application & interface",
     technologies: ["Next.js 16", "React 19", "TypeScript", "Tailwind CSS 4", "shadcn / Base UI"],
-    purpose: "A responsive application with server-rendered routes and focused interactive workspaces.",
+    purpose: "Server-rendered pages and interactive workspaces for desktop and mobile.",
   },
   {
     title: "Data & access",
@@ -125,7 +125,7 @@ export const stackGroups = [
   {
     title: "Execution & extensibility",
     technologies: ["Vercel", "PostgreSQL pg_cron", "Vercel Cron", "n8n", "Trigger.dev / Inngest adapters", "MCP SDK"],
-    purpose: "Native scheduled work, background integration paths, and scoped AI tools backed by shared services. External runners are configuration-dependent.",
+    purpose: "Scheduled jobs run in the background. AI tools use the same application services and permissions as the rest of the console. External runners require configuration.",
   },
   {
     title: "Documents & verification",
@@ -137,22 +137,22 @@ export const stackGroups = [
 export const platformCapabilities = [
   {
     title: "Ask AI across the workspace",
-    description: "Ask questions against accessible records, follow supporting sources, or describe an update in plain language. Editors review proposed changes before saving; ambiguous records and missing evidence remain explicit.",
+    description: "Ask about a project, open the records behind the answer, or describe a change in plain language. An editor reviews the proposed change and can see where a customer match or supporting document is missing.",
   },
   {
     title: "Business Simulator",
-    description: "Compare proposed jobs over a 13-week planning window against qualified labor, stock, and daily cash. Test deposit, start-date, and staffing alternatives, then preserve a prediction and compare recorded actuals.",
+    description: "Test what happens to staffing, stock, and daily cash if a job starts later or the customer pays a larger deposit. Save the 13-week projection and compare it with actual results.",
   },
   {
-    title: "One connected customer journey",
-    description: "Shared customer identity and explicit record links connect research, conversations, estimates, projects, field work, invoices, and profit reporting.",
+    title: "Customer and job history",
+    description: "A customer ID ties each conversation, estimate, project, field job, and invoice back to the same account.",
   },
   {
-    title: "Control built into the workflow",
-    description: "Workspace permissions, review gates, source evidence, audit history, and recovery controls make actions inspectable. Missing information stays visible instead of becoming a misleading zero.",
+    title: "Permissions and audit history",
+    description: "Teams can see who approved a change and which records supported it. When a figure is missing, reports flag the gap.",
   },
 ] as const;
 
-export const integrationNote = "The console includes adapters for email, calendars, accounting, payments, research, and automation. Availability depends on workspace configuration, provider authorization, and live acceptance checks; an implemented connection is not a claim that every provider is active. Marketing publishing and live ad-platform management remain outside the current supported workflow.";
+export const integrationNote = "A customer enables each connection for their workspace, authorizes the provider, and tests it before using live records.";
 
-export const productEvidenceNote = "The showcase describes implemented product workflows. Sample screens illustrate fictional records; forecasts and simulations are planning outputs, not claims of realized customer revenue or savings.";
+export const productEvidenceNote = "Screenshots use fictional records. Forecasts and simulations show planning estimates.";

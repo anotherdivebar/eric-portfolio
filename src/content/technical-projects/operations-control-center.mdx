@@ -1,10 +1,10 @@
 ---
 title: "Operations control center"
-summary: "Built an internal control center for field capacity, job status, and execution risk."
-why: "Leaders needed one reliable view of operational health without stitching together spreadsheets."
+summary: "I built a dashboard where operations managers could check field capacity and job status and spot work that needed attention."
+why: "Managers had to piece together several spreadsheets to find out where a job was at risk."
 constraints:
   - "Field data arrived at different times and with uneven quality"
-  - "Updates needed to feel current without heavy infrastructure"
+  - "Managers needed current figures that a small system could maintain"
   - "Minimal training time for operations teams"
 stack:
   - "C# / .NET"
@@ -12,12 +12,12 @@ stack:
   - "JavaScript dashboard UI"
   - "Scheduled data sync"
 decisions:
-  - "Focused on 3-5 core operational metrics"
-  - "Built exceptions-first views instead of full reports"
-  - "Added lightweight exports for executive reporting"
+  - "Started with three to five measures the team used most often"
+  - "Put jobs that needed intervention at the top of the dashboard"
+  - "Added an export for leadership reports"
 tradeoffs:
-  - "Kept the dashboard narrow to preserve adoption"
-  - "Used scheduled sync over real-time streaming to reduce complexity"
-outcome: "Consolidated operational visibility with clearer risk signals and faster intervention."
+  - "Limited the number of metrics so teams could learn the dashboard quickly"
+  - "Scheduled updates kept the system simple, with a delay between refreshes"
+outcome: "Managers could see which jobs were at risk in one place and intervene sooner."
 order: 5
 ---

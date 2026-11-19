@@ -21,7 +21,7 @@ const sections = headings.filter((heading) => heading.depth === 2);
 const isCaseStudy = ["kansas-electric", "program-delivery-at-scale"].includes(entry.slug);
 ---
 
-<Base title={`${entry.data.title} - Eric Martin`} description={entry.data.summary}>
+<Base title={`${entry.data.title} | Eric Martin`} description={entry.data.summary}>
   <section class="page-heading">
     <div class="page-container">
       <a href="/work" class="text-link">← Sales & growth results</a>
@@ -32,12 +32,12 @@ const isCaseStudy = ["kansas-electric", "program-delivery-at-scale"].includes(en
       </div>
       <div class="mt-10 grid gap-8 border-y border-border py-8 md:grid-cols-[1.15fr_0.85fr] md:gap-12 sm:mt-12 sm:py-10">
         <div>
-          <h2 class="eyebrow">{isCaseStudy ? "Results & my contribution" : "What this approach supports"}</h2>
+          <h2 class="eyebrow">{isCaseStudy ? "Results & my contribution" : "What it helps the team do"}</h2>
           <p class="mt-4 text-xl font-medium leading-relaxed text-ink sm:text-2xl">{entry.data.impact}</p>
         </div>
         <dl class="grid gap-6">
           <div><dt class="eyebrow">Scope</dt><dd class="mt-3 text-sm leading-relaxed text-muted">{entry.data.scope}</dd></div>
-          <div><dt class="eyebrow">{isCaseStudy ? "My ownership" : "Responsibilities"}</dt><dd class="mt-3 text-sm leading-relaxed text-muted">{entry.data.ownership}</dd></div>
+          <div><dt class="eyebrow">{isCaseStudy ? "My role" : "Responsibilities"}</dt><dd class="mt-3 text-sm leading-relaxed text-muted">{entry.data.ownership}</dd></div>
         </dl>
       </div>
     </div>
@@ -54,12 +54,11 @@ const isCaseStudy = ["kansas-electric", "program-delivery-at-scale"].includes(en
         <Content />
       </article>
       <div class="surface-muted mt-14 p-7 sm:p-9">
-        <p class="eyebrow">Continue the conversation</p>
-        <h2 class="mt-4 text-2xl font-semibold text-ink">{isCaseStudy ? "Build the next stage of growth." : "See the software behind the approach"}</h2>
-        <p class="mt-4 leading-relaxed text-muted">{isCaseStudy ? "If your team needs someone who can develop customer relationships, connect needs to solutions, and carry new business into delivery, let's talk." : "ABS Console brings prospect research, delivery planning, finance, and reviewable automation into one workspace. Explore the implementation and its current rollout boundaries."}</p>
+        <h2 class="mt-4 text-2xl font-semibold text-ink">{isCaseStudy ? "Get in touch" : "How this works in ABS Console"}</h2>
+        <p class="mt-4 leading-relaxed text-muted">{isCaseStudy ? "If you’re hiring for sales or business development, I’d like to hear about your customers and the work you want to win." : "The Console case study shows how I connect prospect research, sales, job planning, and billing. It also covers what the current release supports."}</p>
         <div class="mt-6 flex flex-wrap gap-x-6 gap-y-3">
-          <a href="/contact" class="text-link">Talk about your growth goals <span aria-hidden="true">↗</span></a>
-          <a href="/abs-tooling" class="text-link">Explore the supporting systems <span aria-hidden="true">↗</span></a>
+          <a href="/contact" class="text-link">Contact Eric <span aria-hidden="true">↗</span></a>
+          <a href="/abs-tooling" class="text-link">Explore ABS Console <span aria-hidden="true">↗</span></a>
         </div>
       </div>
     </div>

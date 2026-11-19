@@ -1,34 +1,21 @@
 ---
 import Base from "../layouts/Base.astro";
 
-const conversationStarters = [
-  "A business development or sales leadership opportunity",
-  "Customer relationships or markets you want to develop",
-  "A growth challenge that needs stronger sales, delivery, or supporting systems"
-];
 ---
 
-<Base title="Contact Eric Martin" description="Talk with Eric Martin about business development, relationship-based sales, sales leadership, and sustainable growth. Reach him by email, phone, or LinkedIn.">
+<Base title="Contact Eric Martin" description="Contact Eric Martin about sales and business development roles by email, phone, or LinkedIn.">
   <section class="page-heading">
     <div class="page-container">
       <div class="grid items-start gap-12 lg:grid-cols-[1.15fr_0.85fr] lg:gap-20">
         <div>
           <p class="eyebrow">Contact</p>
-          <h1 class="page-title mt-5">Let's talk about<br />what comes next.</h1>
-          <p class="page-intro mt-7">Looking for a sales or business development leader who understands delivery? I'd like to hear about your team, your customers, and where you want to grow.</p>
-          <p class="mt-5 max-w-2xl leading-relaxed text-muted">I bring experience building a sales function, leading national field operations, and developing the systems that support both.</p>
-          <div class="mt-10 border-t border-border pt-7">
-            <h2 class="eyebrow">A few places to start</h2>
-            <ul class="conversation-starters mt-5 space-y-4 text-sm leading-relaxed text-muted">
-              {conversationStarters.map((starter) => <li>{starter}</li>)}
-            </ul>
-          </div>
+          <h1 class="page-title mt-5">Get in touch.</h1>
+          <p class="page-intro mt-7">I’d like to hear from teams looking for a sales or business development leader. Tell me about the customers you serve and the work you want to win.</p>
+
         </div>
 
         <div class="surface-muted p-6 sm:p-9 lg:mt-3">
-          <p class="eyebrow">Reach me directly</p>
-          <h2 class="mt-4 text-3xl font-semibold">Send me a note.</h2>
-          <p class="mt-4 leading-relaxed text-muted">A little context is plenty: the opportunity, the challenge, and the best way to reach you.</p>
+          <h2 class="mt-4 text-3xl font-semibold">Contact details</h2>
           <div class="mt-8 border-t border-border pt-6">
             <h3 class="eyebrow">Email</h3>
             <a class="text-link mt-3 max-w-full break-all text-base" href="mailto:ericm93.2023@outlook.com">
@@ -51,13 +38,12 @@ const conversationStarters = [
             <a class="text-link mt-3" href="https://www.linkedin.com/in/eric-m-53b374174/">
               Connect on LinkedIn <span aria-hidden="true">↗</span>
             </a>
-            <p class="mt-2 text-sm text-muted">Connect or continue the conversation there.</p>
           </div>
         </div>
       </div>
 
       <div class="mt-16 flex flex-col justify-between gap-5 border-t border-border pt-7 sm:flex-row sm:items-center lg:mt-24">
-        <p class="text-muted">Want more context before reaching out?</p>
+        <p class="text-muted">My work and experience</p>
         <div class="flex flex-wrap gap-x-6 gap-y-3">
           <a class="text-link" href="/work">See my sales & growth results <span aria-hidden="true">↗</span></a>
           <a class="text-link" href="/resume">View my resume <span aria-hidden="true">↗</span></a>
@@ -70,8 +56,6 @@ const conversationStarters = [
 <style>
   .copy-email { min-height: 44px; padding: 8px 12px; border: 1px solid #bac8bc; border-radius: 7px; color: #176958; font-size: .8rem; font-weight: 600; }
   .copy-email:hover { background: #e1e9dc; }
-  .conversation-starters li { display: flex; gap: 12px; }
-  .conversation-starters li::before { content: "↗"; color: #176958; }
 </style>
 <script>
   const copyButton = document.querySelector<HTMLButtonElement>('[data-copy-email]');

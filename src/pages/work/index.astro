@@ -1,87 +1,135 @@
 ---
 import Base from "../../layouts/Base.astro";
+import OptimizedImage from "../../components/OptimizedImage.astro";
 import { getCollection } from "astro:content";
 
-const caseStudies = (await getCollection("case-studies")).sort(
-  (a, b) => a.data.order - b.data.order
-);
-const kansasElectric = caseStudies.find((study) => study.slug === "kansas-electric");
-const programDelivery = caseStudies.find((study) => study.slug === "program-delivery-at-scale");
-const operatingExamples = caseStudies.filter((study) => !["kansas-electric", "program-delivery-at-scale"].includes(study.slug));
+const caseStudies = (await getCollection("case-studies")).sort((a, b) => a.data.order - b.data.order);
+const results = {
+  "kansas-electric": {
+    years: "2024–2025",
+    value: "$2M",
+    context: "in new work I closed in my first 60 days",
+    description: "I built Kansas Electric’s dedicated sales and marketing function, developing relationships with industrial and commercial contractors and business owners.",
+    link: "Read the sales story",
+  },
+  "program-delivery-at-scale": {
+    years: "2019–2024",
+    value: "$4M",
+    context: "in annual revenue at a company I helped grow",
+    description: "I was Vale’s first employee. I started in the field and went on to lead operations for a 35-person company installing technology in hundreds of restaurants.",
+    link: "Read the growth story",
+  },
+};
+const commercialStories = caseStudies.flatMap((study) => {
+  const result = results[study.slug as keyof typeof results];
+  return result ? [{ study, result }] : [];
+});
+const operatingExamples = caseStudies.filter((study) => !(study.slug in results));
 ---
 
-<Base title="Sales & Growth Results - Eric Martin" description="Eric Martin's sales leadership and founder experience: contractor and business-owner relationship development at Kansas Electric, growth at Vale Field Services, and ABS Console at Atlas-Beren Systems.">
-  <section class="page-heading">
-    <div class="page-container">
-      <div class="max-w-4xl">
+<Base title="Sales & Growth Results | Eric Martin" description="Eric Martin’s work in sales and business development at Kansas Electric, operational growth at Vale Field Services, and product development at Atlas-Beren Systems.">
+  <div class="page-container">
+    <header class="work-intro">
+      <div>
         <p class="eyebrow">Sales & growth results</p>
-        <h1 class="page-title mt-5">Relationships built.<br />Results delivered.</h1>
-        <p class="page-intro mt-7">The work behind the numbers: building Kansas Electric's sales function, helping Vale scale field delivery, and turning that experience into Atlas-Beren Systems.</p>
+        <h1 class="page-title mt-4">Sales and<br /><em>field operations.</em></h1>
       </div>
+      <p class="work-intro-copy">I built Kansas Electric’s sales function after leading restaurant technology installations at Vale. I now build software for businesses that sell and deliver field work.</p>
+    </header>
 
-      <section class="mt-14 sm:mt-20" aria-labelledby="case-studies-heading">
-        <h2 id="case-studies-heading" class="eyebrow">Commercial results, with the story behind them</h2>
-        <div class="mt-6 grid gap-5 md:grid-cols-2">
-          {kansasElectric && (
-            <article class="section-dark result-card flex flex-col rounded-xl p-7 text-white sm:p-10">
-              <p class="text-sm font-semibold text-white/80">Kansas Electric · 2024–2025</p>
-              <p class="result-number mt-8">~$2M</p>
-              <p class="mt-3 text-sm text-white/70">in new work closed in my first 60 days</p>
-              <div class="mb-7 mt-8 h-px bg-white/15"></div>
-              <h3 class="text-2xl font-semibold">{kansasElectric.data.title}</h3>
-              <p class="mt-4 flex-1 leading-relaxed text-white/70">Developed and grew relationships with industrial and commercial contractors and business owners. Built a dedicated sales and marketing function around account development, opportunity pursuit, and follow-through into delivery.</p>
-              <a class="focus-ring mt-7 inline-flex items-center justify-between gap-4 text-sm font-semibold text-white" href="/work/kansas-electric">Read the sales & growth story <span aria-hidden="true">↗</span></a>
-            </article>
-          )}
-          {programDelivery && (
-            <article class="surface result-card flex flex-col p-7 sm:p-10">
-              <p class="text-sm font-semibold text-accent">Vale Field Services · 2019–2024</p>
-              <p class="result-number mt-8 text-accent">~$4M</p>
-              <p class="mt-3 text-sm text-muted">in annual revenue at a company I helped grow</p>
-              <div class="mb-7 mt-8 h-px bg-border"></div>
-              <h3 class="text-2xl font-semibold text-ink">{programDelivery.data.title}</h3>
-              <p class="mt-4 flex-1 leading-relaxed text-muted">Joined as employee one, doing field work and building customer relationships. Grew into leading operations for 35 employees and technology rollouts across hundreds of restaurant locations.</p>
-              <a class="text-link mt-7 justify-between" href="/work/program-delivery-at-scale">Read the growth & delivery story <span aria-hidden="true">↗</span></a>
-            </article>
-          )}
+    <section id="case-studies-heading" class="result-spread" aria-label="Commercial results and case studies">
+      {commercialStories.map(({ study, result }) => (
+        <article class:list={["result", study.slug === "kansas-electric" && "result-ink"]}>
+          <header class="result-meta">
+            <h2>{study.data.title}</h2>
+            <span>{result.years}</span>
+          </header>
+          <p class="result-value"><span class="sr-only">Approximately </span><span class="approx" aria-hidden="true">~</span>{result.value}</p>
+          <p class="result-context">{result.context}</p>
+          <div class="result-detail">
+            <p>{result.description}</p>
+            <a class="story-link" href={`/work/${study.slug}`} aria-label={`${result.link} at ${study.data.title}`}>{result.link}</a>
+          </div>
+        </article>
+      ))}
+    </section>
+
+    <article class="founder">
+      <div class="founder-copy">
+        <p class="eyebrow">Atlas-Beren Systems · 2026–Present</p>
+        <h2 class="section-title">Building ABS Console</h2>
+        <p>I founded Atlas-Beren Systems in January 2026 and built ABS Console for trade and field-service businesses. Its seven modules connect prospecting, sales, project delivery, and finance. I decide what to build, design the interface, and write the software.</p>
+        <a href="/abs-tooling" class="button-secondary">Explore ABS Console</a>
+      </div>
+      <figure class="founder-figure">
+        <div class="pipeline-preview">
+          <OptimizedImage src="/assets/abs-console/sales-pipeline.png" width="1265" height="1523" alt="The ABS Console sales pipeline showing sample opportunities, forecast controls, and deal stages" sizes="(max-width: 760px) 86vw, (max-width: 1264px) 45vw, 540px" />
         </div>
-      </section>
+        <figcaption>ABS Console <span>Sales pipeline · Demo workspace</span></figcaption>
+      </figure>
+    </article>
 
-      <article class="surface-muted mt-5 grid items-center gap-7 p-7 sm:p-10 lg:grid-cols-[1fr_auto] lg:gap-12">
-        <div>
-          <p class="text-sm font-semibold text-accent">Founder, Atlas-Beren Systems · 2026–Present</p>
-          <h2 class="mt-4 text-2xl font-semibold sm:text-3xl">Founded ABS. Built the Console.</h2>
-          <p class="mt-4 max-w-3xl leading-relaxed text-muted">I founded Atlas-Beren Systems in January 2026 and built ABS Console for trade and field-service businesses. Its seven modules connect the work from finding a prospect through sales, project delivery, and finance. I own the product direction, design, and full-stack engineering.</p>
-        </div>
-        <a class="button-secondary" href="/abs-tooling">Explore the platform <span aria-hidden="true">↗</span></a>
-      </article>
-
-      <section class="section-space" aria-labelledby="operating-heading">
+    <section class="operating section-space" aria-labelledby="operating-heading">
+      <div>
         <p class="eyebrow">Behind the results</p>
-        <h2 id="operating-heading" class="mt-4 text-3xl font-semibold text-ink sm:text-4xl">How I structure the work</h2>
-        <p class="mt-4 max-w-2xl leading-relaxed text-muted">Two practical approaches to ownership, handoffs, and automation, with links to the systems where I've applied them.</p>
-        <div class="mt-9 grid gap-x-12 gap-y-9 md:grid-cols-2">
-          {operatingExamples.map((study) => (
-            <article class="flex flex-col border-t border-border pt-6">
-              <p class="eyebrow">{study.data.category}</p>
-              <h3 class="mt-3 text-xl font-semibold text-ink">{study.data.title}</h3>
-              <p class="mt-3 flex-1 text-sm leading-relaxed text-muted">{study.data.summary}</p>
-              <a class="text-link mt-5" href={`/work/${study.slug}`} aria-label={`Read ${study.data.title}`}>Read the approach <span aria-hidden="true">↗</span></a>
-            </article>
-          ))}
-        </div>
-      </section>
-
-      <div class="flex flex-wrap gap-x-6 gap-y-3 border-t border-border pt-7">
-        <a class="text-link" href="/technical-projects">Browse all projects <span aria-hidden="true">↗</span></a>
-        <a class="text-link" href="/resume">Read my professional background <span aria-hidden="true">↗</span></a>
+        <h2 id="operating-heading" class="section-title mt-4">How I structure the work</h2>
+        <p class="mt-4 leading-relaxed text-muted">How I help a team decide who should follow up on a sales lead and what to do when a deal stalls.</p>
       </div>
-    </div>
-  </section>
+      <div>
+        {operatingExamples.map((study) => (
+          <article class="approach">
+            <p class="eyebrow">{study.data.category}</p>
+            <h3 class="mt-2 text-2xl font-semibold">{study.data.title}</h3>
+            <p class="mt-3 leading-relaxed text-muted">{study.data.summary}</p>
+            <a class="text-link mt-3" href={`/work/${study.slug}`} aria-label={`Read ${study.data.title}`}>Read the approach</a>
+          </article>
+        ))}
+      </div>
+    </section>
+
+    <nav class="work-next" aria-label="Related portfolio pages">
+      <a class="text-link" href="/technical-projects">Browse all projects</a>
+      <a class="text-link" href="/resume">View my resume</a>
+    </nav>
+  </div>
 </Base>
 
 <style>
-  .result-number { font-size: clamp(3.5rem, 8vw, 5rem); font-weight: 500; letter-spacing: -0.065em; line-height: 1; font-variant-numeric: tabular-nums; }
-  .result-card { transition: border-color 180ms ease; }
-  .result-card:hover { border-color: #9ebaa7; }
+  .work-intro { display: grid; grid-template-columns: 1.65fr 1fr; align-items: end; gap: clamp(1.5rem, 5vw, 5rem); padding-block: clamp(3rem, 6.5vw, 6rem) clamp(2.5rem, 5vw, 4.5rem); }
+  .page-title em { color: var(--accent); }
+  .work-intro-copy { max-width: 38ch; margin-bottom: .2rem; font-size: clamp(1.05rem, 1.5vw, 1.22rem); line-height: 1.65; color: var(--muted); }
+  .result-spread { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); overflow: hidden; border-radius: 1rem; }
+  .result { --result-ink: #153834; --result-muted: #385c56; --result-rule: #aacac0; display: flex; flex-direction: column; padding: clamp(1.5rem, 3.9vw, 3.7rem); background: #d7eee5; color: var(--result-ink); }
+  .result-ink { --result-ink: #f0faf7; --result-muted: #bdd5d0; --result-rule: #395752; background: var(--night); }
+  .result-meta { display: flex; align-items: baseline; justify-content: space-between; gap: 1.25rem; }
+  .result-meta h2 { font-size: clamp(1.12rem, 1.65vw, 1.5rem); font-weight: 600; }
+  .result-meta > span { flex: none; font-family: ui-monospace, monospace; font-size: .81rem; color: var(--result-muted); }
+  .result-value { margin-top: clamp(2rem, 5vw, 4rem); font-size: clamp(4.6rem, 9vw, 8rem); font-weight: 500; letter-spacing: -.09em; line-height: .92; }
+  .result-ink .result-value { color: var(--mint); }
+  .approx { display: inline-block; margin-right: .08em; font-family: Georgia, serif; font-weight: 400; font-size: .56em; vertical-align: .16em; }
+  .result-context { max-width: 29ch; margin-block: .9rem 1.8rem; font-size: clamp(1.05rem, 1.55vw, 1.3rem); line-height: 1.42; }
+  .result-detail { margin-top: auto; padding-top: 1.35rem; border-top: 1px solid var(--result-rule); }
+  .result-detail p { max-width: 48ch; color: var(--result-muted); line-height: 1.65; }
+  .story-link { display: inline-flex; align-items: center; min-height: 44px; margin-top: .8rem; font-size: .92rem; font-weight: 600; text-decoration: underline; text-decoration-color: var(--result-rule); text-underline-offset: .35em; }
+  .story-link:hover { text-decoration-color: currentColor; }
+  .result-ink a:focus-visible { outline-color: var(--mint); }
+  .founder { display: grid; grid-template-columns: 1fr 1.06fr; gap: clamp(2rem, 6vw, 6rem); align-items: center; margin-block: clamp(3.25rem, 6.5vw, 6.5rem) 0; }
+  .founder-copy h2 { margin-block: .8rem 1rem; }
+  .founder-copy > p:not(.eyebrow) { max-width: 54ch; color: var(--muted); line-height: 1.72; }
+  .founder-copy a { margin-top: 1.5rem; }
+  .pipeline-preview { aspect-ratio: 1.75; overflow: hidden; padding: 6% 7% 0; border-radius: .85rem; border: 1px solid var(--line); background: #dceae7; }
+  .pipeline-preview :global(img) { display: block; width: 100%; height: auto; border: 1px solid #aabbb6; border-radius: .5rem; box-shadow: 0 .7rem 2rem #0e31342b; }
+  .founder-figure figcaption { display: flex; justify-content: space-between; flex-wrap: wrap; gap: .25rem 1rem; padding-top: .6rem; font-size: .8rem; font-weight: 600; color: var(--ink); }
+  .founder-figure figcaption span { font-weight: 400; color: var(--muted); }
+  .operating { display: grid; grid-template-columns: .82fr 1fr; gap: clamp(2rem, 9vw, 9rem); align-items: start; }
+  .approach { border-top: 1px solid var(--line); padding-block: 1.35rem; }
+  .work-next { display: flex; flex-wrap: wrap; gap: .75rem 2rem; padding-block: 1.4rem; border-top: 1px solid var(--line); }
+  @media (max-width: 760px) {
+    .work-intro, .result-spread, .founder, .operating { grid-template-columns: 1fr; }
+    .work-intro { gap: 1.4rem; }
+    .work-intro-copy { max-width: 55ch; }
+    .result { padding: clamp(1.5rem, 6vw, 2.5rem); }
+    .result-context { max-width: 35ch; }
+    .founder-figure { max-width: 36rem; }
+  }
 </style>

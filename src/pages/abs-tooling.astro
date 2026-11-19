@@ -10,53 +10,59 @@ if (!project) throw new Error("ABS Console case study is missing.");
 const { Content, headings } = await project.render();
 const labels: Record<string, string> = { crm: "CRM & sales", prospecting: "Prospect Finding", marketing: "Marketing", financial: "Financial", projects: "Projects", operations: "Operations & CMMS", automation: "Automation" };
 const flows: Record<string, string[]> = {
-  crm: ["Understand the account", "Own the next commitment", "Connect the delivery handoff"],
-  prospecting: ["Discover relevant businesses", "Research fit with sources", "Bring context into CRM"],
-  marketing: ["Review visibility & evidence", "Plan campaigns and content", "Connect spend to job results"],
-  financial: ["Connect the source records", "Inspect margin & cash timing", "Review the accounting handoff"],
+  crm: ["Understand the account", "Assign the next follow-up", "Link the delivery project"],
+  prospecting: ["Discover relevant businesses", "Check the business against source records", "Bring context into CRM"],
+  marketing: ["Review search visibility", "Plan campaigns and content", "Connect spend to job results"],
+  financial: ["Link invoices and costs", "Check margins and payment dates", "Review the accounting handoff"],
   projects: ["Translate scope into tasks", "Coordinate people & changes", "Carry progress into billing"],
-  operations: ["Estimate and agree the work", "Schedule, supply, and execute", "Record costs and bill the job"],
-  automation: ["Explain the trigger", "Review and execute the steps", "Track the run and recover"]
+  operations: ["Get the estimate approved", "Assign a crew and materials", "Record costs and bill the job"],
+  automation: ["Explain the trigger", "Review and execute the steps", "Review the run or retry a failed step"]
 };
 const images: Record<string, { src: string; height: number; alt: string }> = {
   crm: { src: "/assets/abs-console/sales-pipeline.png", height: 1523, alt: "ABS Console sales pipeline with sample opportunities, follow-up queues, and forecast controls" },
   operations: { src: "/assets/abs-console/operations-dashboard.png", height: 1991, alt: "ABS Console demo operations workspace connecting estimates, field work, maintenance, and financial activity" }
 };
 ---
-<Base title="ABS Console — A Connected Business Platform by Eric Martin" description="Explore every ABS Console module: CRM, prospect research, marketing, financials, projects, operations, and automation. Product design, full-stack engineering, AI, and business workflows by Eric Martin.">
-  <section class="page-container page-heading" aria-labelledby="abs-title">
-    <a href="/technical-projects" class="text-link">← All projects</a>
+<Base title="ABS Console | Product and Engineering by Eric Martin" description="Eric Martin built ABS Console to connect sales, field jobs, and billing. Explore the seven modules, demo screens, and engineering decisions behind the product.">
+  <section class="page-container abs-hero" aria-labelledby="abs-title">
+    <a href="/technical-projects" class="text-link">All projects</a>
     <div class="abs-heading-grid">
-      <div><p class="eyebrow">Featured product / Atlas-Beren Systems</p><h1 id="abs-title">ABS Console<span>.</span></h1><p class="abs-deck">The whole business.<br />Working together.</p></div>
-      <div class="abs-intro"><p>I founded Atlas-Beren Systems and built ABS Console for trade and field-service businesses. Seven modules connect prospect research, sales, delivery, and billing, so the customer context travels with the work.</p><div class="mt-6 flex flex-wrap gap-3"><a class="button-primary" href="#customer-journey">Follow the workflow <span aria-hidden="true">↓</span></a><a class="button-secondary" href="#modules">Explore the modules <span aria-hidden="true">↓</span></a></div></div>
+      <div>
+        <p class="eyebrow">Featured product / Atlas-Beren Systems</p>
+        <h1 id="abs-title">ABS <em>Console.</em></h1>
+        <p class="abs-deck">Sales, field work, and billing in one place.</p>
+        <p class="abs-intro">I founded Atlas-Beren Systems and built ABS Console for trade and field-service businesses. It keeps the customer’s approved estimate with the job, so the crew can see what was promised and the office can see what to bill.</p>
+        <div class="mt-6 flex flex-wrap gap-3">
+          <a class="button-primary" href="#customer-journey">Follow the workflow</a>
+          <a class="button-secondary" href="#modules">Explore the modules</a>
+        </div>
+      </div>
+      <figure class="product-stage">
+        <a class="product-frame" href="/assets/abs-console/today-desktop.png" aria-label="View full-size ABS Console workspace screenshot">
+          <OptimizedImage src="/assets/abs-console/today-desktop.png" alt="ABS Console Today view with daily priorities and navigation for sales, delivery, and finance" width="1265" height="1189" sizes="(max-width: 800px) calc(100vw - 70px), (max-width: 1264px) 48vw, 590px" loading="eager" fetchpriority="high" />
+        </a>
+        <figcaption><span>Demo workspace · October 28, 2026</span><a href="/assets/abs-console/today-desktop.png">View full size</a></figcaption>
+      </figure>
     </div>
-    <dl class="abs-facts"><div><dt>Founder · 2026–Present</dt><dd>Atlas-Beren Systems<br />Product direction, design & full-stack engineering</dd></div><div><dt>Built for</dt><dd>Service, trade, project & operational businesses</dd></div><div><dt>Current showcase</dt><dd>October 2026 · Seven connected modules<br /><a href="#full-stack" class="text-link">Explore the full stack ↗</a></dd></div></dl>
+    <dl class="abs-facts"><div><dt>Founder · 2026–Present</dt><dd>Atlas-Beren Systems<br />Product direction, design & full-stack engineering</dd></div><div><dt>Built for</dt><dd>Trade contractors, field-service businesses, and project teams</dd></div><div><dt>Product overview</dt><dd>October 2026 · Seven connected modules<br /><a href="#full-stack" class="text-link">See the technology</a></dd></div></dl>
     <nav class="section-nav mt-8" aria-label="ABS Console sections"><a href="#problem">The problem</a><a href="#customer-journey">Workflow</a><a href="#modules">Modules</a><a href="#full-stack">Technology</a><a href="#engineering">Engineering</a><a href="#delivery-and-boundaries">Current scope</a></nav>
   </section>
 
   <section id="problem" class="page-container section-space" aria-labelledby="problem-heading">
-    <div class="problem-heading"><p class="eyebrow">The problem I set out to solve</p><h2 id="problem-heading" class="section-title mt-4">The customer promise gets lost<br />between the tools.</h2><p>Service and trade businesses need to connect what was sold with what gets scheduled, delivered, and billed. When customer conversations, job details, and costs sit in separate systems, each handoff asks someone to reconstruct the story.</p></div>
+    <div class="problem-heading"><p class="eyebrow">The problem I set out to solve</p><h2 id="problem-heading" class="section-title mt-4">What did we promise<br />the customer?</h2><p>When an estimate lives in one tool, the crew schedule in another, and costs in a spreadsheet, someone has to piece together the answer before work can start or an invoice can go out.</p></div>
     <div class="problem-grid">
-      <article><span>01 / The friction</span><h3>Work moves. Context stays behind.</h3><p>Sales knows the commitment. The field needs the agreed scope. Finance needs completion evidence and costs. Disconnected records make it harder to see what is ready, what is missing, and who owns the next step.</p></article>
-      <article><span>02 / My solution</span><h3>Connect the records around the customer.</h3><p>I designed and built shared customer relationships across research, opportunities, estimates, projects, jobs, and invoices. Each team can follow the source records as responsibility moves through the business.</p></article>
-      <article><span>03 / What that enables</span><h3>Decisions with the full story.</h3><p>Follow up with context, carry accepted scope into a linked job, and inspect invoiced revenue alongside recorded costs. Missing information stays visible so teams know what still needs attention.</p></article>
+      <article><span>The problem</span><h3>The crew needs the agreed scope.</h3><p>Sales knows what the customer agreed to. The crew needs that scope on site. Once the job is done, finance needs the completion record and costs to prepare the bill.</p></article>
+      <article><span>What I built</span><h3>One customer record links the work.</h3><p>I linked research, sales opportunities, estimates, projects, field jobs, and invoices to the same customer. Each team can open the original record as work changes hands.</p></article>
+      <article><span>In practice</span><h3>Trace the estimate through billing.</h3><p>An accepted estimate creates a linked job. An owner can open that job to compare the invoice with recorded costs and see which costs are still missing.</p></article>
     </div>
-    <p class="image-note">The screenshots below demonstrate implemented workflows with sample records; they do not represent measured customer outcomes.</p>
-  </section>
-
-  <section class="page-container" aria-label="The updated ABS Console interface">
-    <figure class="product-stage">
-      <div class="product-frame"><div class="product-chrome"><span aria-hidden="true">● ● ●</span><span>ABS Console / Your business, connected</span><span>Demo workspace</span></div><a href="/assets/abs-console/today-desktop.png" aria-label="View full-size ABS Console workspace screenshot"><OptimizedImage src="/assets/abs-console/today-desktop.png" alt="ABS Console Today view with sales, marketing, financial, projects, operations, and automation navigation" width="1265" height="1189" sizes="(max-width: 700px) calc(100vw - 70px), 1100px" /></a></div>
-      <figcaption><span>A clear next step, with the rest of the business connected.</span><a href="/assets/abs-console/today-desktop.png">View full-size screenshot ↗</a></figcaption>
-    </figure>
-    <p class="image-note">Current interface captured October 28, 2026. All screens use demo or sample records.</p>
+    <p class="image-note">The screens on this page use fictional customer and job records.</p>
   </section>
 
   <AbsWorkflow />
 
   <section id="modules" class="module-section" aria-labelledby="modules-heading">
     <div class="page-container section-space">
-      <div class="module-section-heading"><div><p class="eyebrow">Inside the platform</p><h2 id="modules-heading" class="section-title mt-4">Seven modules.<br />One connected business.</h2></div><p>Explore what each module does and how it supports the next part of the workflow. CRM and Prospect Finding share the Sales workspace in the application.</p></div>
+      <div class="module-section-heading"><div><p class="eyebrow">Inside the platform</p><h2 id="modules-heading" class="section-title mt-4">The seven modules</h2></div><p>Start with a part of the business you know. CRM and Prospect Finding share the Sales workspace.</p></div>
       <div class="module-explorer" data-module-explorer>
         <div class="module-selector" role="tablist" aria-label="ABS Console modules" aria-orientation="vertical" hidden>
           {modules.map((module) => <button type="button" id={`tab-${module.id}`} role="tab" aria-controls={module.id} aria-selected="false" tabindex="-1" data-module-target={module.id}><span>{labels[module.id]}</span><span class="module-arrow" aria-hidden="true">↗</span></button>)}
@@ -70,7 +76,7 @@ const images: Record<string, { src: string; height: number; alt: string }> = {
                 <div><h4>What it can do</h4><ul class="module-capabilities">{module.capabilities.map((item) => <li><span aria-hidden="true">↗</span>{item}</li>)}</ul></div>
                 <aside class="module-connection"><p class="eyebrow">How the work connects</p><ol>{flows[module.id].map((step, stepIndex) => <li><span aria-hidden="true">0{stepIndex + 1}</span>{step}</li>)}</ol><p>{module.connection}</p></aside>
               </div>
-              {images[module.id] && <figure class="module-screenshot"><a href={images[module.id].src} aria-label={`View full-size ${labels[module.id]} screenshot`}><OptimizedImage src={images[module.id].src} alt={images[module.id].alt} width="1265" height={images[module.id].height} sizes="(max-width: 700px) calc(100vw - 90px), 850px" /></a><figcaption>Current {labels[module.id]} interface · Demo records <a href={images[module.id].src}>View full size ↗</a></figcaption></figure>}
+              {images[module.id] && <figure class="module-screenshot"><a href={images[module.id].src} aria-label={`View full-size ${labels[module.id]} screenshot`}><OptimizedImage src={images[module.id].src} alt={images[module.id].alt} width="1265" height={images[module.id].height} sizes="(max-width: 700px) calc(100vw - 90px), 850px" /></a><figcaption>{labels[module.id]} · Sample records <a href={images[module.id].src}>View full size ↗</a></figcaption></figure>}
             </section>
           ))}
         </div>
@@ -79,14 +85,14 @@ const images: Record<string, { src: string; height: number; alt: string }> = {
   </section>
 
   <section class="section-space page-container" aria-labelledby="shared-heading">
-    <div class="max-w-3xl"><p class="eyebrow">The shared foundation</p><h2 id="shared-heading" class="section-title mt-4">The useful part is<br />how it all works together.</h2></div>
+    <div class="max-w-3xl"><p class="eyebrow">The shared foundation</p><h2 id="shared-heading" class="section-title mt-4">Tools that work<br />across modules.</h2></div>
     <div class="shared-grid">{platformCapabilities.map((capability) => <article><h3>{capability.title}</h3><p>{capability.description}</p></article>)}</div>
-    <div class="mobile-product-note"><OptimizedImage src="/assets/abs-console/today-mobile.png" alt="ABS Console demo Today view on a mobile screen" width="375" height="1859" sizes="200px" /><div><p class="eyebrow">From the office to the field</p><h3>Designed around<br />the person doing the work.</h3><p>Responsive workspaces, a daily action view, customer self-service, and offline field reporting bring the next useful action closer to the people responsible for it.</p><a class="text-link" href="/assets/abs-console/today-mobile.png">See the mobile workspace ↗</a></div></div>
+    <div class="mobile-product-note"><OptimizedImage src="/assets/abs-console/today-mobile.png" alt="ABS Console demo Today view on a mobile screen" width="375" height="1859" sizes="200px" /><div><p class="eyebrow">From the office to the field</p><h3>A daily view for the field.</h3><p>The Today view puts priorities on a phone. Crews can record work offline, and customers can check quotes, appointments, and bills through their own portal.</p><a class="text-link" href="/assets/abs-console/today-mobile.png">See the mobile workspace ↗</a></div></div>
   </section>
 
   <section id="full-stack" class="section-dark" aria-labelledby="stack-heading">
     <div class="section-space page-container">
-      <div class="stack-heading"><div><p class="eyebrow">From the interface to the database</p><h2 id="stack-heading" class="section-title mt-4">The full stack.<br />Built with a business purpose.</h2></div><p>My work spans the product model, responsive interface, server logic, database policies, integrations, automation, and verification.</p></div>
+      <div class="stack-heading"><div><p class="eyebrow">From the interface to the database</p><h2 id="stack-heading" class="section-title mt-4">How I built<br />ABS Console.</h2></div><p>I designed the interface, wrote the server and database logic, built the integrations, and tested what happens when work crosses from one module to the next.</p></div>
       <div class="stack-grid">{stackGroups.map((group) => <article><h3>{group.title}</h3><ul aria-label={`${group.title} technologies`}>{group.technologies.map((technology) => <li>{technology}</li>)}</ul><p>{group.purpose}</p></article>)}</div>
       <div class="integration-row"><h3>Connected services</h3><p>Zoho Mail · Gmail & Google Calendar · Outlook & Microsoft Calendar · QuickBooks Online · Xero · Stripe · Hunter</p></div>
       <p class="integration-note">{integrationNote}</p>
@@ -94,7 +100,7 @@ const images: Record<string, { src: string; height: number; alt: string }> = {
   </section>
 
   <section id="engineering" class="section-space page-container" aria-labelledby="engineering-heading">
-    <div class="engineering-grid"><div class="engineering-title"><p class="eyebrow">Ownership & implementation</p><h2 id="engineering-heading" class="section-title mt-4">Behind the<br />working product.</h2><p class="mt-5 text-sm leading-relaxed text-muted">The decisions behind customer context, permissions, and financial records.</p><div class="mt-7 engineering-contents"><PageContents headings={headings.filter((heading) => heading.depth === 2)} label="Engineering details" /></div></div><article class="prose min-w-0"><Content /></article></div>
+    <div class="engineering-grid"><div class="engineering-title"><p class="eyebrow">Ownership & implementation</p><h2 id="engineering-heading" class="section-title mt-4">Engineering decisions</h2><p class="mt-5 text-sm leading-relaxed text-muted">How the console handles two people editing a job, a forecast that changes, or an invoice that appears twice.</p><div class="mt-7 engineering-contents"><PageContents headings={headings.filter((heading) => heading.depth === 2)} label="Engineering details" /></div></div><article class="prose min-w-0"><Content /></article></div>
     <div class="evidence-note"><p>{productEvidenceNote}</p><a class="text-link" href="/technical-projects">Explore more projects ↗</a></div>
   </section>
 </Base>
@@ -160,21 +166,25 @@ const images: Record<string, { src: string; height: number; alt: string }> = {
   .problem-grid p { margin-top: 14px; color: #5d6a63; font-size: .9rem; line-height: 1.8; }
   @media (max-width: 800px) { .problem-grid { grid-template-columns: 1fr; } }
 
-  .abs-heading-grid { display: grid; grid-template-columns: 1.1fr 1fr; align-items: end; gap: 60px; margin-top: 48px; }
-  h1 { margin-top: 20px; font-size: clamp(3.3rem,7vw,6.7rem); font-weight: 550; line-height: .98; letter-spacing: -.065em; }
-  h1 span { color: #176958; }
-  .abs-deck { margin-top: 24px; font-size: clamp(1.8rem,3vw,2.5rem); line-height: 1.2; letter-spacing: -.04em; }
-  .abs-intro > p { font-size: 1.05rem; line-height: 1.8; color: #5d6a63; }
-  .abs-facts { display: grid; grid-template-columns: 1.15fr 1fr 1fr; gap: 30px; margin-top: 48px; padding-top: 25px; border-top: 1px solid #dce3dc; }
-  .abs-facts dt { font-size: .64rem; letter-spacing: .13em; text-transform: uppercase; color: #5d6a63; }
-  .abs-facts dd { margin-top: 9px; font-size: .8rem; line-height: 1.6; }
-  .product-stage { padding: clamp(14px,3vw,38px); border-radius: 24px; background: #dfe9d9; border: 1px solid #d4dfce; }
-  .product-frame { border: 1px solid #becdc4; border-radius: 12px; overflow: hidden; background: #fff; box-shadow: 0 20px 50px rgb(23 35 31 / 8%); }
-  .product-chrome { display: flex; justify-content: space-between; gap: 15px; padding: 12px 18px; color: #5d6a63; font-size: .62rem; }
-  .product-chrome span:first-child { color: #a1b6a5; font-size: .55rem; letter-spacing: 3px; }
-  .product-frame > a { display: block; max-height: 660px; overflow: hidden; }
-  .product-frame :global(img) { width: 100%; height: auto; display: block; }
-  .product-stage figcaption { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 15px; padding-top: 20px; font-size: .75rem; color: #415c4c; }
+  .abs-hero { padding-top: clamp(1.4rem, 3vw, 3rem); }
+  .abs-heading-grid { display: grid; grid-template-columns: minmax(0, .85fr) minmax(0, 1.15fr); align-items: center; gap: clamp(1.75rem, 4vw, 4rem); margin-top: clamp(1.3rem, 2.8vw, 2.75rem); }
+  #abs-title { margin-top: .65rem; font-family: var(--display); font-size: clamp(3.7rem, 7.5vw, 7rem); font-weight: 400; line-height: .98; letter-spacing: -.035em; }
+  #abs-title em { color: var(--accent); }
+  .abs-deck { margin-top: 1.15rem; font-weight: 550; font-size: clamp(1.2rem, 1.8vw, 1.55rem); line-height: 1.35; letter-spacing: -.035em; }
+  .abs-intro { margin-top: .8rem; max-width: 52ch; color: var(--muted); line-height: 1.7; }
+  .abs-facts { display: grid; grid-template-columns: 1.15fr 1fr 1fr; gap: 30px; margin-top: clamp(2rem, 4vw, 3rem); padding-top: 1.5rem; border-top: 1px solid var(--line); }
+  .abs-facts dt { font-size: .78rem; letter-spacing: .08em; text-transform: uppercase; color: var(--muted); }
+  .abs-facts dd { margin-top: .5rem; font-size: .92rem; line-height: 1.6; }
+  .product-stage { min-width: 0; padding: clamp(.85rem, 2.5vw, 2.25rem) clamp(.85rem, 2.5vw, 2.25rem) 0; border-radius: 1rem; background: linear-gradient(145deg, #275354, var(--night) 82%); }
+  .product-frame { display: block; aspect-ratio: 1.53; overflow: hidden; border: 1px solid #829e99; border-radius: .55rem; box-shadow: 0 .8rem 2rem #07191d4d; }
+  .product-frame :global(img) { display: block; width: 100%; height: auto; }
+  .product-stage figcaption { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: .15rem 1rem; padding-block: .35rem; color: #d4e3de; font-size: .8rem; }
+  .product-stage figcaption a { display: inline-flex; align-items: center; min-height: 40px; color: var(--mint); font-weight: 600; }
+  .product-stage a:focus-visible { outline-color: var(--mint); }
+  @media (max-width: 800px) {
+    .abs-heading-grid { grid-template-columns: 1fr; gap: 1.75rem; }
+    .product-frame { aspect-ratio: 1.7; }
+  }
   figcaption a { text-decoration: underline; text-underline-offset: 4px; }
   .image-note { margin-top: 14px; font-size: .7rem; color: #5d6a63; }
   .module-section { background: #edf1e9; border-block: 1px solid #dce3dc; }
@@ -230,10 +240,10 @@ const images: Record<string, { src: string; height: number; alt: string }> = {
   .engineering-title { position: sticky; top: 118px; }
   .engineering-contents :global(.contents-nav) { max-height: 45vh; }
   @media (max-width: 1023px) { .engineering-grid { grid-template-columns: 1fr; } .engineering-title { position: static; } .engineering-contents :global(.contents-nav) { max-height: none; } }
-  @media (max-width: 700px) { .product-frame :global(img) { min-width: 0; } }
+
   .evidence-note { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 24px; border-top: 1px solid #dce3dc; margin-top: 40px; padding-top: 25px; }
   .evidence-note > p { max-width: 700px; font-size: .75rem; color: #5d6a63; line-height: 1.8; }
-  @media (max-width: 1023px) { .abs-heading-grid { gap: 35px; } .module-explorer.is-enhanced { grid-template-columns: 190px minmax(0,1fr); gap: 18px; } .module-detail-grid { grid-template-columns: 1fr; } .module-connection ol { grid-template-columns: repeat(3,1fr); gap: 10px; } .module-connection li { flex-direction: column; } .stack-grid { grid-template-columns: repeat(2,1fr); } .engineering-grid { gap: 40px; } .mobile-product-note { gap: 40px; padding-inline: 40px; } }
-  @media (max-width: 700px) { .abs-heading-grid, .module-section-heading, .stack-heading, .engineering-grid { grid-template-columns: 1fr; gap: 28px; } .abs-heading-grid { margin-top: 32px; } .abs-facts { grid-template-columns: 1fr; gap: 20px; margin-top: 32px; } .product-chrome { padding: 10px; font-size: .5rem; } .product-chrome span:last-child { display: none; } .product-frame > a { max-height: 400px; } .product-frame :global(img) { min-width: 0; } .product-stage figcaption { font-size: .67rem; } .module-explorer.is-enhanced { display: block; } .module-selector { position: static; grid-template-columns: repeat(2, minmax(0,1fr)); gap: 6px; margin-bottom: 20px; } .module-selector button { font-size: .75rem; padding: 12px 10px; gap: 8px; } .module-arrow { display: none; } .module-panel { padding: 24px; } .module-connection ol { grid-template-columns: 1fr; } .module-connection li { flex-direction: row; } .shared-grid { grid-template-columns: 1fr; } .mobile-product-note { grid-template-columns: 110px 1fr; gap: 22px; padding: 24px 24px 0; max-height: 450px; } .mobile-product-note :global(img) { width: 110px; border-width: 4px; border-radius: 18px; } .mobile-product-note > div { padding-top: 0; } .mobile-product-note h3 { font-size: 1.4rem; } .mobile-product-note p:not(.eyebrow) { font-size: .8rem; } .mobile-product-note .text-link { font-size: .73rem; } .stack-grid { gap: 30px 24px; } .integration-row { grid-template-columns: 1fr; gap: 12px; } .engineering-title { position: static; } }
+  @media (max-width: 1023px) { .module-explorer.is-enhanced { grid-template-columns: 190px minmax(0,1fr); gap: 18px; } .module-detail-grid { grid-template-columns: 1fr; } .module-connection ol { grid-template-columns: repeat(3,1fr); gap: 10px; } .module-connection li { flex-direction: column; } .stack-grid { grid-template-columns: repeat(2,1fr); } .engineering-grid { gap: 40px; } .mobile-product-note { gap: 40px; padding-inline: 40px; } }
+  @media (max-width: 700px) { .module-section-heading, .stack-heading, .engineering-grid { grid-template-columns: 1fr; gap: 28px; } .abs-facts { grid-template-columns: 1fr; gap: 20px; margin-top: 32px; } .module-explorer.is-enhanced { display: block; } .module-selector { position: static; grid-template-columns: repeat(2, minmax(0,1fr)); gap: 6px; margin-bottom: 20px; } .module-selector button { font-size: .75rem; padding: 12px 10px; gap: 8px; } .module-arrow { display: none; } .module-panel { padding: 24px; } .module-connection ol { grid-template-columns: 1fr; } .module-connection li { flex-direction: row; } .shared-grid { grid-template-columns: 1fr; } .mobile-product-note { grid-template-columns: 110px 1fr; gap: 22px; padding: 24px 24px 0; max-height: 450px; } .mobile-product-note :global(img) { width: 110px; border-width: 4px; border-radius: 18px; } .mobile-product-note > div { padding-top: 0; } .mobile-product-note h3 { font-size: 1.4rem; } .mobile-product-note p:not(.eyebrow) { font-size: .8rem; } .mobile-product-note .text-link { font-size: .73rem; } .stack-grid { gap: 30px 24px; } .integration-row { grid-template-columns: 1fr; gap: 12px; } .engineering-title { position: static; } }
   @media (max-width: 420px) { .stack-grid { grid-template-columns: 1fr; } .mobile-product-note { grid-template-columns: 1fr; max-height: none; padding: 24px; } .mobile-product-note :global(img) { display: none; } .mobile-product-note > div { padding-bottom: 0; } }
 </style>
