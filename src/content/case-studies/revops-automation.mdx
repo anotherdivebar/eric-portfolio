@@ -1,29 +1,27 @@
 ---
-title: "Follow-up rules for sales and renewals"
-category: "Sales automation"
-summary: "A renewal alert is easy to overlook in a shared inbox. I work backward from what a rep should do next to the information that should trigger it."
-impact: "A rep can see why a record needs attention, when a response is due, and who can resolve an exception."
+title: "What happens to an unassigned sales request?"
+category: "Lead routing"
+summary: "In the routing service I built, a CRM request with missing information goes into a review queue. Staff can see why it landed there and change the assignment rule themselves."
+impact: "Staff could inspect an assignment, see its response deadline, and edit the routing policy."
 bullets:
-  - "Check incoming records for missing or inconsistent information"
-  - "Assign each alert to someone and set a response deadline"
-  - "Review exceptions with the people using the rules"
-scope: "Incoming requests, pipeline changes, handoffs, and renewals."
-ownership: "I design the rules, implement them, and help the team adopt them."
+  - "Send incomplete CRM records to a review queue"
+  - "Track the assigned rep’s response deadline"
+  - "Make routing policies editable in the admin interface"
+scope: "CRM assignment rules and response deadlines"
+ownership: "I built the routing service and its admin interface."
 order: 3
 ---
 
-## Start with the input
+## <span id="start-with-the-input">When the rule can’t pick a rep</span>
 
-<p id="where-this-approach-applies">Sales and support need to agree on what the fields mean. If a customer record is incomplete, I send it for review instead of guessing who should receive it.</p>
+<p id="where-this-approach-applies">A blank or inconsistent CRM field can leave a request without an owner. The service keeps that request in the exception queue. It also logs routing decisions so staff can trace how a request reached a particular rep.</p>
 
-## Connect the signal to an action
+## <span id="connect-the-signal-to-an-action">When the response is overdue</span>
 
-For a pipeline change or upcoming renewal, the alert should say what changed, who should follow up, and when a response is due. If the deadline passes, the workflow shows the overdue item and who can help resolve it.
+Once a request has an owner, a timer tracks how long the rep has to respond. If the deadline passes, the escalation rule flags the missed follow-up.
 
-## Review the exceptions
+## <span id="review-the-exceptions">Fixing a record or changing the rule</span>
 
-When the team reviews missed handoffs, we distinguish a one-off data error from a rule that keeps sending valid records to the wrong person.
+A missing field calls for a correction to the customer record. If complete records keep reaching the wrong rep, staff can change the policy in the admin interface without waiting for a code release.
 
-## Related implementations
-
-In ABS Console, an operator can inspect the rule that ran, the records it used, and any action waiting for approval. [Explore ABS Console](/abs-tooling)
+<p id="related-implementations"><a href="/technical-projects/lead-routing-automation">See how I implemented lead routing in .NET and PostgreSQL.</a></p>

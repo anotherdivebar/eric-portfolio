@@ -1,10 +1,10 @@
 ---
 title: "ABS Console"
-summary: "I built a platform for trade and field-service businesses that links customer research, sales, projects, field jobs, and billing. Teams can trace an invoice back to the work the customer approved."
+summary: "I built the estimating, dispatch, and billing software for Atlas-Beren Systems. A contractor can trace an invoice back to the estimate the customer approved."
 why: "An estimate can lose its connection to the original sales conversation or the final invoice. The team needs those records when a customer asks what they agreed to or why a bill changed."
 constraints:
   - "Keep organizations and private records separate while supporting delegated agency access"
-  - "Preserve source evidence, approval history, and explicit customer relationships"
+  - "Keep the source record and the person who approved each change"
   - "Handle concurrent edits, repeated requests, and uncertain provider responses"
   - "Keep forecasts, sample data, and recorded business results clearly distinguishable"
 stack:
@@ -18,15 +18,15 @@ stack:
   - "PDF.js, pdf-lib, ExcelJS, and scoped MCP tools"
   - "Vitest, PGlite / PostgreSQL behavior tests, and Playwright browser verification"
 decisions:
-  - "Connect original records through explicit identities instead of copying context between modules"
+  - "Link opportunities, projects, jobs, and invoices by record ID"
   - "Calculate financial and forecast totals in application and database logic, with source drill-downs"
   - "Separate AI answers and prepared changes from approval and execution"
-  - "Retain historical decisions and make uncertain outcomes recoverable"
+  - "Keep submitted forecasts and individual automation attempts in history"
 tradeoffs:
-  - "Planning tools expose assumptions and coverage rather than promising a guaranteed outcome"
+  - "Saved simulations retain the crew, material, and cash assumptions used for the prediction"
   - "Provider integrations require account configuration, authorization, and live acceptance checks"
-  - "Bounded workflows favor understandable behavior and reliable recovery over unlimited automation"
-outcome: "Seven modules share customer and job records, with a self-service portal, sales reporting, forecasts, planning tools, and an audit history for automated work."
+  - "Pause a run for reconciliation when an external provider’s response leaves the outcome unclear"
+outcome: "Customers can approve a saved quote or request a service visit through the portal. The office can match the resulting job to its invoice and recorded costs."
 order: 0
 detailUrl: "/abs-tooling"
 ---
@@ -35,7 +35,7 @@ detailUrl: "/abs-tooling"
 
 The console links original records by ID. A won opportunity can reuse its delivery project, and an imported accounting copy can point to the invoice that created it. A matching name or amount alone is too uncertain to establish that link.
 
-Conflicts go to a person for review. When someone saves a change, the new relationships and the records they depend on are saved together. A revision check catches cases where another person has already edited the same record.
+A missing or conflicting link goes to a person for review. The console saves a required link and its record in one transaction. If a second editor has changed the record, the revision check rejects the stale update.
 
 ## Revenue decisions with evidence
 
@@ -57,11 +57,11 @@ Someone using **Ask AI** might ask “Which invoices are overdue?” or “What 
 
 If a customer mentions a payment and asks to change a service date in the same note, the assistant can prepare two changes for review. It flags missing amounts, uncertain customer matches, or missing evidence of acceptance.
 
-The person approving each change needs the same permissions as someone editing the record directly. The same validation and revision checks apply. Drawing analysis and accounting reviews open the relevant workspace. Conversation history and metered usage respect the user’s access.
+Approving a proposed change runs the same permission, validation, and revision checks as editing the record directly. Drawing analysis and accounting review open their respective workspaces. Users can read only the conversation history and provider usage allowed by their current access.
 
 ## Automation that explains its actions
 
-A database worker takes scheduled tasks in batches, rechecks the operator’s permissions, and guards against repeating a completed action.
+The scheduled worker checks for ready tasks every five minutes. Before executing an action it rechecks the operator’s permissions and whether that action already ran.
 
 Run history shows each attempt, failure, and completed step. An administrator can cancel eligible work with a reason or retest a failure against the latest records. If an outside service gives an uncertain answer, the system holds the action for reconciliation before anyone tries again.
 
@@ -73,7 +73,7 @@ Changing a quote requires fresh approval. Booking an appointment rechecks staffi
 
 ## Business Simulator
 
-The simulator lets an owner test a proposed job against 13 weeks of qualified labor, material availability, and daily cash. They can change the deposit, start date, or staffing and see how each option affects the plan.
+An owner can compare up to eight proposed jobs over a 13-week USD planning window. Moving a start date can reveal a crew or stock conflict. Changing a deposit shows its effect on daily cash.
 
 A saved prediction preserves the inputs and their timestamps so the team can compare an estimate with actual results. Booking the job, scheduling the crew, buying stock, and posting accounting entries are separate actions.
 

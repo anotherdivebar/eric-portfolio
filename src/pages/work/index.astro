@@ -9,15 +9,15 @@ const results = {
     years: "2024–2025",
     value: "$2M",
     context: "in new work I closed in my first 60 days",
-    description: "I built Kansas Electric’s dedicated sales and marketing function, developing relationships with industrial and commercial contractors and business owners.",
-    link: "Read the sales story",
+    description: "I took over sales from project managers. A relationship I’d built at Vale helped me win Walmart emergency lighting and relay work in the Midwest and Southeast.",
+    link: "Read the Kansas Electric case study",
   },
   "program-delivery-at-scale": {
     years: "2019–2024",
     value: "$4M",
     context: "in annual revenue at a company I helped grow",
     description: "I was Vale’s first employee. I started in the field and went on to lead operations for a 35-person company installing technology in hundreds of restaurants.",
-    link: "Read the growth story",
+    link: "Read the Vale case study",
   },
 };
 const commercialStories = caseStudies.flatMap((study) => {
@@ -44,7 +44,7 @@ const operatingExamples = caseStudies.filter((study) => !(study.slug in results)
           <p class="result-context">{result.context}</p>
           <div class="result-detail">
             <p>{result.description}</p>
-            <a class="story-link" href={`/work/${study.slug}`} aria-label={`${result.link} at ${study.data.title}`}>{result.link}</a>
+            <a class="story-link" href={`/work/${study.slug}`}>{result.link}</a>
           </div>
         </article>
       ))}
@@ -54,7 +54,7 @@ const operatingExamples = caseStudies.filter((study) => !(study.slug in results)
       <div class="founder-copy">
         <p class="eyebrow">Founder, Atlas-Beren Systems · Since January 2026</p>
         <h2 class="section-title">Building ABS Console</h2>
-        <p>I design and develop the seven modules that connect prospecting, sales, project delivery, and finance for trade and field-service businesses.</p>
+        <p>I built the sales pipeline shown here for trade and field-service businesses. A manager can open a submitted forecast and compare it with the deals the team went on to win.</p>
         <a href="/abs-tooling" class="button-secondary">Explore ABS Console</a>
       </div>
       <figure class="founder-figure">
@@ -67,15 +67,14 @@ const operatingExamples = caseStudies.filter((study) => !(study.slug in results)
 
     <section class="operating section-space" aria-labelledby="operating-heading">
       <div>
-        <h2 id="operating-heading" class="section-title">How I structure the work</h2>
+        <h2 id="operating-heading" class="section-title">Sales forecasts and lead routing</h2>
       </div>
       <div>
         {operatingExamples.map((study) => (
           <article class="approach">
             <p class="eyebrow">{study.data.category}</p>
-            <h3 class="mt-2 text-2xl font-semibold">{study.data.title}</h3>
+            <h3 class="mt-2 text-2xl font-semibold"><a class="focus-ring underline decoration-border underline-offset-4 hover:text-accent" href={`/work/${study.slug}`}>{study.data.title}</a></h3>
             <p class="mt-3 leading-relaxed text-muted">{study.data.summary}</p>
-            <a class="text-link mt-3" href={`/work/${study.slug}`} aria-label={`Read ${study.data.title}`}>Read the approach</a>
           </article>
         ))}
       </div>

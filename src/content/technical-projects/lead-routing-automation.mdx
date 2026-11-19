@@ -1,7 +1,7 @@
 ---
 title: "Lead routing automation"
 summary: "I built a routing service that assigns each incoming request to an owner and tracks how long they have to respond."
-why: "Requests waited for someone to assign them. With inconsistent ownership, the team could struggle to tell whether it had met a response deadline."
+why: "Requests waited for manual assignment, and the team could lose track of response deadlines."
 constraints:
   - "Incoming CRM records had missing or inconsistent fields"
   - "Compliance and leadership teams needed a history of routing decisions"
@@ -12,10 +12,10 @@ stack:
   - "CRM integrations and audit logs"
 decisions:
   - "Used rules so staff could explain and audit each assignment"
-  - "Added response timers, escalation paths, and a queue for exceptions"
+  - "Added escalation rules for missed response deadlines"
   - "Made routing policies editable in the admin interface"
 tradeoffs:
   - "Defining the initial rules took time, especially where ownership was unclear"
-outcome: "Requests reached the right owner more consistently, and teams could respond faster."
+outcome: "Incoming requests went to an owner with a response timer. Staff could review exceptions in a separate queue."
 order: 3
 ---

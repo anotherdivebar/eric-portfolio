@@ -3,14 +3,14 @@ title: "Revenue signal pipeline"
 summary: "I brought sales, marketing, and finance data into one reporting model so teams could use the same pipeline and conversion figures."
 why: "Teams reconciled conflicting reports by hand because their systems defined sales stages differently."
 constraints:
-  - "Teams still needed their reports while the data moved"
+  - "Sales, marketing, and finance still needed their reports during the migration"
 stack:
   - "PostgreSQL"
   - "ETL workflows"
   - "SQL analytics"
   - "BI dashboards"
 decisions:
-  - "Agreed on shared lifecycle stages and the fields each system had to supply"
+  - "Agreed on the meaning of each sales stage and the fields each system had to supply"
 tradeoffs:
   - "Reconciling definitions took time before the first reports could ship"
 outcome: "Sales and finance could use the same pipeline and conversion figures for forecasts and recurring leadership reports."

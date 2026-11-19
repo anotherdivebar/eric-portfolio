@@ -1,6 +1,6 @@
 ---
 title: "Atlas-Beren Systems Website"
-summary: "Interactive demos let contractors try a service job and compare software, onboarding, and managed-service options."
+summary: "Contractors can build a sample estimate, see the saved proposal in dispatch, and compare the cost of software and onboarding."
 why: "A contractor evaluating the software needs to see how an estimate becomes a job and a bill, and what it would cost to get started."
 constraints:
   - "Public demos use fictional records and cannot trigger live business actions"
@@ -14,13 +14,15 @@ stack:
   - "PDF.js and deterministic demo models"
 decisions: []
 tradeoffs: []
-outcome: "The team receives the visitor’s workflow, audience, and source page with each inquiry."
+outcome: "The team can see which task the visitor asked about, which buyer category the inquiry came from, and where they opened the form."
 order: 0.5
 ---
 
 import ProjectScreenshot from "../../components/ProjectScreenshot.astro";
 
-## Make the platform understandable
+<div id="make-the-platform-understandable"></div>
+
+## The service estimate on the homepage
 
 I built the public site for [ABS Console](/abs-tooling), Atlas-Beren’s operating software for service businesses.
 
@@ -33,7 +35,9 @@ I built the public site for [ABS Console](/abs-tooling), Atlas-Beren’s operati
   caption="This September screenshot shows an earlier version of the subscription offer."
 />
 
-## Let visitors try the handoffs
+<div id="let-visitors-try-the-handoffs"></div>
+
+## From an estimate to a paid invoice
 
 In the guided demo, a visitor takes an estimate through to a completed job and invoice. Recording a partial payment reduces the balance on that invoice. Changes stay in browser memory and reset on refresh.
 
@@ -41,13 +45,17 @@ In the estimating demo, visitors select costs from a local catalog, edit scope a
 
 The scheduling demo shows task dependencies and overlapping crew assignments.
 
-## Give different buyers a clear route
+<div id="give-different-buyers-a-clear-route"></div>
+
+## Dispatch and maintenance demos by industry
 
 A service contractor can start with dispatch. An equipment operator can start with maintenance. Examples for light manufacturing and restaurants show how purchasing, inventory, scheduling, production, and checks fit those businesses. The site also groups website, growth, and operations services under Digital Foundation, Growth Engine, and Operations System.
 
 A visitor looking at maintenance arrives at the inquiry form with maintenance already selected.
 
-## Make the offer concrete
+<div id="make-the-offer-concrete"></div>
+
+## Subscription pricing and service costs
 
 One subscription includes the supported core modules and ten full users. Buyers can add hands-on onboarding, custom implementation, or managed services. Links for retired packages still take visitors to the current software inquiry.
 
@@ -61,7 +69,9 @@ I put monthly tasks, customer responsibilities, setup costs, and first-month tot
   caption="The subscription includes activation. The pricing page lists usage charges and optional hands-on services separately."
 />
 
-## Make the inquiry useful
+<div id="make-the-inquiry-useful"></div>
+
+## Walkthrough requests and email delivery
 
 Someone requesting a walkthrough can suggest times and a time zone. A team member follows up to confirm availability.
 
@@ -75,9 +85,11 @@ Someone requesting a walkthrough can suggest times and a time zone. A team membe
 
 The Next.js route checks the origin, content type, payload size, required fields, email address, and selected interests before sending the inquiry through Resend. A spam trap filters automated submissions. The interface confirms receipt only after the email provider accepts the request. If the response is uncertain, the visitor sees that delivery is unconfirmed.
 
-## Build a consistent experience
+<div id="build-a-consistent-experience"></div>
 
-Pricing, onboarding, and product pages draw from one offer definition. Canonical URLs, structured data, a sitemap, and robots directives help search engines find the right pages.
+## Shared pricing and page design
+
+Pricing, onboarding, and product pages draw from one offer definition. The site publishes canonical URLs, structured data, a sitemap, and robots directives.
 
 The same paper, ink, and gold palette carries through the product pages, pricing, and inquiry forms on desktop and mobile.
 

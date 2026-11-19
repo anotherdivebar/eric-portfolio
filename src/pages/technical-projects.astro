@@ -25,18 +25,18 @@ const showcase: Record<string, { stack: string[]; image: string; alt: string; wi
 const projectHref = (project: typeof projects[number]) => project.data.detailUrl ?? `/technical-projects/${project.slug}`;
 ---
 
-<Base title="Software Projects | Eric Martin" description="Explore Eric Martin’s software builds, including ABS Console, the Atlas-Beren website, and systems for routing, reporting, and field operations.">
+<Base title="Software Projects | Eric Martin" description="Eric Martin’s ABS Console, contractor demos, lead routing service, sales reports, and field capacity dashboard.">
   <div class="page-container">
     <header class="projects-intro">
       <h1 class="page-title">Software for sales<br />and <em>field operations.</em></h1>
       <nav class="project-index" aria-label="On this page">
-        <a href="#featured-builds">Featured builds</a>
-        <a href="#system-briefs">System briefs</a>
+        <a href="#featured-builds">Atlas-Beren projects</a>
+        <a href="#system-briefs">Internal tools</a>
       </nav>
     </header>
 
     <section id="featured-builds" aria-labelledby="featured-heading">
-      <h2 id="featured-heading" class="sr-only">Featured builds</h2>
+      <h2 id="featured-heading" class="sr-only">Atlas-Beren projects</h2>
       <div class="featured-builds">
         {featured.map((project) => {
           const visual = showcase[project.slug];
@@ -49,7 +49,7 @@ const projectHref = (project: typeof projects[number]) => project.data.detailUrl
                 <ul class="build-stack" aria-label="Selected technologies">
                   {(visual?.stack ?? project.data.stack.slice(0, 3)).map((item) => (<li>{item}</li>))}
                 </ul>
-                <a class="build-link" href={projectHref(project)}>{isConsole ? "Explore ABS Console" : "Read the project breakdown"}</a>
+                <a class="build-link" href={projectHref(project)}>{isConsole ? "Inside ABS Console" : "How the contractor demos work"}</a>
               </div>
               {visual && (
                 <a class="build-stage" href={projectHref(project)} aria-label={`Explore ${project.data.title}`}>
@@ -70,7 +70,7 @@ const projectHref = (project: typeof projects[number]) => project.data.detailUrl
     </section>
 
     <section id="system-briefs" class="section-space" aria-labelledby="briefs-heading">
-      <h2 id="briefs-heading" class="section-title">Tools I built<br />for internal teams.</h2>
+      <h2 id="briefs-heading" class="section-title">Internal sales and field tools</h2>
       <div class="briefs">
         {briefs.map((project) => (
           <article id={project.slug} class="brief">

@@ -20,8 +20,7 @@ const moduleScreens: Record<string, { href: string; label: string }> = {
     <div class="abs-heading-grid">
       <div id="problem">
         <h1 id="abs-title">ABS <em>Console.</em></h1>
-        <p class="abs-deck">Sales, field work, and billing in one place.</p>
-        <p id="the-business-problem" class="abs-intro"><span id="problem-heading">A contractor’s estimate, crew schedule, and costs often live in separate tools. I built ABS Console so sales, field crews, and the office can work from the same customer record.</span></p>
+        <p id="the-business-problem" class="abs-intro"><span id="problem-heading">I built ABS Console for contractors who estimate, schedule, and bill for field work. The office can open a job and see the approved estimate alongside the crew’s recorded time and materials.</span></p>
         <div class="mt-6 flex flex-wrap gap-3">
           <a class="button-primary" href="#customer-journey">Follow the workflow</a>
           <a class="button-secondary" href="#modules">Explore the modules</a>
@@ -34,7 +33,7 @@ const moduleScreens: Record<string, { href: string; label: string }> = {
         <figcaption><span>Demo workspace with sample records · October 28, 2026</span><a href="/assets/abs-console/today-desktop.png">View full size</a></figcaption>
       </figure>
     </div>
-    <dl class="abs-facts"><div><dt>Founder · 2026–Present</dt><dd>Atlas-Beren Systems<br />Product direction, design & full-stack engineering</dd></div><div><dt>Built for</dt><dd>Trade contractors, field-service businesses, and project teams</dd></div></dl>
+    <dl class="abs-facts"><div><dt>Founder · 2026–Present</dt><dd>Atlas-Beren Systems<br />Product design, application code, and database design</dd></div><div><dt>Built for</dt><dd>Trade contractors, field-service businesses, and project teams</dd></div></dl>
     <nav class="section-nav mt-8" aria-label="ABS Console sections"><a href="#customer-journey">Workflow</a><a href="#modules">Modules</a><a href="#full-stack">Technology</a><a href="#engineering">Engineering</a><a href="#delivery-and-boundaries">Current scope</a></nav>
   </section>
 
@@ -64,7 +63,7 @@ const moduleScreens: Record<string, { href: string; label: string }> = {
     <div class="section-space page-container">
       <h2 id="stack-heading" class="section-title">How I built<br />ABS Console.</h2>
       <div class="stack-grid">{stackGroups.map((group) => <article><h3>{group.title}</h3><ul aria-label={`${group.title} technologies`}>{group.technologies.map((technology) => <li>{technology}</li>)}</ul><p>{group.purpose}</p></article>)}</div>
-      <div class="integration-row"><h3>Connected services</h3><p>Zoho Mail · Gmail & Google Calendar · Outlook & Microsoft Calendar · QuickBooks Online · Xero · Stripe · Hunter</p></div>
+      <div class="integration-row"><h3>Provider adapters</h3><p>Zoho Mail · Gmail & Google Calendar · Outlook & Microsoft Calendar · QuickBooks Online · Xero · Stripe · Hunter</p></div>
       <p class="integration-note">{integrationNote}</p>
     </div>
   </section>
@@ -130,7 +129,7 @@ const moduleScreens: Record<string, { href: string; label: string }> = {
   .abs-heading-grid { display: grid; grid-template-columns: minmax(0, .85fr) minmax(0, 1.15fr); align-items: center; gap: clamp(1.75rem, 4vw, 4rem); margin-top: clamp(1.3rem, 2.8vw, 2.75rem); }
   #abs-title { font-family: var(--display); font-size: clamp(3.7rem, 7.5vw, 7rem); font-weight: 400; line-height: .98; letter-spacing: -.035em; }
   #abs-title em { color: var(--accent); }
-  .abs-deck { margin-top: 1.15rem; font-weight: 550; font-size: clamp(1.2rem, 1.8vw, 1.55rem); line-height: 1.35; letter-spacing: -.035em; }
+
   #the-business-problem, #problem-heading { scroll-margin-top: 118px; }
   .abs-intro { margin-top: .8rem; max-width: 52ch; color: var(--muted); line-height: 1.7; }
   .abs-facts { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 30px; margin-top: clamp(2rem, 4vw, 3rem); padding-top: 1.5rem; border-top: 1px solid var(--line); }

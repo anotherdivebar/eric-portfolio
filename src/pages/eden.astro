@@ -4,11 +4,11 @@ import Base from "../layouts/Base.astro";
 const responsibilities = [
   { title: "Server systems & persistence", detail: "I modeled player data and maintained the checks that run when the server updates a player’s state." },
   { title: "Support & moderation tools", detail: "I built the tools that support staff used to investigate reports, maintain player data, and escalate suspected abuse." },
-  { title: "Game design & balance", detail: "I designed gameplay changes, balanced them, and implemented them on the server." }
+  { title: "Game design & balance", detail: "I designed changes to gameplay and implemented balance adjustments in the C# server." }
 ];
 
 const challenges = [
-  { title: "Shared state under concurrency", detail: "Several players can act on the same world at once. The server has to carry those changes consistently across active sessions and into saved data." },
+  { title: "Simultaneous player actions", detail: "When players acted on the same world at once, the server had to keep their active sessions and saved data in sync." },
   { title: "Unpredictable load", detail: "During peak events, I used telemetry to find performance bottlenecks and shipped hotfixes while the game was live." },
   { title: "Existing player data", detail: "Migrations had to preserve progress for players returning after an update." }
 ];
@@ -20,7 +20,7 @@ const challenges = [
       <a href="/technical-projects" class="text-link">← All projects</a>
       <div class="mt-10 sm:mt-12">
         <h1 class="page-title">Eden</h1>
-        <p class="mt-5 max-w-2xl text-2xl font-medium leading-snug text-ink sm:text-3xl">Building and operating a persistent multiplayer world.</p>
+        <p class="mt-5 max-w-2xl text-2xl font-medium leading-snug text-ink sm:text-3xl">A multiplayer game that saved each player’s progress between sessions.</p>
         <dl class="surface-muted mt-10 grid gap-8 p-7 sm:mt-12 sm:grid-cols-2 sm:p-9">
           <div><dt class="eyebrow">Community grew to</dt><dd class="mt-4"><span class="block text-4xl font-medium tracking-tight text-accent">~30,000</span><span class="mt-2 block text-sm text-muted">players</span></dd></div>
           <div class="border-t border-border pt-6 sm:border-l sm:border-t-0 sm:pl-7 sm:pt-0"><dt class="eyebrow">Core stack</dt><dd class="mt-4 text-lg font-medium leading-relaxed">C# / .NET game server<br />PostgreSQL player data<br />JavaScript support tools</dd></div>
@@ -28,7 +28,7 @@ const challenges = [
       </div>
 
       <section class="section-space" aria-labelledby="ownership-heading">
-        <h2 id="ownership-heading" class="text-3xl font-semibold text-ink sm:text-4xl">What I owned</h2>
+        <h2 id="ownership-heading" class="text-3xl font-semibold text-ink sm:text-4xl">Game server and staff tools</h2>
         <div class="mt-9 grid gap-x-12 gap-y-8 md:grid-cols-3">
           {responsibilities.map((item) => (
             <article class="border-t border-border pt-6">
@@ -40,7 +40,7 @@ const challenges = [
       </section>
 
       <section aria-labelledby="challenges-heading">
-        <h2 id="challenges-heading" class="text-3xl font-semibold text-ink sm:text-4xl">The engineering constraints</h2>
+        <h2 id="challenges-heading" class="text-3xl font-semibold text-ink sm:text-4xl">Keeping the world running</h2>
         <div class="mt-8 space-y-4">
           {challenges.map((item) => (
             <article class="surface p-6 sm:p-8">
@@ -52,7 +52,7 @@ const challenges = [
 
       <section class="section-space grid gap-8 md:grid-cols-2 md:gap-12" aria-labelledby="operations-heading">
         <div>
-          <h2 id="operations-heading" class="text-3xl font-semibold text-ink">Operating the software</h2>
+          <h2 id="operations-heading" class="text-3xl font-semibold text-ink">Release and recovery</h2>
         </div>
         <div class="border-t border-border pt-6">
           <ul class="list-disc space-y-4 pl-5 text-sm leading-relaxed text-muted marker:text-accent">
@@ -64,11 +64,11 @@ const challenges = [
       </section>
 
       <div class="surface-muted p-7 sm:p-10">
-        <h2 class="text-2xl font-semibold text-ink">How it connects to my other work</h2>
+        <h2 class="text-2xl font-semibold text-ink">From Eden to ABS Console</h2>
         <p class="mt-4 max-w-3xl leading-relaxed text-muted">I drew on my experience operating Eden when building permission checks, audit histories, and recovery tools for ABS Console.</p>
         <div class="mt-6 flex flex-wrap gap-x-6 gap-y-3">
           <a href="/abs-tooling" class="text-link">Explore ABS Console <span aria-hidden="true">↗</span></a>
-          <a href="/contact" class="text-link">Talk about a systems challenge <span aria-hidden="true">↗</span></a>
+          <a href="/contact" class="text-link">Contact Eric</a>
         </div>
       </div>
     </div>
